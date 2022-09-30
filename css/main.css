@@ -1886,6 +1886,9 @@ input[type=checkbox] {
 .about-icons > a > i {
   font-size: 1.5rem;
 }
+.busuanzi_container_site_pv > div {
+  margin-bottom: 1rem;
+}
 .category-bar .category-list {
   max-height: 85vh;
   overflow-y: auto;
