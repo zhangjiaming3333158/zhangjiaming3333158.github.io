@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="img/wanye.jpg">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery_min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/index.js"></script>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <div class="nav" id="nav">
+        <a class="fanhui" href="javascript:;">&lt;&lt;返回</a>
+        <span>小日月飘零的视图可视化</span>
+    </div>
+    <!-- 背景图片 -->
+    <div class="img"><img src="img/shenli.jpeg" alt=""></div>
+    <main class="mainbox">
+        <div class="img2"><img src="img/logo.png" alt=""></div>
+        <div class="column1">
+            <div class="panel1">
+                <div class="inner">
+                    <h3>文章阅读访问量</h3>
+                    <div class="box1"></div>
+                    <div class="data">
+                        <div class="item">
+                            <h4>257</h4>
+                            <span>
+                                访问量总数
+                            </span>
+                        </div>
+                        <div class="item">
+                            <h4>18</h4>
+                            <span>
+                                本月新增访问量
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel1_1">
+                <div class="inner">
+                    <h3>文章字数统计</h3>
+                    <div class="pie"></div>
+                    <div class="data">
+                        <div class="item">
+                            <h4>44,489</h4>
+                            <span>
+                                字数总数
+                            </span>
+                        </div>
+                        <div class="item">
+                            <h4>32500</h4>
+                            <span>
+                                本月新增
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column2">
+            <div class=" panel2 monitor">
+                <div class="inner">
+                    <div class="data">
+                        <div class="item">
+                            <h4>10</h4>
+                            <span>
+                                文章总数
+                            </span>
+                        </div>
+                        <div class="item">
+                            <h4>257</h4>
+                            <span>
+                                总访问量
+                            </span>
+                        </div>
+                        <div class="item">
+                            <h4>44,489</h4>
+                            <span>
+                                总字数
+                            </span>
+                        </div>
+                        <div class="item">
+                            <h4>377</h4>
+                            <span>
+                                总阅读时间
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content" style="display: block;">
+                        <div class="head">
+                            <span class="col">文章时间</span>
+                            <span class="col">文章名</span>
+                            <span class="col">文章标签</span>
+                        </div>
+                        <div class="marquee-view">
+                            <div class="marquee">
+                                <div class="row">
+                                    <span class="col">2022-09-12</span>
+                                    <span class="col">Hello World</span>
+                                    <span class="col">#</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-12</span>
+                                    <span class="col">我的第一篇博客文章</span>
+                                    <span class="col">#</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-13</span>
+                                    <span class="col">markdown语法</span>
+                                    <span class="col">#Markdown</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-14</span>
+                                    <span class="col">HTML内容总结</span>
+                                    <span class="col">#HTML</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-15</span>
+                                    <span class="col">CSS知识总结</span>
+                                    <span class="col">#CSS</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-27</span>
+                                    <span class="col">H5C3知识总结</span>
+                                    <span class="col">#H5C3</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-28</span>
+                                    <span class="col">JS基础内容总结</span>
+                                    <span class="col">#JS</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-10-25</span>
+                                    <span class="col">java基础</span>
+                                    <span class="col">#java</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-10-25</span>
+                                    <span class="col">c基础</span>
+                                    <span class="col">#c</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-10-25</span>
+                                    <span class="col">python基础</span>
+                                    <span class="col">#python</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-12</span>
+                                    <span class="col">Hello World</span>
+                                    <span class="col">#</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-12</span>
+                                    <span class="col">我的第一篇博客文章</span>
+                                    <span class="col">#</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-13</span>
+                                    <span class="col">markdown语法</span>
+                                    <span class="col">#Markdown</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-14</span>
+                                    <span class="col">HTML内容总结</span>
+                                    <span class="col">#HTML</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-15</span>
+                                    <span class="col">CSS知识总结</span>
+                                    <span class="col">#CSS</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-27</span>
+                                    <span class="col">H5C3知识总结</span>
+                                    <span class="col">#H5C3</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-09-28</span>
+                                    <span class="col">JS基础内容总结</span>
+                                    <span class="col">#JS</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-10-25</span>
+                                    <span class="col">java基础</span>
+                                    <span class="col">#java</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-10-25</span>
+                                    <span class="col">c基础</span>
+                                    <span class="col">#c</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">2022-10-25</span>
+                                    <span class="col">python基础</span>
+                                    <span class="col">#python</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel2_2">
+                <div class="inner">
+                    <h3>文章旭日图</h3>
+                    <div class="xuritu"></div>
+                </div>
+            </div>
+        </div>
+        <div class="column1">
+            <div class="sales panel1">
+                <div class="inner">
+                    <div class="caption">
+                        <h3>文章发布事件</h3>
+                        <a href="javascript:;" class="active" data-type="year">前端文章</a>
+                        <a href=时间avascript:;" data-type="month">后端文章</a>
+                    </div>
+                    <div class="chart">
+                        <div class="label">单位:个</div>
+                        <div class="box2"></div>
+                        <div class="data">
+                            <div class="item">
+                                <h4>10</h4>
+                                <span>
+                                    发布量总数
+                                </span>
+                            </div>
+                            <div class="item">
+                                <h4>3</h4>
+                                <span>
+                                    本月新增
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel1_1">
+                <div class="inner">
+                    <h3>文章阅读时间统计</h3>
+                    <div class="radar"></div>
+                    <div class="data">
+                        <div class="item">
+                            <h4>377min</h4>
+                            <span>
+                                访问量总数
+                            </span>
+                        </div>
+                        <div class="item">
+                            <h4>273min</h4>
+                            <span>
+                                本月新增
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 文章访问量图表柱状图 -->
+    <script src="js/echarts.js"></script>
+
+    <footer>
+        <h3>hexo fluid</h3>
+    </footer>
+</body>
+
+</html>

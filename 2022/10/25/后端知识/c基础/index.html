@@ -1,0 +1,1370 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/wanye.jpg">
+  <link rel="icon" href="/img/wanye.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小日月">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一.本章为转载内容————————————————版权声明：本文为CSDN博主「Terence全栈开发」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。原文链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_55305220&#x2F;article&#x2F;details&#x2F;118520244 二、C语言的具体结构简单来说，一个C程序就是由若干头文件和函数组成。   #">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c基础">
+<meta property="og:url" content="http://example.com/2022/10/25/%E5%90%8E%E7%AB%AF%E7%9F%A5%E8%AF%86/c%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="小日月的博客">
+<meta property="og:description" content="一.本章为转载内容————————————————版权声明：本文为CSDN博主「Terence全栈开发」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。原文链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_55305220&#x2F;article&#x2F;details&#x2F;118520244 二、C语言的具体结构简单来说，一个C程序就是由若干头文件和函数组成。   #">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/6a032c0a2282e47772ee34b23254bac7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/b83b626a9d8761ee6d9eb0ab9da9f56c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/f02fd4807b32b812860713497b8161b5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/a8192164f909556afd96bcd009a4f130.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/998fae23d6e29e85411f41eb53a188fd.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/e671d31452bcdbb9621d33f817b61349.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/6ea6373cf0ab35bd9e20e241315c32d4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/50d855eadf4a2f953989d0090545a38d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/ba3adb33221ba262997156095e8e5b64.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/be3d7bafda1b5321fb9354ce7128aa27.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/19d9002957c0ded0bd30278e749b5e63.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/92d578afc9e5463821c5c9bacb4ffc54.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/cfb12365d13ecd8566a481b7e46155b4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/c5a749723e3021d8ed30a6b8398cca07.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/c15ab00697b1fc3a4441b8cd141ddcda.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/2284be0aca9664f780fb6e55e2e2a77f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/66c97984dfde569fbfbd426743f50697.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/20e9c2e337b881c67d216afe05a275fd.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/9f4e1154bd08cdc120a17fa43bc3c148.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/8954da6add025070737fc88a22d15c51.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0a45e102a3e2ed9620467210945a9d31.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/6aca4c32348ba0d41fd50a935509acba.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/a7a058fe4a940281c74ec56aec2cdc1b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/430553d5465ac53be4cbfb4c0e2482a7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/c2ffeccf9477890c17d9b815100c0888.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/48a9ac2856ddcb42f8681d347eac4dce.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/fb1c19aa6809cde4052552f8deff6b87.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/06a5d10b5f285b14c115df84c7c3e04c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/c4eff5a2540f8cb3b8f53a556167ad90.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/2d7933da5cdb5d38fe2854cb069c2886.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/97c462550ab6e08abb55f5fb52fac245.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/787c0fd1ec330ab848cae3ac64b5ab53.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/658a189af59dd0e0aa44f4d82086b575.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/24e6d3c7bd14792eeaf1539c4ba58a71.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/4b3a08d6bbc4b10880f6aeb53988663f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/b7adb5cd7d21d6af8e90892065f5de9f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/78e482f1fbf69725fd555cc06226bc40.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/74cae1e9f017cf678478bc0f669bfe7f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/69db5aade4b16bcf971ba665881e9227.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/201c2f76e0bb2719c9effdf6146aa3a8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/9992f7fe2f8c6f2d51fd56318d5a3be5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/1eafacbbec3c29fb16f1342302a90a5a.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/ea9a5559ddf7ce166518d4ab63a3542e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/d786deb2a7da1a5a81d0b77a56d5bebb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/4bd7d1a8218e90af9acc1bdb668eb608.png">
+<meta property="article:published_time" content="2022-10-25T13:36:23.000Z">
+<meta property="article:modified_time" content="2022-10-25T13:45:04.218Z">
+<meta property="article:author" content="小日月">
+<meta property="article:tag" content="c">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/6a032c0a2282e47772ee34b23254bac7.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>c基础 - 小日月的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小日月</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/example/">
+                <i class="iconfont icon-image"></i>
+                echarts
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/example1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="c基础"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-25 21:36" pubdate>
+          2022年10月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          17k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          139 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">c基础</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一-本章为转载内容"><a href="#一-本章为转载内容" class="headerlink" title="一.本章为转载内容"></a>一.本章为转载内容</h1><p>————————————————<br>版权声明：本文为CSDN博主「Terence全栈开发」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_55305220/article/details/118520244">https://blog.csdn.net/weixin_55305220/article/details/118520244</a></p>
+<h1 id="二、C语言的具体结构"><a href="#二、C语言的具体结构" class="headerlink" title="二、C语言的具体结构"></a><strong>二、C语言的具体结构</strong></h1><p>简单来说，一个C程序就是由若干<code>头文件</code>和<code>函数</code>组成。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/6a032c0a2282e47772ee34b23254bac7.png" srcset="/img/loading.gif" lazyload alt="mark"></p>
+<ul>
+<li><p><code>#include &lt;stdio.h&gt;</code>就是一条<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%A2%84%E5%A4%84%E7%90%86&spm=1001.2101.3001.7020">预处理</a>命令, 它的作用是通知C语言编译系统在对C程序进行正式编译之前需做一些预处理工作。</p>
+</li>
+<li><p><code>函数</code>就是实现代码逻辑的一个小的单元。</p>
+</li>
+</ul>
+<h1 id="三、主函数"><a href="#三、主函数" class="headerlink" title="三、主函数"></a><strong>三、主函数</strong></h1><p>一个C程序有且只有一个主函数，即main函数。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b83b626a9d8761ee6d9eb0ab9da9f56c.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>C程序就是执行主函数里的代码，也可以说这个<strong>主函数</strong>就是C语言中的<strong>唯一入口</strong>。</li>
+<li>而main前面的int就是主函数的类型.</li>
+<li>printf()是<strong>格式输出</strong>函数，这里就记住它的功能就是在<strong>屏幕上输出指定的信息</strong></li>
+<li>return是函数的返回值，根据函数类型的不同，返回的值也是不同的。</li>
+<li>\n是转义字符中的换行符。(注意：C程序一定是从主函数开始执行的)</li>
+</ul>
+<h1 id="四、规范"><a href="#四、规范" class="headerlink" title="四、规范"></a><strong>四、规范</strong></h1><ul>
+<li><strong>一个说明或一个语句占一行</strong>，例如：包含头文件、一个可执行语句结束都需要<strong>换行</strong>。</li>
+<li>函数体内的语句要有明显<strong>缩进</strong>，<strong>通常以按一下Tab键为一个缩进</strong>。</li>
+<li>括号要<strong>成对写</strong>，如果需要删除的话也要<strong>成对删除</strong>。</li>
+<li>当一句可执行语句结束的时候末尾需要有<strong>分号</strong>。</li>
+<li>代码中所有符号均为<strong>英文半角符号</strong>。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f02fd4807b32b812860713497b8161b5.png" srcset="/img/loading.gif" lazyload alt="mark"></p>
+<h1 id="五、程序解释——注释"><a href="#五、程序解释——注释" class="headerlink" title="五、程序解释——注释"></a><strong>五、程序解释——注释</strong></h1><p>注释是写给程序员看的，不是写给电脑看的。</p>
+<p>C语言注释方法有两种：</p>
+<blockquote>
+<p>多行注释： <code>/* 注释内容 */</code></p>
+</blockquote>
+<blockquote>
+<p>单行注释： <code>//注释一行</code></p>
+</blockquote>
+<h1 id="六、C的标识符"><a href="#六、C的标识符" class="headerlink" title="六、C的标识符"></a><strong>六、C的标识符</strong></h1><p>C语言规定，标识符可以是字母(A～Z，a～z)、数字(0～9)、下划线_组成的字符串，并且第一个字符必须是字母或下划线。在使用标识符时还有注意以下几点：</p>
+<ul>
+<li>标识符的长度最好不要超过8位，因为在某些版本的C中规定标识符前8位有效，当两个标识符前8位相同时，则被认为是同一个标识符。</li>
+<li>标识符是严格区分大小写的。例如Imooc和imooc 是两个不同的标识符。</li>
+<li>标识符最好选择有意义的英文单词组成做到”见名知意”，不要使用中文。</li>
+<li>标识符不能是C语言的关键字。想了解更多C语言关键字的知识。</li>
+</ul>
+<pre><code class="hljs"> 
+</code></pre>
+<h1 id="七、变量及赋值"><a href="#七、变量及赋值" class="headerlink" title="七、变量及赋值"></a><strong>七、变量及赋值</strong></h1><p>变量就是可以变化的量，而每个变量都会有一个名字（标识符）。变量占据内存中一定的存储单元。使用变量之前必须先定义变量，要区分变量名和变量值是两个不同的概念。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a8192164f909556afd96bcd009a4f130.png" srcset="/img/loading.gif" lazyload></p>
+<p>变量定义的一般形式为：数据类型 变量名;</p>
+<p>多个类型相同的变量：数据类型 变量名, 变量名, 变量名…;</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/998fae23d6e29e85411f41eb53a188fd.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意:在定义中不允许连续赋值，如int a&#x3D;b&#x3D;c&#x3D;5;是不合法的。</strong></p>
+<p>变量的赋值分为两种方式:</p>
+<ul>
+<li>先声明再赋值</li>
+<li>声明的同时赋值</li>
+</ul>
+<h1 id="八、基本数据类型"><a href="#八、基本数据类型" class="headerlink" title="八、基本数据类型"></a><strong>八、基本数据类型</strong></h1><p>C语言中，数据类型可分为：</p>
+<ul>
+<li>基本数据类型</li>
+<li>构造数据类型</li>
+<li>指针类型</li>
+<li>空类型四大类</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/e671d31452bcdbb9621d33f817b61349.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>最常用的整型, 实型与字符型(char,int,float,double):</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/6ea6373cf0ab35bd9e20e241315c32d4.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>整型数据</strong>是指不带小数的数字(int,short int,long int, unsigned int, unsigned short int,unsigned long int):</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/50d855eadf4a2f953989d0090545a38d.png" srcset="/img/loading.gif" lazyload alt="整型"></p>
+<p>注：</p>
+<ul>
+<li>int short int long int是根据编译环境的不同，所取范围不同。</li>
+<li>而其中short int和long int至少是表中所写范围, 但是int在表中是以16位编译环境写的取值范围。</li>
+<li>另外 c语言int的取值范围在于他占用的字节数 ，不同的编译器，规定是不一样。</li>
+<li>ANSI标准定义int是占2个字节，TC是按ANSI标准的，它的int是占2个字节的。但是在VC里，一个int是占4个字节的。</li>
+</ul>
+<p>浮点数据是指带小数的数字。</p>
+<blockquote>
+<p>生活中有很多信息适合使用浮点型数据来表示，比如：人的体重(单位：公斤)、商品价格、圆周率等等。</p>
+</blockquote>
+<p>因为精度的不同又分为3种(float,double,long double)：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ba3adb33221ba262997156095e8e5b64.png" srcset="/img/loading.gif" lazyload alt="浮点型"></p>
+<h1 id="九、格式化输出语句"><a href="#九、格式化输出语句" class="headerlink" title="九、格式化输出语句"></a><strong>九、格式化输出语句</strong></h1><p>格式化输出语句，也可以说是<strong>占位输出</strong>，是将各种类型的数据按照<strong>格式化后的类型及指定的位置</strong>从计算机上显示。</p>
+<p>其格式为：<code>printf(&quot;输出格式符&quot;，输出项)</code>;</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/be3d7bafda1b5321fb9354ce7128aa27.png" srcset="/img/loading.gif" lazyload></p>
+<p>当输出语句中包含普通字符时，可以采用以下格式：</p>
+<pre><code class="hljs">printf(&quot;普通字符输出格式符&quot;, 输出项);
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/19d9002957c0ded0bd30278e749b5e63.png" srcset="/img/loading.gif" lazyload alt="mark"></p>
+<p>注意：<strong>格式符</strong>的<strong>个数</strong>要与<strong>变量、常量或者表达式的个数一</strong>一对应</p>
+<h1 id="十、常量"><a href="#十、常量" class="headerlink" title="十、常量"></a><strong>十、常量</strong></h1><p>在程序执行过程中，值不发生改变的量称为常量。</p>
+<p>mtianyan: C语言的常量可以分为直接常量和符号常量。</p>
+<p>直接常量也称为字面量，是可以直接拿来使用，无需说明的量，比如：</p>
+<ul>
+<li>整型常量：13、0、-13；</li>
+<li>实型常量：13.33、-24.4；</li>
+<li>字符常量：‘a’、‘M’</li>
+<li>字符串常量：”I love imooc!”</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/92d578afc9e5463821c5c9bacb4ffc54.png" srcset="/img/loading.gif" lazyload></p>
+<p>在C语言中，可以<strong>用一个标识符来表示一个常量，称之为符号常量。</strong>符号常量在<strong>使用之前必须先定义</strong>，其一般形式为</p>
+<pre><code class="hljs">#define 标识符 常量值 
+
+
+#include &lt;stdio.h&gt;#define POCKETMONEY 10    //定义常量及常量值int main()&#123;    // POCKETMONEY = 12;  //小明私自增加零花钱对吗？    printf(&quot;小明今天又得到%d元零花钱\n&quot;, POCKETMONEY);    return 0;  &#125;
+</code></pre>
+<p>符号常量不可以被改变。</p>
+<h1 id="十一、自动类型转换"><a href="#十一、自动类型转换" class="headerlink" title="十一、自动类型转换"></a><strong>十一、自动类型转换</strong></h1><p>数据类型存在自动转换的情况.<br>自动转换发生在<strong>不同数据类型</strong>运算时，在编译的时候<strong>自动完成</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/cfb12365d13ecd8566a481b7e46155b4.png" srcset="/img/loading.gif" lazyload alt="自动转换"></p>
+<p><code>char</code>类型数据转换为<code>int</code>类型数据遵循<code>ASCII</code>码中的对应值.</p>
+<p><strong>注:</strong></p>
+<blockquote>
+<p>字节小的可以向字节大的自动转换，但字节大的不能向字节小的自动转换</p>
+</blockquote>
+<blockquote>
+<p>char可以转换为int，int可以转换为double，char可以转换为double。但是不可以反向。</p>
+</blockquote>
+<h1 id="十二、强制类型转换"><a href="#十二、强制类型转换" class="headerlink" title="十二、强制类型转换"></a><strong>十二、强制类型转换</strong></h1><p>强制类型转换是通过<strong>定义类型转换运算</strong>来实现的。其一般形式为：</p>
+<pre><code class="hljs">(数据类型) (表达式)
+</code></pre>
+<p>其作用是把表达式的运算结果强制转换成类型说明符所表示的类型</p>
+<p>在使用强制转换时应注意以下问题：</p>
+<ul>
+<li>数据类型和表达式都必须加括号, 如把(int)(x&#x2F;2+y)写成(int)x&#x2F;2+y则成了把x转换成int型之后再除2再与y相加了。</li>
+<li>转换后不会改变原数据的类型及变量值，只在本次运算中临时性转换。</li>
+<li>强制转换后的运算结果不遵循四舍五入原则。</li>
+</ul>
+<h1 id="十三、运算符号"><a href="#十三、运算符号" class="headerlink" title="十三、运算符号"></a><strong>十三、运算符号</strong></h1><p>C语言中运算符:</p>
+<h3 id="1-算术运算符"><a href="#1-算术运算符" class="headerlink" title="1.算术运算符"></a><strong>1.算术运算符</strong></h3><p>c语言<strong>基本运算符:</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c5a749723e3021d8ed30a6b8398cca07.png" srcset="/img/loading.gif" lazyload alt="基本算术运算符"></p>
+<h3 id="2-自增与自减运算符"><a href="#2-自增与自减运算符" class="headerlink" title="2.自增与自减运算符"></a><strong>2.自增与自减运算符</strong></h3><ul>
+<li>自增运算符为<code>++</code>，其功能是使变量的值自增1</li>
+<li>自减运算符为<code>--</code>，其功能是使变量值自减1。</li>
+</ul>
+<p>它们经常使用在循环中。自增自减运算符有以下几种形式：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c15ab00697b1fc3a4441b8cd141ddcda.png" srcset="/img/loading.gif" lazyload alt="自增自减"></p>
+<h3 id="3-赋值运算符"><a href="#3-赋值运算符" class="headerlink" title="3.赋值运算符"></a><strong>3.赋值运算符</strong></h3><p>C语言中赋值运算符分为<strong>简单赋值运算符</strong>和<strong>复合赋值运算符</strong></p>
+<p>简单赋值运算符<code>=</code>号了，下面讲一下复合赋值运算符：</p>
+<p>复合赋值运算符就是在简单赋值符<code>=</code>之前加上其它运算符构成.</p>
+<p>注意：复合运算符中<strong>运算符和等号</strong>之间是<strong>不存在空格</strong>的。</p>
+<h3 id="4-关系运算符"><a href="#4-关系运算符" class="headerlink" title="4.关系运算符"></a><strong>4.关系运算符</strong></h3><p>C语言中的<strong>关系运算符</strong>:</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2284be0aca9664f780fb6e55e2e2a77f.png" srcset="/img/loading.gif" lazyload alt="关系运算符"></p>
+<p>关系表达式的值是<code>真</code>和<code>假</code>，在C程序用整数<code>1</code>和<code>0</code>表示。</p>
+<p>注意：<code>&gt;=, &lt;=, ==, !=</code>这种符号之间<strong>不能存在空格</strong>。</p>
+<h3 id="5-逻辑运算符"><a href="#5-逻辑运算符" class="headerlink" title="5.逻辑运算符"></a><strong>5.逻辑运算符</strong></h3><p>C语言中的逻辑运算符:</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/66c97984dfde569fbfbd426743f50697.png" srcset="/img/loading.gif" lazyload alt="逻辑运算符"></p>
+<h3 id="6-三目运算符"><a href="#6-三目运算符" class="headerlink" title="6.三目运算符"></a><strong>6.三目运算符</strong></h3><p>C语言中的三目运算符：<code>?:</code>，其格式为：</p>
+<p>表达式1 ? 表达式2 : 表达式3; <br>执行过程是：</p>
+<p>先判断表达式1的值是否为真，如果是真的话执行表达式2；如果是假的话执行表达式3。</p>
+<h3 id="7-运算符大比拼之优先级比较"><a href="#7-运算符大比拼之优先级比较" class="headerlink" title="7.运算符大比拼之优先级比较"></a><strong>7.运算符大比拼之优先级比较</strong></h3><p>各种运算符号的顺序:</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/20e9c2e337b881c67d216afe05a275fd.png" srcset="/img/loading.gif" lazyload alt="运算符的优先级"></p>
+<p><strong>优先级别为1的优先级最高</strong>，优先级别为10的优先级别最低。</p>
+<h1 id="十四、分支结构"><a href="#十四、分支结构" class="headerlink" title="十四、分支结构"></a><strong>十四、</strong>分支结构</h1><h3 id="1-简单if语句"><a href="#1-简单if语句" class="headerlink" title="1.简单if语句"></a><strong>1.简单if语句</strong></h3><p>C语言中的分支结构语句中的<code>if条件</code>语句。</p>
+<p>简单if语句的基本结构如下：</p>
+<pre><code class="hljs">if(表达式)&#123;执行代码块;&#125;
+</code></pre>
+<p>其语义是：如果表达式的值为真，则执行其后的语句，否则不执行该语句。</p>
+<p>注意：<code>if()</code>后面没有分号，直接写<code>&#123;&#125;</code></p>
+<h3 id="2-if-else语句"><a href="#2-if-else语句" class="headerlink" title="2.if-else语句"></a><strong>2.if-else语句</strong></h3><p>简单的<code>if-else</code>语句的基本结构:</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9f4e1154bd08cdc120a17fa43bc3c148.png" srcset="/img/loading.gif" lazyload alt="if-else"></p>
+<p>语义是: 如果表达式的值为真，则执行代码块1，否则执行代码块2。</p>
+<h3 id="3-多重if-else语句"><a href="#3-多重if-else语句" class="headerlink" title="3.多重if-else语句"></a><strong>3.多重if-else语句</strong></h3><p>C语言中多重<code>if-else</code>语句，其结构如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8954da6add025070737fc88a22d15c51.png" srcset="/img/loading.gif" lazyload></p>
+<p>语义是：依次判断表达式的值，当出现某个值为真时，则执行对应代码块，否则执行代码块n。</p>
+<p>注意：<strong>当某一条件为真的时候，则不会向下执行该分支结构的其他语句。</strong></p>
+<h3 id="4-嵌套if-else语句"><a href="#4-嵌套if-else语句" class="headerlink" title="4.嵌套if-else语句"></a><strong>4.嵌套if-else语句</strong></h3><p>C语言中嵌套<code>if-else</code>语句。嵌套<code>if-else</code>语句的意思，就是在<code>if-else</code>语句中，再写<code>if-else</code>语句。其一般形式为：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0a45e102a3e2ed9620467210945a9d31.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="十五、循环结构"><a href="#十五、循环结构" class="headerlink" title="十五、循环结构"></a><strong>十五、循环结构</strong></h1><h3 id="1-while循环"><a href="#1-while循环" class="headerlink" title="1.while循环"></a><strong>1.while循环</strong></h3><p>反复不停的执行某个动作就是江湖人称的<strong>循环</strong> 。</p>
+<p>C语言中有<strong>三种</strong>循环结构,先看一下C语言while循环的结构</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/6aca4c32348ba0d41fd50a935509acba.png" srcset="/img/loading.gif" lazyload></p>
+<p>其中表达式表示循环条件，执行代码块为循环体。</p>
+<p>while语句的语义是：计算表达式的值，当值为真(非0)时， 执行循环体代码块。</p>
+<ul>
+<li>while语句中的表达式一般是关系表达或逻辑表达式，当表达式的值为假时不执行循环体，反之则循环体一直执行。</li>
+<li>一定要记着在循环体中改变循环变量的值，否则会出现死循环（无休止的执行）。</li>
+<li>循环体如果包括有一个以上的语句，则必须用{}括起来，组成复合语句。</li>
+</ul>
+<h3 id="2-do-while循环"><a href="#2-do-while循环" class="headerlink" title="2.do-while循环"></a><strong>2.do-while循环</strong></h3><p>C语言中的<code>do-while</code>循环，一般形式如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a7a058fe4a940281c74ec56aec2cdc1b.png" srcset="/img/loading.gif" lazyload></p>
+<p>do-while循环语句的语义是:</p>
+<p>它先执行循环中的执行代码块，然后再判断while中表达式是否为真，如果为真则继续循环；如果为假，则终止循环。因此，do-while循环至少要执行一次循环语句。</p>
+<p><strong>注意：mtianyan: 使用do-while结构语句时，while括号后必须有分号。</strong></p>
+<h3 id="3-for循环"><a href="#3-for循环" class="headerlink" title="3.for循环"></a><strong>3.for循环</strong></h3><p>c语言中<strong>for循环</strong>一般形式：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/430553d5465ac53be4cbfb4c0e2482a7.png" srcset="/img/loading.gif" lazyload></p>
+<p>它的执行过程如下：</p>
+<ul>
+<li>执行表达式1，对循环变量做初始化；</li>
+<li>判断表达式2，若其值为真(非0)，则执行for循环体中执行代码块，然后向下执行；若其值为假(0)，则结束循环;</li>
+<li>执行表达式3，(i++)等对于循环变量进行操作的语句;</li>
+<li>执行for循环中执行代码块后执行第二步;第一步初始化只会执行一次。</li>
+<li>循环结束，程序继续向下执行。</li>
+</ul>
+<p><strong>注意：for循环中的两个分号一定要写</strong></p>
+<p><strong>在for循环中:</strong></p>
+<ul>
+<li>表达式1是一个或多个赋值语句，它用来控制变量的初始值；</li>
+<li>表达式2是一个关系表达式，它决定什么时候退出循环；</li>
+<li>表达式3是循环变量的步进值，定义控制循环变量每循环一次后按什么方式变化。</li>
+<li>这三部分之间用分号 ; 分开。</li>
+</ul>
+<p>使用for语句应该注意：</p>
+<ul>
+<li>for循环中的“表达式1、2、3”均可不写为空，但两个分号(;;)不能缺省。</li>
+<li>省略“表达式1（循环变量赋初值）”，表示不对循环变量赋初始值。</li>
+<li>省略“表达式2(循环条件)”，不做其它处理，循环一直执行（死循环）。</li>
+<li>省略“表达式3(循环变量增减量)”，不做其他处理，循环一直执行（死循环）。</li>
+<li>表达式1可以是设置循环变量的初值的赋值表达式，也可以是其他表达式。</li>
+<li>表达式1和表达式3可以是一个简单表达式也可以是多个表达式以逗号分割。</li>
+<li>表达式2一般是<strong>关系表达式</strong>或<strong>逻辑表达式</strong>，但也可是数值表达式或字符表达式，<strong>只要其值非零</strong>，就执行循环体。</li>
+<li>各表达式中的变量一定要在for循环<strong>之前定义</strong>。</li>
+</ul>
+<h3 id="3-三种循环比较"><a href="#3-三种循环比较" class="headerlink" title="3.三种循环比较"></a><strong>3.三种循环比较</strong></h3><p>while, do-while和for三种循环在具体的使用场合上是有区别的，如下：</p>
+<ul>
+<li>在知道循环次数的情况下更适合使用for循环;</li>
+<li>在不知道循环次数的情况下适合使用while或者do-while循环:</li>
+<li>如果有可能一次都不循环应考虑使用while循环</li>
+<li>如果至少循环一次应考虑使用do-while循环。</li>
+<li>但是从本质上讲，while,do-while和for循环之间是可以相互转换的。</li>
+</ul>
+<h3 id="4-多重循环"><a href="#4-多重循环" class="headerlink" title="4.多重循环"></a><strong>4.多重循环</strong></h3><p>多重循环就是在循环结构的循环体中又出现循环结构。</p>
+<p>在实际开发中一般最多用到三层重循环。</p>
+<p>因为循环层数越多，运行时间越长，程序越复杂，所以一般用2-3层多重循环就可以了。另外不同循环之间也是可以嵌套的。</p>
+<p>多重循环在执行的过程中，外层循环为父循环，内层循环为子循环，</p>
+<p>**父循环一次，子循环需要全部执行完，直到跳出循环。**父循环再进入下一次，子循环继续执行…<br><img src="https://img-blog.csdnimg.cn/img_convert/c2ffeccf9477890c17d9b815100c0888.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="十六、结束语句"><a href="#十六、结束语句" class="headerlink" title="十六、结束语句"></a><strong>十六、结束语句</strong></h1><h3 id="1-break语句"><a href="#1-break语句" class="headerlink" title="1.break语句"></a><strong>1.break语句</strong></h3><p>那么循环5次的时候，需要中断不继续训练。在C语言中，可以使用<code>break</code>语句进行该操作.</p>
+<p>使用<code>break</code>语句时注意以下几点：</p>
+<ul>
+<li>在没有循环结构的情况下，break不能用在单独的if-else语句中。</li>
+<li>在多层循环中，一个break语句只跳出当前循环。</li>
+</ul>
+<h3 id="2-continue语句"><a href="#2-continue语句" class="headerlink" title="2.continue语句"></a><strong>2.continue语句</strong></h3><p>那么循环5次的时候，需要中断后继续训练。在C语言中，可以使用continue语句进行该操作</p>
+<p>continue语句的作用是结束本次循环开始执行下一次循环。</p>
+<p>break语句与continue语句的区别是:</p>
+<p>break是跳出当前整个循环，continue是结束本次循环开始下一次循环。</p>
+<h1 id="十七、局部与全局"><a href="#十七、局部与全局" class="headerlink" title="十七、局部与全局"></a><strong>十七、局部与全局</strong></h1><p>C语言中的变量，按作用域范围可分为两种，即局部变量和全局变量。局部变量也称为内部变量。局部变量是在函数内作定义说明的。其作用域仅限于函数内， 离开该函数后再使用这种变量是非法的。在复合语句中也可定义变量，其作用域只在复合语句范围内。<br>全局变量也称为外部变量，它是在函数外部定义的变量。它不属于哪一个函数，它属于一个源程序文件。其作用域是整个源程序。</p>
+<h1 id="十八、变量存储类别"><a href="#十八、变量存储类别" class="headerlink" title="十八、变量存储类别"></a><strong>十八、变量存储类别</strong></h1><p>mtianyan: C语言根据变量的生存周期来划分，可以分为静态存储方式和动态存储方式。</p>
+<p>静态存储方式：是指在程序运行期间分配固定的存储空间的方式。静态存储区中存放了在整个程序执行过程中都存在的变量，如全局变量。<br>动态存储方式：是指在程序运行期间根据需要进行动态的分配存储空间的方式。动态存储区中存放的变量是根据程序运行的需要而建立和释放的，通常包括：函数形式参数；自动变量；函数调用时的现场保护和返回地址等。<br>C语言中存储类别又分为四类：</p>
+<ul>
+<li>自动（auto）、</li>
+<li>静态（static）、</li>
+<li>寄存器的（register）</li>
+<li>外部的（extern）。</li>
+</ul>
+<h1 id="十九、内部函数与外部函数"><a href="#十九、内部函数与外部函数" class="headerlink" title="十九、内部函数与外部函数"></a><strong>十九、内部函数与外部函数</strong></h1><p>在C语言中不能被其他源文件调用的函数称谓内部函数 ，内部函数由static关键字来定义，因此又被称谓静态函数，形式为：<br>static [数据类型] 函数名（[参数]）<br>这里的static是对函数的作用范围的一个限定，限定该函数只能在其所处的源文件中使用，因此在不同文件中出现相同的函数名称的内部函数是没有问题的。<br>在C语言中能被其他源文件调用的函数称谓外部函数 ，外部函数由extern关键字来定义，形式为：<br>extern [数据类型] 函数名([参数])<br>C语言规定，在没有指定函数的作用范围时，系统会默认认为是外部函数，因此当需要定义外部函数时extern也可以省略。<br>静态变量只赋值一次</p>
+<h1 id="二十、数组初体验"><a href="#二十、数组初体验" class="headerlink" title="二十、数组初体验"></a><strong>二十、数组初体验</strong></h1><p>程序中也需要容器，只不过该容器有点特殊，它在程序中是一块<strong>连续的，大小固定并且里面的数据类型一致的内存空间</strong>，它还有个好听的名字叫数组。可以将数组理解为大小固定，所放物品为同类的一个购物袋，在该购<br>物袋中的物品是按一定顺序放置的。</p>
+<h3 id="1-我们来看一下如何声明一个数组："><a href="#1-我们来看一下如何声明一个数组：" class="headerlink" title="1.我们来看一下如何声明一个数组："></a><strong>1.我们来看一下如何声明一个数组：</strong></h3><p><strong><em>数据类型 数组名称[长度];</em></strong></p>
+<p>数组只声明也不行啊，看一下数组是如何初始化的。说到初始化，C语言中的数组初始化是有三种形式的，分别是：</p>
+<ul>
+<li>数据类型 数组名称[长度n] &#x3D; {元素1,元素2…元素n};</li>
+<li>数据类型 数组名称[] &#x3D; {元素1,元素2…元素n};</li>
+<li>数据类型 数组名称[长度n]; 数组名称[0] &#x3D; 元素1; 数组名称[1] &#x3D; 元素2; 数组名称[n-1] &#x3D; 元素n;</li>
+</ul>
+<p>我们将数据放到数组中之后又如何获取数组中的元素呢？</p>
+<p>获取数组元素时： 数组名称[元素所对应下标];</p>
+<p>如：初始化一个数组 int arr[3] &#x3D; {1,2,3}; 那么arr[0]就是元素1。</p>
+<p>注意：</p>
+<p>数组的下标均以0开始；<br>数组在初始化的时候，数组内元素的个数不能大于声明的数组长度；<br>mtianyan: 如果采用第一种初始化方式，元素个数小于数组的长度时，多余的数组元素初始化为0；<br>在声明数组后没有进行初始化的时候，静态（static）和外部（extern）类型的数组元素初始化元素为0，自动（auto）类型的数组的元素初始化值不确定。</p>
+<h3 id="2-数组的遍历"><a href="#2-数组的遍历" class="headerlink" title="2.数组的遍历"></a><strong>2.数组的遍历</strong></h3><p>数组就可以采用循环的方式将每个元素遍历出来，而不用人为的每次获取指定某个位置上的元素，例如我们用for循环遍历一个数组：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/48a9ac2856ddcb42f8681d347eac4dce.png" srcset="/img/loading.gif" lazyload></p>
+<p>注意以下几点：</p>
+<ul>
+<li>最好<strong>避免出现数组越界访问</strong>，循环变量最好不要超出数组的长度.</li>
+<li><strong>C语言的数组长度一经声明，长度就是固定，无法改变</strong>，并且<strong>C语言并不提供计算数组长度的方法</strong>。</li>
+</ul>
+<p>由于C语言是没有检查数组长度改变或者数组越界的这个机制，可能会在编辑器中编译并通过，但是结果就不能肯定了，因此还是不要越界或者改变数组的长度</p>
+<h3 id="3-数组作为函数参数"><a href="#3-数组作为函数参数" class="headerlink" title="3.数组作为函数参数"></a><strong>3.数组作为函数参数</strong></h3><p>数组可以由整个数组当作函数的参数，也可以由数组中的某个元素当作函数的参数：</p>
+<p>整个数组当作函数参数，即把<strong>数组名称传入函数</strong>中，例如：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/fb1c19aa6809cde4052552f8deff6b87.png" srcset="/img/loading.gif" lazyload></p>
+<p>数组中的元素当作函数参数，即把数组中的参数传入函数中，例如：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/06a5d10b5f285b14c115df84c7c3e04c.png" srcset="/img/loading.gif" lazyload></p>
+<p>数组作为函数参数时注意以下事项：</p>
+<ul>
+<li>数组名作为函数实参传递时，函数定义处作为接收参数的数组类型形参既可以指定长度也可以不指定长度。</li>
+<li>数组元素作为函数实参传递时，数组元素类型必须与形参数据类型一致。</li>
+</ul>
+<h3 id="4-字符串与数组"><a href="#4-字符串与数组" class="headerlink" title="4.字符串与数组"></a><strong>4.字符串与数组</strong></h3><p>C语言中，是没有办法直接定义字符串数据类型的，但是我们可以使用数组来定义我们所要的字符串。一般有以下两种格式：</p>
+<ul>
+<li>char 字符串名称[长度] &#x3D; “字符串值”;</li>
+<li>char 字符串名称[长度] &#x3D; {‘字符1’,‘字符2’,…,‘字符n’,’\0’};</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>[]中的长度是可以省略不写的；</li>
+<li>采用第2种方式的时候最后一个元素必须是’\0’，’\0’表示字符串的结束标志；</li>
+<li>采用第2种方式的时候在数组中不能写中文。</li>
+<li>在输出字符串的时候要使用：printf(“%s”,字符数组名字);或者puts(字符数组名字);。</li>
+</ul>
+<h3 id="5-mtianyan-字符串函数"><a href="#5-mtianyan-字符串函数" class="headerlink" title="5.mtianyan:字符串函数"></a><strong>5.mtianyan:字符串函数</strong></h3><p>常用的字符串函数如下(strlen,strcmp,strcpy,strcat,atoi):</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c4eff5a2540f8cb3b8f53a556167ad90.png" srcset="/img/loading.gif" lazyload alt="字符串函数"></p>
+<p>使用字符串函数注意以下事项：</p>
+<ul>
+<li>strlen()获取字符串的长度，在字符串长度中是不包括‘\0’而且汉字和字母的长度是不一样的</li>
+<li>strcmp()在比较的时候会把字符串先转换成ASCII码再进行比较,返回的结果为0表示s1和s2的ASCII码相等,返回结果为1表示s1比s2的ASCII码大,返回结果为-1表示s1比s2的ASCII码小</li>
+<li>strcpy()拷贝之后会覆盖原来字符串且不能对字符串常量进行拷贝</li>
+<li>strcat在使用时s1与s2指的内存空间不能重叠，且s1要有足够的空间来容纳要复制的字符串</li>
+</ul>
+<h3 id="6-多维数组"><a href="#6-多维数组" class="headerlink" title="6.多维数组"></a><strong>6.多维数组</strong></h3><p>多维数组的定义格式是：<br>数据类型 数组名称[常量表达式1][常量表达式2]…[常量表达式n];</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2d7933da5cdb5d38fe2854cb069c2886.png" srcset="/img/loading.gif" lazyload></p>
+<p>定义了一个名称为num，数据类型为int的二维数组。其中第一个[3]表示第一维下标的长度，就像购物时分类存放的购物；第二个[3]表示第二维下标的长度，就像每个购物袋中的元素。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/97c462550ab6e08abb55f5fb52fac245.png" srcset="/img/loading.gif" lazyload alt="矩阵"></p>
+<p>多维数组的初始化与一维数组的初始化类似也是分两种：</p>
+<pre><code class="hljs">数据类型 数组名称\[常量表达式1\]\[常量表达式2\]…\[常量表达式n\] = &#123;&#123;值1,…,值n&#125;,&#123;值1,…,值n&#125;,…,&#123;值1,…,值n&#125;&#125;;
+数据类型 数组名称\[常量表达式1\]\[常量表达式2\]…\[常量表达式n\]; 数组名称\[下标1\]\[下标2\]…\[下标n\] = 值;
+</code></pre>
+<p>多维数组初始化要注意以下事项：</p>
+<ul>
+<li>采用第一种始化时数组声明必须指定列的维数。<strong>mtianyan: 因为系统会根据数组中元素的总个数来分配空间，当知道元素总个数以及列的维数后，会直接计算出行的维数；</strong></li>
+<li>采用第二种初始化时数组声明必须同时指定行和列的维数。</li>
+</ul>
+<p><strong>二维数组定义的时候，可以不指定行的数量，但是必须指定列的数量</strong></p>
+<h1 id="二十一、C语言最核心的指针"><a href="#二十一、C语言最核心的指针" class="headerlink" title="二十一、C语言最核心的指针"></a><strong>二十一、</strong>C语言最核心的指针</h1><p>说到指针，就不可能脱离开内存，学会指针的人分为两种，一种是不了解内存模型，另外一种则是了解。</p>
+<p>不了解的对指针的理解就停留在“指针就是变量的地址”这句话，会比较害怕使用指针，特别是各种高级操作。</p>
+<p>而了解内存模型的则可以把指针用得炉火纯青！</p>
+<p><strong>想学好C语言，很关键就是搞懂内存、指针、还有各种编译链接，</strong></p>
+<h3 id="1、内存本质"><a href="#1、内存本质" class="headerlink" title="1、内存本质"></a><strong>1、内存本质</strong></h3><p>编程的本质其实就是操控数据，数据存放在内存中。</p>
+<p>因此，如果能更好地理解内存的模型，以及 C 如何管理内存，就能对程序的工作原理洞若观火，从而使编程能力更上一层楼。</p>
+<p>大家真的别认为这是空话，我大一整年都不敢用 C 写上千行的程序也很抗拒写 C。</p>
+<p>因为一旦上千行，经常出现各种莫名其妙的内存错误，一不小心就发生了 coredump…… 而且还无从排查，分析不出原因。</p>
+<p>相比之下，那时候最喜欢 Java，在 Java 里随便怎么写都不会发生类似的异常，顶多偶尔来个 <strong>NullPointerException</strong>，也是比较好排查的。</p>
+<p>直到后来对内存和指针有了更加深刻的认识，才慢慢会用 C 写上千行的项目，也很少会再有内存问题了。（过于自信</p>
+<p>「指针存储的是变量的内存地址」这句话应该任何讲 C 语言的书都会提到吧。</p>
+<p>所以，要想彻底理解指针，首先要理解 C 语言中变量的存储本质，也就是内存。</p>
+<p><strong>（1）内存编址</strong></p>
+<p>计算机的内存是一块用于存储数据的空间，由一系列连续的存储单元组成，就像下面这样，<br><img src="https://img-blog.csdnimg.cn/img_convert/787c0fd1ec330ab848cae3ac64b5ab53.png" srcset="/img/loading.gif" lazyload alt="å¾ç"></p>
+<p>每一个单元格都表示 1 个 Bit，一个 bit 在 EE 专业的同学看来就是高低电位，而在 CS 同学看来就是 0、1 两种状态。</p>
+<p>由于 1 个 bit 只能表示两个状态，所以大佬们规定 8个 bit 为一组，命名为 byte。</p>
+<p>并且将 byte 作为内存寻址的最小单元，也就是给每个 byte 一个编号，这个编号就叫内存的<strong>地址</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/658a189af59dd0e0aa44f4d82086b575.png" srcset="/img/loading.gif" lazyload alt="å¾ç"></p>
+<p>这就相当于，我们给小区里的每个单元、每个住户都分配一个门牌号，在生活中，我们需要保证门牌号唯一，这样就能通过门牌号很精准的定位到一家人。</p>
+<p>同样，在计算机中，我们也要保证给每一个 byte 的编号都是唯一的，这样才能够保证每个编号都能访问到唯一确定的 byte。</p>
+<p><strong>（2）内存地址空间</strong></p>
+<p>上面我们说给内存中每个 byte 唯一的编号，那么这个编号的范围就决定了计算机可寻址内存的范围。</p>
+<p>所有编号连起来就叫做内存的地址空间，这和大家平时常说的电脑是 32 位还是 64 位有关。</p>
+<p>早期 Intel 8086、8088 的 CPU 就是只支持 16 位地址空间，<strong>寄存器</strong>和<strong>地址总线</strong>都是 16 位，这意味着最多对 <code>2^16 = 64 Kb</code> 的内存编号寻址。</p>
+<p>这点内存空间显然不够用，后来，80286 在 8086 的基础上将<strong>地址总线</strong>和<strong>地址寄存器</strong>扩展到了20 位，也被叫做 A20 地址总线。</p>
+<p>当时在写 mini os 的时候，还需要通过 BIOS 中断去启动 A20 地址总线的开关。</p>
+<p>但是，现在的计算机一般都是 32 位起步了，32 位意味着可寻址的内存范围是 <code>2^32 byte = 4GB</code>。</p>
+<p>所以，如果你的电脑是 32 位的，那么你装超过 4G 的内存条也是无法充分利用起来的。</p>
+<p>好了，这就是内存和内存编址。</p>
+<p><strong>（3）变量的本质</strong></p>
+<p>有了内存，接下来我们需要考虑，int、double 这些变量是如何存储在 0、1 单元格的。</p>
+<p>在 C 语言中我们会这样定义变量：</p>
+<pre><code class="hljs">int a = 999;char c = &#39;c&#39;;
+</code></pre>
+<p>当你写下一个变量定义的时候，实际上是向内存申请了一块空间来存放你的变量。</p>
+<p>我们都知道 int 类型占 4 个字节，并且在计算机中数字都是用补码（不了解补码的记得去百度）表示的。</p>
+<p>999 换算成补码就是：0000 0011 1110 0111</p>
+<p>这里有 4 个byte，所以需要四个单元格来存储：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/24e6d3c7bd14792eeaf1539c4ba58a71.png" srcset="/img/loading.gif" lazyload alt="å¾ç"></p>
+<p>有没有注意到，我们把高位的字节放在了低地址的地方，那能不能反过来呢？</p>
+<p>当然，这就引出了<strong>大端和小端。</strong></p>
+<p>像上面这种将高位字节放在内存低地址的方式叫做<strong>大端</strong>，反之，将低位字节放在内存低地址的方式就叫做<strong>小端。</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/4b3a08d6bbc4b10880f6aeb53988663f.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>上面只说明了 int 型的变量如何存储在内存，而 float、char 等类型实际上也是一样的，都需要先转换为补码。</p>
+<p>对于多字节的变量类型，还需要按照大端或者小端的格式，依次将字节写入到内存单元。</p>
+<p>记住上面这两张图，这就是编程语言中所有变量的在内存中的样子，不管是 int、char、指针、数组、结构体、对象… 都是这样放在内存的。</p>
+<h3 id="2、指针是什么啥？"><a href="#2、指针是什么啥？" class="headerlink" title="2、指针是什么啥？"></a><strong>2、指针是什么啥？</strong></h3><p> 变量放在哪？上面我说，定义一个变量实际就是向计算机申请了一块内存来存放。</p>
+<p>那如果我们要想知道变量到底放在哪了呢？可以通过运算符<code>&amp;</code>来取得变量实际的地址，这个值就是变量所占内存块的起始地址。</p>
+<p>PS: 实际上这个地址是虚拟地址，并不是真正物理内存上的地址</p>
+<p>我们可以把这个地址打印出来</p>
+<pre><code class="hljs">printf(&quot;%x&quot;, &amp;a);
+</code></pre>
+<p>大概会是像这样的一串数字:0x7ffcad3b8f3c</p>
+<p>上面说，我们可以通过<code>&amp;</code>符号获取变量的内存地址，那获取之后如何来表示这是一个<strong>地址</strong>，而不是一个普通的值呢？</p>
+<p><strong>也就是在 C 语言中如何表示地址这个概念呢？</strong></p>
+<p>对，就是指针，你可以这样</p>
+<pre><code class="hljs">int *pa = &amp;a; 
+</code></pre>
+<p>pa 中存储的就是变量 a 的地址，也叫做指向 a 的指针。</p>
+<p>在这里我想谈几个看起来有点无聊的话题：</p>
+<blockquote>
+<p>为什么我们需要指针？直接用变量名不行吗？</p>
+</blockquote>
+<p>当然可以，但是变量名是有局限的。</p>
+<blockquote>
+<p>变量名的本质是什么？</p>
+</blockquote>
+<p>是变量地址的符号化，变量是为了让我们编程时更加方便，对人友好，可计算机可不认识什么变量 a，它只知道地址和指令。</p>
+<p>所以当你去查看 C 语言编译后的汇编代码，就会发现变量名消失了，取而代之的是一串串抽象的地址。</p>
+<p>你可以认为，编译器会自动维护一个映射，将我们程序中的变量名转换为变量所对应的地址，然后再对这个地址去进行读写。</p>
+<p>也就是有这样一个映射表存在，将变量名自动转化为地址：</p>
+<pre><code class="hljs"> a  | 0x7ffcad3b8f3cc  | 0x7ffcad3b8f2ch  | 0x7ffcad3b8f4c....
+</code></pre>
+<p>说的好！</p>
+<p>可是我还是不知道指针存在的必要性，那么问题来了，看下面代码:</p>
+<pre><code class="hljs">int func(...) &#123;  ... &#125;; int main() &#123; int a; func(...);&#125;;
+</code></pre>
+<p>假设我有一个需求：</p>
+<blockquote>
+<p>要求在<code>func</code> 函数里要能够修改 <code>main</code> 函数里的变量 <code>a</code>，这下咋整，在 <code>main</code> 函数里可以直接通过变量名去读写 <code>a</code> 所在内存。</p>
+<p>但是在 <code>func</code> 函数里是看不见<code>a</code> 的呀。</p>
+</blockquote>
+<p>你说可以通过<code>&amp;</code>取地址符号，将 <code>a</code> 的地址传递进去：</p>
+<pre><code class="hljs">int func(int address) &#123;  ....&#125;; int main() &#123; int a; func(&amp;a);&#125;;
+</code></pre>
+<p>这样在<code>func</code> 里就能获取到 <code>a</code> 的地址，进行读写了。</p>
+<p>理论上这是完全没有问题的，但是问题在于:</p>
+<p>编译器该如何区分一个 int 里你存的到底是 int 类型的值，还是另外一个变量的地址（即指针）。</p>
+<p>这如果完全靠我们编程人员去人脑记忆了，会引入复杂性，并且无法通过编译器检测一些语法错误。</p>
+<p>而通过<code>int *</code> 去定义一个指针变量，会非常明确：<strong>这就是另外一个 int 型变量的地址。</strong></p>
+<p>编译器也可以通过类型检查来排除一些编译错误。</p>
+<p>这就是指针存在的必要性。</p>
+<p>实际上任何语言都有这个需求，只不过很多语言为了安全性，给指针戴上了一层枷锁，将指针包装成了引用。</p>
+<p>可能大家学习的时候都是自然而然的接受指针这个东西，但是还是希望这段啰嗦的解释对你有一定启发。</p>
+<p>同时，在这里提点小问题：</p>
+<p>既然指针的本质都是变量的内存首地址，即一个 int 类型的整数。</p>
+<blockquote>
+<p>那为什么还要有各种类型呢？</p>
+</blockquote>
+<blockquote>
+<p>比如 int 指针，float 指针，这个类型影响了指针本身存储的信息吗？</p>
+</blockquote>
+<blockquote>
+<p>这个类型会在什么时候发挥作用？</p>
+</blockquote>
+<p><strong>解引用</strong></p>
+<p>上面的问题，就是为了引出指针解引用的。</p>
+<p><code>pa</code>中存储的是<code>a</code>变量的内存地址，那如何通过地址去获取<code>a</code>的值呢？</p>
+<p>这个操作就叫做<strong>解引用</strong>，在 C 语言中通过运算符 <code>*</code>就可以拿到一个指针所指地址的内容了。</p>
+<p>比如<code>*pa</code>就能获得<code>a</code>的值。</p>
+<p>我们说指针存储的是变量内存的首地址，那编译器怎么知道该从首地址开始取多少个字节呢？</p>
+<p>这就是指针类型发挥作用的时候，编译器会根据指针的所指元素的类型去判断应该取多少个字节。</p>
+<p>如果是 int 型的指针，那么编译器就会产生提取四个字节的指令，char 则只提取一个字节，以此类推。</p>
+<p>下面是指针内存示意图:</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b7adb5cd7d21d6af8e90892065f5de9f.png" srcset="/img/loading.gif" lazyload alt="å¾ç"></p>
+<p><code>pa</code> 指针首先是一个变量，它本身也占据一块内存，这块内存里存放的就是 <code>a</code> 变量的首地址。</p>
+<p>当解引用的时候，就会从这个首地址连续划出 4 个 byte，然后按照 int 类型的编码方式解释。</p>
+<p>别看这个地方很简单，但却是深刻理解指针的关键。</p>
+<p>举两个例子来详细说明：</p>
+<p>比如：</p>
+<pre><code class="hljs">float f = 1.0;short c = *(short*)&amp;f; 
+</code></pre>
+<p>你能解释清楚上面过程，对于 <code>f</code> 变量，在内存层面发生了什么变化吗？或者 <code>c</code> 的值是多少？1 ？</p>
+<p>实际上，从内存层面来说，<code>f</code> 什么都没变。</p>
+<p>如图:</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/78e482f1fbf69725fd555cc06226bc40.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>假设这是<code>f</code> 在内存中的位模式，这个过程实际上就是把 <code>f</code> 的前两个 byte 取出来然后按照 short 的方式解释，然后赋值给 <code>c</code>。</p>
+<p>详细过程如下：</p>
+<pre><code class="hljs">&amp;f取得f 的首地址(short*)&amp;f
+</code></pre>
+<p>上面第二步什么都没做，这个表达式只是说 ：</p>
+<p>“噢，我认为<code>f</code>这个地址放的是一个 short 类型的变量”</p>
+<p>最后当去解引用的时候<code>*(short*)&amp;f</code>时，编译器会取出前面两个字节，并且按照 short 的编码方式去解释，并将解释出的值赋给 <code>c</code> 变量。</p>
+<p>这个过程 <code>f</code>的位模式没有发生任何改变，变的只是解释这些位的方式。</p>
+<p>当然，这里最后的值肯定不是 1，至于是什么，大家可以去真正算一下。</p>
+<p>那反过来，这样呢？</p>
+<pre><code class="hljs">short c = 1;float f = *(float*)&amp;c;
+</code></pre>
+<p>如图：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/74cae1e9f017cf678478bc0f669bfe7f.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>具体过程和上述一样，但上面肯定不会报错，这里却不一定。</p>
+<p>为什么？</p>
+<p><code>(float*)&amp;c</code>会让我们从<code>c</code>  的首地址开始取四个字节，然后按照 float 的编码方式去解释。</p>
+<p>但是<code>c</code>是 short 类型只占两个字节，那肯定会访问到相邻后面两个字节，这时候就发生了内存访问越界。</p>
+<p>当然，如果只是读，大概率是没问题的。</p>
+<p>但是，有时候需要向这个区域写入新的值，比如：</p>
+<pre><code class="hljs">*(float*)&amp;c = 1.0;
+</code></pre>
+<p>那么就可能发生 coredump，也就是访存失败。</p>
+<p>另外，就算是不会 coredump，这种也会破坏这块内存原有的值，因为很可能这是是其它变量的内存空间，而我们去覆盖了人家的内容，肯定会导致隐藏的 bug。</p>
+<p>如果你理解了上面这些内容，那么使用指针一定会更加的自如。</p>
+<h3 id="3、结构体和指针"><a href="#3、结构体和指针" class="headerlink" title="3、结构体和指针"></a><strong>3、结构体和指针</strong></h3><p>结构体内包含多个成员，这些成员之间在内存中是如何存放的呢？</p>
+<p>比如：</p>
+<pre><code class="hljs">struct fraction &#123; int num; // 整数部分 int denom; // 小数部分&#125;; struct fraction fp;fp.num = 10;fp.denom = 2;
+</code></pre>
+<p>这是一个定点小数结构体，它在内存占 8 个字节（这里不考虑内存对齐），两个成员域是这样存储的：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/69db5aade4b16bcf971ba665881e9227.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>我们把 10 放在了结构体中基地址偏移为 0 的域，2 放在了偏移为 4 的域。</p>
+<p>接下来我们做一个这样的操作：</p>
+<pre><code class="hljs">((fraction*)(&amp;fp.denom))-&gt;num = 5; ((fraction*)(&amp;fp.denom))-&gt;denom = 12; printf(&quot;%d\n&quot;, fp.denom); // 输出多少？
+</code></pre>
+<p>上面这个究竟会输出多少呢？自己先思考下噢~</p>
+<p>接下来我分析下这个过程发生了什么：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/201c2f76e0bb2719c9effdf6146aa3a8.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>首先，<code>&amp;fp.denom</code>表示取结构体 fp 中 denom 域的首地址，然后以这个地址为起始地址取 8 个字节，并且将它们看做一个 fraction 结构体。</p>
+<p>在这个新结构体中，最上面四个字节变成了 denom 域，而 fp 的 denom 域相当于新结构体的 num 域。</p>
+<p>因此：</p>
+<p><code>((fraction*)(&amp;fp.denom))-&gt;num = 5</code></p>
+<p>实际上改变的是 <code>fp.denom</code>，而</p>
+<p><code>((fraction*)(&amp;fp.denom))-&gt;denom = 12</code></p>
+<p>则是将最上面四个字节赋值为 12。</p>
+<p>当然，往那四字节内存写入值，结果是无法预测的，可能会造成程序崩溃，因为也许那里恰好存储着函数调用栈帧的关键信息，也可能那里没有写入权限。</p>
+<p>大家初学 C 语言的很多 coredump 错误都是类似原因造成的。</p>
+<p>所以最后输出的是 5。</p>
+<p>为什么要讲这种看起来莫名其妙的代码？</p>
+<p>就是为了说明结构体的本质其实就是一堆的变量打包放在一起，而访问结构体中的域，就是通过结构体的起始地址，也叫基地址，然后加上域的偏移。</p>
+<p>其实，C++、Java 中的对象也是这样存储的，无非是他们为了实现某些面向对象的特性，会在数据成员以外，添加一些 Head 信息，比如C++ 的虚函数表。</p>
+<p>实际上，我们是完全可以用 C 语言去模仿的。</p>
+<p>这就是为什么一直说 C 语言是基础，你真正懂了 C 指针和内存，对于其它语言你也会很快的理解其对象模型以及内存布局。</p>
+<h3 id="4、多级指针"><a href="#4、多级指针" class="headerlink" title="4、多级指针"></a><strong>4、多级指针</strong></h3><p>说起多级指针这个东西，我以前上学的时候最多理解到 2 级，再多真的会把我绕晕，经常也会写错代码。</p>
+<p>你要是给我写个这个：<code>int ******p</code> 能把我搞崩溃，我估计很多同学现在就是这种情况🤣</p>
+<p>其实，多级指针也没那么复杂，就是指针的指针的指针的指针……非常简单。</p>
+<p>今天就带大家认识一下多级指针的本质。</p>
+<p>首先，我要说一句话，没有多级指针这种东西，指针就是指针，多级指针只是为了我们方便表达而取的逻辑概念。</p>
+<p>首先看下生活中的快递柜：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9992f7fe2f8c6f2d51fd56318d5a3be5.png" srcset="/img/loading.gif" lazyload></p>
+<p>这种大家都用过吧，每个格子都有一个编号，我们只需要拿到编号，然后就能找到对应的格子，取出里面的东西。</p>
+<p>这里的格子就是内存单元，编号就是地址，格子里放的东西就对应存储在内存中的内容。</p>
+<p>假设我把一本书，放在了 03 号格子，然后把 03 这个编号告诉你，你就可以根据 03 去取到里面的书。</p>
+<p>那如果我把书放在 05 号格子，然后在 03 号格子只放一个小纸条，上面写着：「书放在 05 号」。</p>
+<p>你会怎么做？</p>
+<p>当然是打开 03 号格子，然后取出了纸条，根据上面内容去打开 05 号格子得到书。</p>
+<p>这里的 03 号格子就叫指针，因为它里面放的是指向其它格子的小纸条（地址）而不是具体的书。</p>
+<p>明白了吗？</p>
+<p>那我如果把书放在 07 号格子，然后在 05 号格子 放一个纸条：「书放在 07号」，同时在03号格子放一个纸条「书放在 05号」</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1eafacbbec3c29fb16f1342302a90a5a.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>这里的 03 号格子就叫二级指针，05 号格子就叫指针，而 07 号就是我们平常用的变量。</p>
+<p>依次，可类推出 N 级指针。</p>
+<p>所以你明白了吗？同样的一块内存，如果存放的是别的变量的地址，那么就叫指针，存放的是实际内容，就叫变量。</p>
+<pre><code class="hljs">int a;int *pa = &amp;a;int **ppa = &amp;pa;int ***pppa = &amp;ppa;
+</code></pre>
+<p>上面这段代码，<code>pa</code>就叫一级指针，也就是平时常说的指针，<code>ppa</code> 就是二级指针。</p>
+<p>内存示意图如下:</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ea9a5559ddf7ce166518d4ab63a3542e.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>不管几级指针有两个最核心的东西：</p>
+<ul>
+<li><p>指针本身也是一个变量，需要内存去存储，指针也有自己的地址</p>
+</li>
+<li><p>指针内存存储的是它所指向变量的地址</p>
+</li>
+</ul>
+<p>这就是我为什么多级指针是逻辑上的概念，实际上一块内存要么放实际内容，要么放其它变量地址，就这么简单。</p>
+<p>怎么去解读<code>int **a</code>这种表达呢？</p>
+<p><code>int ** a</code> 可以把它分为两部分看，即<code>int*</code> 和 <code>*a</code>，后面 <code>*a</code> 中的<code>*</code>表示 <code>a</code> 是一个指针变量，前面的 <code>int*</code> 表示指针变量<code>a</code></p>
+<p>只能存放 <code>int*</code> 型变量的地址。</p>
+<p>对于二级指针甚至多级指针，我们都可以把它拆成两部分。</p>
+<p>首先不管是多少级的指针变量，它首先是一个指针变量，指针变量就是一个<code>*</code>，其余的<code>*</code>表示的是这个指针变量只能存放什么类型变量的地址。</p>
+<p>比如<code>int****a</code>表示指针变量 <code>a</code> 只能存放<code>int***</code> 型变量的地址。</p>
+<h3 id="5、指针与数组"><a href="#5、指针与数组" class="headerlink" title="5、指针与数组"></a>5、指针与数组</h3><p><strong>（1）一维数组</strong></p>
+<p>数组是 C 自带的基本数据结构，彻底理解数组及其用法是开发高效应用程序的基础。</p>
+<p>数组和指针表示法紧密关联，在合适的上下文中可以互换。</p>
+<p>如下：</p>
+<pre><code class="hljs">int array[10] = &#123;10, 9, 8, 7&#125;;printf(&quot;%d\n&quot;, *array);  //  输出 10printf(&quot;%d\n&quot;, array[0]);  // 输出 10 printf(&quot;%d\n&quot;, array[1]);  // 输出 9printf(&quot;%d\n&quot;, *(array+1)); // 输出 9 int *pa = array;printf(&quot;%d\n&quot;, *pa);  //  输出 10printf(&quot;%d\n&quot;, pa[0]);  // 输出 10 printf(&quot;%d\n&quot;, pa[1]);  // 输出 9printf(&quot;%d\n&quot;, *(pa+1)); // 输出 9
+</code></pre>
+<p>在内存中，数组是一块连续的内存空间：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d786deb2a7da1a5a81d0b77a56d5bebb.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>第 0 个元素的地址称为数组的首地址，数组名实际就是指向数组首地址，当我们通过<code>array[1]</code>或者<code>*(array + 1)</code> 去访问数组元素的时候。</p>
+<p>实际上可以看做 <code>address[offset]</code>，<code>address</code> 为起始地址，<code>offset</code> 为偏移量，但是注意这里的偏移量<code>offset</code> 不是直接和 <code>address</code>相加，而是要乘以数组类型所占字节数，也就是： <code>address + sizeof(int) * offset</code>。</p>
+<p>学过汇编的同学，一定对这种方式不陌生，这是汇编中寻址方式的一种：基址变址寻址。</p>
+<p>看完上面的代码，很多同学可能会认为指针和数组完全一致，可以互换，这是完全错误的。</p>
+<p>尽管数组名字有时候可以当做指针来用，但数组的名字不是指针。</p>
+<p>最典型的地方就是在 sizeof:</p>
+<pre><code class="hljs">printf(&quot;%u&quot;, sizeof(array));printf(&quot;%u&quot;, sizeof(pa));
+</code></pre>
+<p>第一个将会输出 40，因为 <code>array</code>包含有 10 个int类型的元素，而第二个在 32 位机器上将会输出 4，也就是指针的长度。</p>
+<p>为什么会这样呢？</p>
+<p>站在编译器的角度讲，变量名、数组名都是一种符号，它们都是有类型的，它们最终都要和数据绑定起来。</p>
+<p>变量名用来指代一份数据，数组名用来指代一组数据（数据集合），它们都是有类型的，以便推断出所指代的数据的长度。</p>
+<p>对，数组也有类型，我们可以将 int、float、char 等理解为基本类型，将数组理解为由基本类型派生得到的稍微复杂一些的类型，</p>
+<p>数组的类型由元素的类型和数组的长度共同构成。而 <code>sizeof</code> 就是根据变量的类型来计算长度的，并且计算的过程是在编译期，而不会在程序运行时。</p>
+<p>编译器在编译过程中会创建一张专门的表格用来保存变量名及其对应的数据类型、地址、作用域等信息。</p>
+<p><code>sizeof</code> 是一个操作符，不是函数，使用 <code>sizeof</code> 时可以从这张表格中查询到符号的长度。</p>
+<p>所以，这里对数组名使用<code>sizeof</code>可以查询到数组实际的长度。</p>
+<p><code>pa</code> 仅仅是一个指向 int 类型的指针，编译器根本不知道它指向的是一个整数，还是一堆整数。</p>
+<p>虽然在这里它指向的是一个数组，但数组也只是一块连续的内存，没有开始和结束标志，也没有额外的信息来记录数组到底多长。</p>
+<p>所以对 <code>pa</code> 使用 <code>sizeof</code> 只能求得的是指针变量本身的长度。</p>
+<p>也就是说，编译器并没有把 <code>pa</code> 和数组关联起来，<code>pa</code> 仅仅是一个指针变量，不管它指向哪里，<code>sizeof</code>求得的永远是它本身所占用的字节数。</p>
+<p><strong>（2）二维数组</strong></p>
+<p>大家不要认为二维数组在内存中就是按行、列这样二维存储的，实际上，不管二维、三维数组… 都是编译器的语法糖。</p>
+<p>存储上和一维数组没有本质区别，举个例子：</p>
+<pre><code class="hljs">int array[3][3] = &#123;&#123;1, 2，3&#125;, &#123;4, 5，6&#125;，&#123;7, 8, 9&#125;&#125;;array[1][1] = 5;
+</code></pre>
+<p>或许你以为在内存中 <code>array</code> 数组会像一个二维矩阵:</p>
+<pre><code class="hljs">1  2  34  5  67  8  9
+</code></pre>
+<p>可实际上它是这样的：</p>
+<pre><code class="hljs">1  2  3  4  5  6  7  8  9
+</code></pre>
+<p>和一维数组没有什么区别，都是一维线性排列。</p>
+<p>当我们像 <code>array[1][1]</code>这样去访问的时候，编译器会怎么去计算我们真正所访问元素的地址呢？</p>
+<p>为了更加通用化，假设数组定义是这样的:</p>
+<p><code>int array[n][m]</code></p>
+<p>访问: <code>array[a][b]</code></p>
+<p>那么被访问元素地址的计算方式就是: <code>array + (m * a + b)</code></p>
+<p>这个就是二维数组在内存中的本质，其实和一维数组是一样的，只是语法糖包装成一个二维的样子。</p>
+<h3 id="6、-void-指针"><a href="#6、-void-指针" class="headerlink" title="6、 void 指针"></a>6、 void 指针</h3><p>想必大家一定看到过 void 的这些用法：</p>
+<pre><code class="hljs">void func();int func1(void);
+</code></pre>
+<p>在这些情况下，void 表达的意思就是没有返回值或者参数为空。</p>
+<p>但是对于 void 型指针却表示通用指针，可以用来存放任何数据类型的引用。</p>
+<p>下面的例子就 是一个 void 指针：</p>
+<pre><code class="hljs">void *ptr;
+</code></pre>
+<p>void 指针最大的用处就是在 C 语言中实现泛型编程，因为任何指针都可以被赋给 void 指针，void 指针也可以被转换回原来的指针类型， 并且这个过程指针实际所指向的地址并不会发生变化。</p>
+<p>比如:</p>
+<pre><code class="hljs">int num;int *pi = &amp;num; printf(&quot;address of pi: %p\n&quot;, pi);void* pv = pi;pi = (int*) pv; printf(&quot;address of pi: %p\n&quot;, pi);
+</code></pre>
+<p>这两次输出的值都会是一样:</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/4bd7d1a8218e90af9acc1bdb668eb608.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>平常可能很少会这样去转换，但是当你用 C 写大型软件或者写一些通用库的时候，一定离不开 void 指针，这是 C 泛型的基石，比如 std 库里的 sort 函数申明是这样的:</p>
+<pre><code class="hljs">void qsort(void *base,int nelem,int width,int (*fcmp)(const void *,const void *));
+</code></pre>
+<p>所有关于具体元素类型的地方全部用 void 代替。</p>
+<p>void 还可以用来实现 C 语言中的多态，这是一个挺好玩的东西。</p>
+<p>不过也有需要注意的，<strong>不能对 void 指针解引用</strong></p>
+<p>比如：</p>
+<pre><code class="hljs">int num;void *pv = (void*)&amp;num;*pv = 4; // 错误
+</code></pre>
+<p>为什么？</p>
+<p>因为解引用的本质就是编译器根据指针所指的类型，然后从指针所指向的内存连续取 N 个字节，然后将这 N 个字节按照指针的类型去解释。</p>
+<p>比如 int *型指针，那么这里 N 就是 4，然后按照 int 的编码方式去解释数字。</p>
+<p>但是 void，编译器是不知道它到底指向的是 int、double、或者是一个结构体，所以编译器没法对 void 型指针解引用。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/c/">#c</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>c基础</div>
+      <div>http://example.com/2022/10/25/后端知识/c基础/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小日月</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/25/%E5%90%8E%E7%AB%AF%E7%9F%A5%E8%AF%86/python%E5%9F%BA%E7%A1%80/" title="python基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/25/%E5%90%8E%E7%AB%AF%E7%9F%A5%E8%AF%86/java%E5%9F%BA%E7%A1%80/" title="java基础">
+                        <span class="hidden-mobile">java基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+
+
+        <!-- 添加网站运行时间 -->
+        <div class="footer-content">
+          <div>
+            <span id="timeDate">载入天数...</span>
+            <span id="times">载入时分秒...</span>
+            <script>
+              var now = new Date();
+              function createtime() {
+                var grt = new Date("04/03/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24;
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                hnum = Math.floor(hours);
+                if (String(hnum).length == 1) {
+                  hnum = "0" + hnum;
+                }
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if (String(mnum).length == 1) {
+                  mnum = "0" + mnum;
+                }
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if (String(snum).length == 1) {
+                  snum = "0" + snum;
+                }
+                document.getElementById("timeDate").innerHTML = "🚀 &nbsp" + dnum + "&nbsp天";  //此次自定义显示内容
+                document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+              }  //此次自定义显示内容
+              setInterval("createtime()", 250);
+            </script>
+          </div>
+        </div>
+
+
+    </div>
+    
+      
+        <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+          
+            
+                  
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
