@@ -16,15 +16,13 @@
   <meta name="author" content="小日月">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🍭 面试 1字节题 1css1.盒居中12345&lt;div class&#x3D;&quot;box&quot;&gt;  &lt;div class&#x3D;&quot;child&quot;&gt;    &lt;h1 class&#x3D;&quot;text&quot;&gt;居中&lt;&#x2F;h1&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;div&gt;  123456.box &amp;#123;  display:">
-<meta property="og:type" content="article">
-<meta property="og:title" content="interview1">
-<meta property="og:url" content="http://example.com/2023/11/23/%E9%9D%A2%E8%AF%95/interview1/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="js高级架构封装dom库">
+<meta property="og:url" content="http://example.com/2024/01/21/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/js%E9%AB%98%E7%BA%A7%E6%9E%B6%E6%9E%84%E5%B0%81%E8%A3%85dom%E5%BA%93/index.html">
 <meta property="og:site_name" content="小日月的博客">
-<meta property="og:description" content="🍭 面试 1字节题 1css1.盒居中12345&lt;div class&#x3D;&quot;box&quot;&gt;  &lt;div class&#x3D;&quot;child&quot;&gt;    &lt;h1 class&#x3D;&quot;text&quot;&gt;居中&lt;&#x2F;h1&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;div&gt;  123456.box &amp;#123;  display:">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-23T15:16:00.000Z">
-<meta property="article:modified_time" content="2023-11-23T16:00:21.164Z">
+<meta property="article:published_time" content="2024-01-21T11:40:40.000Z">
+<meta property="article:modified_time" content="2024-01-21T11:40:40.355Z">
 <meta property="article:author" content="小日月">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -32,7 +30,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>interview1 - 小日月的博客</title>
+  <title>js高级架构封装dom库 - 小日月的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -224,7 +222,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="interview1"></span>
+            <span id="subtitle" data-typed-text="js高级架构封装dom库"></span>
           
         </div>
 
@@ -235,8 +233,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-23 23:16" pubdate>
-          2023年11月23日 晚上
+        <time datetime="2024-01-21 19:40" pubdate>
+          2024年1月21日 晚上
         </time>
       </span>
     
@@ -247,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          0 字
         
       </span>
     
@@ -258,7 +256,7 @@
         
         
         
-          15 分钟
+          1 分钟
         
       </span>
     
@@ -308,45 +306,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">interview1</h1>
+            <h1 style="display: none">js高级架构封装dom库</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="🍭-面试-1"><a href="#🍭-面试-1" class="headerlink" title="🍭 面试 1"></a>🍭 面试 1</h1><h2 id="字节题-1css"><a href="#字节题-1css" class="headerlink" title="字节题 1css"></a>字节题 1css</h2><h3 id="1-盒居中"><a href="#1-盒居中" class="headerlink" title="1.盒居中"></a>1.盒居中</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;child&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>居中<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-selector-class">.child</span> &#123;<br>    <span class="hljs-attribute">margin</span>: auto;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="2-padding-与-margin"><a href="#2-padding-与-margin" class="headerlink" title="2.padding 与 margin"></a>2.padding 与 margin</h3><pre><code class="hljs">1.padding作用于元素内容，会撑大元素大小
-
-2.margin作用于元素外部，不会撑大元素大小
-</code></pre>
-<h3 id="3-vw-和百分比"><a href="#3-vw-和百分比" class="headerlink" title="3.vw 和百分比"></a>3.vw 和百分比</h3><pre><code class="hljs">1.vw是相对于视口的宽度
-
-2.百分比会继承父元素的宽度，vw不会
-</code></pre>
-<h3 id="4-行内元素与块级元素"><a href="#4-行内元素与块级元素" class="headerlink" title="4.行内元素与块级元素"></a>4.行内元素与块级元素</h3><pre><code class="hljs">1.行内元素不换行，行内元素不可以设置大小，行内元素大小由内容决定
-
-2.块级元素换行，块级元素可以设置大小，块级元素大小由父元素决定
-</code></pre>
-<h3 id="5-使谷歌浏览器字体（清晰，更小）"><a href="#5-使谷歌浏览器字体（清晰，更小）" class="headerlink" title="5.使谷歌浏览器字体（清晰，更小）"></a>5.使谷歌浏览器字体（清晰，更小）</h3><pre><code class="hljs">1.清晰：-webkit-font-smoothing: antialiased;
-2.更小：-webkit-text-size-adjust: 50%; // scale(0.5)
-</code></pre>
-<h2 id="字节题-2js"><a href="#字节题-2js" class="headerlink" title="字节题 2js"></a>字节题 2js</h2><h3 id="1-var"><a href="#1-var" class="headerlink" title="1.var"></a>1.var</h3><pre><code class="hljs">1.var声明的变量会挂载在window上，let和const不会
-2.var声明的变量会进行变量提升，let和const不会
-3.var声明的变量没有块级作用域，let和const有
-4.var声明的变量可以重复声明(覆盖)，let和const不可以
-</code></pre>
-<h2 id="字节题-3-深拷贝和浅拷贝"><a href="#字节题-3-深拷贝和浅拷贝" class="headerlink" title="字节题 3 深拷贝和浅拷贝"></a>字节题 3 深拷贝和浅拷贝</h2><pre><code class="hljs">1.浅拷贝：arr = newArr
-1.5.浅拷贝：arr = newArr.slice()
-1.5.浅拷贝：arr = newArr.concat()
-1.5.浅拷贝：arr = [...newArr]
-2.深拷贝：arr = JSON.parse(JSON.stringify(newArr))//不支持函数，正则，undefined
-</code></pre>
-<hr>
-<pre><code class="hljs"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 深拷贝递归</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">deepClone</span> (source) &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> source !== <span class="hljs-string">&#x27;object&#x27;</span>) <span class="hljs-keyword">return</span> source<br>  <span class="hljs-keyword">const</span> target = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(source) ? [] : &#123;&#125;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> source) &#123;<br>    <span class="hljs-keyword">if</span> (source.<span class="hljs-title function_">hasOwnProperty</span>(key)) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> source[key] === <span class="hljs-string">&#x27;object&#x27;</span>) &#123;<br>        target[key] = <span class="hljs-title function_">deepClone</span>(source[key])<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        target[key] = source[key]<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> target<br>&#125;<br><br><span class="hljs-comment">// 深拷贝迭代</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">deepClone</span> (source) &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> source !== <span class="hljs-string">&#x27;object&#x27;</span>) <span class="hljs-keyword">return</span> source<br>  <span class="hljs-keyword">const</span> target = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(source) ? [] : &#123;&#125;<br>  <span class="hljs-keyword">const</span> stack = [[source, target]]<br>  <span class="hljs-keyword">while</span> (stack.<span class="hljs-property">length</span>) &#123;<br>    <span class="hljs-keyword">const</span> [source, target] = stack.<span class="hljs-title function_">pop</span>()<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> source) &#123;<br>      <span class="hljs-keyword">if</span> (source.<span class="hljs-title function_">hasOwnProperty</span>(key)) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> source[key] === <span class="hljs-string">&#x27;object&#x27;</span>) &#123;<br>          target[key] = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(source[key]) ? [] : &#123;&#125;<br>          stack.<span class="hljs-title function_">push</span>([source[key], target[key]])<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>          target[key] = source[key]<br>        &#125;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> target<br>&#125;<br></code></pre></td></tr></table></figure>
-</code></pre>
-
+                
                 
               </div>
             
@@ -363,8 +328,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>interview1</div>
-      <div>http://example.com/2023/11/23/面试/interview1/</div>
+      <div>js高级架构封装dom库</div>
+      <div>http://example.com/2024/01/21/面试知识点/js高级架构封装dom库/</div>
     </div>
     <div class="license-meta">
       
@@ -376,7 +341,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月23日</div>
+          <div>2024年1月21日</div>
         </div>
       
       
@@ -408,9 +373,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/23/%E9%9D%A2%E8%AF%95/interview2/" title="interview2">
+                      <a href="/2024/01/21/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-js/" title="interview-js">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">interview2</span>
+                        <span class="hidden-mobile">interview-js</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -418,8 +383,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/28/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%934/" title="JS基础内容总结">
-                        <span class="hidden-mobile">JS基础内容总结</span>
+                      <a href="/2024/01/20/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A2-id1/" title="字节一面-id1">
+                        <span class="hidden-mobile">字节一面-id1</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

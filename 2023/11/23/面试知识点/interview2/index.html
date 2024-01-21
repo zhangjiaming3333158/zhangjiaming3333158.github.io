@@ -19,12 +19,12 @@
     <meta name="description" content="🍭 面试 2大厂0.https:&#x2F;&#x2F;www.baidu.com:80&#x2F;abc?d&#x3D;1#e1. https: 协议 http和tcp的结合之间加了一层SSL或TSL安全层 2. www.baidu.com 域名;www:三级域名 baidu:二级域名 com:顶级域名 3. 80 端口号 4. &#x2F; 路径 5. ? 后面是查询参数 6. # 后面是锚点  1.在浏览器输入url到页面展示发生了什么1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="interview2">
-<meta property="og:url" content="http://example.com/2023/11/23/%E9%9D%A2%E8%AF%95/interview2/index.html">
+<meta property="og:url" content="http://example.com/2023/11/23/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview2/index.html">
 <meta property="og:site_name" content="小日月的博客">
 <meta property="og:description" content="🍭 面试 2大厂0.https:&#x2F;&#x2F;www.baidu.com:80&#x2F;abc?d&#x3D;1#e1. https: 协议 http和tcp的结合之间加了一层SSL或TSL安全层 2. www.baidu.com 域名;www:三级域名 baidu:二级域名 com:顶级域名 3. 80 端口号 4. &#x2F; 路径 5. ? 后面是查询参数 6. # 后面是锚点  1.在浏览器输入url到页面展示发生了什么1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-23T15:49:50.000Z">
-<meta property="article:modified_time" content="2023-12-15T16:00:14.282Z">
+<meta property="article:modified_time" content="2023-12-22T15:27:27.037Z">
 <meta property="article:author" content="小日月">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -247,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          806 字
+          2k 字
         
       </span>
     
@@ -258,7 +258,7 @@
         
         
         
-          7 分钟
+          17 分钟
         
       </span>
     
@@ -352,6 +352,20 @@ b.页面渲染
     4.使用Web Worker
     5.使用虚拟DOM
 </code></pre>
+<h3 id="4-图片懒加载"><a href="#4-图片懒加载" class="headerlink" title="4.图片懒加载"></a>4.图片懒加载</h3><pre><code class="hljs">1.图片懒加载的原理
+    1.图片不设置src属性，而是设置一个自定义属性，比如data-src
+    2.当图片进入可视区域时，再把自定义属性的值赋值给src
+2.图片懒加载的优点
+    1.减少http请求，提升页面加载速度
+    2.节省服务器的带宽
+    3.节省浏览器的内存
+3.图片懒加载的缺点
+    1.增加了代码复杂度
+    2.用户体验不好，用户可能会看到一张一张图片的显示
+</code></pre>
+<h4 id="4-1-图片懒加载的实现"><a href="#4-1-图片懒加载的实现" class="headerlink" title="4.1 图片懒加载的实现"></a>4.1 图片懒加载的实现</h4><pre><code class="hljs"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;default1.jpg&quot;</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;http://www.xxx.com/target1.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;default2.jpg&quot;</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;http://www.xxx.com/target2.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;default3.jpg&quot;</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;http://www.xxx.com/target3.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> imgs = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;img&#x27;</span>); <span class="hljs-comment">// 获取所有图片imgs=[img,img,img]</span><br><span class="hljs-keyword">var</span> num = imgs.<span class="hljs-property">length</span>; <span class="hljs-comment">// 图片的数量</span><br><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>; <span class="hljs-comment">// 计数器</span><br><span class="hljs-title function_">lazyload</span>(); <span class="hljs-comment">// 首次加载别忘了显示图片</span><br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, lazyload); <span class="hljs-comment">// 监听滚动事件</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">lazyload</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> viewHeight = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">clientHeight</span>; <span class="hljs-comment">// 可视区域的高度</span><br>    <span class="hljs-keyword">var</span> scrollTop = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollTop</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">scrollTop</span>; <span class="hljs-comment">// 滚动条距离顶部的高度</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = count; i &lt; num; i++) &#123; <span class="hljs-comment">// 从计数器的值开始，遍历每个图片</span><br>        <span class="hljs-keyword">if</span> (imgs[i].<span class="hljs-property">offsetTop</span> &lt; viewHeight + scrollTop) &#123; <span class="hljs-comment">// 图片进入可视区域</span><br>            <span class="hljs-keyword">if</span> (imgs[i].<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;src&#x27;</span>) !== <span class="hljs-string">&#x27;default.jpg&#x27;</span>) <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// 如果图片已经加载过，则跳过</span><br>            imgs[i].<span class="hljs-property">src</span> = imgs[i].<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;data-src&#x27;</span>); <span class="hljs-comment">// 设置图片src为data-src(加载图片)</span><br>            count++; <span class="hljs-comment">// 计数器累加</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</code></pre>
 
                 
               </div>
@@ -370,7 +384,7 @@ b.页面渲染
   <div class="license-box my-3">
     <div class="license-title">
       <div>interview2</div>
-      <div>http://example.com/2023/11/23/面试/interview2/</div>
+      <div>http://example.com/2023/11/23/面试知识点/interview2/</div>
     </div>
     <div class="license-meta">
       
@@ -424,8 +438,8 @@ b.页面渲染
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/23/%E9%9D%A2%E8%AF%95/interview1/" title="interview1">
-                        <span class="hidden-mobile">interview1</span>
+                      <a href="/2023/11/23/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-css/" title="interview1-css">
+                        <span class="hidden-mobile">interview1-css</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
