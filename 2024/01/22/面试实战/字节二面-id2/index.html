@@ -16,25 +16,23 @@
   <meta name="author" content="小日月">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🍭 面试-css1. 字节题 1css1.盒居中12345&lt;div class&#x3D;&quot;box&quot;&gt;  &lt;div class&#x3D;&quot;child&quot;&gt;    &lt;h1 class&#x3D;&quot;text&quot;&gt;居中&lt;&#x2F;h1&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;div&gt;  123456.box &amp;#123;  dis">
+    <meta name="description" content="🍭 字节二面-id21、说说 position 的属性，默认为什么属性 CSS position 属性用于指定一个元素在文档中的定位方式。top，right，bottom 和 left 属性则决定了该元素的最终位置。  定位类型 static(默认)元素不会被定位，会出现在正常的文档流中 此时 top, right, bottom, left 和 z-index 属性无效 relative(相对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="interview1-css">
-<meta property="og:url" content="http://example.com/2023/11/23/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-css/index.html">
+<meta property="og:title" content="字节二面-id2">
+<meta property="og:url" content="http://example.com/2024/01/22/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E5%AD%97%E8%8A%82%E4%BA%8C%E9%9D%A2-id2/index.html">
 <meta property="og:site_name" content="小日月的博客">
-<meta property="og:description" content="🍭 面试-css1. 字节题 1css1.盒居中12345&lt;div class&#x3D;&quot;box&quot;&gt;  &lt;div class&#x3D;&quot;child&quot;&gt;    &lt;h1 class&#x3D;&quot;text&quot;&gt;居中&lt;&#x2F;h1&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;div&gt;  123456.box &amp;#123;  dis">
+<meta property="og:description" content="🍭 字节二面-id21、说说 position 的属性，默认为什么属性 CSS position 属性用于指定一个元素在文档中的定位方式。top，right，bottom 和 left 属性则决定了该元素的最终位置。  定位类型 static(默认)元素不会被定位，会出现在正常的文档流中 此时 top, right, bottom, left 和 z-index 属性无效 relative(相对">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2023/11/23/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-css/reflow.png">
-<meta property="article:published_time" content="2023-11-23T15:16:00.000Z">
-<meta property="article:modified_time" content="2024-01-22T13:00:54.837Z">
+<meta property="article:published_time" content="2024-01-22T14:28:41.000Z">
+<meta property="article:modified_time" content="2024-01-22T16:11:20.081Z">
 <meta property="article:author" content="小日月">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2023/11/23/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-css/reflow.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>interview1-css - 小日月的博客</title>
+  <title>字节二面-id2 - 小日月的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +224,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="interview1-css"></span>
+            <span id="subtitle" data-typed-text="字节二面-id2"></span>
           
         </div>
 
@@ -237,8 +235,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-23 23:16" pubdate>
-          2023年11月23日 晚上
+        <time datetime="2024-01-22 22:28" pubdate>
+          2024年1月22日 晚上
         </time>
       </span>
     
@@ -310,83 +308,67 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">interview1-css</h1>
+            <h1 style="display: none">字节二面-id2</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="🍭-面试-css"><a href="#🍭-面试-css" class="headerlink" title="🍭 面试-css"></a>🍭 面试-css</h1><h2 id="1-字节题-1css"><a href="#1-字节题-1css" class="headerlink" title="1. 字节题 1css"></a>1. 字节题 1css</h2><h3 id="1-盒居中"><a href="#1-盒居中" class="headerlink" title="1.盒居中"></a>1.盒居中</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;child&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>居中<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-selector-class">.child</span> &#123;<br>    <span class="hljs-attribute">margin</span>: auto;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="2-padding-与-margin"><a href="#2-padding-与-margin" class="headerlink" title="2.padding 与 margin"></a>2.padding 与 margin</h3><pre><code class="hljs">1.padding作用于元素内容，会撑大元素大小
-
-2.margin作用于元素外部，不会撑大元素大小
-</code></pre>
-<h3 id="3-vw-和百分比"><a href="#3-vw-和百分比" class="headerlink" title="3.vw 和百分比"></a>3.vw 和百分比</h3><pre><code class="hljs">1.vw是相对于视口的宽度
-
-2.百分比会继承父元素的宽度，vw不会
-</code></pre>
-<h3 id="4-行内元素与块级元素"><a href="#4-行内元素与块级元素" class="headerlink" title="4.行内元素与块级元素"></a>4.行内元素与块级元素</h3><pre><code class="hljs">1.行内元素不换行，行内元素不可以设置大小，行内元素大小由内容决定
-
-2.块级元素换行，块级元素可以设置大小，块级元素大小由父元素决定
-</code></pre>
-<h3 id="5-使谷歌浏览器字体（清晰，更小）"><a href="#5-使谷歌浏览器字体（清晰，更小）" class="headerlink" title="5.使谷歌浏览器字体（清晰，更小）"></a>5.使谷歌浏览器字体（清晰，更小）</h3><pre><code class="hljs">1.清晰：-webkit-font-smoothing: antialiased;
-2.更小：-webkit-text-size-adjust: 50%; // scale(0.5)
-</code></pre>
-<h2 id="2-知识点"><a href="#2-知识点" class="headerlink" title="2.知识点"></a>2.知识点</h2><h3 id="2-1-css-盒模型"><a href="#2-1-css-盒模型" class="headerlink" title="2.1 css 盒模型"></a>2.1 css 盒模型</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html">HTML中的每个元素都可以看作一个盒子，<br>这个盒子由元素的内容(content)、内边距(padding)、边框(border)、外边距(margin)组成。<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>盒模型分为两种：标准盒模型和 IE 盒模型。</p>
+                <h1 id="🍭-字节二面-id2"><a href="#🍭-字节二面-id2" class="headerlink" title="🍭 字节二面-id2"></a>🍭 字节二面-id2</h1><h2 id="1、说说-position-的属性，默认为什么属性"><a href="#1、说说-position-的属性，默认为什么属性" class="headerlink" title="1、说说 position 的属性，默认为什么属性"></a>1、说说 position 的属性，默认为什么属性</h2><blockquote>
+<p>CSS position 属性用于指定一个元素在文档中的定位方式。top，right，bottom 和 left 属性则决定了该元素的最终位置。</p>
 </blockquote>
-<p>1.<strong>标准盒模型</strong>：width &#x3D; margin + border + padding + content</p>
-<p>2.<strong>IE 盒模型</strong>：width &#x3D; margin + content(包含 border 和 padding)</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs css">&lt;style&gt;<br>  <span class="hljs-selector-class">.box</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;<br>    <span class="hljs-attribute">border</span>: <span class="hljs-number">10px</span> solid red;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;<br>    <span class="hljs-attribute">box-sizing</span>: border-box; <span class="hljs-comment">/* IE 盒模型 */</span><br>    <span class="hljs-attribute">box-sizing</span>: content-box; <span class="hljs-comment">/* 标准盒模型(默认值) */</span><br>  &#125;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
-
-<h3 id="2-2-css-选择器"><a href="#2-2-css-选择器" class="headerlink" title="2.2 css 选择器"></a>2.2 css 选择器</h3><blockquote>
-<p>css 选择器分为五种：标签选择器、类&#x2F;伪类&#x2F;属性选择器、id 选择器、通配符选择器、行内样式、!important</p>
-</blockquote>
-<p>优先级：!important &gt; 行内样式 &gt; id 选择器 &gt; 类&#x2F;伪类&#x2F;属性选择器 &gt; 标签选择器 &gt; 通配符选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs css">&lt;style&gt;<br>  <span class="hljs-comment">/* 标签选择器 */</span><br>  <span class="hljs-selector-tag">div</span> &#123;<br>  <span class="hljs-attribute">color</span>: red;<br>&#125;<br><span class="hljs-comment">/* 类选择器 */</span><br><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">color</span>: red;<br>&#125;<br><span class="hljs-comment">/* 伪类选择器 */</span><br><span class="hljs-selector-class">.box</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">color</span>: red;<br>&#125;<br><span class="hljs-comment">/* 属性选择器 */</span><br><span class="hljs-selector-class">.box</span><span class="hljs-selector-attr">[type=<span class="hljs-string">&#x27;text&#x27;</span>]</span> &#123;<br>  <span class="hljs-attribute">color</span>: red;<br>&#125;<br><span class="hljs-comment">/* id选择器 */</span><br><span class="hljs-selector-id">#box</span> &#123;<br>  <span class="hljs-attribute">color</span>: red;<br>&#125;<br><span class="hljs-comment">/* 通配符选择器 */</span><br>* &#123;<br>  <span class="hljs-attribute">color</span>: red;<br>&#125;<br><span class="hljs-comment">/* 行内样式 */</span><br>&lt;<span class="hljs-selector-tag">div</span> style=&quot;<span class="hljs-attribute">color</span>: red<span class="hljs-string">&quot;&gt;&lt;/div&gt;</span><br><span class="hljs-string">  /* !important */</span><br><span class="hljs-string">  .box &#123;</span><br><span class="hljs-string">  color: red !important;</span><br><span class="hljs-string">&#125;</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="2-3-隐藏元素的方法"><a href="#2-3-隐藏元素的方法" class="headerlink" title="2.3 隐藏元素的方法"></a>2.3 隐藏元素的方法</h3><blockquote>
-<p>1.display:none 2.visibility:hidden 3.opacity:0 4.position:absolute;left:-9999px 5.transform:scale(0) 6.clip-path:polygon(0 0,0 0,0 0,0 0)</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 1.display:none */</span><br><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">display</span>: none;<br>&#125;<br><span class="hljs-comment">/* 2.visibility:hidden */</span><br><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">visibility</span>: hidden;<br>&#125;<br><span class="hljs-comment">/* 3.opacity:0 */</span><br><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-comment">/* 4.position:absolute;left:-9999px */</span><br><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">left</span>: -<span class="hljs-number">9999px</span>;<br>&#125;<br><span class="hljs-comment">/* 5.transform:scale(0) */</span><br><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0</span>);<br>&#125;<br><span class="hljs-comment">/* 6.clip-path:polygon(0 0,0 0,0 0,0 0) */</span><br><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">clip-path</span>: <span class="hljs-built_in">polygon</span>(<span class="hljs-number">0</span> <span class="hljs-number">0</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="2-4-px-和-rem-的区别"><a href="#2-4-px-和-rem-的区别" class="headerlink" title="2.4 px 和 rem 的区别"></a>2.4 px 和 rem 的区别</h3><blockquote>
-<p>px 是相对长度单位，像素 px 是相对于显示器屏幕分辨率而言的</p>
-</blockquote>
-<blockquote>
-<p>rem 是 CSS3 新增的一个相对单位,rem 相对于根元素 html 的 font-size 大小来计算的</p>
-</blockquote>
-<h3 id="2-5-重绘和重排的区别"><a href="#2-5-重绘和重排的区别" class="headerlink" title="2.5 重绘和重排的区别"></a>2.5 重绘和重排的区别</h3><blockquote>
-<p>重绘 repaint：当盒子的颜色发生改变，那么浏览器将使用保存的位图，只需要对屏幕重新进行绘制，这个过程称为重绘(某些元素的外观被改变)</p>
-</blockquote>
-<blockquote>
-<p>重排(回流)reflow：当盒子的位置、大小以及其他属性发生改变，浏览器需要重新计算元素的几何属性，其他元素的几何属性和位置也会因此受到影响，浏览器会使渲染树中受到影响的部分失效，并重新构造渲染树，这个过程称为重排(重新生成布局，重新排列元素)</p>
-</blockquote>
-<p><strong>重绘不一定会引发重排，重排一定会引发重绘</strong></p>
-<h4 id="浏览器页面渲染过程"><a href="#浏览器页面渲染过程" class="headerlink" title="浏览器页面渲染过程"></a>浏览器页面渲染过程</h4><pre><code class="hljs">1.HTML 被 HTML 解析器解析成 DOM 树；
-2.CSS  被 CSS 解析器解析成 CSSOM 树；
-3.结合 DOM 树和 CSSOM 树，生成一棵渲染树(Render Tree)，这一过程称为 Attachment；
-4.生成布局(flow)，浏览器在屏幕上“画”出渲染树中的所有节点；
-5.将布局绘制(paint)在屏幕上，显示出整个页面。
-</code></pre>
-<img src="/2023/11/23/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-css/reflow.png" srcset="/img/loading.gif" lazyload class title="This is an test image">
-
-<h3 id="2-6-css-哪些属性可以继承，哪些不可以"><a href="#2-6-css-哪些属性可以继承，哪些不可以" class="headerlink" title="2.6 css 哪些属性可以继承，哪些不可以"></a>2.6 css 哪些属性可以继承，哪些不可以</h3><ol>
-<li>字体系列的属性可以继承，如：font-family、font-size、font-weight、font-style 等</li>
-<li>文本系列的属性可以继承，如：text-indent、text-align、line-height、word-spacing、letter-spacing、text-transform、color 等</li>
-<li>元素可见性相关属性可以继承，如：visibility 和 cursor</li>
-<li>表格布局属性可以继承，如：border-collapse</li>
-<li>列表属性可以继承，如：list-style、list-style-type、list-style-position、list-style-image</li>
-<li>元素尺寸相关属性不可以继承，如：width、height、margin、padding、border、top、right、bottom、left、position、overflow、display、float、clear、min-width、min-height、max-width、max-height、z-index、vertical-align</li>
+<h3 id="定位类型"><a href="#定位类型" class="headerlink" title="定位类型"></a>定位类型</h3><ol>
+<li>static(默认)<br>元素不会被定位，会出现在正常的文档流中 <br><br>此时 top, right, bottom, left 和 z-index 属性无效</li>
+<li>relative(相对定位)<br>元素不会脱离文档流，但是会相对于其正常位置进行定位。 <br><br>此时 top, right, bottom, left 和 z-index 属性有效</li>
+<li>absolute(绝对定位)<br>元素会被从文档流中移除，相对于其最近的一个非’static’的父元素进行定位。 <br><br>此时 top, right, bottom, left 和 z-index 属性有效</li>
+<li>sticky(粘性定位)<br>元素根据正常文档流进行定位，然后相对于它的最近滚动祖先和最近块级祖先定位。 <br><br>此时 top, right, bottom, left 和 z-index 属性有效</li>
+<li>fixed(固定定位)<br>元素会被从文档流中移除，相对于浏览器窗口进行定位。 <br><br>此时 top, right, bottom, left 和 z-index 属性有效</li>
 </ol>
-<h3 id="2-7-预处理器"><a href="#2-7-预处理器" class="headerlink" title="2.7 预处理器"></a>2.7 预处理器</h3><p>预处理器添加了一些例如变量、嵌套、混合、导入、函数。</p>
-<blockquote>
-<p>less<br>sass</p>
+<h2 id="2、讲讲盒模型？为什么要分正常盒模型盒怪异盒模型？如果怎么怎么样用什么盒模型（具体忘了）"><a href="#2、讲讲盒模型？为什么要分正常盒模型盒怪异盒模型？如果怎么怎么样用什么盒模型（具体忘了）" class="headerlink" title="2、讲讲盒模型？为什么要分正常盒模型盒怪异盒模型？如果怎么怎么样用什么盒模型（具体忘了）"></a>2、讲讲盒模型？为什么要分正常盒模型盒怪异盒模型？如果怎么怎么样用什么盒模型（具体忘了）</h2><blockquote>
+<p>盒模型是 CSS 中用于描述元素布局的概念，它将每个元素看作一个矩形的盒子，这个盒子由元素的内容(content)、内边距(padding)、边框(border)、外边距(margin)组成。</p>
 </blockquote>
+<h3 id="盒模型有两种主要的表现形式：正常盒模型和怪异盒模型。"><a href="#盒模型有两种主要的表现形式：正常盒模型和怪异盒模型。" class="headerlink" title="盒模型有两种主要的表现形式：正常盒模型和怪异盒模型。"></a>盒模型有两种主要的表现形式：正常盒模型和怪异盒模型。</h3><ol>
+<li>正常盒模型(content-box)：width &#x3D; margin + border + padding + content</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">box-sizing</span>: content-box; <span class="hljs-comment">/* 标准盒模型(默认值)\正常盒模型 */</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>怪异盒模型(border-box): width &#x3D; margin + content(包含 border 和 padding)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">box-sizing</span>: border-box; <span class="hljs-comment">/* IE 盒模型\怪异盒模型 */</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="为什么要分正常盒模型和怪异盒模型："><a href="#为什么要分正常盒模型和怪异盒模型：" class="headerlink" title="为什么要分正常盒模型和怪异盒模型："></a>为什么要分正常盒模型和怪异盒模型：</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html">历史原因导致浏览器在盒模型的实现上存在差异。早期的 Internet Explorer<br>浏览器默认采用怪异盒模型，即 box-sizing:<br>border-box。而其他浏览器默认采用正常盒模型，即 box-sizing:<br>content-box。为了兼容不同浏览器和避免出现布局错误，CSS 盒模型属性 box-sizing<br>被引入，允许开发者选择使用哪一种盒模型。<br></code></pre></td></tr></table></figure>
+
+<h2 id="3、local-Storage-和-cookie-的区别，个人信息保存在哪里？session-storage-呢？"><a href="#3、local-Storage-和-cookie-的区别，个人信息保存在哪里？session-storage-呢？" class="headerlink" title="3、local Storage 和 cookie 的区别，个人信息保存在哪里？session storage 呢？"></a>3、local Storage 和 cookie 的区别，个人信息保存在哪里？session storage 呢？</h2><blockquote>
+<p>local Storage:Web Storage API 的一部分，用于在浏览器中存储键值对的数据。它提供了一个持久化存储解决方案，数据在浏览器关闭后仍然存在</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">setItem</span>(key，value)<span class="hljs-comment">//设置值</span><br><span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(key)<span class="hljs-comment">//获取值</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>cookie:是一种在客户端存储数据的机制，通过浏览器每次请求时将数据发送到服务器。Cookies 存储的数据受限于 4KB，因为每次请求都会携带 Cookies，增大了网络请求的负担。</p>
+</blockquote>
+<blockquote>
+<p>session storage:Web Storage API 的一部分，用于在浏览器中存储键值对的数据。与 localStorage 不同的是，sessionStorage 存储的数据在会话结束时会被清除，关闭浏览器标签或窗口时清除。</p>
+</blockquote>
+<h3 id="共同的点和区别"><a href="#共同的点和区别" class="headerlink" title="共同的点和区别"></a>共同的点和区别</h3><ol>
+<li>共同点<br>都是保存在浏览器端！</li>
+<li>区别</li>
+</ol>
+<ol>
+<li>cookie 数据始终在同源的 http 请求中携带（即使不需要），即 cookie 在浏览器和服务器间来回传递；存储大小限制也不同，cookie 数据不能超过 4k，同时因为每次 http 请求都会携带 cookie，所以 cookie 只适合保存很小的数据，如会话标识。<br><br>sessionStorage 和 localStorage 不会自动把数据发给服务器，仅在本地保存。sessionStorage 和 localStorage 虽然也有存储大小的限制，但比 cookie 大得多，可以达到 5M 或更大。</li>
+<li>数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；<br><br>localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；<br><br>cookie 只在设置的 cookie 过期时间之前一直有效，即使窗口或浏览器关闭。</li>
+<li>作用域不同，sessionStorage 不在不同的浏览器窗口中共享，即使是同一个页面；<br>localStorage 在所有同源窗口中都是共享的；<br><br>cookie 也是在所有同源窗口中都是共享的。</li>
+</ol>
+<h3 id="个人信息保存在哪里？-gt-session"><a href="#个人信息保存在哪里？-gt-session" class="headerlink" title="个人信息保存在哪里？-&gt; session"></a>个人信息保存在哪里？-&gt; session</h3><p>session 是存储服务器端，cookie 是存储在客户端，所以 session 的安全性比 cookie 高。获取 session 里的信息是通过存放在会话 cookie 里的 session id 获取的。而 session 是存放在服务器的内存中里，所以 session 里的数据不断增加会造成服务器的负担，所以会把很重要的信息存储在 session 中，而把一些次要东西存储在客户端的 cookie 里。<br>session 的信息是通过 sessionid 获取的，而 sessionid 是存放在会话 cookie 当中的，当浏览器关闭的时候会话 cookie 消失，所以 sessionid 也就消失了，但是 session 的信息还存在服务器端</p>
+<h2 id="4、讲讲-hooks，useEffect-原理是什么？useCallback-为什么能提高性能渲染？必须要搭配-React-memo-使用吗？useMemo-呢？讲讲项目为什么要用这些钩子？想听听你自己对这些钩子的理解"><a href="#4、讲讲-hooks，useEffect-原理是什么？useCallback-为什么能提高性能渲染？必须要搭配-React-memo-使用吗？useMemo-呢？讲讲项目为什么要用这些钩子？想听听你自己对这些钩子的理解" class="headerlink" title="4、讲讲 hooks，useEffect 原理是什么？useCallback 为什么能提高性能渲染？必须要搭配 React.memo 使用吗？useMemo 呢？讲讲项目为什么要用这些钩子？想听听你自己对这些钩子的理解"></a>4、讲讲 hooks，useEffect 原理是什么？useCallback 为什么能提高性能渲染？必须要搭配 React.memo 使用吗？useMemo 呢？讲讲项目为什么要用这些钩子？想听听你自己对这些钩子的理解</h2><h3 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h3><blockquote>
+<p>useEffect 用于在函数组件中执行副作用操作，例如数据获取、订阅事件、手动操作 DOM 等。它接受两个参数：一个函数和一个依赖数组，用于指定在哪些依赖发生变化时执行副作用。</p>
+</blockquote>
+<ol>
+<li>原理：useEffect 利用了 React 的生命周期钩子，它在组件渲染到屏幕上之后执行</li>
+<li>使用：调用这个函数的时候他的第一个参数必须是一个函数，第二个参数可以不传也可以传递一个数组，当不传递的时候组件当中任何一个数据发生变化的时候 useEffect 这个钩子函数每次都会执行，当传递第二个参数数组的时候，数组中定义状态数据，当状态数据改变的时候再执行。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> &#123;&#125;, [])<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs clean"><br>## <span class="hljs-number">5</span>、项目中用到了 Redux，讲讲 Redux 的原理。Redux 有哪三条原则？必须要用 Redux 吗？别的方法不行吗？useContext+useReducer。那和这个方法有什么区别？<br><br>## <span class="hljs-number">6</span>、讲讲受控组件和非受控组件<br><br>## <span class="hljs-number">7</span>、函数式组件和类组件相比有什么优势？<br><br>## <span class="hljs-number">8</span>、切片上传原理。如果用户上传文件过程中突然退出网页，上传的文件保存在哪里？如何暂停上传？<br><br>## <span class="hljs-number">9</span>、手写：Promise.all()、多叉树的最大深度。用 typescript 定义 node 节点，除了迭代方法还有吗？<br><br>## <span class="hljs-number">10</span>、反问。最快什么时候到岗<br><br>作者：起个响亮的名字\_\_\_<br>链接：https:<span class="hljs-comment">//www.nowcoder.com/feed/main/detail/362f96d5495245379586bcae69ad5fed</span><br>来源：牛客网<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -404,8 +386,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>interview1-css</div>
-      <div>http://example.com/2023/11/23/面试知识点/interview-css/</div>
+      <div>字节二面-id2</div>
+      <div>http://example.com/2024/01/22/面试实战/字节二面-id2/</div>
     </div>
     <div class="license-meta">
       
@@ -417,7 +399,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月23日</div>
+          <div>2024年1月22日</div>
         </div>
       
       
@@ -449,18 +431,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/23/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview2/" title="interview2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">interview2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/28/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%934/" title="JS基础内容总结">
-                        <span class="hidden-mobile">JS基础内容总结</span>
+                      <a href="/2024/01/21/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-js/" title="interview-js">
+                        <span class="hidden-mobile">interview-js</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
