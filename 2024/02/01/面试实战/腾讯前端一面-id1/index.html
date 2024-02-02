@@ -16,11 +16,15 @@
   <meta name="author" content="小日月">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://example.com/archives/2022/09/index.html">
+    <meta name="description" content="🍭 面试-腾讯前端校招一面1. 介绍一下你的项目2. 如何实现身份鉴权3. JWT 如何进行身份鉴权4. JWT 比 sessionid 有什么优势面试官问到这里的时候说看来你准备的挺充分的，我们直接上手写代码吧-_-…… 后面手撕题目：5. 找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况6. 将英文句子中的单词进行翻转7. 场景题：如何设计一个类似多级菜单页面的文件操作系统页面作者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="腾讯前端一面-id1">
+<meta property="og:url" content="http://example.com/2024/02/01/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E8%85%BE%E8%AE%AF%E5%89%8D%E7%AB%AF%E4%B8%80%E9%9D%A2-id1/index.html">
 <meta property="og:site_name" content="小日月的博客">
+<meta property="og:description" content="🍭 面试-腾讯前端校招一面1. 介绍一下你的项目2. 如何实现身份鉴权3. JWT 如何进行身份鉴权4. JWT 比 sessionid 有什么优势面试官问到这里的时候说看来你准备的挺充分的，我们直接上手写代码吧-_-…… 后面手撕题目：5. 找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况6. 将英文句子中的单词进行翻转7. 场景题：如何设计一个类似多级菜单页面的文件操作系统页面作者">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-01T15:46:11.000Z">
+<meta property="article:modified_time" content="2024-02-01T15:48:17.575Z">
 <meta property="article:author" content="小日月">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -28,11 +32,17 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>归档 - 小日月的博客</title>
+  <title>腾讯前端一面-id1 - 小日月的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -97,7 +107,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 90vh;">
+<div class="header-inner" style="height: 80vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -208,15 +218,63 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/fenpao.jpeg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/example1.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="归档"></span>
+            <span id="subtitle" data-typed-text="腾讯前端一面-id1"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-01 23:46" pubdate>
+          2024年2月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          284 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          3 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
 
         
       </div>
@@ -236,76 +294,155 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 17 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/2022/09/28/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%934/" class="list-group-item list-group-item-action">
-      <time>09-28</time>
-      <div class="list-group-item-title">JS基础内容总结</div>
-    </a>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">腾讯前端一面-id1</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="🍭-面试-腾讯前端校招一面"><a href="#🍭-面试-腾讯前端校招一面" class="headerlink" title="🍭 面试-腾讯前端校招一面"></a>🍭 面试-腾讯前端校招一面</h1><h2 id="1-介绍一下你的项目"><a href="#1-介绍一下你的项目" class="headerlink" title="1. 介绍一下你的项目"></a>1. 介绍一下你的项目</h2><h2 id="2-如何实现身份鉴权"><a href="#2-如何实现身份鉴权" class="headerlink" title="2. 如何实现身份鉴权"></a>2. 如何实现身份鉴权</h2><h2 id="3-JWT-如何进行身份鉴权"><a href="#3-JWT-如何进行身份鉴权" class="headerlink" title="3. JWT 如何进行身份鉴权"></a>3. JWT 如何进行身份鉴权</h2><h2 id="4-JWT-比-sessionid-有什么优势"><a href="#4-JWT-比-sessionid-有什么优势" class="headerlink" title="4. JWT 比 sessionid 有什么优势"></a>4. JWT 比 sessionid 有什么优势</h2><p>面试官问到这里的时候说看来你准备的挺充分的，我们直接上手写代码吧-_-……</p>
+<h2 id="后面手撕题目："><a href="#后面手撕题目：" class="headerlink" title="后面手撕题目："></a>后面手撕题目：</h2><h2 id="5-找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况"><a href="#5-找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况" class="headerlink" title="5. 找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况"></a>5. 找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况</h2><h2 id="6-将英文句子中的单词进行翻转"><a href="#6-将英文句子中的单词进行翻转" class="headerlink" title="6. 将英文句子中的单词进行翻转"></a>6. 将英文句子中的单词进行翻转</h2><h2 id="7-场景题：如何设计一个类似多级菜单页面的文件操作系统页面"><a href="#7-场景题：如何设计一个类似多级菜单页面的文件操作系统页面" class="headerlink" title="7. 场景题：如何设计一个类似多级菜单页面的文件操作系统页面"></a>7. 场景题：如何设计一个类似多级菜单页面的文件操作系统页面</h2><p>作者：给我一个 offer 又能怎样<br>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/feed/main/detail/0cb225a2d66747bf8bd00e8c33e966cc">https://www.nowcoder.com/feed/main/detail/0cb225a2d66747bf8bd00e8c33e966cc</a><br>来源：牛客网</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-    
-    <a href="/2022/09/27/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%933/" class="list-group-item list-group-item-action">
-      <time>09-27</time>
-      <div class="list-group-item-title">H5C3知识总结</div>
-    </a>
   
-    
-    <a href="/2022/09/15/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%932/" class="list-group-item list-group-item-action">
-      <time>09-15</time>
-      <div class="list-group-item-title">CSS知识总结</div>
-    </a>
+</div>
+
+
+              
   
-    
-    <a href="/2022/09/14/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%931/" class="list-group-item list-group-item-action">
-      <time>09-14</time>
-      <div class="list-group-item-title">HTML内容总结</div>
-    </a>
-  
-    
-    <a href="/2022/09/13/markdown%E6%80%BB%E7%BB%93/markdown%E8%AF%AD%E6%B3%95/" class="list-group-item list-group-item-action">
-      <time>09-13</time>
-      <div class="list-group-item-title">markdown语法</div>
-    </a>
-  
-    
-    <a href="/2022/09/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="list-group-item list-group-item-action">
-      <time>09-12</time>
-      <div class="list-group-item-title">我的第一篇博客文章</div>
-    </a>
-  
-    
-    <a href="/2022/09/12/hello-world/" class="list-group-item list-group-item-action">
-      <time>09-12</time>
-      <div class="list-group-item-title">Hello World</div>
-    </a>
-  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>腾讯前端一面-id1</div>
+      <div>http://example.com/2024/02/01/面试实战/腾讯前端一面-id1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小日月</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/01/30/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-js-2/" title="interview-js-2">
+                        <span class="hidden-mobile">interview-js-2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
 </div>
 
 
 
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -460,6 +597,99 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
