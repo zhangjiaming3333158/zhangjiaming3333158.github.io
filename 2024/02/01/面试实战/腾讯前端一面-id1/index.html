@@ -16,15 +16,15 @@
   <meta name="author" content="小日月">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🍭 面试-腾讯前端校招一面1. 介绍一下你的项目2. 如何实现身份鉴权3. JWT 如何进行身份鉴权4. JWT 比 sessionid 有什么优势面试官问到这里的时候说看来你准备的挺充分的，我们直接上手写代码吧-_-…… 后面手撕题目：5. 找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况6. 将英文句子中的单词进行翻转7. 场景题：如何设计一个类似多级菜单页面的文件操作系统页面作者">
+    <meta name="description" content="🍭 面试-腾讯前端校招一面1. 介绍一下你的项目2. 如何实现身份鉴权 在信息安全领域是指对于一个声明者所声明的身份权利，对其所声明的真实性进行鉴别确认的过程。在网络安全领域，身份鉴别是指通过某种方式确认用户的身份，以确定用户是否有权访问某个系统或资源。  cookie 服务器通过 Set-Cookie 头将一个唯一的标识符（cookie）发送给客户端，客户端保存在浏览器中。在后续的每个请求中，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="腾讯前端一面-id1">
 <meta property="og:url" content="http://example.com/2024/02/01/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E8%85%BE%E8%AE%AF%E5%89%8D%E7%AB%AF%E4%B8%80%E9%9D%A2-id1/index.html">
 <meta property="og:site_name" content="小日月的博客">
-<meta property="og:description" content="🍭 面试-腾讯前端校招一面1. 介绍一下你的项目2. 如何实现身份鉴权3. JWT 如何进行身份鉴权4. JWT 比 sessionid 有什么优势面试官问到这里的时候说看来你准备的挺充分的，我们直接上手写代码吧-_-…… 后面手撕题目：5. 找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况6. 将英文句子中的单词进行翻转7. 场景题：如何设计一个类似多级菜单页面的文件操作系统页面作者">
+<meta property="og:description" content="🍭 面试-腾讯前端校招一面1. 介绍一下你的项目2. 如何实现身份鉴权 在信息安全领域是指对于一个声明者所声明的身份权利，对其所声明的真实性进行鉴别确认的过程。在网络安全领域，身份鉴别是指通过某种方式确认用户的身份，以确定用户是否有权访问某个系统或资源。  cookie 服务器通过 Set-Cookie 头将一个唯一的标识符（cookie）发送给客户端，客户端保存在浏览器中。在后续的每个请求中，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-01T15:46:11.000Z">
-<meta property="article:modified_time" content="2024-02-01T15:48:17.575Z">
+<meta property="article:modified_time" content="2024-02-02T18:05:45.565Z">
 <meta property="article:author" content="小日月">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -247,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          284 字
+          3k 字
         
       </span>
     
@@ -258,7 +258,7 @@
         
         
         
-          3 分钟
+          26 分钟
         
       </span>
     
@@ -313,7 +313,120 @@
             
               <div class="markdown-body">
                 
-                <h1 id="🍭-面试-腾讯前端校招一面"><a href="#🍭-面试-腾讯前端校招一面" class="headerlink" title="🍭 面试-腾讯前端校招一面"></a>🍭 面试-腾讯前端校招一面</h1><h2 id="1-介绍一下你的项目"><a href="#1-介绍一下你的项目" class="headerlink" title="1. 介绍一下你的项目"></a>1. 介绍一下你的项目</h2><h2 id="2-如何实现身份鉴权"><a href="#2-如何实现身份鉴权" class="headerlink" title="2. 如何实现身份鉴权"></a>2. 如何实现身份鉴权</h2><h2 id="3-JWT-如何进行身份鉴权"><a href="#3-JWT-如何进行身份鉴权" class="headerlink" title="3. JWT 如何进行身份鉴权"></a>3. JWT 如何进行身份鉴权</h2><h2 id="4-JWT-比-sessionid-有什么优势"><a href="#4-JWT-比-sessionid-有什么优势" class="headerlink" title="4. JWT 比 sessionid 有什么优势"></a>4. JWT 比 sessionid 有什么优势</h2><p>面试官问到这里的时候说看来你准备的挺充分的，我们直接上手写代码吧-_-……</p>
+                <h1 id="🍭-面试-腾讯前端校招一面"><a href="#🍭-面试-腾讯前端校招一面" class="headerlink" title="🍭 面试-腾讯前端校招一面"></a>🍭 面试-腾讯前端校招一面</h1><h2 id="1-介绍一下你的项目"><a href="#1-介绍一下你的项目" class="headerlink" title="1. 介绍一下你的项目"></a>1. 介绍一下你的项目</h2><h2 id="2-如何实现身份鉴权"><a href="#2-如何实现身份鉴权" class="headerlink" title="2. 如何实现身份鉴权"></a>2. 如何实现身份鉴权</h2><blockquote>
+<p>在信息安全领域是指对于一个声明者所声明的身份权利，对其所声明的真实性进行鉴别确认的过程。在网络安全领域，身份鉴别是指通过某种方式确认用户的身份，以确定用户是否有权访问某个系统或资源。</p>
+</blockquote>
+<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><blockquote>
+<p>服务器通过 Set-Cookie 头将一个唯一的标识符（cookie）发送给客户端，客户端保存在浏览器中。在后续的每个请求中，浏览器都会自动携带这个 cookie，从而服务器可以识别用户。</p>
+</blockquote>
+<ol>
+<li>流程：<br>用户登录时，服务器生成一个包含用户信息的 Cookie，并返回给浏览器。<br>浏览器保存 Cookie。<br>在后续请求中，浏览器自动携带 Cookie，服务器通过解析 Cookie 中的信息验证用户身份。</li>
+<li>优点：<br>操作简单</li>
+<li>缺点：<br>cookie 缺点：安全性低、容量小、性能低、无法跨域</li>
+</ol>
+<h3 id="session-cookie"><a href="#session-cookie" class="headerlink" title="session+cookie"></a>session+cookie</h3><ol>
+<li>流程：</li>
+</ol>
+<ol>
+<li>用户登录时，服务器生成一个唯一的 Session ID，并将用户信息存储在服务器端的 Session 中。</li>
+<li>服务器返回 Session ID 给浏览器，并设置一个对应的 Cookie。</li>
+<li>浏览器保存 Cookie。在后续请求中，浏览器自动携带 Cookie，服务器通过解析 Cookie 中的 Session ID，并在服务器端查找对应的用户信息来验证用户身份。</li>
+</ol>
+<ol start="2">
+<li><p>优点</p>
+<blockquote>
+<p><strong>session 优点：</strong></p>
+</blockquote>
+<ol>
+<li>安全性较高，客户端拿到的只是 sessionId，没有具体的用户信息</li>
+<li>用户信息保存在服务器进程中，减少了查询数据库的次数</li>
+<li>可以设置 session 的过期时间，不受 cookie 过期时间的影响</li>
+<li>存储的数据类型不受限制</li>
+</ol>
+</li>
+<li><p>缺点：</p>
+</li>
+</ol>
+<ol>
+<li>占用服务器内存资源，用户量很大时，内容消耗不起</li>
+</ol>
+<h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><ol>
+<li>流程：</li>
+</ol>
+<ol>
+<li>用户登录时，服务器将用户信息通过密钥生成令牌（Access Token），并返回给浏览器</li>
+<li>浏览器保存 Token。在后续请求中，浏览器自动携带 Token，服务器通过验证 Token 的签名和有效期来验证用户身份。</li>
+</ol>
+<ol start="2">
+<li><p>优点：</p>
+<blockquote>
+<p><strong>token 优点：</strong></p>
+</blockquote>
+<ol>
+<li>无状态可以减轻服务器压力，减少频繁查询数据库</li>
+<li>没有同源策略的限制，方便第三方平台或者开发时的接口调用</li>
+<li>安全性较高，token 的解密密钥只有服务端知道，即使客户端暴露出来，别人也无法解密</li>
+</ol>
+</li>
+<li><p>缺点：</p>
+</li>
+<li><p>token 过期时间较短，往往需要配合 refresh token 一起使用，refresh token 是在 access token 过期时用来重新获取 token 的</p>
+</li>
+</ol>
+<h3 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h3><blockquote>
+<p>JWT（JSON Web Token）是一种开放标准（RFC 7519），用于在网络上以 JSON 格式安全地传输信息。JWT 可以被用于身份验证（Authentication）和信息传递，通常用于通过网络在用户和服务器之间传递信息，以便在系统之间进行身份验证。</p>
+</blockquote>
+<h4 id="JWT-组成"><a href="#JWT-组成" class="headerlink" title="JWT 组成"></a>JWT 组成</h4><blockquote>
+<p>JWT 由三部分组成，它们通过点号（.）连接在一起：Header.Payload.Signature</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//JWT编码</span><br>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9<br>  .<span class="hljs-property">eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9</span><br>  .<span class="hljs-property">UQmqAUhUrpDVV2ST7mZKyLTomVfg7sYkEjmdDI5XF8Q</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="header-头部"><a href="#header-头部" class="headerlink" title="header(头部)"></a>header(头部)</h5><p>jwt 的头部承载两部分信息：</p>
+<ol>
+<li>声明类型，这里是 jwt</li>
+<li>声明加密的算法 通常直接使用 HMAC SHA256</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  <span class="hljs-string">&#x27;typ&#x27;</span>: <span class="hljs-string">&#x27;JWT&#x27;</span>,<br>  <span class="hljs-string">&#x27;alg&#x27;</span>: <span class="hljs-string">&#x27;HS256&#x27;</span><br>&#125;<br><span class="hljs-comment">//base64编码</span><br>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9<br></code></pre></td></tr></table></figure>
+
+<h5 id="playload-载荷"><a href="#playload-载荷" class="headerlink" title="playload(载荷)"></a>playload(载荷)</h5><p>有效信息包含三个部分</p>
+<ol>
+<li>标准中注册的声明</li>
+<li>公共的声明</li>
+<li>私有的声明</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  <span class="hljs-string">&quot;sub&quot;</span>: <span class="hljs-string">&quot;1234567890&quot;</span>,<br>  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;John Doe&quot;</span>,<br>  <span class="hljs-string">&quot;admin&quot;</span>: <span class="hljs-literal">true</span><br>&#125;<br><span class="hljs-comment">//base64编码</span><br>eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9<br></code></pre></td></tr></table></figure>
+
+<h5 id="signature-签证"><a href="#signature-签证" class="headerlink" title="signature(签证)"></a>signature(签证)</h5><p>签证信息由三部分组成：</p>
+<ol>
+<li>header (base64 后的)</li>
+<li>payload (base64 后的)</li>
+<li>secret</li>
+</ol>
+<p>这个部分需要 base64 加密后的 header 和 base64 加密后的 payload 使用.连接组成的字符串(头部在前)，然后通过 header 中声明的加密方式进行加盐 secret 组合加密，然后就构成了 jwt 的第三部分。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">UQmqAUhUrpDVV</span>2ST7mZKyLTomVfg7sYkEjmdDI5XF8Q<br></code></pre></td></tr></table></figure>
+
+<h4 id="JWT-认证流程"><a href="#JWT-认证流程" class="headerlink" title="JWT 认证流程"></a>JWT 认证流程</h4><ol>
+<li>用户身份验证：<br>用户提供身份信息（例如用户名和密码）进行身份验证。<br>服务器验证用户身份，如果验证通过，生成 JWT。</li>
+<li>生成 JWT：<br>服务器使用用户的信息创建一个包含用户标识的 JWT。<br>JWT 的结构为 Header.Payload.Signature。</li>
+<li>返回 JWT：<br>服务器将生成的 JWT 返回给客户端。</li>
+<li>客户端存储 JWT：<br>客户端通常将收到的 JWT 存储在本地，例如在浏览器的 localStorage、sessionStorage 中，或者在移动应用程序的本地存储中。</li>
+<li>在后续请求中携带 JWT：<br>客户端在后续的请求中携带 JWT，通常通过在请求头中添加 Authorization 字段，值为 Bearer <JWT>。</JWT></li>
+</ol>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs http">http<br>Copy code<br><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/data</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com<br><span class="hljs-attribute">Authorization</span><span class="hljs-punctuation">: </span>Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>服务器验证 JWT：<br>服务器在接收到请求时，从请求头中提取 JWT。<br>服务器使用事先共享的密钥（或公钥，对于使用非对称加密的情况）验证 JWT 的签名，确保令牌的真实性。<br>如果签名验证通过，服务器解析 JWT 中的负载数据，获取用户信息。</li>
+<li>处理请求：<br>服务器根据 JWT 中的用户信息处理请求，进行相应的操作。</li>
+</ol>
+<h2 id="3-JWT-如何进行身份鉴权"><a href="#3-JWT-如何进行身份鉴权" class="headerlink" title="3. JWT 如何进行身份鉴权"></a>3. JWT 如何进行身份鉴权</h2><blockquote>
+<p>见 2 的 JWT 认证流程</p>
+</blockquote>
+<h2 id="4-JWT-比-sessionid-有什么优势"><a href="#4-JWT-比-sessionid-有什么优势" class="headerlink" title="4. JWT 比 sessionid 有什么优势"></a>4. JWT 比 sessionid 有什么优势</h2><ol>
+<li>跨域： JWT 可以更轻松地在不同域之间传递，因为它是一个基于标准的跨域解决方案。在前后端分离的架构中，前端应用通常运行在一个不同的域或子域上，而 JWT 可以通过 HTTP 头或请求参数轻松传递给服务器。</li>
+<li>无状态： JWT 是无状态的，所有需要的信息都包含在 token 本身中。相比之下，Session ID 通常需要在服务端进行存储，从而引入了服务端的状态维护成本。JWT 的无状态性使其更容易在分布式环境中扩展。</li>
+<li>可扩展性： JWT 本身是一个开放标准，支持自定义声明和附加信息。这使得它更具有灵活性和可扩展性，可以适应各种场景的需求。Session ID 则可能需要更多的定制实现。</li>
+</ol>
+<p>面试官问到这里的时候说看来你准备的挺充分的，我们直接上手写代码吧-_-……</p>
 <h2 id="后面手撕题目："><a href="#后面手撕题目：" class="headerlink" title="后面手撕题目："></a>后面手撕题目：</h2><h2 id="5-找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况"><a href="#5-找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况" class="headerlink" title="5. 找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况"></a>5. 找到一句英文句子中最长的单词，这里需要考虑到特殊字符的情况</h2><h2 id="6-将英文句子中的单词进行翻转"><a href="#6-将英文句子中的单词进行翻转" class="headerlink" title="6. 将英文句子中的单词进行翻转"></a>6. 将英文句子中的单词进行翻转</h2><h2 id="7-场景题：如何设计一个类似多级菜单页面的文件操作系统页面"><a href="#7-场景题：如何设计一个类似多级菜单页面的文件操作系统页面" class="headerlink" title="7. 场景题：如何设计一个类似多级菜单页面的文件操作系统页面"></a>7. 场景题：如何设计一个类似多级菜单页面的文件操作系统页面</h2><p>作者：给我一个 offer 又能怎样<br>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/feed/main/detail/0cb225a2d66747bf8bd00e8c33e966cc">https://www.nowcoder.com/feed/main/detail/0cb225a2d66747bf8bd00e8c33e966cc</a><br>来源：牛客网</p>
 
                 
