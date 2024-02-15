@@ -1,0 +1,903 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/wanye.jpg">
+  <link rel="icon" href="/img/wanye.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小日月">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍭 面试-Vue+H5C3-id211. axios 封装和(原理) Axios 是一个基于 Promise 的 HTTP 库，可以用于浏览器和 Node.js 环境中发送 HTTP 请求。  优点 支持 Promise API，可以轻易地执行所有类似于 then() 以及 catch() 方法的异步操作； 具有可取消的请求功能； 可以拦截请求和响应； 支持浏览器和 Node.js。 自动转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="interview-vue+H5C3-id2">
+<meta property="og:url" content="http://example.com/2024/02/16/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-vue-H5C3-id2/index.html">
+<meta property="og:site_name" content="小日月的博客">
+<meta property="og:description" content="🍭 面试-Vue+H5C3-id211. axios 封装和(原理) Axios 是一个基于 Promise 的 HTTP 库，可以用于浏览器和 Node.js 环境中发送 HTTP 请求。  优点 支持 Promise API，可以轻易地执行所有类似于 then() 以及 catch() 方法的异步操作； 具有可取消的请求功能； 可以拦截请求和响应； 支持浏览器和 Node.js。 自动转换">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-15T17:19:33.000Z">
+<meta property="article:modified_time" content="2024-02-15T17:20:34.386Z">
+<meta property="article:author" content="小日月">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>interview-vue+H5C3-id2 - 小日月的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小日月</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/example/">
+                <i class="iconfont icon-image"></i>
+                echarts
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/example1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="interview-vue+H5C3-id2"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-16 01:19" pubdate>
+          2024年2月16日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          74 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">interview-vue+H5C3-id2</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="🍭-面试-Vue-H5C3-id2"><a href="#🍭-面试-Vue-H5C3-id2" class="headerlink" title="🍭 面试-Vue+H5C3-id2"></a>🍭 面试-Vue+H5C3-id2</h1><h2 id="11-axios-封装和-原理"><a href="#11-axios-封装和-原理" class="headerlink" title="11. axios 封装和(原理)"></a>11. axios 封装和(原理)</h2><blockquote>
+<p>Axios 是一个基于 Promise 的 HTTP 库，可以用于浏览器和 Node.js 环境中发送 HTTP 请求。</p>
+</blockquote>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>支持 Promise API，可以轻易地执行所有类似于 then() 以及 catch() 方法的异步操作；</li>
+<li>具有可取消的请求功能；</li>
+<li>可以拦截请求和响应；</li>
+<li>支持浏览器和 Node.js。</li>
+<li>自动转换 JSON 数据、CSRF 保护等功能。</li>
+</ol>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 引入 Axios</span><br><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span><br><br><span class="hljs-comment">// 发送 GET 请求</span><br>axios<br>  .<span class="hljs-title function_">get</span>(<br>    <span class="hljs-string">&#x27;https://jsonplaceholder.typicode.com/posts&#x27;</span>,<br>    &#123;<br>      <span class="hljs-attr">params</span>: &#123;<br>        <span class="hljs-attr">_limit</span>: <span class="hljs-number">5</span>,<br>      &#125;,<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">headers</span>: &#123;<br>        <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>,<br>      &#125;,<br>    &#125;<br>  )<br>  .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>)<br>  &#125;)<br>  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;Error fetching data:&#x27;</span>, error)<br>  &#125;)<br><br><span class="hljs-comment">// 发送 POST 请求</span><br>axios<br>  .<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;https://jsonplaceholder.typicode.com/posts&#x27;</span>, &#123;<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;foo&#x27;</span>,<br>    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;bar&#x27;</span>,<br>    <span class="hljs-attr">userId</span>: <span class="hljs-number">1</span>,<br>  &#125;)<br>  .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>)<br>  &#125;)<br>  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;Error posting data:&#x27;</span>, error)<br>  &#125;)<br><span class="hljs-comment">// PUT\DELETE 请求同理</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><ol>
+<li>封装 axios 实例</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// axiosInstance.js</span><br><br><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span><br><br><span class="hljs-comment">// 创建一个 Axios 实例</span><br><span class="hljs-keyword">const</span> axiosInstance = axios.<span class="hljs-title function_">create</span>(&#123;<br>  <span class="hljs-attr">baseURL</span>: <span class="hljs-string">&#x27;https://jsonplaceholder.typicode.com&#x27;</span>, <span class="hljs-comment">// 设置基础 URL</span><br>  <span class="hljs-attr">timeout</span>: <span class="hljs-number">5000</span>, <span class="hljs-comment">// 设置超时时间</span><br>  <span class="hljs-attr">headers</span>: &#123;<br>    <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>, <span class="hljs-comment">// 设置请求头</span><br>  &#125;,<br>&#125;)<br><br><span class="hljs-comment">// 请求拦截器</span><br>axiosInstance.<span class="hljs-property">interceptors</span>.<span class="hljs-property">request</span>.<span class="hljs-title function_">use</span>(<br>  <span class="hljs-function">(<span class="hljs-params">config</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// 在请求发送之前做一些处理，比如添加 token 等</span><br>    <span class="hljs-keyword">return</span> config<br>  &#125;,<br>  <span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// 对请求错误做些什么</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br>  &#125;<br>)<br><br><span class="hljs-comment">// 响应拦截器</span><br>axiosInstance.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>.<span class="hljs-title function_">use</span>(<br>  <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// 对响应数据做些什么</span><br>    <span class="hljs-keyword">return</span> response<br>  &#125;,<br>  <span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// 对响应错误做些什么</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br>  &#125;<br>)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> axiosInstance<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>二次封装</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// api.js</span><br><br><span class="hljs-keyword">import</span> axiosInstance <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./axiosInstance&#x27;</span><br><br><span class="hljs-comment">// 封装 GET 请求</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">getPosts</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>  <span class="hljs-keyword">return</span> axiosInstance.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/posts&#x27;</span>)<br>&#125;<br><br><span class="hljs-comment">// 封装 POST 请求</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">createPost</span> = (<span class="hljs-params">postData</span>) =&gt; &#123;<br>  <span class="hljs-keyword">return</span> axiosInstance.<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;/posts&#x27;</span>, postData)<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">createDelete</span> = (<span class="hljs-params">ids</span>) =&gt; &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">axiosInstance</span>(&#123;<br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;/member/cart&#x27;</span>,<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;DELETE&#x27;</span>,<br>    <span class="hljs-attr">data</span>: &#123;<br>      ids,<br>    &#125;,<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="axios-的-原理"><a href="#axios-的-原理" class="headerlink" title="axios 的(原理)"></a>axios 的(原理)</h3><blockquote>
+<p>Axios 的底层实现使用了 XMLHttpRequest 对象，它将请求数据包装在一个 Promise 中，并发送网络请求。Axios 还提供了一个拦截器（interceptor），允许在请求或响应被处理前、或者响应被 reject 前截获它们。</p>
+</blockquote>
+<h4 id="Axios-主要使用了以下技术来实现："><a href="#Axios-主要使用了以下技术来实现：" class="headerlink" title="Axios 主要使用了以下技术来实现："></a>Axios 主要使用了以下技术来实现：</h4><ol>
+<li>构造 XMLHttpRequest 对象</li>
+<li>序列化参数</li>
+<li>配置请求信息</li>
+<li>监听 xhr 的变化，包括 XHR 自身状态变化，和 http 响应状态变化</li>
+<li>对响应数据进行处理和解析</li>
+</ol>
+<p>Axios 对 XHR 进行了两层封装，第一层封装屏蔽了 XHR 对象差异，提供了统一的 API；<br><br>第二层封装是基于 Promise 对象，让 HTTP 请求异步执行。<br></p>
+<h2 id="12-vue-路由怎么传参"><a href="#12-vue-路由怎么传参" class="headerlink" title="12. vue 路由怎么传参"></a>12. vue 路由怎么传参</h2><h3 id="vue-几个路由"><a href="#vue-几个路由" class="headerlink" title="vue 几个路由"></a>vue 几个路由</h3><ol>
+<li>route（路由）：<br>route 指的是单个路由对象，它代表着当前路由的状态信息，包括路径、参数、查询参数、路由元信息等。<br>在 Vue Router 中，route 对象由 this.$route 访问，或者在组件内部通过 $route 访问。</li>
+<li>routes（路由配置）：<br>routes 是路由的配置信息，它是一个数组，包含了应用中所有路由的定义。<br>每个路由对象包括了路径、组件、路由元信息等信息。<br>在 Vue Router 中，routes 是在创建路由器时传递给它的一个配置项，用于定义整个应用的路由结构。</li>
+<li>router（路由器）：<br>router 是 Vue Router 的核心实例，它管理着应用中的所有路由信息。<br>router 实例通过创建 Vue 实例时传递给它的 router 配置项创建。<br>router 实例提供了一些重要的方法和属性，如路由导航、路由信息访问等。</li>
+</ol>
+<h3 id="params-传参"><a href="#params-传参" class="headerlink" title="params 传参"></a>params 传参</h3><ol>
+<li>声明式 router-link</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 路由配置</span><br><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123;<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/user/:id&#x27;</span>,<br>      <span class="hljs-attr">component</span>: <span class="hljs-title class_">User</span><br>    &#125;<br>  ]<br>&#125;)<br><br>&lt;router-link :to=<span class="hljs-string">&quot;/user/123&quot;</span>&gt;<span class="hljs-title class_">User</span>&lt;/router-link&gt;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编程式 this.$router.push</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//子路由配置</span><br><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123;<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/user/:id&#x27;</span>,<br>      <span class="hljs-attr">component</span>: <span class="hljs-title class_">User</span>,<br>    &#125;,<br>  ],<br>&#125;)<br><span class="hljs-comment">//父路由编程式传参(一般通过事件触发)</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">push</span>(&#123;<br>  <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/user/$&#123;id&#125;&#x27;</span>,<br>&#125;)<br><span class="hljs-comment">//子路由接收参数</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$route</span>.<span class="hljs-property">params</span>.<span class="hljs-property">id</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="query-传参"><a href="#query-传参" class="headerlink" title="query 传参"></a>query 传参</h3><ol>
+<li>声明式 router-link</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123;<br>      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;User&#x27;</span>,<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/user&#x27;</span>,<br>      <span class="hljs-attr">component</span>: <span class="hljs-title class_">User</span><br>    &#125;<br>  ]<br>&#125;)<br><span class="hljs-comment">//父路由组件</span><br>&lt;router-link :to=<span class="hljs-string">&quot;&#123;name:&#x27;User&#x27;,query:&#123;id:123&#125;&#125;&quot;</span>&gt;进入<span class="hljs-title class_">User</span>路由&lt;/router-link&gt;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编程式 this.$router.push</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123;<br>      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;User&#x27;</span>,<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/user&#x27;</span>,<br>      <span class="hljs-attr">component</span>: <span class="hljs-title class_">User</span>,<br>    &#125;,<br>  ],<br>&#125;)<br><span class="hljs-comment">//父路由组件</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">push</span>(&#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;User&#x27;</span>,<br>  <span class="hljs-attr">query</span>: &#123;<br>    <span class="hljs-attr">id</span>: <span class="hljs-number">123</span>,<br>  &#125;,<br>&#125;)<br><span class="hljs-comment">//子路由组件</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$route</span>.<span class="hljs-property">query</span>.<span class="hljs-property">id</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="13-vue-的-hash-模式和-history-模式的区别"><a href="#13-vue-的-hash-模式和-history-模式的区别" class="headerlink" title="13. vue 的 hash 模式和 history 模式的区别"></a>13. vue 的 hash 模式和 history 模式的区别</h2><ol>
+<li><p>URL 格式不同</p>
+<blockquote>
+<p>hash 模式 url 带#号，history 模式不带#号。</p>
+</blockquote>
+<ul>
+<li>hash 模式：<a target="_blank" rel="noopener" href="http://www.xxx.com/#/user/id">http://www.xxx.com/#/user/id</a></li>
+<li>history 模式：<a target="_blank" rel="noopener" href="http://www.xxx.com/user/id">http://www.xxx.com/user/id</a></li>
+</ul>
+</li>
+<li><p>URL 导航方式不同</p>
+<blockquote>
+<p>Hash 模式使用 URL 的哈希部分来进行路由导航，而 History 模式使用 HTML5 History API。</p>
+</blockquote>
+<ul>
+<li>hash 模式：通过 hashchange 事件监听 URL 的变化</li>
+<li>history 模式：通过 popstate 事件监听 URL 的变化</li>
+</ul>
+</li>
+<li><p>URL 切换时是否会向服务器发送请求</p>
+<blockquote>
+<p>hash 模式不会向服务器发送请求，history 模式会向服务器发送请求。</p>
+</blockquote>
+<ul>
+<li>hash 模式：不会向服务器发送请求</li>
+<li>history 模式：会向服务器发送请求</li>
+</ul>
+</li>
+</ol>
+<h2 id="14-vue-router-的路由拦截"><a href="#14-vue-router-的路由拦截" class="headerlink" title="14. vue-router 的路由拦截"></a>14. vue-router 的路由拦截</h2><h3 id="1-axios-拦截"><a href="#1-axios-拦截" class="headerlink" title="1. axios 拦截"></a>1. axios 拦截</h3><blockquote>
+<p>Axios 提供了 interceptors 属性，它包含了 request 和 response 两个对象，分别用于请求拦截和响应拦截。我们可以通过给这两个对象添加拦截器函数来实现请求和响应的拦截。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span><br><br><span class="hljs-comment">// 添加请求拦截器</span><br>axios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">request</span>.<span class="hljs-title function_">use</span>(<br>  <span class="hljs-keyword">function</span> (<span class="hljs-params">config</span>) &#123;<br>    <span class="hljs-comment">// 在发送请求之前做些什么</span><br>    config.<span class="hljs-property">headers</span>.<span class="hljs-property">Authorization</span> = <span class="hljs-string">&#x27;Bearer &#x27;</span> + <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&#x27;token&#x27;</span>)<br>    <span class="hljs-keyword">return</span> config<br>  &#125;,<br>  <span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) &#123;<br>    <span class="hljs-comment">// 对请求错误做些什么</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br>  &#125;<br>)<br><br><span class="hljs-comment">// 添加响应拦截器</span><br>axios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>.<span class="hljs-title function_">use</span>(<br>  <span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) &#123;<br>    <span class="hljs-comment">// 对响应数据做点什么</span><br>    <span class="hljs-keyword">return</span> response<br>  &#125;,<br>  <span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) &#123;<br>    <span class="hljs-comment">// 对响应错误做点什么</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br>  &#125;<br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-Vue-Router-的-beforeEach-导航守卫："><a href="#2-Vue-Router-的-beforeEach-导航守卫：" class="headerlink" title="2. Vue Router 的 beforeEach 导航守卫："></a>2. Vue Router 的 beforeEach 导航守卫：</h3><blockquote>
+<p>Vue Router 提供了 beforeEach 导航守卫，它可以在路由导航之前执行一些操作，比如检查权限、重定向等。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; createRouter, createWebHistory &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-router&#x27;</span><br><br><span class="hljs-keyword">const</span> router = <span class="hljs-title function_">createRouter</span>(&#123;<br>  <span class="hljs-attr">history</span>: <span class="hljs-title function_">createWebHistory</span>(),<br>  <span class="hljs-attr">routes</span>: [<br>    <span class="hljs-comment">// 路由配置</span><br>  ],<br>&#125;)<br><br>router.<span class="hljs-title function_">beforeEach</span>(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>) =&gt;</span> &#123;<br>  <span class="hljs-comment">// 在路由导航之前执行的操作</span><br>  <span class="hljs-keyword">const</span> isAuthenticated = <span class="hljs-title function_">checkAuth</span>() <span class="hljs-comment">// 检查用户是否登录</span><br>  <span class="hljs-keyword">if</span> (to.<span class="hljs-property">meta</span>.<span class="hljs-property">requiresAuth</span> &amp;&amp; !isAuthenticated) &#123;<br>    <span class="hljs-title function_">next</span>(<span class="hljs-string">&#x27;/login&#x27;</span>) <span class="hljs-comment">// 如果需要登录权限而用户未登录，则重定向到登录页</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-title function_">next</span>() <span class="hljs-comment">// 否则放行</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h2 id="15-vue-的动态路由"><a href="#15-vue-的动态路由" class="headerlink" title="15. vue 的动态路由()"></a>15. vue 的动态路由()</h2><blockquote>
+<p>Vue Router 中的动态路由是指在路由路径中包含参数，这些参数的值是动态变化的，而不是固定的字符串。通过动态路由，我们可以实现根据不同的参数值加载不同的路由组件，从而实现更灵活的路由配置和页面展示。</p>
+</blockquote>
+<h2 id="16-解决刷新后二次加载路由的问题"><a href="#16-解决刷新后二次加载路由的问题" class="headerlink" title="16. 解决刷新后二次加载路由的问题"></a>16. 解决刷新后二次加载路由的问题</h2><h3 id="1-使用-history-模式"><a href="#1-使用-history-模式" class="headerlink" title="1. 使用 history 模式"></a>1. 使用 history 模式</h3><blockquote>
+<p>在 History 模式下，浏览器会认为每次路径变化都是向服务器请求新的资源，因此在刷新页面时会向服务器发送请求</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;history&#x27;</span>,<br>  <span class="hljs-attr">routes</span>: [...]<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-window-location-reload"><a href="#2-window-location-reload" class="headerlink" title="2. window.location.reload()"></a>2. window.location.reload()</h3><p>window.location.reload() 是用于在浏览器中刷新当前页面的 JavaScript 方法。当这个方法被调用时，浏览器会完全重新加载当前页面，可能会导致所有客户端 JavaScript 变量和 DOM 都被重置。</p>
+<h3 id="3-matcher"><a href="#3-matcher" class="headerlink" title="3. matcher"></a>3. matcher</h3><blockquote>
+<p>在 Vue Router 中，matcher 是一个用于匹配路由的对象，它包含了路由的配置信息，以及一些用于匹配路由的方法。我们可以通过调用 matcher 的 addRoutes 方法来动态添加路由配置，从而实现动态路由的加载。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> router = <span class="hljs-title function_">createRouter</span>()<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">resetRouter</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> newRouter = <span class="hljs-title function_">createRouter</span>()<br>  router.<span class="hljs-property">matcher</span> = newRouter.<span class="hljs-property">matcher</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="17-vue-中-computed-和-watch-的区别"><a href="#17-vue-中-computed-和-watch-的区别" class="headerlink" title="17. vue 中 computed 和 watch 的区别"></a>17. vue 中 computed 和 watch 的区别</h2><ol>
+<li><p>computed</p>
+<blockquote>
+<p>computed 是计算属性，它的值是由计算得来的，它依赖于其他属性的值，并且当依赖的属性值发生变化时，它会重新计算得到新的值。</p>
+</blockquote>
+<ul>
+<li>computed 支持缓存，不支持异步</li>
+<li>computed 第一次调用时会执行一次，之后只有在依赖的属性发生变化时才会重新计算</li>
+</ul>
+</li>
+<li><p>watch</p>
+<blockquote>
+<p>watch 是一个监听器，它用于监听某个属性的变化，当属性的值发生变化时，它会执行相应的回调函数。</p>
+</blockquote>
+<ul>
+<li>watch 支持异步，不支持缓存</li>
+<li>watch 监听的属性发生变化时，会执行回调函数</li>
+<li>watch 监听多个属性时，可以通过 immediate 选项来指定是否在组件创建时立即执行回调函数</li>
+</ul>
+</li>
+</ol>
+<h2 id="18-vue-数据的双向绑定原理"><a href="#18-vue-数据的双向绑定原理" class="headerlink" title="18. vue 数据的双向绑定原理"></a>18. vue 数据的双向绑定原理</h2><blockquote>
+<p>Vue 数据双向绑定原理是通过 数据劫持 + 发布者-订阅者模式 的方式来实现的，首先是通过 ES5 提供的 Object.defineProperty() 方法来劫持（监听）各属性的 getter、setter，并在当监听的属性发生变动时通知订阅者，是否需要更新，若更新就会执行对应的更新函数。</p>
+</blockquote>
+<h3 id="Vue-中的双向绑定流程是什么的"><a href="#Vue-中的双向绑定流程是什么的" class="headerlink" title="Vue 中的双向绑定流程是什么的"></a>Vue 中的双向绑定流程是什么的</h3><ol>
+<li>new Vue()首先执行初始化，对 data 执行响应化处理，这个过程发生 Observe 中</li>
+<li>同时对模板执行编译，找到其中动态绑定的数据，从 data 中获取并初始化视图，这个过程发生在 Compile 中</li>
+<li>同时定义⼀个更新函数和 Watcher，将来对应数据变化时 Watcher 会调用更新函数</li>
+<li>由于 data 的某个 key 在⼀个视图中可能出现多次，所以每个 key 都需要⼀个管家 Dep 来管理多个 Watcher</li>
+<li>将来 data 中数据⼀旦发生变化，会首先找到对应的 Dep，通知所有 Watcher 执行更新函数</li>
+</ol>
+
+
+<h3 id="Vue-中的双向绑定原理"><a href="#Vue-中的双向绑定原理" class="headerlink" title="Vue 中的双向绑定原理"></a>Vue 中的双向绑定原理</h3><ol>
+<li>先来一个构造函数：执行初始化，对 data 执行响应化处理\对 data 选项执行响应化具体操作</li>
+<li>编译 Compile<br>对每个元素节点的指令进行扫描跟解析,根据指令模板替换数据,以及绑定相应的更新函数</li>
+<li>依赖收集<br>视图中会用到 data 中某 key，这称为依赖。同⼀个 key 可能出现多次，每次都需要收集出来用⼀个 Watcher 来维护它们，此过程称为依赖收集多个 Watcher 需要⼀个 Dep 来管理，需要更新时由 Dep 统⼀通知<ol>
+<li>实现思路</li>
+</ol>
+<ul>
+<li>defineReactive 时为每⼀个 key 创建⼀个 Dep 实例</li>
+<li>初始化视图时读取某个 key，例如 name1，创建⼀个 watcher1</li>
+<li>由于触发 name1 的 getter 方法，便将 watcher1 添加到 name1 对应的 Dep 中</li>
+<li>当 name1 更新，setter 触发时，便可通过对应 Dep 通知其管理所有 Watcher 更新</li>
+</ul>
+</li>
+</ol>
+<h2 id="19-vuex-响应式处理"><a href="#19-vuex-响应式处理" class="headerlink" title="19. vuex 响应式处理"></a>19. vuex 响应式处理</h2><blockquote>
+<p>我们在 Vuex 中修改状态时，需要使用 commit 方法来触发对应的 mutations，而 mutations 中的函数会被同步地调用来修改状态。由于 Vue 的响应式系统会监听状态的变化，一旦状态发生改变，依赖于该状态的组件就会自动更新。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// main.js</span><br><br><span class="hljs-keyword">import</span> &#123; createApp &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-keyword">import</span> &#123; createPinia &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;pinia&#x27;</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">App</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App.vue&#x27;</span><br><br><span class="hljs-keyword">const</span> app = <span class="hljs-title function_">createApp</span>(<span class="hljs-title class_">App</span>)<br><span class="hljs-keyword">const</span> pinia = <span class="hljs-title function_">createPinia</span>()<br><br>app.<span class="hljs-title function_">use</span>(pinia)<br>app.<span class="hljs-title function_">mount</span>(<span class="hljs-string">&#x27;#app&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// store/index.js</span><br><br><span class="hljs-keyword">import</span> &#123; defineStore &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;pinia&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounterStore = <span class="hljs-title function_">defineStore</span>(&#123;<br>  <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;counter&#x27;</span>,<br>  <span class="hljs-attr">state</span>: <span class="hljs-function">() =&gt;</span> (&#123;<br>    <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>,<br>  &#125;),<br>  <span class="hljs-attr">actions</span>: &#123;<br>    <span class="hljs-keyword">async</span> <span class="hljs-title function_">asyncIncrement</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> <span class="hljs-built_in">setTimeout</span>(resolve, <span class="hljs-number">1000</span>))<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">increment</span>()<br>    &#125;,<br>  &#125;,<br>  <span class="hljs-attr">getters</span>: &#123;<br>    <span class="hljs-title function_">doubleCount</span>(<span class="hljs-params">state</span>) &#123;<br>      <span class="hljs-keyword">return</span> state.<span class="hljs-property">count</span> * <span class="hljs-number">2</span><br>    &#125;,<br>  &#125;,<br>  <span class="hljs-attr">mutations</span>: &#123;<br>    <span class="hljs-title function_">increment</span>(<span class="hljs-params">state</span>) &#123;<br>      state.<span class="hljs-property">count</span>++<br>    &#125;,<br>    <span class="hljs-title function_">decrement</span>(<span class="hljs-params">state</span>) &#123;<br>      state.<span class="hljs-property">count</span>--<br>    &#125;,<br>  &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Counter.vue --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Count: &#123;&#123; count &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Double Count: &#123;&#123; doubleCount &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;increment&quot;</span>&gt;</span>Increment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;asyncIncrement&quot;</span>&gt;</span>Async Increment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">setup</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-keyword">import</span> &#123; useCounterStore &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/store&#x27;</span></span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> store = <span class="hljs-title function_">useCounterStore</span>()</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> count = store.<span class="hljs-property">count</span></span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> doubleCount = store.<span class="hljs-property">doubleCount</span></span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> increment = store.<span class="hljs-property">increment</span></span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> asyncIncrement = store.<span class="hljs-property">asyncIncrement</span></span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="20-搭建-vue-脚手架"><a href="#20-搭建-vue-脚手架" class="headerlink" title="20.搭建 vue 脚手架"></a>20.搭建 vue 脚手架</h2><h3 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h3><ol>
+<li>安装 node</li>
+<li>安装 vue-cli</li>
+<li>vue create 项目名</li>
+<li>选择配置</li>
+<li>cd 项目名</li>
+<li>npm run serve</li>
+</ol>
+<h3 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h3><ol>
+<li>安装 node</li>
+<li>npm init vite@latest 项目名</li>
+<li>选择配置</li>
+<li>cd 项目名</li>
+<li>npm install</li>
+<li>npm run dev</li>
+</ol>
+<h3 id="https-juejin-cn-post-7099381863101235213"><a href="#https-juejin-cn-post-7099381863101235213" class="headerlink" title="https://juejin.cn/post/7099381863101235213"></a><strong><a target="_blank" rel="noopener" href="https://juejin.cn/post/7099381863101235213">https://juejin.cn/post/7099381863101235213</a></strong></h3><ol>
+<li>安装启动 vite</li>
+<li>修改 vite.config.js</li>
+<li>安装 vue-router</li>
+<li>集成 Stylus&#x2F;Sass&#x2F;Less</li>
+<li>集成 element-plus</li>
+<li>集成封装 axios</li>
+<li>安装 pinia</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>interview-vue+H5C3-id2</div>
+      <div>http://example.com/2024/02/16/面试知识点/interview-vue-H5C3-id2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小日月</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/04/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E8%85%BE%E8%AE%AF%E5%BE%AE%E4%BF%A1%E4%B8%80%E9%9D%A2-id2/" title="腾讯微信一面-id2">
+                        <span class="hidden-mobile">腾讯微信一面-id2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+
+
+        <!-- 添加网站运行时间 -->
+        <div class="footer-content">
+          <div>
+            <span id="timeDate">载入天数...</span>
+            <span id="times">载入时分秒...</span>
+            <script>
+              var now = new Date();
+              function createtime() {
+                var grt = new Date("04/03/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24;
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                hnum = Math.floor(hours);
+                if (String(hnum).length == 1) {
+                  hnum = "0" + hnum;
+                }
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if (String(mnum).length == 1) {
+                  mnum = "0" + mnum;
+                }
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if (String(snum).length == 1) {
+                  snum = "0" + snum;
+                }
+                document.getElementById("timeDate").innerHTML = "🚀 &nbsp" + dnum + "&nbsp天";  //此次自定义显示内容
+                document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+              }  //此次自定义显示内容
+              setInterval("createtime()", 250);
+            </script>
+          </div>
+        </div>
+
+
+    </div>
+    
+      
+        <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+          
+            
+                  
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
