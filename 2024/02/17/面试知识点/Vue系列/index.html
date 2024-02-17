@@ -1,0 +1,908 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/wanye.jpg">
+  <link rel="icon" href="/img/wanye.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小日月">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍭 Vue 系列1. 什么是 Vue Vue.js 是一个用于创建用户界面的开源 JavaScript 框架，也是一个创建单页应用的 Web 应用框架.  Vue 特点 数据驱动&#x2F;响应式数据绑定，双向数据绑定  它采用了 MVVM （Model-View-ViewModel）的架构模式，将数据模型（Model）与视图（View）进行关联，并通过 ViewModel 来管理这种关联。当数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue系列">
+<meta property="og:url" content="http://example.com/2024/02/17/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/Vue%E7%B3%BB%E5%88%97/index.html">
+<meta property="og:site_name" content="小日月的博客">
+<meta property="og:description" content="🍭 Vue 系列1. 什么是 Vue Vue.js 是一个用于创建用户界面的开源 JavaScript 框架，也是一个创建单页应用的 Web 应用框架.  Vue 特点 数据驱动&#x2F;响应式数据绑定，双向数据绑定  它采用了 MVVM （Model-View-ViewModel）的架构模式，将数据模型（Model）与视图（View）进行关联，并通过 ViewModel 来管理这种关联。当数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/02/17/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/Vue%E7%B3%BB%E5%88%97/lifecycle.png">
+<meta property="article:published_time" content="2024-02-17T13:32:58.000Z">
+<meta property="article:modified_time" content="2024-02-17T17:04:54.727Z">
+<meta property="article:author" content="小日月">
+<meta property="article:tag" content="Vue系列-1">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2024/02/17/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/Vue%E7%B3%BB%E5%88%97/lifecycle.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Vue系列 - 小日月的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小日月</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/example/">
+                <i class="iconfont icon-image"></i>
+                echarts
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/example1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Vue系列"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-17 21:32" pubdate>
+          2024年2月17日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          54 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Vue系列</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="🍭-Vue-系列"><a href="#🍭-Vue-系列" class="headerlink" title="🍭 Vue 系列"></a>🍭 Vue 系列</h1><h2 id="1-什么是-Vue"><a href="#1-什么是-Vue" class="headerlink" title="1. 什么是 Vue"></a>1. 什么是 Vue</h2><blockquote>
+<p>Vue.js 是一个用于创建用户界面的开源 JavaScript 框架，也是一个创建单页应用的 Web 应用框架.</p>
+</blockquote>
+<h3 id="Vue-特点"><a href="#Vue-特点" class="headerlink" title="Vue 特点"></a>Vue 特点</h3><ol>
+<li><p><strong>数据驱动&#x2F;响应式数据绑定，双向数据绑定</strong></p>
+<ol>
+<li>它采用了 MVVM （Model-View-ViewModel）的架构模式，将数据模型（Model）与视图（View）进行关联，并通过 ViewModel 来管理这种关联。<br><br>当数据发生变化时，Vue.js 将负责更新视图，从而实现了数据驱动视图的更新<br><br>这使得开发者可以专注于数据逻辑，而不必直接操作 DOM。<br>
+通过双向数据绑定，Vue.js 不仅可以将数据变化反映到视图上，还可以将视图中用户的操作反馈到数据模型中，使得数据模型与视图之间可以双向同步。</li>
+</ol>
+</li>
+<li><p><strong>组件化</strong></p>
+<blockquote>
+<p>Vue 允许将页面拆分成独立的组件(在 Vue 中每一个.vue 文件都可以视为一个组件)，每个组件有自己的逻辑、模板和样式，提高了代码的可维护性和复用性。</p>
+</blockquote>
+</li>
+<li><p><strong>指令系统</strong></p>
+<blockquote>
+<p>指令 (Directives) Vue 提供了丰富的指令来操作 DOM，例如 v-if、v-for、v-bind 等，使得开发者能够简洁地处理 DOM 元素的显示和隐藏、循环渲染、属性绑定等操作</p>
+</blockquote>
+</li>
+<li><p><strong>虚拟 DOM</strong></p>
+<blockquote>
+<p>Vue 使用虚拟 DOM 来高效地渲染页面，通过比较虚拟 DOM 和真实 DOM 的差异，最小化了 DOM 操作，提升了性能。</p>
+</blockquote>
+</li>
+<li><p><strong>生命周期钩子</strong></p>
+<blockquote>
+<p>Vue 组件具有多个生命周期钩子，例如 created、mounted、updated、destroyed 等，在不同阶段执行相应的逻辑，方便开发者进行资源的初始化和清理。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="2-SPA-单页应用-single-page-application"><a href="#2-SPA-单页应用-single-page-application" class="headerlink" title="2. SPA 单页应用(single-page application)"></a>2. SPA 单页应用(single-page application)</h2><blockquote>
+<p>基于 Web 的应用程序架构模式，它通过动态地更新当前页面而不是加载整个新页面来实现用户与应用程序的交互.所有必要的代码（HTML、JavaScript 和 CSS）都通过单个页面的加载而检索，或者根据需要（通常是为响应用户操作）动态装载适当的资源并添加到页面页面在任何时间点都不会重新加载整个页面。</p>
+</blockquote>
+<h3 id="SPA-优点-x2F-缺点"><a href="#SPA-优点-x2F-缺点" class="headerlink" title="SPA 优点&#x2F;缺点"></a>SPA 优点&#x2F;缺点</h3><ol>
+<li><p>优点：</p>
+<ol>
+<li>良好的用户体验：SPA 提供了更加流畅、快速的用户体验，因为页面切换时不需要重新加载整个页面，只需要更新部分内容。</li>
+<li>前后端分离：SPA 的前端和后端可以完全分离，前端负责 UI 和交互逻辑，后端负责数据处理和业务逻辑，使得团队可以更好地分工合作。</li>
+<li>减少服务器负担：由于页面不需要每次都从服务器重新加载，因此可以减少服务器的负担，降低网络流量。</li>
+<li>更好的代码组织：SPA 通常采用模块化的开发方式，使得代码更易于维护和管理。</li>
+</ol>
+</li>
+<li><p>缺点：</p>
+<ol>
+<li>首次加载慢：由于初始页面需要加载所有必要资源，因此首次加载可能会比较慢，尤其是对于较大型的应用程序。</li>
+<li>SEO 难度较大：由于大部分内容是通过 JavaScript 动态生成的，搜索引擎的爬虫可能无法正确地解析和索引页面内容，影响 SEO。</li>
+<li>内存占用较高：由于页面不会重新加载，因此可能会导致内存占用较高，尤其是在长时间使用应用程序后。</li>
+</ol>
+</li>
+</ol>
+<h3 id="SPA-的原理和实现"><a href="#SPA-的原理和实现" class="headerlink" title="SPA 的原理和实现"></a>SPA 的原理和实现</h3><ol>
+<li><p>原理：</p>
+<ol>
+<li>通过监听 URL 的变化，使用 History API 或者 hashchange 事件，来实现页面的切换。</li>
+<li>通过 Ajax 请求获取数据，然后使用 JavaScript 更新页面内容。</li>
+</ol>
+</li>
+<li><p>实现：</p>
+</li>
+</ol>
+<ol>
+<li><p>hash 模式：通过监听 hashchange 事件，来实现页面的切换。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 定义 Router</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Router</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span> = &#123;&#125; <span class="hljs-comment">// 存放路由path及callback</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">currentUrl</span> = <span class="hljs-string">&#x27;&#x27;</span><br><br>    <span class="hljs-comment">// 监听路由change调用相对应的路由回调</span><br>    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;load&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">refresh</span>, <span class="hljs-literal">false</span>)<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;hashchange&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">refresh</span>, <span class="hljs-literal">false</span>)<br>  &#125;<br><br>  <span class="hljs-title function_">route</span>(<span class="hljs-params">path, callback</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span>[path] = callback<br>  &#125;<br><br>  <span class="hljs-title function_">push</span>(<span class="hljs-params">path</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span>[path] &amp;&amp; <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span>[path]()<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// 使用 router</span><br><span class="hljs-variable language_">window</span>.<span class="hljs-property">miniRouter</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Router</span>()<br>miniRouter.<span class="hljs-title function_">route</span>(<span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;page1&#x27;</span>))<br>miniRouter.<span class="hljs-title function_">route</span>(<span class="hljs-string">&#x27;/page2&#x27;</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;page2&#x27;</span>))<br><br>miniRouter.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;/&#x27;</span>) <span class="hljs-comment">// page1</span><br>miniRouter.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;/page2&#x27;</span>) <span class="hljs-comment">// page2</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>history 模式：通过监听 popstate 事件，来实现页面的切换。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 定义 Router</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Router</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span> = &#123;&#125;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">listerPopState</span>()<br>  &#125;<br><br>  <span class="hljs-title function_">init</span>(<span class="hljs-params">path</span>) &#123;<br>    history.<span class="hljs-title function_">replaceState</span>(&#123; <span class="hljs-attr">path</span>: path &#125;, <span class="hljs-literal">null</span>, path)<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span>[path] &amp;&amp; <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span>[path]()<br>  &#125;<br><br>  <span class="hljs-title function_">route</span>(<span class="hljs-params">path, callback</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span>[path] = callback<br>  &#125;<br><br>  <span class="hljs-title function_">push</span>(<span class="hljs-params">path</span>) &#123;<br>    history.<span class="hljs-title function_">pushState</span>(&#123; <span class="hljs-attr">path</span>: path &#125;, <span class="hljs-literal">null</span>, path)<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span>[path] &amp;&amp; <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span>[path]()<br>  &#125;<br><br>  <span class="hljs-title function_">listerPopState</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;popstate&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> path = e.<span class="hljs-property">state</span> &amp;&amp; e.<span class="hljs-property">state</span>.<span class="hljs-property">path</span><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">routers</span>[path] &amp;&amp; <span class="hljs-variable language_">this</span>.<span class="hljs-property">routers</span>[path]()<br>    &#125;)<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// 使用 Router</span><br><br><span class="hljs-variable language_">window</span>.<span class="hljs-property">miniRouter</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Router</span>()<br>miniRouter.<span class="hljs-title function_">route</span>(<span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;page1&#x27;</span>))<br>miniRouter.<span class="hljs-title function_">route</span>(<span class="hljs-string">&#x27;/page2&#x27;</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;page2&#x27;</span>))<br><br><span class="hljs-comment">// 跳转</span><br>miniRouter.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;/page2&#x27;</span>) <span class="hljs-comment">// page2</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="3-v-if-和-v-show-区别"><a href="#3-v-if-和-v-show-区别" class="headerlink" title="3. v-if 和 v-show 区别"></a>3. v-if 和 v-show 区别</h2><h3 id="共同点：控制元素在页面是否显示"><a href="#共同点：控制元素在页面是否显示" class="headerlink" title="共同点：控制元素在页面是否显示"></a>共同点：控制元素在页面是否显示</h3><h3 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h3><ol>
+<li><p>控制和编译：<br><br>v-show 只是简单的基于 css 切换、隐藏则是为该元素添加 css–display:none，dom 元素依旧还在。<br><br>v-if 显示隐藏是将 dom 元素整个添加或删除，v-if 切换有一个局部编译&#x2F;卸载的过程，切换过程中合适地销毁和重建内部的事件监听和子组件；</p>
+</li>
+<li><p>生命周期：<br><br>v-show 由 false 变为 true 的时候不会触发组件的生命周期<br><br>v-if 由 false 变为 true 的时候，触发组件的 beforeCreate、create、beforeMount、mounted 钩子，由 true 变为 false 的时候触发组件的 beforeDestory、destoryed 方法</p>
+</li>
+<li><p>性能消耗：v-if 有更高的切换消耗；v-show 有更高的初始渲染消耗；</p>
+</li>
+</ol>
+<h2 id="4-Vue-实例挂载的过程"><a href="#4-Vue-实例挂载的过程" class="headerlink" title="4. Vue 实例挂载的过程"></a>4. Vue 实例挂载的过程</h2><ol>
+<li>new Vue 的时候调用会调用_init 方法</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Vue</span>(<span class="hljs-params">options</span>) &#123;<br>  <span class="hljs-keyword">if</span> (process.<span class="hljs-property">env</span>.<span class="hljs-property">NODE_ENV</span> !== <span class="hljs-string">&#x27;production&#x27;</span> &amp;&amp; !(<span class="hljs-variable language_">this</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Vue</span>)) &#123;<br>    <span class="hljs-title function_">warn</span>(<span class="hljs-string">&#x27;Vue is a constructor and should be called with the `new` keyword&#x27;</span>)<br>  &#125;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">_init</span>(options)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>首先可以看 initMixin 方法，发现该方法在 Vue 原型上定义了_init 方法</p>
+</blockquote>
+<p>在 init() 中 会通过 callHook(vm,beforeCreate) 来执行 beforeCreate 生命周期函数然后通过 initState（vm） 初始化 props 、 methods 、data<br>接着会通过 callHook(vm, ‘created’) 来执行 created 生命周期函数 最后通过 vm.$mount(vm.$options.el) 来挂载元素</p>
+<blockquote>
+<p>在 initState 中会先通过 initProps 、 initMethods 、 initData 先后分别来初始化 相关数据 在这里会 初始化组件的 watcher 列表</p>
+</blockquote>
+<blockquote>
+<p>initData 中会通过 observe(data, true) 来劫持 data 的所有属性，如果监听到数据变化就通知订阅者 watcher 来更新数据，以此来实现数据双向绑定 ，这就是 vue 实现数据响应式的 发布订阅者模式</p>
+</blockquote>
+<p>初始化 data 数据的时候 会校验 props 中变量名称和 data 中的不能重复，在这里会通过 observe 劫持 data 的所有属性，如果监听到数据变化就通知订阅者 watcher 来更新数据，以此来实现数据双向绑定 ，这就是 vue 实现数据响应式的 发布订阅者模式</p>
+<ul>
+<li>定义 $set、$get 、$delete、$watch 等方法</li>
+<li>定义 $on、$off、$emit、$off 等事件</li>
+<li>定义 _update、$forceUpdate、$destroy 生命周期</li>
+</ul>
+<ol start="2">
+<li><p>调用$mount 进行页面的挂载<br><br> 在调用vm.$mount 方法时 会将 template 解析为 抽象语法树 (ast tree) 再将抽象语法树 转换成 render 语法字符串 最终生成 render 方法 挂载到 vm 上后，会再次调用 mount 方法</p>
+</li>
+<li><p>挂载的时候主要是通过 mountComponent 方法<br><br>此时会触发 beforeMount 钩子函数 ，定义 updateComponent 来渲染页面视图的方法，监听组件数据，一旦发生变化，触发 beforeUpdate 生命钩子 最后执行 callHook(vm, ‘mounted’) 钩子函数 完成挂载</p>
+</li>
+<li><p>定义 updateComponent 更新函数<br><br>updateComponent 方法主要执行在 vue 初始化时声明的 render，update 方法</p>
+</li>
+<li><p>执行 render 生成虚拟 DOM</p>
+</li>
+<li><p>_update 将虚拟 DOM 生成真实 DOM 结构，并且渲染到页面中</p>
+</li>
+</ol>
+<h2 id="5-请描述下你对-vue-生命周期的理解"><a href="#5-请描述下你对-vue-生命周期的理解" class="headerlink" title="5. 请描述下你对 vue 生命周期的理解"></a>5. 请描述下你对 vue 生命周期的理解</h2><blockquote>
+<p>Vue 生命周期总共可以分为 8 个阶段：创建前后, 载入前后,更新前后,销毁前销毁后，以及一些特殊场景的生命周期(activated:keep-alive 缓存的组件激活时<br>deactivated:keep-alive 缓存的组件停用时调用)</p>
+<img src="/2024/02/17/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/Vue%E7%B3%BB%E5%88%97/lifecycle.png" srcset="/img/loading.gif" lazyload class>
+</blockquote>
+<ol>
+<li>beforeCreate -&gt; created<br>初始化 vue 实例，进行数据观测</li>
+<li>created<br>完成数据观测，属性与方法的运算，watch、event 事件回调的配置<br>可调用 methods 中的方法，访问和修改 data 数据触发响应式渲染 dom，可通过 computed 和 watch 完成数据计算<br>此时 vm.$el 并没有被创建</li>
+<li>created -&gt; beforeMount<br>判断是否存在 el 选项，若不存在则停止编译，直到调用 vm.$mount(el)才会继续编译<br>优先级：render &gt; template &gt; outerHTML<br>vm.el 获取到的是挂载 DOM 的</li>
+<li>beforeMount<br>在此阶段可获取到 vm.el<br>此阶段 vm.el 虽已完成 DOM 初始化，但并未挂载在 el 选项上</li>
+<li>beforeMount -&gt; mounted<br>此阶段 vm.el 完成挂载，vm.$el 生成的 DOM 替换了 el 选项所对应的 DOM</li>
+<li>mounted<br>vm.el 已完成 DOM 的挂载与渲染，此刻打印 vm.$el，发现之前的挂载点及内容已被替换成新的 DOM</li>
+<li>beforeUpdate<br>更新的数据必须是被渲染在模板上的（el、template、render 之一）<br>此时 view 层还未更新<br>若在 beforeUpdate 中再次修改数据，不会再次触发更新方法</li>
+<li>updated<br>完成 view 层的更新<br>若在 updated 中再次修改数据，会再次触发更新方法（beforeUpdate、updated）</li>
+<li>beforeDestroy<br>实例被销毁前调用，此时实例属性与方法仍可访问</li>
+<li>destroyed<br>完全销毁一个实例。可清理它与其它实例的连接，解绑它的全部指令及事件监听器<br>并不能清除 DOM，仅仅销毁实例</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">生命周期</th>
+<th align="center">描述</th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">beforeCreate</td>
+<td align="center">执行时组件实例还未创建，通常用于插件开发中执行一些初始化任务</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">created</td>
+<td align="center">组件初始化完毕，各种数据可以使用，常用于异步数据获取</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">beforeMount</td>
+<td align="center">未执行渲染、更新，dom 未创建</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">mounted</td>
+<td align="center">初始化结束，dom 已创建，可用于获取访问数据和 dom 元素</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">beforeUpdate</td>
+<td align="center">更新前，可用于获取更新前各种状态</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">updated</td>
+<td align="center">更新后，所有状态已是最新</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">beforeDestroy</td>
+<td align="center">销毁前，可用于一些定时器或订阅的取消</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">destroyed</td>
+<td align="center">组件已销毁，作用同上</td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<h3 id="题外话：数据请求在-created-和-mouted-的区别"><a href="#题外话：数据请求在-created-和-mouted-的区别" class="headerlink" title="题外话：数据请求在 created 和 mouted 的区别"></a>题外话：数据请求在 created 和 mouted 的区别</h3><p>created 是在组件实例一旦创建完成的时候立刻调用，这时候页面 dom 节点并未生成；<br><br>mounted 是在页面 dom 节点渲染完毕之后就立刻执行的。<br><br>两者的相同点：都能拿到实例对象的属性和方法。 讨论这个问题本质就是触发的时机，放在 mounted 中的请求有可能导致页面闪动（因为此时页面 dom 结构已经生成），但如果在页面加载前完成请求，则不会出现此情况。建议对页面内容的改动放在 created 生命周期当中。</p>
+<h2 id="6-v-if-和-v-for"><a href="#6-v-if-和-v-for" class="headerlink" title="6. v-if 和 v-for"></a>6. v-if 和 v-for</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>v-if:指令用于条件性地渲染一块内容。这块内容只会在指令的表达式返回 true 值的时候被渲染<br>v-for:指令基于一个数组渲染一个列表。v-for 指令需要使用 item in items 形式的特殊语法，其中 items 是源数据数组，而 item 则是数组元素迭代的别名。</p>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p>v-for 的优先级高于 v-if，这意味着 v-if 将分别重复运行于每个 v-for 循环中。如果想为每个项目渲染的元素添加一个条件，那么将它包装在一个 template 元素中<br><strong>vue 源码中的处理逻辑是：在编译阶段，先处理 v-for，再处理 v-if，所以 v-for 的优先级高于 v-if</strong></p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li>永远不要把 v-if 和 v-for 同时用在同一个元素上，带来性能方面的浪费（每次渲染都会先循环再进行条件判断）</li>
+<li>如果避免出现这种情况，则在外层嵌套 template（页面渲染不生成 dom 节点），在这一层进行 v-if 判断，然后在内部进行 v-for 循环</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;isShow&quot;</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in items&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>如果条件出现在循环内部，可通过计算属性 computed 提前过滤掉那些不需要显示的项</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">computed</span>: &#123;<br>  <span class="hljs-attr">items</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">list</span>.<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) &#123;<br>      <span class="hljs-keyword">return</span> item.<span class="hljs-property">isShow</span><br>    &#125;)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Vue%E7%B3%BB%E5%88%97-1/">#Vue系列-1</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Vue系列</div>
+      <div>http://example.com/2024/02/17/面试知识点/Vue系列/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小日月</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/17/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-frontend/" title="interview-frontend">
+                        <span class="hidden-mobile">interview-frontend</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+
+
+        <!-- 添加网站运行时间 -->
+        <div class="footer-content">
+          <div>
+            <span id="timeDate">载入天数...</span>
+            <span id="times">载入时分秒...</span>
+            <script>
+              var now = new Date();
+              function createtime() {
+                var grt = new Date("04/03/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24;
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                hnum = Math.floor(hours);
+                if (String(hnum).length == 1) {
+                  hnum = "0" + hnum;
+                }
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if (String(mnum).length == 1) {
+                  mnum = "0" + mnum;
+                }
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if (String(snum).length == 1) {
+                  snum = "0" + snum;
+                }
+                document.getElementById("timeDate").innerHTML = "🚀 &nbsp" + dnum + "&nbsp天";  //此次自定义显示内容
+                document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+              }  //此次自定义显示内容
+              setInterval("createtime()", 250);
+            </script>
+          </div>
+        </div>
+
+
+    </div>
+    
+      
+        <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+          
+            
+                  
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

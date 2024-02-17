@@ -16,26 +16,24 @@
   <meta name="author" content="小日月">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🍭 H5C3知识总结HTML新增样式1，语义化标签1.&lt;header&gt;&lt;&#x2F;header&gt;   2.&lt;nav&gt;&lt;&#x2F;nav&gt;   3.&lt;article&gt;&lt;&#x2F;article&gt;    4&lt;section&gt;&lt;&#x2F;section&gt;   5.&lt;aside&gt;&lt;&#x2F;aside&gt;  6.&lt;foo">
+    <meta name="description" content="🍭 面试-Vue+H5C3-id321. vue 如何封装一个组件 首先，使用 Vue.extend()创建一个组件&#x2F;&#x2F; 创建.vue 文件 然后，使用 Vue.component()方法注册组件&#x2F;&#x2F;导入组件 接着，如果子组件需要数据，可以在 props 中接受定义 最后，子组件修改好数据之后，想把数据传递给父组件，可以使用 emit()方法  22. v">
 <meta property="og:type" content="article">
-<meta property="og:title" content="H5C3知识总结">
-<meta property="og:url" content="http://example.com/2022/09/27/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%933/index.html">
+<meta property="og:title" content="interview-vue+H5C3-id3">
+<meta property="og:url" content="http://example.com/2024/02/16/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-vue-H5C3-id3/index.html">
 <meta property="og:site_name" content="小日月的博客">
-<meta property="og:description" content="🍭 H5C3知识总结HTML新增样式1，语义化标签1.&lt;header&gt;&lt;&#x2F;header&gt;   2.&lt;nav&gt;&lt;&#x2F;nav&gt;   3.&lt;article&gt;&lt;&#x2F;article&gt;    4&lt;section&gt;&lt;&#x2F;section&gt;   5.&lt;aside&gt;&lt;&#x2F;aside&gt;  6.&lt;foo">
+<meta property="og:description" content="🍭 面试-Vue+H5C3-id321. vue 如何封装一个组件 首先，使用 Vue.extend()创建一个组件&#x2F;&#x2F; 创建.vue 文件 然后，使用 Vue.component()方法注册组件&#x2F;&#x2F;导入组件 接着，如果子组件需要数据，可以在 props 中接受定义 最后，子组件修改好数据之后，想把数据传递给父组件，可以使用 emit()方法  22. v">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/09/27/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%933/tailclear.png">
-<meta property="og:image" content="http://example.com/2022/09/27/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%933/headclear.png">
-<meta property="article:published_time" content="2022-09-27T10:14:02.000Z">
-<meta property="article:modified_time" content="2024-02-17T13:28:01.712Z">
+<meta property="article:published_time" content="2024-02-16T12:01:41.000Z">
+<meta property="article:modified_time" content="2024-02-17T13:29:30.905Z">
 <meta property="article:author" content="小日月">
+<meta property="article:tag" content="interview-vue+H5C3-3">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2022/09/27/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%933/tailclear.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>H5C3知识总结 - 小日月的博客</title>
+  <title>interview-vue+H5C3-id3 - 小日月的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -227,7 +225,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="H5C3知识总结"></span>
+            <span id="subtitle" data-typed-text="interview-vue+H5C3-id3"></span>
           
         </div>
 
@@ -238,8 +236,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-27 18:14" pubdate>
-          2022年9月27日 晚上
+        <time datetime="2024-02-16 20:01" pubdate>
+          2024年2月16日 晚上
         </time>
       </span>
     
@@ -250,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          2.3k 字
         
       </span>
     
@@ -261,7 +259,7 @@
         
         
         
-          22 分钟
+          19 分钟
         
       </span>
     
@@ -311,237 +309,162 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">H5C3知识总结</h1>
+            <h1 style="display: none">interview-vue+H5C3-id3</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="🍭-H5C3知识总结"><a href="#🍭-H5C3知识总结" class="headerlink" title="🍭 H5C3知识总结"></a>🍭 H5C3知识总结</h1><h2 id="HTML新增样式"><a href="#HTML新增样式" class="headerlink" title="HTML新增样式"></a>HTML新增样式</h2><h2 id="1，语义化标签"><a href="#1，语义化标签" class="headerlink" title="1，语义化标签"></a>1，语义化标签</h2><pre><code class="hljs">1.&lt;header&gt;&lt;/header&gt;  
-2.&lt;nav&gt;&lt;/nav&gt;  
-3.&lt;article&gt;&lt;/article&gt;   
-4&lt;section&gt;&lt;/section&gt;  
-5.&lt;aside&gt;&lt;/aside&gt; 
-6.&lt;footer&gt;&lt;/footer&gt;
-</code></pre>
-<hr>
-<h2 id="2-video标签"><a href="#2-video标签" class="headerlink" title="2.video标签"></a>2.video标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">video</span> <span class="hljs-attr">src</span>=<span class="hljs-string">‘文件地址’</span> <span class="hljs-attr">...</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-
-<table>
-<thead>
-<tr>
-<th align="center">属性</th>
-<th align="center">属性值</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">autoplay</td>
-<td align="center">autoplay</td>
-<td align="center">视频就绪自动播放 （谷歌浏览器需要添加muted来解 决自动播放问题）</td>
-</tr>
-<tr>
-<td align="center">controls</td>
-<td align="center">controls</td>
-<td align="center">向用户显示播放控件</td>
-</tr>
-<tr>
-<td align="center">width</td>
-<td align="center">pixels（像素）</td>
-<td align="center">设置播放器宽度</td>
-</tr>
-<tr>
-<td align="center">height</td>
-<td align="center">pixels（像素）</td>
-<td align="center">设置播放器高度</td>
-</tr>
-<tr>
-<td align="center">loop</td>
-<td align="center">loop</td>
-<td align="center">播放完是否继续播放该视频，循环播放</td>
-</tr>
-<tr>
-<td align="center">preload</td>
-<td align="center">auto（预先加载视频） none（不应加载视频）</td>
-<td align="center">规定是否预加载视频（如果有了autoplay就忽略该属性）</td>
-</tr>
-<tr>
-<td align="center">src</td>
-<td align="center">url</td>
-<td align="center">视频urt地址</td>
-</tr>
-<tr>
-<td align="center">poster</td>
-<td align="center">Imgurl</td>
-<td align="center">加载等待的画面图片</td>
-</tr>
-<tr>
-<td align="center">muted</td>
-<td align="center">muted</td>
-<td align="center">静音播放</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="3-audio标签"><a href="#3-audio标签" class="headerlink" title="3.audio标签"></a>3.audio标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">src</span>=<span class="hljs-string">‘文件地址’</span> <span class="hljs-attr">...</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>其他属性：</p>
-<table>
-<thead>
-<tr>
-<th align="center">属性</th>
-<th align="center">属性值</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">autoplay</td>
-<td align="center">autoplay</td>
-<td align="center">如果出现该属性，则音频在就绪后马上播放。</td>
-</tr>
-<tr>
-<td align="center">controls</td>
-<td align="center">controls</td>
-<td align="center">如果出现该属性，则向用户显示控件，比如播放按钮。</td>
-</tr>
-<tr>
-<td align="center">loop</td>
-<td align="center">loop</td>
-<td align="center">如果出现该属性，则每当音频结束时重新开始播放。</td>
-</tr>
-<tr>
-<td align="center">src</td>
-<td align="center">url</td>
-<td align="center">要播放的音频的URL。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="4-input类型"><a href="#4-input类型" class="headerlink" title="4.input类型"></a>4.input类型</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;...&#x27;</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>1.type类属性：</p>
-<table>
-<thead>
-<tr>
-<th align="center">type值</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">type&#x3D;”email”</td>
-<td align="center">限制用户输入必须为Email类型</td>
-</tr>
-<tr>
-<td align="center">type&#x3D;”url</td>
-<td align="center">限制用户输入必须为URL类型</td>
-</tr>
-<tr>
-<td align="center">type&#x3D;”date”</td>
-<td align="center">限制用户输入必须为日期类型</td>
-</tr>
-<tr>
-<td align="center">type&#x3D;”time”</td>
-<td align="center">限制用户输入必须为时间类型</td>
-</tr>
-<tr>
-<td align="center">type&#x3D;”month”</td>
-<td align="center">限制用户输入必须为月类型</td>
-</tr>
-<tr>
-<td align="center">type&#x3D;”week”</td>
-<td align="center">限制用户输入必须为周类型</td>
-</tr>
-<tr>
-<td align="center">type&#x3D;”number”</td>
-<td align="center">限制用户输入必须为数字类型</td>
-</tr>
-<tr>
-<td align="center">type&#x3D;”tel”</td>
-<td align="center">手机号码</td>
-</tr>
-<tr>
-<td align="center">type&#x3D;”search”</td>
-<td align="center">搜索框</td>
-</tr>
-<tr>
-<td align="center">type&#x3D;”color”</td>
-<td align="center">生成一个颜色选择表单</td>
-</tr>
-</tbody></table>
-<p>2.input表单属性</p>
-<table>
-<thead>
-<tr>
-<th align="center">属性</th>
-<th align="center">属性值</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">required</td>
-<td align="center">required</td>
-<td align="center">表单拥有该属性表示其内容不能为空</td>
-</tr>
-<tr>
-<td align="center">placeholder</td>
-<td align="center">提示文本</td>
-<td align="center">表单的提示信息，存在默认值将不显示</td>
-</tr>
-<tr>
-<td align="center">autofocus</td>
-<td align="center">autofocus</td>
-<td align="center">自动聚焦属性， 页面加载完成自动聚焦到指定表单</td>
-</tr>
-<tr>
-<td align="center">autocomplete</td>
-<td align="center">off&#x2F;on</td>
-<td align="center">当用户在字段开始键入时， 浏览器基于之前键入过的值， 应该显示出在字段中填写的选项。默认已经打开，如 autocomplete&#x3D;”on”关闭autocomplete&#x3D;”off”需要放在表单内，同时加上 name 属性，同时成功提交</td>
-</tr>
-<tr>
-<td align="center">multiple</td>
-<td align="center">multiple</td>
-<td align="center">可以多选文件提交</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="CSS内容"><a href="#CSS内容" class="headerlink" title="CSS内容"></a>CSS内容</h2><h2 id="CSS新增选择器"><a href="#CSS新增选择器" class="headerlink" title="CSS新增选择器"></a>CSS新增选择器</h2><h4 id="1-属性选择器"><a href="#1-属性选择器" class="headerlink" title="1.属性选择器"></a>1.属性选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs HTML">input[value]   <span class="hljs-comment">&lt;!-- input类里并包含value的input --&gt;</span><br>div[class^=?]  <span class="hljs-comment">&lt;!-- 选择div里class属性开头是？的div --&gt;</span><br>Div[class*=?]  <span class="hljs-comment">&lt;!-- 选择div里class属性包含？的div  --&gt;</span><br>input[value]   <span class="hljs-comment">&lt;!-- input类里并包含value的input --&gt;</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="2-结构伪类选择器"><a href="#2-结构伪类选择器" class="headerlink" title="2.结构伪类选择器"></a>2.结构伪类选择器</h4><blockquote>
-<p>选择父元素第n个子元素</p>
+                <h1 id="🍭-面试-Vue-H5C3-id3"><a href="#🍭-面试-Vue-H5C3-id3" class="headerlink" title="🍭 面试-Vue+H5C3-id3"></a>🍭 面试-Vue+H5C3-id3</h1><h2 id="21-vue-如何封装一个组件"><a href="#21-vue-如何封装一个组件" class="headerlink" title="21. vue 如何封装一个组件"></a>21. vue 如何封装一个组件</h2><ol>
+<li>首先，使用 Vue.extend()创建一个组件&#x2F;&#x2F; 创建.vue 文件</li>
+<li>然后，使用 Vue.component()方法注册组件&#x2F;&#x2F;导入组件</li>
+<li>接着，如果子组件需要数据，可以在 props 中接受定义</li>
+<li>最后，子组件修改好数据之后，想把数据传递给父组件，可以使用 emit()方法</li>
+</ol>
+<h2 id="22-vue-过滤器"><a href="#22-vue-过滤器" class="headerlink" title="22. vue 过滤器"></a>22. vue 过滤器</h2><blockquote>
+<p>vue3.0 中已经废弃了过滤器，可以使用计算属性或者方法代替</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs HTML">ul li : first-child     <span class="hljs-comment">&lt;!-- 选择ul li 第一个孩子 --&gt;</span><br>ul li : last-child      <span class="hljs-comment">&lt;!-- 选择ul li 最后一个孩子 --&gt;</span><br>ul li : nth-child(n)    <span class="hljs-comment">&lt;!-- 选择ul li 第n个孩子 --&gt;</span><br>ul li : nth-child(even) <span class="hljs-comment">&lt;!-- 偶数 --&gt;</span><br>ul li : nth-child(odd)  <span class="hljs-comment">&lt;!-- 奇数 --&gt;</span><br>ul li : nth-child(n)    <span class="hljs-comment">&lt;!-- 选择ul li 从1-n孩子 --&gt;</span><br><br>element：First-of-type   <span class="hljs-comment">&lt;!-- 选择第一个元素 --&gt;</span><br>element：Second-of-type  <span class="hljs-comment">&lt;!-- 选择第二个元素 --&gt;</span><br>element：Nth-of-type(n)  <span class="hljs-comment">&lt;!-- 选择第n个元素 --&gt;</span><br></code></pre></td></tr></table></figure>
+<ol>
+<li>全局过滤器</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">filter</span>(<span class="hljs-string">&#x27;filterName&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) &#123;<br>  <span class="hljs-comment">// 过滤器的处理逻辑</span><br>  <span class="hljs-keyword">return</span> value<br>&#125;)<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-伪元素选择器-行内元素"><a href="#3-伪元素选择器-行内元素" class="headerlink" title="3.伪元素选择器 (行内元素)"></a>3.伪元素选择器 (行内元素)</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs HTML">1.E::before&#123;content:&#125;   <span class="hljs-comment">&lt;!-- 在元素内部的前面插入内容 --&gt;</span><br>2.E::after&#123;content:&#125;    <span class="hljs-comment">&lt;!-- 在元素内部的后面插入内容 --&gt;</span><br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>局部过滤器</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">filters</span>: &#123;<br>  <span class="hljs-title function_">filterName</span>(<span class="hljs-params">value</span>) &#123;<br>    <span class="hljs-comment">// 过滤器的处理逻辑</span><br>    <span class="hljs-keyword">return</span> value<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>{}&#x2F;v-bind 使用<!-- 在双花括号中 -->
+</li>
+</ol>
+<!-- 在 `v-bind` 中 -->
+<div v-bind:id="rawId | formatId"></div>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><br><span class="hljs-comment">## 23. vue 强制刷新</span><br><br><span class="hljs-number">1.</span> 刷新当前页面<br><br>```<span class="language-javascript">js</span><br><span class="language-javascript"><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">go</span>(<span class="hljs-number">0</span>)</span><br><span class="language-javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-title function_">reload</span>()</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>v-if</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>强制刷新<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>刷新路由</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">push</span>(&#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/refresh&#x27;</span>, <span class="hljs-attr">query</span>: &#123; <span class="hljs-attr">t</span>: <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() &#125; &#125;)<br></code></pre></td></tr></table></figure>
+
+<h2 id="24-vue2-和-vue3-的区别"><a href="#24-vue2-和-vue3-的区别" class="headerlink" title="24. vue2 和 vue3 的区别"></a>24. vue2 和 vue3 的区别</h2><h3 id="1-双向数据绑定原理不同"><a href="#1-双向数据绑定原理不同" class="headerlink" title="1. 双向数据绑定原理不同"></a>1. 双向数据绑定原理不同</h3><blockquote>
+<p>vue2：vue2 的双向数据绑定是利用 ES5 的一个 APIObject.definePropert() 对数据进行劫持，结合发布订阅模式的方式来实现的。</p>
+</blockquote>
 <blockquote>
-<p>伪元素清除浮动（尾部阻隔）</p>
+<p>vue3：vue3 中使用了 ES6 的 Proxy API 对数据代理。相比 vue2.x，使用 proxy 的优势如下：</p>
 </blockquote>
-<img src="/2022/09/27/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%933/tailclear.png" srcset="/img/loading.gif" lazyload class title="This is an test image">
-
+<ol>
+<li>defineProperty 只能监听某个属性，不能对全对象监听</li>
+<li>可以省去 for in，闭包等内容来提升效率(直接绑定整个对象即可)</li>
+<li>可以监听数组，不用再去单独的对数组做特异性操作 vue3.x 可以检测到数组内部数据的变化。</li>
+</ol>
+<h3 id="2-是否支持碎片-framents"><a href="#2-是否支持碎片-framents" class="headerlink" title="2.是否支持碎片(framents)"></a>2.是否支持碎片(framents)</h3><blockquote>
+<p>vue2 不支持碎片。</p>
+</blockquote>
 <blockquote>
-<p>伪元素清除浮动（头部阻隔）</p>
+<p>vue3：vue3 支持碎片（Fragments） ，就是说可以拥有多个根节点。</p>
 </blockquote>
-<img src="/2022/09/27/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%933/headclear.png" srcset="/img/loading.gif" lazyload class title="This is an test image">
-
-<hr>
-<h2 id="CSS盒子模型"><a href="#CSS盒子模型" class="headerlink" title="CSS盒子模型"></a>CSS盒子模型</h2><p>1.不撑开盒子大小</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs HTML">Box-sizing:border-box<br></code></pre></td></tr></table></figure>
-<p>2.模糊函数  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs HTML">Filter:blur(?px)<br></code></pre></td></tr></table></figure>
-<p>3.calc函数  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs HTML">width:calc(100% - 80px)  <span class="hljs-comment">&lt;!-- 比父盒子100% 小 80px --&gt;</span><br></code></pre></td></tr></table></figure>
-<p>4.过渡 (谁做过渡给谁+) ，(多个属性，隔开)，(all属性全变)</p>
-<pre><code class="hljs">transition：要过渡的属性 花费时间 运动曲线 何时开始；
-1.属性：想要变化的 css 属性，宽度高度 背景颜色 内外边距都可以。 如果想要所有的属性都变化过渡，写一个all 就可以。
-2.花费时间：单位是秒（必须写单位） 比如 0.5s 
-3.运动曲线：默认是 ease （可以省略）
-4.何时开始：单位是秒（必须写单位） 可以设置延迟触发时间 默认是 Os（可以省略）
-</code></pre>
-<hr>
-<h2 id="Web-服务器"><a href="#Web-服务器" class="headerlink" title="Web 服务器"></a>Web 服务器</h2><mark>
-注意：一般稳定的服务器都是需要收费的。比如：阿里云
-</mark>
-
+<h3 id="3-API-类型不同-compositon-Api"><a href="#3-API-类型不同-compositon-Api" class="headerlink" title="3. API 类型不同 (compositon Api)"></a>3. API 类型不同 (compositon Api)</h3><blockquote>
+<p>vue2：vue2 使用选项类型 api，选项型 api 在代码里分割了不同的属性：data,computed,methods 等。</p>
+</blockquote>
 <blockquote>
-<p>这里给大家推荐一个免费的远程服务器(免费空间) <a target="_blank" rel="noopener" href="http://free.3v.do/">http://free.3v.do/</a></p>
+<p>vue3：vue3 使用合成型 api，新的合成型 api 能让我们使用方法来分割，相比于旧的 api 使用属性来分组，这样代码会更加简便和整洁。</p>
 </blockquote>
-<p>1.去免费空间网站注册账号。<br>2.记录下主机名、用户名、密码、域名。<br>3.利用cutftp软件上传网站到远程服务器。<br>4.在浏览器中输入域名，即可访问我们的网站了。</p>
-<h2 id="end"><a href="#end" class="headerlink" title="end"></a>end</h2>
+<h3 id="4-声明周期钩子不同"><a href="#4-声明周期钩子不同" class="headerlink" title="4. 声明周期钩子不同"></a>4. 声明周期钩子不同</h3><table>
+<thead>
+<tr>
+<th align="center">vue2</th>
+<th align="center">vue3</th>
+<th>vue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">beforeCreate</td>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">created</td>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">beforeMount</td>
+<td align="center">onBeforeMount</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">mounted</td>
+<td align="center">onMounted</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">beforeUpdate</td>
+<td align="center">onBeforeUpdate</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">updated</td>
+<td align="center">onUpdated</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">beforeDestroy</td>
+<td align="center">onBeforeUnmount</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">destroyed</td>
+<td align="center">onUnmounted</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="5-性能优化"><a href="#5-性能优化" class="headerlink" title="5. 性能优化"></a>5. 性能优化</h3><blockquote>
+<p>Vue 3 提供了更好的 Tree-shaking 支持\更小的 bundle 大小\更快的更新速度、更好的 TypeScript 支持\更高效的虚拟 DOM 实现和编译优化。</p>
+</blockquote>
+<h3 id="6-异步组件（Suspense）"><a href="#6-异步组件（Suspense）" class="headerlink" title="6. 异步组件（Suspense）"></a>6. 异步组件（Suspense）</h3><p>Vue3 提供 Suspense 组件，允许程序在等待异步组件加载完成前渲染兜底的内容，如 loading ，使用户的体验更平滑。使用它，需在模板中声明，并包括两个命名插槽：default 和 fallback。Suspense 确保加载完异步内容时显示默认插槽，并将 fallback 插槽用作加载状态。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">tempalte</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">suspense</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">default</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">List</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">fallback</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        Loading...      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">suspense</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="7-Teleport"><a href="#7-Teleport" class="headerlink" title="7.Teleport"></a>7.Teleport</h3><p>Vue3 提供 Teleport 组件可将部分 DOM 移动到 Vue app 之外的位置。比如项目中常见的 Dialog 弹窗。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;dialogVisible = true&quot;</span>&gt;</span>显示弹窗<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">teleport</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;body&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dialog&quot;</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;dialogVisible&quot;</span>&gt;</span><br>    我是弹窗，我直接移动到了body标签下<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">teleport</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="25-vue3-的项目如何实现进一步的性能优化"><a href="#25-vue3-的项目如何实现进一步的性能优化" class="headerlink" title="25. vue3 的项目如何实现进一步的性能优化"></a>25. vue3 的项目如何实现进一步的性能优化</h2><ol>
+<li><p>编码优化</p>
+<ol>
+<li>防抖、节流</li>
+<li>路由懒加载、异步组件</li>
+<li>组件复用和维护</li>
+<li>key 值的使用</li>
+<li>keep-alive 缓存组件</li>
+</ol>
+</li>
+<li><p>加载缓存</p>
+<ol>
+<li>图片懒加载</li>
+<li>按需加载</li>
+<li>CDN 加速</li>
+</ol>
+</li>
+<li><p>打包优化</p>
+<ol>
+<li>Gzip 压缩</li>
+</ol>
+</li>
+</ol>
+<h2 id="26-实现首屏加载优化"><a href="#26-实现首屏加载优化" class="headerlink" title="26. 实现首屏加载优化"></a>26. 实现首屏加载优化</h2><h3 id="页面展示"><a href="#页面展示" class="headerlink" title="页面展示"></a>页面展示</h3><ol>
+<li>骨架屏&#x2F;loading</li>
+</ol>
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><ol>
+<li>路由懒加载，异步组件，按需加载</li>
+<li>图片懒加载，精灵图</li>
+<li>CDN 加速，减少 js&#x2F;css 文件大小和 DOM 节点数量</li>
+<li>Gzip 压缩</li>
+</ol>
+<h2 id="SEO-优化"><a href="#SEO-优化" class="headerlink" title="SEO 优化"></a>SEO 优化</h2><h2 id="nuxt-js"><a href="#nuxt-js" class="headerlink" title="nuxt.js"></a>nuxt.js</h2>
                 
               </div>
             
@@ -549,6 +472,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/interview-vue-H5C3-3/">#interview-vue+H5C3-3</a>
+      
+    </div>
   
 </div>
 
@@ -558,8 +488,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>H5C3知识总结</div>
-      <div>http://example.com/2022/09/27/前端知识总结/前端知识总结3/</div>
+      <div>interview-vue+H5C3-id3</div>
+      <div>http://example.com/2024/02/16/面试知识点/interview-vue-H5C3-id3/</div>
     </div>
     <div class="license-meta">
       
@@ -571,7 +501,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年9月27日</div>
+          <div>2024年2月16日</div>
         </div>
       
       
@@ -603,9 +533,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/28/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%934/" title="JS基础内容总结">
+                      <a href="/2024/02/17/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E8%85%BE%E8%AE%AF%E4%BA%91%E6%99%BA%E5%89%8D%E7%AB%AF%E4%B8%80%E9%9D%A2-id1/" title="腾讯云智前端一面-id1">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS基础内容总结</span>
+                        <span class="hidden-mobile">腾讯云智前端一面-id1</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -613,8 +543,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/15/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%932/" title="CSS知识总结">
-                        <span class="hidden-mobile">CSS知识总结</span>
+                      <a href="/2024/02/16/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/interview-vue-H5C3-id2/" title="interview-vue+H5C3-id2">
+                        <span class="hidden-mobile">interview-vue+H5C3-id2</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -16,16 +16,16 @@
   <meta name="author" content="小日月">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🍭 腾讯微信一面-id21. 项目 45 分钟2. 浏览器底层（V8）核心原理 V8 引擎的核心在于其采用了即时编译（JIT）技术，通过动态地将 JavaScript 代码编译成机器码来提升性能。同时，V8 引擎还采用了垃圾回收机制、内联缓存优化等措施，使得其在处理代码时能够更快速、更高效。  构成原理 V8 引擎的核心由两部分组成：解释器和编译器。其执行过程如下图所示：     解释器：解释器">
+    <meta name="description" content="🍭 腾讯微信一面-id21. 项目 45 分钟2. 浏览器底层（V8）核心原理 V8 引擎的核心在于其采用了即时编译（JIT）技术，通过动态地将 JavaScript 代码编译成机器码来提升性能。同时，V8 引擎还采用了垃圾回收机制、内联缓存优化等措施，使得其在处理代码时能够更快速、更高效。  构成原理 V8的底层架构主要有三个核心模块(Parse、Ignition和TurboFan)    P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="腾讯微信一面-id2">
 <meta property="og:url" content="http://example.com/2024/02/04/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E8%85%BE%E8%AE%AF%E5%BE%AE%E4%BF%A1%E4%B8%80%E9%9D%A2-id2/index.html">
 <meta property="og:site_name" content="小日月的博客">
-<meta property="og:description" content="🍭 腾讯微信一面-id21. 项目 45 分钟2. 浏览器底层（V8）核心原理 V8 引擎的核心在于其采用了即时编译（JIT）技术，通过动态地将 JavaScript 代码编译成机器码来提升性能。同时，V8 引擎还采用了垃圾回收机制、内联缓存优化等措施，使得其在处理代码时能够更快速、更高效。  构成原理 V8 引擎的核心由两部分组成：解释器和编译器。其执行过程如下图所示：     解释器：解释器">
+<meta property="og:description" content="🍭 腾讯微信一面-id21. 项目 45 分钟2. 浏览器底层（V8）核心原理 V8 引擎的核心在于其采用了即时编译（JIT）技术，通过动态地将 JavaScript 代码编译成机器码来提升性能。同时，V8 引擎还采用了垃圾回收机制、内联缓存优化等措施，使得其在处理代码时能够更快速、更高效。  构成原理 V8的底层架构主要有三个核心模块(Parse、Ignition和TurboFan)    P">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/02/04/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E8%85%BE%E8%AE%AF%E5%BE%AE%E4%BF%A1%E4%B8%80%E9%9D%A2-id2/v8.png">
 <meta property="article:published_time" content="2024-02-03T16:39:56.000Z">
-<meta property="article:modified_time" content="2024-02-04T17:07:10.514Z">
+<meta property="article:modified_time" content="2024-02-16T11:49:26.801Z">
 <meta property="article:author" content="小日月">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2024/02/04/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E8%85%BE%E8%AE%AF%E5%BE%AE%E4%BF%A1%E4%B8%80%E9%9D%A2-id2/v8.png">
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          1.6k 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          9 分钟
+          14 分钟
         
       </span>
     
@@ -319,15 +319,14 @@
 <p>V8 引擎的核心在于其采用了<code>即时编译（JIT）</code>技术，通过动态地将 JavaScript 代码编译成机器码来提升性能。同时，V8 引擎还采用了<code>垃圾回收机制</code>、<code>内联缓存优化</code>等措施，使得其在处理代码时能够更快速、更高效。</p>
 </blockquote>
 <h3 id="构成原理"><a href="#构成原理" class="headerlink" title="构成原理"></a>构成原理</h3><blockquote>
-<p>V8 引擎的核心由两部分组成：解释器和编译器。其执行过程如下图所示：</p>
+<p>V8的底层架构主要有三个核心模块(Parse、Ignition和TurboFan)</p>
 </blockquote>
 <img src="/2024/02/04/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E8%85%BE%E8%AE%AF%E5%BE%AE%E4%BF%A1%E4%B8%80%E9%9D%A2-id2/v8.png" srcset="/img/loading.gif" lazyload class>
 
-<ol>
-<li>解释器：解释器负责将 JavaScript 代码解释成字节码，然后交给编译器处理。</li>
-<li>编译器：编译器负责将字节码编译成机器码，然后交给处理器执行。</li>
-</ol>
-<p>当我们在浏览器中输入一个网址后，V8 引擎首先会使用解释器对 JavaScript 代码进行解析，并生成一种被称为“抽象语法树”（AST）的数据结构。接着，V8 引擎利用编译器对该 AST 进行优化，并生成机器码。最后，V8 引擎再直接运行机器码。</p>
+<h4 id="Parse模块：将JavaScript代码转换成AST（抽象语法树）。"><a href="#Parse模块：将JavaScript代码转换成AST（抽象语法树）。" class="headerlink" title="Parse模块：将JavaScript代码转换成AST（抽象语法树）。"></a>Parse模块：将JavaScript代码转换成AST（抽象语法树）。</h4><blockquote>
+<p>该过程主要对JavaScript源代码进行词法分析和语法分析；</p>
+</blockquote>
+<h4 id="Ignition模块：解释器，将-AST-转换为-Bytecode，解释并执行-Bytecode；同时收集-TurboFan-优化编译所需的信息，比如函数参数的类型；"><a href="#Ignition模块：解释器，将-AST-转换为-Bytecode，解释并执行-Bytecode；同时收集-TurboFan-优化编译所需的信息，比如函数参数的类型；" class="headerlink" title="Ignition模块：解释器，将 AST 转换为 Bytecode，解释并执行 Bytecode；同时收集 TurboFan 优化编译所需的信息，比如函数参数的类型；"></a>Ignition模块：解释器，将 AST 转换为 Bytecode，解释并执行 Bytecode；同时收集 TurboFan 优化编译所需的信息，比如函数参数的类型；</h4><h4 id="TurboFan模块：编译器，利用Ignition所收集的类型信息，将Bytecode转换为优化的机器码。"><a href="#TurboFan模块：编译器，利用Ignition所收集的类型信息，将Bytecode转换为优化的机器码。" class="headerlink" title="TurboFan模块：编译器，利用Ignition所收集的类型信息，将Bytecode转换为优化的机器码。"></a>TurboFan模块：编译器，利用Ignition所收集的类型信息，将Bytecode转换为优化的机器码。</h4><p>当我们在浏览器中输入一个网址后，V8 引擎首先会使用解释器对 JavaScript 代码进行解析，并生成一种被称为“抽象语法树”（AST）的数据结构。接着，V8 引擎利用编译器对该 AST 进行优化，并生成机器码。最后，V8 引擎再直接运行机器码。</p>
 <h3 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h3><blockquote>
 <p>V8 引擎采用了一种叫做“标记-清除”（Mark-Sweep）的垃圾回收机制。该机制将 JavaScript 对象分为两类：可达对象和不可达对象。当一个对象不再被引用时，V8 引擎会将其标记为不可达对象，并在后续的清除过程中将其从内存中删除。</p>
 </blockquote>
@@ -340,7 +339,18 @@
 <ol>
 <li>过程：当 V8 引擎执行到一个 JavaScript 函数时，它会将该函数的字节码交给解释器进行解释执行。同时，如果该函数被执行的次数较多，V8 引擎会将该函数的字节码交给 JIT 编译器进行优化，生成相应的机器码，以提升该函数的执行速度。</li>
 </ol>
-<h2 id="3-AST-抽象语法树如何生成"><a href="#3-AST-抽象语法树如何生成" class="headerlink" title="3. AST 抽象语法树如何生成"></a>3. AST 抽象语法树如何生成</h2><h2 id="4-AST-x3D-gt-DOM-树的具体过程"><a href="#4-AST-x3D-gt-DOM-树的具体过程" class="headerlink" title="4. AST &#x3D;&gt; DOM 树的具体过程"></a>4. AST &#x3D;&gt; DOM 树的具体过程</h2><h2 id="5-JIT-的原理——ignition-过程"><a href="#5-JIT-的原理——ignition-过程" class="headerlink" title="5. JIT 的原理——ignition 过程"></a>5. JIT 的原理——ignition 过程</h2><h2 id="6-从我写的代码到用户看到的界面这个过程中发生了什么事情（主要考察-React-和-webpack）"><a href="#6-从我写的代码到用户看到的界面这个过程中发生了什么事情（主要考察-React-和-webpack）" class="headerlink" title="6. 从我写的代码到用户看到的界面这个过程中发生了什么事情（主要考察 React 和 webpack）"></a>6. 从我写的代码到用户看到的界面这个过程中发生了什么事情（主要考察 React 和 webpack）</h2><h2 id="7-JSX-怎么转换的"><a href="#7-JSX-怎么转换的" class="headerlink" title="7. JSX 怎么转换的"></a>7. JSX 怎么转换的</h2><h2 id="8-webpack-帮我们做了什么事情"><a href="#8-webpack-帮我们做了什么事情" class="headerlink" title="8. webpack 帮我们做了什么事情"></a>8. webpack 帮我们做了什么事情</h2><p>作者：不想当切图仔<br>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/feed/main/detail/b7368cbcc4ae4fa2a5ae2d7b8f6f7c3e">https://www.nowcoder.com/feed/main/detail/b7368cbcc4ae4fa2a5ae2d7b8f6f7c3e</a><br>来源：牛客网</p>
+<h2 id="3-AST-抽象语法树如何生成"><a href="#3-AST-抽象语法树如何生成" class="headerlink" title="3. AST 抽象语法树如何生成"></a>3. AST 抽象语法树如何生成</h2><blockquote>
+<p>抽象语法树 (Abstract Syntax Tree)，简称 AST，是源代码的抽象语法结构的树状表示，它将源代码转换为一种易于分析和处理的形式.</p>
+</blockquote>
+<h3 id="生成过程"><a href="#生成过程" class="headerlink" title="生成过程"></a>生成过程</h3><p>js 执行的第一步是读取 js 文件中的字符流，然后通过词法分析生成 token，之后再通过语法分析( Parser )生成 AST，最后生成机器码执行。<br>整个解析过程主要分为以下两个步骤：</p>
+<ul>
+<li>词法分析：词法分析器（也称为词法扫描器）将源代码分解成一个个标记（Token）。最小语法单元</li>
+<li>语法分析：法分析器（也称为语法解析器）将词法分析器生成的标记序列转换为抽象语法树。</li>
+</ul>
+<h2 id="4-AST-x3D-gt-DOM-树的具体过程"><a href="#4-AST-x3D-gt-DOM-树的具体过程" class="headerlink" title="4. AST &#x3D;&gt; DOM 树的具体过程(???)"></a>4. AST &#x3D;&gt; DOM 树的具体过程(???)</h2><p>遍历 HTML AST，根据其中的标签、属性、文本节点等信息，生成对应的 DOM 树节点。每个 HTML 元素都会对应一个 DOM 节点，包括元素节点、文本节点、注释节点等。</p>
+<h2 id="5-JIT-的原理——ignition-过程"><a href="#5-JIT-的原理——ignition-过程" class="headerlink" title="5. JIT 的原理——ignition 过程"></a>5. JIT 的原理——ignition 过程</h2><p>解释器的工作方式： 边解释，边执行。 解析器解析代码，生成对应字节码，然后解释器直接解释执行字节码。</p>
+<p>在Ignition执行字节码的过程中，发现某一行代码被执行了几次后，这行代码会被打上 Warm 的标签；当某一行代码被执行了很多次，这行代码会被打上 Hot 的标签。这些代码都称为热点代码</p>
+<h2 id="6-从我写的代码到用户看到的界面这个过程中发生了什么事情（主要考察-React-和-webpack）"><a href="#6-从我写的代码到用户看到的界面这个过程中发生了什么事情（主要考察-React-和-webpack）" class="headerlink" title="6. 从我写的代码到用户看到的界面这个过程中发生了什么事情（主要考察 React 和 webpack）"></a>6. 从我写的代码到用户看到的界面这个过程中发生了什么事情（主要考察 React 和 webpack）</h2><h2 id="7-JSX-怎么转换的"><a href="#7-JSX-怎么转换的" class="headerlink" title="7. JSX 怎么转换的"></a>7. JSX 怎么转换的</h2><h2 id="8-webpack-帮我们做了什么事情"><a href="#8-webpack-帮我们做了什么事情" class="headerlink" title="8. webpack 帮我们做了什么事情"></a>8. webpack 帮我们做了什么事情</h2><p>作者：不想当切图仔<br>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/feed/main/detail/b7368cbcc4ae4fa2a5ae2d7b8f6f7c3e">https://www.nowcoder.com/feed/main/detail/b7368cbcc4ae4fa2a5ae2d7b8f6f7c3e</a><br>来源：牛客网</p>
 
                 
               </div>
