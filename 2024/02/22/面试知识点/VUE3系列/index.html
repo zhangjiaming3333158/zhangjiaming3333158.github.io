@@ -1,0 +1,870 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/wanye.jpg">
+  <link rel="icon" href="/img/wanye.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小日月">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍭 Vue3 系列1. Vue3.0 的设计目标是什么？做了哪些优化优化方面 更小 更快 TypeScript 支持 API 设计一致性 提高自身可维护性 开放更多底层功能  更小 Vue3 移除一些不常用的 API,引入 tree-shaking，可以将无用模块“剪辑”，仅打包需要的，使打包的整体体积变小了  更快主要体现在编译方面：  diff 算法优化 静态提升 事件监听缓存 SSR 优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VUE3系列">
+<meta property="og:url" content="http://example.com/2024/02/22/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/VUE3%E7%B3%BB%E5%88%97/index.html">
+<meta property="og:site_name" content="小日月的博客">
+<meta property="og:description" content="🍭 Vue3 系列1. Vue3.0 的设计目标是什么？做了哪些优化优化方面 更小 更快 TypeScript 支持 API 设计一致性 提高自身可维护性 开放更多底层功能  更小 Vue3 移除一些不常用的 API,引入 tree-shaking，可以将无用模块“剪辑”，仅打包需要的，使打包的整体体积变小了  更快主要体现在编译方面：  diff 算法优化 静态提升 事件监听缓存 SSR 优化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-22T09:21:22.000Z">
+<meta property="article:modified_time" content="2024-02-22T15:39:32.406Z">
+<meta property="article:author" content="小日月">
+<meta property="article:tag" content="VUE3系列">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>VUE3系列 - 小日月的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小日月</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/example/">
+                <i class="iconfont icon-image"></i>
+                echarts
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/example1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="VUE3系列"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-22 17:21" pubdate>
+          2024年2月22日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          37 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VUE3系列</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="🍭-Vue3-系列"><a href="#🍭-Vue3-系列" class="headerlink" title="🍭 Vue3 系列"></a>🍭 Vue3 系列</h1><h2 id="1-Vue3-0-的设计目标是什么？做了哪些优化"><a href="#1-Vue3-0-的设计目标是什么？做了哪些优化" class="headerlink" title="1. Vue3.0 的设计目标是什么？做了哪些优化"></a>1. Vue3.0 的设计目标是什么？做了哪些优化</h2><h3 id="优化方面"><a href="#优化方面" class="headerlink" title="优化方面"></a>优化方面</h3><ul>
+<li>更小</li>
+<li>更快</li>
+<li>TypeScript 支持</li>
+<li>API 设计一致性</li>
+<li>提高自身可维护性</li>
+<li>开放更多底层功能</li>
+</ul>
+<h4 id="更小"><a href="#更小" class="headerlink" title="更小"></a>更小</h4><blockquote>
+<p>Vue3 移除一些不常用的 API,引入 tree-shaking，可以将无用模块“剪辑”，仅打包需要的，使打包的整体体积变小了</p>
+</blockquote>
+<h4 id="更快"><a href="#更快" class="headerlink" title="更快"></a>更快</h4><p>主要体现在编译方面：</p>
+<ol>
+<li>diff 算法优化</li>
+<li>静态提升</li>
+<li>事件监听缓存</li>
+<li>SSR 优化</li>
+</ol>
+<h4 id="更友好"><a href="#更友好" class="headerlink" title="更友好"></a>更友好</h4><blockquote>
+<p>vue3 在兼顾 vue2 的 options API 的同时还推出了 composition API，大大增加了代码的逻辑组织和代码复用能力</p>
+</blockquote>
+<h3 id="设计方案"><a href="#设计方案" class="headerlink" title="设计方案"></a>设计方案</h3><h4 id="1-源码"><a href="#1-源码" class="headerlink" title="1. 源码"></a>1. 源码</h4><ul>
+<li><p>源码管理<br>vue3 整个源码是通过 monorepo 的方式维护的，根据功能将不同的模块拆分到 packages 目录下面不同的子目录中</p>
+</li>
+<li><p>TypeScript<br>Vue3 是基于 typeScript 编写的，提供了更好的类型检查，能支持复杂的类型推导</p>
+</li>
+</ul>
+<h4 id="2-性能"><a href="#2-性能" class="headerlink" title="2. 性能"></a>2. 性能</h4><ul>
+<li>体积优化</li>
+<li>编译优化</li>
+<li>数据劫持优化<br>在 vue2 中，数据劫持是通过 Object.defineProperty，这个 API 有一些缺陷，并不能检测对象属性的添加和删除，vue3 中使用 Proxy API 替代了 defineProperty API</li>
+</ul>
+<h4 id="3-API"><a href="#3-API" class="headerlink" title="3. API"></a>3. API</h4><p>其两大显著的优化：<br>composition API 和 setup 函数</p>
+<ul>
+<li>优化逻辑组织</li>
+<li>优化逻辑复用</li>
+</ul>
+<h2 id="2-Vue3-0-性能提升主要是通过哪几方面体现的？"><a href="#2-Vue3-0-性能提升主要是通过哪几方面体现的？" class="headerlink" title="2. Vue3.0 性能提升主要是通过哪几方面体现的？"></a>2. Vue3.0 性能提升主要是通过哪几方面体现的？</h2><h3 id="1-编译阶段"><a href="#1-编译阶段" class="headerlink" title="1. 编译阶段"></a>1. 编译阶段</h3><blockquote>
+<p>Vue2，每个组件实例都对应一个 watcher 实例，它会在组件渲染的过程中把用到的数据 property 记录为依赖，当依赖发生改变，触发 setter，则会通知 watcher，从而使关联的组件重新渲染</p>
+</blockquote>
+<p>Vue3 在编译阶段，做了进一步优化。主要有如下：</p>
+<ul>
+<li><p>diff 算法优化</p>
+<blockquote>
+<p>vue3 在 diff 算法中相比 vue2 增加了静态标记</p>
+</blockquote>
+<p>关于这个静态标记，其作用是为了会发生变化的地方添加一个 flag 标记，下次发生变化的时候直接找该地方进行比较</p>
+</li>
+<li><p>静态提升</p>
+<blockquote>
+<p>Vue3 中对不参与更新的元素，会做静态提升，只会被创建一次，在渲染时直接复用</p>
+</blockquote>
+<p>这样就免去了重复的创建节点，大型应用会受益于这个改动，免去了重复的创建操作，优化了运行时候的内存占用<br><code>const _hoisted_1 = /*#__PURE__*/_createVNode(&quot;span&quot;, null, &quot;你好&quot;, -1 /* HOISTED */)</code></p>
+</li>
+<li><p>事件监听缓存</p>
+<blockquote>
+<p>默认情况下绑定事件行为会被视为动态绑定，所以每次都会去追踪它的变化</p>
+</blockquote>
+</li>
+<li><p>SSR 优化</p>
+<blockquote>
+<p>当静态内容大到一定量级时候，会用 createStaticVNode 方法在客户端去生成一个 static node，这些静态 node，会被直接 innerHtml，就不需要创建对象，然后根据对象渲染</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-源码体积"><a href="#2-源码体积" class="headerlink" title="2. 源码体积"></a>2. 源码体积</h3><blockquote>
+<p>相比 Vue2，Vue3 整体体积变小了，除了移出一些不常用的 API，再重要的是 Tree shanking</p>
+</blockquote>
+<p>任何一个函数，如 ref、reavtived、computed 等，仅仅在用到的时候才打包，没用到的模块都被摇掉，打包的整体体积变小</p>
+<h3 id="3-响应式系统"><a href="#3-响应式系统" class="headerlink" title="3. 响应式系统"></a>3. 响应式系统</h3><ol>
+<li><p>vue2 中采用 defineProperty 来劫持整个对象，然后进行深度遍历所有属性，给每个属性添加 getter 和 setter，实现响应式</p>
+</li>
+<li><p>vue3 采用 proxy 重写了响应式系统，因为 proxy 可以对整个对象进行监听，所以不需要深度遍历</p>
+</li>
+</ol>
+<ul>
+<li>可以监听动态属性的添加</li>
+<li>可以监听到数组的索引和数组 length 属性</li>
+<li>可以监听删除属性</li>
+</ul>
+<h2 id="3-Vue3-0-里为什么要用-Proxy-API-替代-defineProperty-API-？"><a href="#3-Vue3-0-里为什么要用-Proxy-API-替代-defineProperty-API-？" class="headerlink" title="3. Vue3.0 里为什么要用 Proxy API 替代 defineProperty API ？"></a>3. Vue3.0 里为什么要用 Proxy API 替代 defineProperty API ？</h2><h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><blockquote>
+<p>定义：Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象</p>
+</blockquote>
+<h4 id="实现响应式"><a href="#实现响应式" class="headerlink" title="实现响应式"></a>实现响应式</h4><ol>
+<li><p>get<br>属性的 getter 函数，当访问该属性时，会调用此函数。执行时不传入任何参数，但是会传入 this 对象（由于继承关系，这里的 this 并不一定是定义该属性的对象）。该函数的返回值会被用作属性的值</p>
+</li>
+<li><p>set<br>属性的 setter 函数，当属性值被修改时，会调用此函数。该方法接受一个参数（也就是被赋予的新值），会传入赋值时的 this 对象。默认为 undefined</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">update</span>(<span class="hljs-params"></span>) &#123;<br>  app.<span class="hljs-property">innerText</span> = obj.<span class="hljs-property">foo</span><br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">defineReactive</span>(<span class="hljs-params">obj, key, val</span>) &#123;<br>  <span class="hljs-comment">//如果存在嵌套对象的情况，还需要在defineReactive中进行递归</span><br>  <span class="hljs-title function_">observe</span>(val)<br>  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>(obj, key, &#123;<br>    <span class="hljs-title function_">get</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`get <span class="hljs-subst">$&#123;key&#125;</span>:<span class="hljs-subst">$&#123;val&#125;</span>`</span>)<br>      <span class="hljs-keyword">return</span> val<br>    &#125;,<br>    <span class="hljs-title function_">set</span>(<span class="hljs-params">newVal</span>) &#123;<br>      <span class="hljs-keyword">if</span> (newVal !== val) &#123;<br>        <span class="hljs-comment">//当给key赋值为对象的时候，还需要在set属性中进行递归</span><br>        <span class="hljs-title function_">observe</span>(newVal)<br>        val = newVal<br>        <span class="hljs-title function_">update</span>()<br>      &#125;<br>    &#125;,<br>  &#125;)<br>&#125;<br><span class="hljs-comment">//在对象存在多个key情况下，需要进行遍历</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">observe</span>(<span class="hljs-params">obj</span>) &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj !== <span class="hljs-string">&#x27;object&#x27;</span> || obj == <span class="hljs-literal">null</span>) &#123;<br>    <span class="hljs-keyword">return</span><br>  &#125;<br>  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(obj).<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">key</span>) =&gt;</span> &#123;<br>    <span class="hljs-title function_">defineReactive</span>(obj, key, obj[key])<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>缺点</strong>：</p>
+<ol>
+<li>检测不到对象属性的添加和删除</li>
+<li>数组 API 方法无法监听到</li>
+<li>需要对每个属性进行遍历监听，如果嵌套对象，需要深层监听，造成性能问题</li>
+</ol>
+<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><blockquote>
+<p>Proxy 的监听是针对一个对象的，那么对这个对象的所有操作会进入监听操作，这就完全可以代理所有属性了</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">reactive</span>(<span class="hljs-params">obj</span>) &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj !== <span class="hljs-string">&#x27;object&#x27;</span> &amp;&amp; obj != <span class="hljs-literal">null</span>) &#123;<br>    <span class="hljs-keyword">return</span> obj<br>  &#125;<br>  <span class="hljs-comment">// Proxy相当于在对象外层加拦截</span><br>  <span class="hljs-keyword">const</span> observed = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(obj, &#123;<br>    <span class="hljs-title function_">get</span>(<span class="hljs-params">target, key, receiver</span>) &#123;<br>      <span class="hljs-keyword">const</span> res = <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">get</span>(target, key, receiver)<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`获取<span class="hljs-subst">$&#123;key&#125;</span>:<span class="hljs-subst">$&#123;res&#125;</span>`</span>)<br>      <span class="hljs-comment">// return res</span><br>      <span class="hljs-keyword">return</span> <span class="hljs-title function_">isObject</span>(res) ? <span class="hljs-title function_">reactive</span>(res) : res<br>    &#125;,<br>    <span class="hljs-title function_">set</span>(<span class="hljs-params">target, key, value, receiver</span>) &#123;<br>      <span class="hljs-keyword">const</span> res = <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">set</span>(target, key, value, receiver)<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`设置<span class="hljs-subst">$&#123;key&#125;</span>:<span class="hljs-subst">$&#123;value&#125;</span>`</span>)<br>      <span class="hljs-keyword">return</span> res<br>    &#125;,<br>    <span class="hljs-title function_">deleteProperty</span>(<span class="hljs-params">target, key</span>) &#123;<br>      <span class="hljs-keyword">const</span> res = <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">deleteProperty</span>(target, key)<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`删除<span class="hljs-subst">$&#123;key&#125;</span>:<span class="hljs-subst">$&#123;res&#125;</span>`</span>)<br>      <span class="hljs-keyword">return</span> res<br>    &#125;,<br>  &#125;)<br>  <span class="hljs-keyword">return</span> observed<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-Vue3-0-所采用的-Composition-Api-与-Vue2-x-使用的-Options-Api-有什么不同？"><a href="#4-Vue3-0-所采用的-Composition-Api-与-Vue2-x-使用的-Options-Api-有什么不同？" class="headerlink" title="4. Vue3.0 所采用的 Composition Api 与 Vue2.x 使用的 Options Api 有什么不同？"></a>4. Vue3.0 所采用的 Composition Api 与 Vue2.x 使用的 Options Api 有什么不同？</h2><h3 id="Options-Api"><a href="#Options-Api" class="headerlink" title="Options Api"></a>Options Api</h3><blockquote>
+<p>Options API，即大家常说的选项 API，即以 vue 为后缀的文件，通过定义 methods，computed，watch，data 等属性与方法，共同处理页面逻辑</p>
+</blockquote>
+<p><strong>缺点</strong>：</p>
+<ol>
+<li>当组件变得复杂，导致对应属性的列表也会增长，这可能会导致组件难以阅读和理解</li>
+</ol>
+<h3 id="Composition-Api"><a href="#Composition-Api" class="headerlink" title="Composition Api"></a>Composition Api</h3><blockquote>
+<p>在 Vue3 Composition API 中，组件根据逻辑功能来组织的，一个功能所定义的所有 API 会放在一起（更加的高内聚，低耦合）</p>
+</blockquote>
+<p><strong>优点</strong>：</p>
+<ol>
+<li>在逻辑组织和逻辑复用方面，Composition API 是优于 Options API</li>
+<li>因为 Composition API 几乎是函数，会有更好的类型推断。</li>
+<li>Composition API 对 tree-shaking 友好，代码也更容易压缩</li>
+<li>Composition API 中见不到 this 的使用，减少了 this 指向不明的情况</li>
+</ol>
+<h2 id="5-说说-Vue-3-0-中-Treeshaking-特性？举例说明一下？"><a href="#5-说说-Vue-3-0-中-Treeshaking-特性？举例说明一下？" class="headerlink" title="5. 说说 Vue 3.0 中 Treeshaking 特性？举例说明一下？"></a>5. 说说 Vue 3.0 中 Treeshaking 特性？举例说明一下？</h2><blockquote>
+<p>Tree shaking 是一种通过清除多余代码方式来优化项目打包体积的技术，专业术语叫 Dead code elimination<br>简单来讲，就是在保持代码运行结果不变的前提下，去除无用的代码</p>
+</blockquote>
+<h3 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a>如何实现</h3><blockquote>
+<p>Tree shaking 是基于 ES6 模板语法（import 与 exports），主要是借助 ES6 模块的静态编译思想，在编译时就能确定模块的依赖关系，以及输入和输出的变量</p>
+</blockquote>
+<p><strong>Tree shaking 无非就是做了两件事：</strong></p>
+<ol>
+<li>编译阶段利用 ES6 Module 判断哪些模块已经加载</li>
+<li>判断那些模块和变量未被使用或者引用，进而删除对应代码</li>
+</ol>
+<h3 id="通过-Tree-shaking，Vue3-给我们带来的好处是："><a href="#通过-Tree-shaking，Vue3-给我们带来的好处是：" class="headerlink" title="通过 Tree shaking，Vue3 给我们带来的好处是："></a>通过 Tree shaking，Vue3 给我们带来的好处是：</h3><ol>
+<li>减少程序体积（更小）</li>
+<li>减少程序执行时间（更快）</li>
+<li>便于将来对程序架构进行优化（更友好）</li>
+</ol>
+<h2 id="6-用-Vue3-0-写过组件吗？如果想实现一个-Modal-你会怎么设计？"><a href="#6-用-Vue3-0-写过组件吗？如果想实现一个-Modal-你会怎么设计？" class="headerlink" title="6. 用 Vue3.0 写过组件吗？如果想实现一个 Modal 你会怎么设计？"></a>6. 用 Vue3.0 写过组件吗？如果想实现一个 Modal 你会怎么设计？</h2><h3 id="实现一个-Modal-组件，首先确定需要完成的内容："><a href="#实现一个-Modal-组件，首先确定需要完成的内容：" class="headerlink" title="实现一个 Modal 组件，首先确定需要完成的内容："></a>实现一个 Modal 组件，首先确定需要完成的内容：</h3><ul>
+<li>遮罩层</li>
+<li>标题内容</li>
+<li>主体内容</li>
+<li>确定和取消按钮</li>
+</ul>
+<p>主体内容需要灵活，所以可以是字符串，也可以是一段 html 代码<br>特点是它们在当前 vue 实例之外独立存在，通常挂载于 body 之上<br>除了通过引入 import 的形式，我们还可通过 API 的形式进行组件的调用<br>还可以包括配置全局样式、国际化、与 typeScript 结合</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><blockquote>
+<p>Modal组件相关的目录结构</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js">├── plugins<br>│   └── modal<br>│       ├── <span class="hljs-title class_">Content</span>.<span class="hljs-property">tsx</span> <span class="hljs-comment">// 维护 Modal 的内容，用于 h 函数和 jsx 语法</span><br>│       ├── <span class="hljs-title class_">Modal</span>.<span class="hljs-property">vue</span> <span class="hljs-comment">// 基础组件</span><br>│       ├── config.<span class="hljs-property">ts</span> <span class="hljs-comment">// 全局默认配置</span><br>│       ├── index.<span class="hljs-property">ts</span> <span class="hljs-comment">// 入口</span><br>│       ├── locale <span class="hljs-comment">// 国际化相关</span><br>│       │   ├── index.<span class="hljs-property">ts</span><br>│       │   └── lang<br>│       │       ├── en-<span class="hljs-variable constant_">US</span>.<span class="hljs-property">ts</span><br>│       │       ├── zh-<span class="hljs-variable constant_">CN</span>.<span class="hljs-property">ts</span><br>│       │       └── zh-<span class="hljs-variable constant_">TW</span>.<span class="hljs-property">ts</span><br>│       └── modal.<span class="hljs-property">type</span>.<span class="hljs-property">ts</span> <span class="hljs-comment">// ts类型声明相关</span><br><span class="hljs-comment">// 因为 Modal 会被 app.use(Modal) 调用作为一个插件，所以都放在plugins目录下</span><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/VUE3%E7%B3%BB%E5%88%97/">#VUE3系列</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>VUE3系列</div>
+      <div>http://example.com/2024/02/22/面试知识点/VUE3系列/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小日月</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/22/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/ES6%E7%B3%BB%E5%88%97/" title="ES6系列">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ES6系列</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/17/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/Vue%E7%B3%BB%E5%88%97/" title="Vue系列">
+                        <span class="hidden-mobile">Vue系列</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+
+
+        <!-- 添加网站运行时间 -->
+        <div class="footer-content">
+          <div>
+            <span id="timeDate">载入天数...</span>
+            <span id="times">载入时分秒...</span>
+            <script>
+              var now = new Date();
+              function createtime() {
+                var grt = new Date("04/03/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24;
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                hnum = Math.floor(hours);
+                if (String(hnum).length == 1) {
+                  hnum = "0" + hnum;
+                }
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if (String(mnum).length == 1) {
+                  mnum = "0" + mnum;
+                }
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if (String(snum).length == 1) {
+                  snum = "0" + snum;
+                }
+                document.getElementById("timeDate").innerHTML = "🚀 &nbsp" + dnum + "&nbsp天";  //此次自定义显示内容
+                document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+              }  //此次自定义显示内容
+              setInterval("createtime()", 250);
+            </script>
+          </div>
+        </div>
+
+
+    </div>
+    
+      
+        <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+          
+            
+                  
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
