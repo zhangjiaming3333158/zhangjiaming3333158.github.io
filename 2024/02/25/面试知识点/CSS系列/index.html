@@ -1,0 +1,1072 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/wanye.jpg">
+  <link rel="icon" href="/img/wanye.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小日月">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍭 CSS 系列1. css 盒模型12HTML中的每个元素都可以看作一个盒子，这个盒子由元素的内容(content)、内边距(padding)、边框(border)、外边距(margin)组成。   盒模型分为两种：标准盒模型和 IE 盒模型。  1.标准盒模型：width &#x3D; margin + border + padding + content  盒子 width&#x2F;he">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS系列">
+<meta property="og:url" content="http://example.com/2024/02/25/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/CSS%E7%B3%BB%E5%88%97/index.html">
+<meta property="og:site_name" content="小日月的博客">
+<meta property="og:description" content="🍭 CSS 系列1. css 盒模型12HTML中的每个元素都可以看作一个盒子，这个盒子由元素的内容(content)、内边距(padding)、边框(border)、外边距(margin)组成。   盒模型分为两种：标准盒模型和 IE 盒模型。  1.标准盒模型：width &#x3D; margin + border + padding + content  盒子 width&#x2F;he">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-25T15:52:24.000Z">
+<meta property="article:modified_time" content="2024-02-26T08:20:22.459Z">
+<meta property="article:author" content="小日月">
+<meta property="article:tag" content="CSS系列">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>CSS系列 - 小日月的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小日月</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/example/">
+                <i class="iconfont icon-image"></i>
+                echarts
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/example1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CSS系列"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-25 23:52" pubdate>
+          2024年2月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          67 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CSS系列</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="🍭-CSS-系列"><a href="#🍭-CSS-系列" class="headerlink" title="🍭 CSS 系列"></a>🍭 CSS 系列</h1><h2 id="1-css-盒模型"><a href="#1-css-盒模型" class="headerlink" title="1. css 盒模型"></a>1. css 盒模型</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html">HTML中的每个元素都可以看作一个盒子，<br>这个盒子由元素的内容(content)、内边距(padding)、边框(border)、外边距(margin)组成。<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>盒模型分为两种：标准盒模型和 IE 盒模型。</p>
+</blockquote>
+<p>1.<strong>标准盒模型</strong>：width &#x3D; margin + border + padding + content</p>
+<blockquote>
+<p>盒子 width&#x2F;height 就是 content，改变 border 和 padding 不会改变 content 内容的宽高，但是会改变盒子总宽高</p>
+</blockquote>
+<p>2.<strong>IE 盒模型</strong>：width &#x3D; margin + content(包含 border 和 padding)</p>
+<blockquote>
+<p>盒子 width&#x2F;height 包括 content+padding+border，改变 padding 和 border 不会改变总宽高，会改变 content 的宽高</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs css">&lt;style&gt;<br>  <span class="hljs-selector-class">.box</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;<br>    <span class="hljs-attribute">border</span>: <span class="hljs-number">10px</span> solid red;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;<br>    <span class="hljs-attribute">box-sizing</span>: border-box; <span class="hljs-comment">/* IE 盒模型 */</span><br>    <span class="hljs-attribute">box-sizing</span>: content-box; <span class="hljs-comment">/* 标准盒模型(默认值) */</span><br>    <span class="hljs-attribute">box-sizing</span>: inherit;<span class="hljs-comment">/* 继承父元素 */</span><br>  &#125;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-css-选择器有哪些？优先级？哪些属性可以继承？"><a href="#2-css-选择器有哪些？优先级？哪些属性可以继承？" class="headerlink" title="2. css 选择器有哪些？优先级？哪些属性可以继承？"></a>2. css 选择器有哪些？优先级？哪些属性可以继承？</h2><ol>
+<li>基本选择器：<br>&#x2F;ID 选择器(#id)&#x2F;类选择器(.class)&#x2F;属性选择器([attr])&#x2F;标签选择器(div)&#x2F;通配符选择器(*)</li>
+<li>伪选择器：<br>&#x2F;伪类(.class::hover)&#x2F;伪元素(div::before)</li>
+<li>分组选择器</li>
+<li>组合器<br>&#x2F;子选择器(div&gt;p)&#x2F;兄弟选择器(div+p)</li>
+</ol>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><ol start="0">
+<li>第一优先级：!important 会覆盖页面内任何位置的元素样式</li>
+<li>内联样式，如 style&#x3D;”color: green”，权值为 1000</li>
+<li>ID 选择器，如#app，权值为 0100</li>
+<li>类、伪类、属性选择器，如.foo, :first-child, div[class&#x3D;”foo”]，权值为 0010</li>
+<li>标签、伪元素选择器，如 div::first-line，权值为 0001</li>
+<li>通配符、子类选择器、兄弟选择器，如*, &gt;, +，权值为 0000</li>
+<li>继承的样式没有权值</li>
+</ol>
+<h3 id="继承样式"><a href="#继承样式" class="headerlink" title="继承样式"></a>继承样式</h3><ol>
+<li><p>可继承 <code>字体系列属性</code>&#x2F;<code>文本系列属性</code>&#x2F;<code>表格布局属性</code>&#x2F;<code>列表属性</code>&#x2F; <code>元素可见性</code></p>
+</li>
+<li><p>不可继承 <code>display</code>&#x2F;<code>盒子模型的属性：宽度、高度、内外边距、边框等</code>&#x2F;<code>背景属性：背景图片、颜色、位置等</code>&#x2F;<code>定位属性</code></p>
+</li>
+</ol>
+<h2 id="3-说说-em-x2F-px-x2F-rem-x2F-vh-x2F-vw-区别"><a href="#3-说说-em-x2F-px-x2F-rem-x2F-vh-x2F-vw-区别" class="headerlink" title="3. 说说 em&#x2F;px&#x2F;rem&#x2F;vh&#x2F;vw 区别?"></a>3. 说说 em&#x2F;px&#x2F;rem&#x2F;vh&#x2F;vw 区别?</h2><h3 id="px-像素"><a href="#px-像素" class="headerlink" title="px 像素"></a>px 像素</h3><blockquote>
+<p>所谓像素就是呈现在我们显示器上的一个个小点 px 为绝对单位</p>
+</blockquote>
+<h3 id="em"><a href="#em" class="headerlink" title="em"></a>em</h3><blockquote>
+<p>em 是相对长度单位。相对于当前对象内文本的字体尺寸;如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸（1em &#x3D; 16px）</p>
+</blockquote>
+<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p>rem，相对单位，相对的只是 HTML 根元素 font-size 的值</p>
+<h3 id="vh-x2F-vw"><a href="#vh-x2F-vw" class="headerlink" title="vh&#x2F;vw"></a>vh&#x2F;vw</h3><blockquote>
+<p>vw ，就是根据窗口的宽度，分成 100 等份，100vw 就表示满宽，50vw 就表示一半宽。（vw 始终是针对窗口的宽），同理，vh 则为窗口的高度</p>
+</blockquote>
+<h3 id="移动端适配"><a href="#移动端适配" class="headerlink" title="移动端适配"></a>移动端适配</h3><ol>
+<li>@media(媒体查询)+rem 相对单位</li>
+<li>vw+rem</li>
+<li>flexible</li>
+</ol>
+<h2 id="4-css-中，有哪些方式可以隐藏页面元素？区别"><a href="#4-css-中，有哪些方式可以隐藏页面元素？区别" class="headerlink" title="4. css 中，有哪些方式可以隐藏页面元素？区别?"></a>4. css 中，有哪些方式可以隐藏页面元素？区别?</h2><ol>
+<li>display:none<blockquote>
+<p>特点：元素不可见，不占据空间，无法响应点击事件</p>
+</blockquote>
+</li>
+<li>visibility:hidden<blockquote>
+<p>元素不可见，占据页面空间，无法响应点击事件</p>
+</blockquote>
+</li>
+<li>opacity:0<blockquote>
+<p>改变元素透明度，元素不可见，占据页面空间，可以响应点击事件</p>
+</blockquote>
+</li>
+<li>设置 height、width 模型属性为 0<blockquote>
+<p>元素不可见，不占据页面空间，无法响应点击事件</p>
+</blockquote>
+</li>
+<li>position:absolute,移出可视区域<blockquote>
+<p>元素不可见，不影响页面布局</p>
+</blockquote>
+</li>
+<li>clip-path<blockquote>
+<p><code>clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);</code><br>元素不可见，占据页面空间，无法响应点击事件</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="5-谈谈你对-BFC-的理解？"><a href="#5-谈谈你对-BFC-的理解？" class="headerlink" title="5. 谈谈你对 BFC 的理解？"></a>5. 谈谈你对 BFC 的理解？</h2><blockquote>
+<p>BFC（Block Formatting Context），即块级格式化上下文，它是页面中的一块渲染区域，并且有一套属于自己的渲染规则：<br>BFC 目的是形成一个相对于外界完全独立的空间，让内部的子元素不会影响到外部的元素</p>
+</blockquote>
+<ol>
+<li>内部的盒子会在垂直方向上一个接一个的放置</li>
+<li>对于同一个 BFC 的俩个相邻的盒子的 margin 会发生重叠，与方向无关。</li>
+<li>每个元素的左外边距与包含块的左边界相接触（从左到右），即使浮动元素也是如此</li>
+<li>BFC 的区域不会与 float 的元素区域重叠</li>
+<li>计算 BFC 的高度时，浮动子元素也参与计算</li>
+<li>BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然</li>
+</ol>
+<h3 id="触发-BFC-的条件包含不限于："><a href="#触发-BFC-的条件包含不限于：" class="headerlink" title="触发 BFC 的条件包含不限于："></a>触发 BFC 的条件包含不限于：</h3><ol>
+<li>根元素，即 HTML 元素</li>
+<li>浮动元素：float 值为 left、right</li>
+<li>overflow 值不为 visible，为 auto、scroll、hidden</li>
+<li>display 的值为 inline-block、inltable-cell、table-caption、table、inline-table、flex、inline-flex、grid、inline-grid</li>
+<li>position 的值为 absolute 或 fixed</li>
+</ol>
+<h2 id="6-元素水平垂直居中的方法有哪些？如果元素不定宽高呢？"><a href="#6-元素水平垂直居中的方法有哪些？如果元素不定宽高呢？" class="headerlink" title="6. 元素水平垂直居中的方法有哪些？如果元素不定宽高呢？"></a>6. 元素水平垂直居中的方法有哪些？如果元素不定宽高呢？</h2><h3 id="1-flex"><a href="#1-flex" class="headerlink" title="1 flex"></a>1 flex</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 1.flex+margin */</span><br><span class="hljs-selector-class">.parent</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>&#125;<br><span class="hljs-selector-class">.exapmle</span> &#123;<br>  <span class="hljs-attribute">margin</span>: auto;<br>&#125;<br><span class="hljs-comment">/* 2.flex */</span><br><span class="hljs-selector-class">.parent</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>  <span class="hljs-attribute">align-items</span>: center;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-绝对定位"><a href="#2-绝对定位" class="headerlink" title="2 绝对定位"></a>2 绝对定位</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 1.绝对定位 */</span><br><span class="hljs-selector-class">.parent</span> &#123;<br>  <span class="hljs-attribute">position</span>: relative;<br>&#125;<br><span class="hljs-selector-class">.exapmle</span> &#123;<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(-<span class="hljs-number">50%</span>, -<span class="hljs-number">50%</span>);<br>&#125;<br><span class="hljs-comment">/* 2.绝对定位 */</span><br><span class="hljs-selector-class">.parent</span> &#123;<br>  <span class="hljs-attribute">position</span>: relative;<br>&#125;<br><span class="hljs-selector-class">.exapmle</span> &#123;<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">margin</span>: auto;<br>&#125;<br><span class="hljs-comment">/* 2.绝对定位 */</span><br><span class="hljs-selector-class">.parent</span> &#123;<br>  <span class="hljs-attribute">position</span>: relative;<br>&#125;<br><span class="hljs-selector-class">.exapmle</span> &#123;<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">50%</span> - $exapmleHeight);<br>  <span class="hljs-attribute">left</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">50%</span> - $exapmleWeight);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-grid"><a href="#3-grid" class="headerlink" title="3 grid"></a>3 grid</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 1.grid */</span><br><span class="hljs-selector-class">.parent</span> &#123;<br>  <span class="hljs-attribute">display</span>: grid;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>  <span class="hljs-attribute">align-items</span>: center;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-table"><a href="#4-table" class="headerlink" title="4 table"></a>4 table</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.parent</span> &#123;<br>  <span class="hljs-attribute">display</span>: table-cell;<br>  <span class="hljs-attribute">vertical-align</span>: middle;<br>  <span class="hljs-attribute">text-align</span>: center;<br>&#125;<br><span class="hljs-selector-class">.exapmle</span> &#123;<br>  <span class="hljs-attribute">display</span>: inline-block;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="7-如何实现两栏布局，右侧自适应？三栏布局中间自适应呢？"><a href="#7-如何实现两栏布局，右侧自适应？三栏布局中间自适应呢？" class="headerlink" title="7. 如何实现两栏布局，右侧自适应？三栏布局中间自适应呢？"></a>7. 如何实现两栏布局，右侧自适应？三栏布局中间自适应呢？</h2><h3 id="两栏"><a href="#两栏" class="headerlink" title="两栏"></a>两栏</h3><ol>
+<li>float:<blockquote>
+<p>两栏布局非常常见，往往是以一个定宽栏和一个自适应的栏并排展示存在</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>实现思路也非常的简单：</strong></p>
+<ol>
+<li><p>使用 float 左浮左边栏</p>
+</li>
+<li><p>右边模块使用 margin-left 撑出内容块做内容展示</p>
+</li>
+<li><p>为父级元素添加 BFC，防止下方元素飞到上方内容</p>
+</li>
+<li><p>flex:</p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css">  <span class="hljs-selector-class">.box</span> &#123;</span><br><span class="language-css">    <span class="hljs-attribute">display</span>: flex;</span><br><span class="language-css">  &#125;</span><br><span class="language-css">  <span class="hljs-selector-class">.left</span> &#123;</span><br><span class="language-css">    <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="language-css">  &#125;</span><br><span class="language-css">  <span class="hljs-selector-class">.right</span> &#123;</span><br><span class="language-css">    <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;</span><br><span class="language-css">  &#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span>左边<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>右边<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>flex 可以说是最好的方案了，代码少，使用简单</p>
+<p>注意的是，flex 容器的一个默认属性值:align-items: stretch;</p>
+<h3 id="三栏"><a href="#三栏" class="headerlink" title="三栏"></a>三栏</h3><p><strong>实现三栏布局中间自适应的布局方式有：</strong></p>
+<ol>
+<li><p>两边使用 float，中间使用 margin</p>
+</li>
+<li><p>两边使用 absolute，中间使用 margin</p>
+</li>
+<li><p>两边使用 float 和负 margin(双飞翼)</p>
+</li>
+<li><p>display: table 实现</p>
+<ol>
+<li>层通过 display: table 设置为表格，设置 table-layout: fixed&#96;表示列宽自身宽度决定，而不是自动计算。</li>
+<li>内层的左中右通过 display: table-cell 设置为表格单元。</li>
+<li>左右设置固定宽度，中间设置 width: 100% 填充剩下的宽度</li>
+</ol>
+</li>
+<li><p>flex 实现</p>
+<ol>
+<li>仅需将容器设置为 display:flex;，</li>
+<li>盒内元素两端对其，将中间元素设置为 100%宽度，或者设为 flex:1，即可填充空白</li>
+<li>盒内元素的高度撑开容器的高度</li>
+</ol>
+</li>
+<li><p>grid 网格布局</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">.<span class="hljs-property">parent</span> &#123;<br>    <span class="hljs-attr">display</span>: grid;<br>    <span class="hljs-attr">width</span>: <span class="hljs-number">100</span>%;<br>    grid-template-<span class="hljs-attr">columns</span>: 300px auto 300px;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="8-CSS3-新增了哪些新特性？"><a href="#8-CSS3-新增了哪些新特性？" class="headerlink" title="8. CSS3 新增了哪些新特性？"></a>8. CSS3 新增了哪些新特性？</h2><h3 id="css3-中新增了一些选择器-层次选择器-x2F-伪类选择器-x2F-属性选择器"><a href="#css3-中新增了一些选择器-层次选择器-x2F-伪类选择器-x2F-属性选择器" class="headerlink" title="css3 中新增了一些选择器:层次选择器&#x2F;伪类选择器&#x2F;属性选择器"></a>css3 中新增了一些选择器:<code>层次选择器</code>&#x2F;<code>伪类选择器</code>&#x2F;<code>属性选择器</code></h3><h3 id="新样式"><a href="#新样式" class="headerlink" title="新样式"></a>新样式</h3><ol>
+<li><p>边框 css3 新增了三个边框属性，分别是：</p>
+<ol>
+<li>border-radius：创建圆角边框</li>
+<li>box-shadow：为元素添加阴影</li>
+<li>border-image：使用图片来绘制边框</li>
+</ol>
+<h4 id="box-shadow"><a href="#box-shadow" class="headerlink" title="box-shadow"></a>box-shadow</h4><p>设置元素阴影，设置属性如下：</p>
+<ol>
+<li>水平阴影</li>
+<li>垂直阴影</li>
+<li>模糊距离(虚实)</li>
+<li>阴影尺寸(影子大小)</li>
+<li>阴影颜色</li>
+<li>内&#x2F;外阴影</li>
+</ol>
+</li>
+<li><p>背景<br>新增了几个关于背景的属性，分别是 background-clip、background-origin、background-size 和 background-break</p>
+<ul>
+<li>background-clip:<code>background-clip: border-box; 背景从border开始显示</code></li>
+<li>background-origin:<code>background-origin: border-box; 从border开始计算background-position</code></li>
+</ul>
+</li>
+<li><p>文字</p>
+<ul>
+<li>word-wrap</li>
+<li>text-overflow<blockquote>
+<p>设置或检索当当前行超过指定容器的边界时如何显示</p>
+</blockquote>
+</li>
+<li>text-shadow<blockquote>
+<p>可向文本应用阴影</p>
+</blockquote>
+</li>
+<li>text-decoration</li>
+</ul>
+</li>
+<li><p>颜色<br>css3 新增了新的颜色表示方式 rgba 与 hsla</p>
+</li>
+</ol>
+<h3 id="transition-过渡"><a href="#transition-过渡" class="headerlink" title="transition 过渡"></a>transition 过渡</h3><p>transition 属性可以被指定为一个或多个 CSS 属性的过渡效果，多个属性之间用逗号进行分隔，必须规定两项内容：1. 过度效果 2. 持续时间<br><code>transition： CSS属性，花费时间，效果曲线(默认ease)，延迟时间(默认0)</code></p>
+<h3 id="transform-转换"><a href="#transform-转换" class="headerlink" title="transform 转换"></a>transform 转换</h3><h3 id="animation-动画"><a href="#animation-动画" class="headerlink" title="animation 动画"></a>animation 动画</h3><h3 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h3><p>颜色渐变是指在两个颜色之间平稳的过渡，css3 渐变包括</p>
+<ol>
+<li>linear-gradient：线性渐变<br>background-image: linear-gradient(direction, color-stop1, color-stop2, …);</li>
+<li>radial-gradient：径向渐变<br>linear-gradient(0deg, red, green);</li>
+</ol>
+<h2 id="9-css3-动画有哪些？"><a href="#9-css3-动画有哪些？" class="headerlink" title="9. css3 动画有哪些？"></a>9. css3 动画有哪些？</h2><ol>
+<li><p>transition 实现渐变动画<br>参数：</p>
+<ul>
+<li>property:填写需要变化的 css 属性</li>
+<li>duration:完成过渡效果需要的时间单位(s 或者 ms)</li>
+<li>timing-function:完成效果的速度曲线</li>
+<li>delay: 动画效果的延迟触发时间</li>
+</ul>
+</li>
+<li><p>transform 转变动画<br>包含四个常用的功能：</p>
+<ul>
+<li>translate：位移</li>
+<li>scale：缩放</li>
+<li>rotate：旋转</li>
+<li>skew：倾斜</li>
+</ul>
+</li>
+<li><p>animation 实现自定义动画</p>
+<ul>
+<li>通过 @keyframes 来定义关键帧<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@keyframes</span> rotate &#123;<br>  <span class="hljs-selector-tag">from</span> &#123;<br>    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(<span class="hljs-number">0deg</span>);<br>  &#125;<br>  <span class="hljs-selector-tag">to</span> &#123;<br>    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(<span class="hljs-number">360deg</span>);<br>  &#125;<br>&#125;<br><span class="hljs-attribute">animation</span>: rotate <span class="hljs-number">2s</span>;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h2 id="10-怎么理解回流跟重绘？什么场景下会触发？"><a href="#10-怎么理解回流跟重绘？什么场景下会触发？" class="headerlink" title="10. 怎么理解回流跟重绘？什么场景下会触发？"></a>10. 怎么理解回流跟重绘？什么场景下会触发？</h2><blockquote>
+<p>回流：布局引擎会根据各种样式计算每个盒子在页面上的大小与位置<br>重绘：当计算好盒模型的位置、大小及其他属性后，浏览器根据每个盒子特性进行绘制</p>
+</blockquote>
+<h3 id="浏览器渲染过程"><a href="#浏览器渲染过程" class="headerlink" title="浏览器渲染过程"></a>浏览器渲染过程</h3><ol>
+<li>解析 HTML，生成 DOM 树，解析 CSS，生成 CSSOM 树</li>
+<li>将 DOM 树和 CSSOM 树结合，生成渲染树(Render Tree)</li>
+<li>Layout(回流):根据生成的渲染树，进行回流(Layout)，得到节点的几何信息（位置，大小）</li>
+<li>Painting(重绘):根据渲染树以及回流得到的几何信息，得到节点的绝对像素</li>
+<li>Display:将像素发送给 GPU，展示在页面上</li>
+</ol>
+<h3 id="回流触发时机"><a href="#回流触发时机" class="headerlink" title="回流触发时机"></a>回流触发时机</h3><blockquote>
+<p>回流这一阶段主要是计算节点的位置和几何信息，那么当页面布局和几何信息发生变化的时候，就需要回流，如下面情况：</p>
+</blockquote>
+<ol>
+<li>添加或删除可见的 DOM 元素</li>
+<li>元素的位置发生变化</li>
+<li>元素的尺寸发生变化（包括外边距、内边框、边框大小、高度和宽度等）</li>
+<li>内容发生变化，比如文本变化或图片被另一个不同尺寸的图片所替代</li>
+<li>页面一开始渲染的时候（这避免不了）</li>
+<li>浏览器的窗口尺寸变化（因为回流是根据视口的大小来计算元素的位置和大小的</li>
+</ol>
+<h3 id="重绘触发时机"><a href="#重绘触发时机" class="headerlink" title="重绘触发时机"></a>重绘触发时机</h3><blockquote>
+<p>触发回流一定会触发重绘</p>
+</blockquote>
+<ol>
+<li>颜色的修改</li>
+<li>文本方向的修改</li>
+<li>阴影的修改</li>
+</ol>
+<h3 id="减少回流重绘性能消耗"><a href="#减少回流重绘性能消耗" class="headerlink" title="减少回流重绘性能消耗"></a>减少回流重绘性能消耗</h3><ol>
+<li>如果想设定元素的样式，通过改变元素的 class 类名 (尽可能在 DOM 树的最里层)<br>避免设置多项内联样式</li>
+<li>应用元素的动画，使用 position 属性的 fixed 值或 absolute 值(如前文示例所提)</li>
+<li>避免使用 table 布局，table 中每个元素的大小以及内容的改动，都会导致整个 table 的重新计算</li>
+<li>对于那些复杂的动画，对其设置 position: fixed&#x2F;absolute，尽可能地使元素脱离文档流，从而减少对其他元素的影响</li>
+<li>使用 css3 硬件加速，可以让 transform、opacity、filters 这些动画不会引起回流重绘</li>
+<li>避免使用 CSS 的 JavaScript 表达式</li>
+</ol>
+<h2 id="11-什么是响应式设计？响应式设计的基本原理是什么？如何做？"><a href="#11-什么是响应式设计？响应式设计的基本原理是什么？如何做？" class="headerlink" title="11. 什么是响应式设计？响应式设计的基本原理是什么？如何做？"></a>11. 什么是响应式设计？响应式设计的基本原理是什么？如何做？</h2><blockquote>
+<p>响应式网站设计（Responsive Web design）是一种网络页面设计布局，页面的设计与开发应当根据用户行为以及设备环境(系统平台、屏幕尺寸、屏幕定向等)进行相应的响应和调整</p>
+</blockquote>
+<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><blockquote>
+<p>响应式设计的基本原理是通过媒体查询检测不同的设备屏幕尺寸做处理，为了处理移动端，页面头部必须有 meta 声明 viewport</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no”&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>属性对应如下：</p>
+<ol>
+<li>width&#x3D;device-width: 是自适应手机屏幕的尺寸宽度</li>
+<li>maximum-scale:是缩放比例的最大值</li>
+<li>inital-scale:是缩放的初始化</li>
+<li>user-scalable:是用户的可以缩放的操作</li>
+</ol>
+<p>实现响应式布局的方式有如下：</p>
+<ol>
+<li>媒体查询</li>
+<li>百分比</li>
+<li>vw&#x2F;vh</li>
+<li>rem</li>
+</ol>
+<h2 id="12-如果要做优化，CSS-提高性能的方法有哪些？"><a href="#12-如果要做优化，CSS-提高性能的方法有哪些？" class="headerlink" title="12. 如果要做优化，CSS 提高性能的方法有哪些？"></a>12. 如果要做优化，CSS 提高性能的方法有哪些？</h2><p>实现方式有很多种，主要有如下：</p>
+<ol>
+<li>内联首屏关键 CSS</li>
+<li>异步加载 CSS</li>
+<li>资源压缩</li>
+<li>合理使用选择器</li>
+<li>减少使用昂贵的属性</li>
+<li>不要使用@import</li>
+<li>其他<ul>
+<li>减少重排操作，以及减少不必要的重绘</li>
+<li>了解哪些属性可以继承而来，避免对这些属性重复编写</li>
+<li>cssSprite，合成所有 icon 图片，用宽高加上 backgroud-position 的背景图方式显现- 出我们要的 icon 图，减少了 http 请求</li>
+<li>把小的 icon 图片转成 base64 编码</li>
+<li>CSS3 动画或者过渡尽量使用 transform 和 opacity 来实现动画，不要使用 left 和 top 属性</li>
+</ul>
+</li>
+</ol>
+<h2 id="13-如何实现单行／多行文本溢出的省略样式？"><a href="#13-如何实现单行／多行文本溢出的省略样式？" class="headerlink" title="13. 如何实现单行／多行文本溢出的省略样式？"></a>13. 如何实现单行／多行文本溢出的省略样式？</h2><h3 id="单行文本溢出省略"><a href="#单行文本溢出省略" class="headerlink" title="单行文本溢出省略"></a>单行文本溢出省略</h3><ol>
+<li>text-overflow：规定当文本溢出时，显示省略符号来代表被修剪的文本</li>
+<li>white-space：设置文字在一行显示，不能换行</li>
+<li>overflow：文字长度超出限定宽度，则隐藏超出的内容</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>  <span class="hljs-attribute">text-overflow</span>: ellipsis;<br>  <span class="hljs-attribute">white-space</span>: nowrap;<br>  <span class="hljs-attribute">overflow</span>: hidden;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="多行文本溢出省略"><a href="#多行文本溢出省略" class="headerlink" title="多行文本溢出省略"></a>多行文本溢出省略</h3><ol>
+<li>基于高度截断<blockquote>
+<p>实现原理很好理解，就是通过伪元素绝对定位到行尾并遮住文字，再通过 overflow: hidden 隐藏多余文字</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.demo</span> &#123;<br>  <span class="hljs-attribute">position</span>: relative;<br>  <span class="hljs-attribute">overflow</span>: hidden;<br>&#125;<br><span class="hljs-selector-class">.demo</span><span class="hljs-selector-pseudo">::after</span> &#123;<br>  <span class="hljs-attribute">content</span>: <span class="hljs-string">&#x27;...&#x27;</span>;<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>基于行数截断</p>
+<ol>
+<li>-webkit-line-clamp: 2：用来限制在一个块元素显示的文本的行数，为了实现该效果，它需要组合其他的 WebKit 属性）</li>
+<li>display: -webkit-box：和 1 结合使用，将对象作为弹性伸缩盒子模型显示</li>
+<li>-webkit-box-orient: vertical：和 1 结合使用 ，设置或检索伸缩盒对象的子元素的排列方式</li>
+<li>overflow: hidden：文本溢出限定的宽度就隐藏内容</li>
+<li>text-overflow: ellipsis：多行文本的情况下，用省略号“…”隐藏溢出范围的文本</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>  -webkit-line-clamp: <span class="hljs-number">2</span>;<br>  <span class="hljs-attribute">display</span>: -webkit-box;<br>  -webkit-box-orient: vertical;<br>  <span class="hljs-attribute">overflow</span>: hidden;<br>  <span class="hljs-attribute">text-overflow</span>: ellipsis;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="14-什么是-CSS-预处理器？有哪些常见的-CSS-预处理器？"><a href="#14-什么是-CSS-预处理器？有哪些常见的-CSS-预处理器？" class="headerlink" title="14. 什么是 CSS 预处理器？有哪些常见的 CSS 预处理器？"></a>14. 什么是 CSS 预处理器？有哪些常见的 CSS 预处理器？</h2><h3 id="预处理语言"><a href="#预处理语言" class="headerlink" title="预处理语言"></a>预处理语言</h3><ol>
+<li>扩充了 Css 语言，增加了诸如变量、混合（mixin）、函数等功能，让 Css 更易维护、方便<br><strong>本质上，预处理是 Css 的超集</strong></li>
+<li>包含一套自定义的语法及一个解析器，根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 Css 文件</li>
+</ol>
+<h3 id="Css-预编译语言在前端里面有三大优秀的预编处理器，分别是："><a href="#Css-预编译语言在前端里面有三大优秀的预编处理器，分别是：" class="headerlink" title="Css 预编译语言在前端里面有三大优秀的预编处理器，分别是："></a>Css 预编译语言在前端里面有三大优秀的预编处理器，分别是：</h3><ol>
+<li>sass</li>
+<li>less</li>
+<li>stylus<blockquote>
+<p>主要用来给 Node 项目进行 Css 预处理支持</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>虽然各种预处理器功能强大，但使用最多的，还是以下特性：</p>
+<ol>
+<li>变量（variables）<br>-less:<code>@red</code><br>-scss<code>$red</code></li>
+<li>作用域（scope）<blockquote>
+<p>sass 中不存在全局变量<br>ess 与 stylus 的作用域跟 javascript 十分的相似，首先会查找局部定义的变量，如果没有找到，会像冒泡一样，一级一级往下查找，直到根为止</p>
+</blockquote>
+</li>
+<li>代码混合（ mixins）</li>
+<li>嵌套（nested rules）</li>
+<li>代码模块化（Modules）<ul>
+<li>模块化就是将 Css 代码分成一个个模块</li>
+<li>scss、less、stylus 三者的使用方法都如下所示<br><code>@import &#39;./common&#39;</code>;</li>
+</ul>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/CSS%E7%B3%BB%E5%88%97/">#CSS系列</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CSS系列</div>
+      <div>http://example.com/2024/02/25/面试知识点/CSS系列/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小日月</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/26/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/Webpack%E7%B3%BB%E5%88%97/" title="Webpack系列">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Webpack系列</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/24/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/JavaScript%E7%B3%BB%E5%88%97/" title="JavaScript系列">
+                        <span class="hidden-mobile">JavaScript系列</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+
+
+        <!-- 添加网站运行时间 -->
+        <div class="footer-content">
+          <div>
+            <span id="timeDate">载入天数...</span>
+            <span id="times">载入时分秒...</span>
+            <script>
+              var now = new Date();
+              function createtime() {
+                var grt = new Date("04/03/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24;
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                hnum = Math.floor(hours);
+                if (String(hnum).length == 1) {
+                  hnum = "0" + hnum;
+                }
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if (String(mnum).length == 1) {
+                  mnum = "0" + mnum;
+                }
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if (String(snum).length == 1) {
+                  snum = "0" + snum;
+                }
+                document.getElementById("timeDate").innerHTML = "🚀 &nbsp" + dnum + "&nbsp天";  //此次自定义显示内容
+                document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+              }  //此次自定义显示内容
+              setInterval("createtime()", 250);
+            </script>
+          </div>
+        </div>
+
+
+    </div>
+    
+      
+        <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+          
+            
+                  
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
