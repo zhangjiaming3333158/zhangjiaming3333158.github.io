@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://example.com/2024/01/20/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A2-id1/old_lifecycle.png">
 <meta property="og:image" content="http://example.com/2024/01/20/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A2-id1/new_lifecycle.png">
 <meta property="article:published_time" content="2024-01-20T15:17:36.000Z">
-<meta property="article:modified_time" content="2024-02-20T09:29:18.824Z">
+<meta property="article:modified_time" content="2024-02-27T19:37:01.435Z">
 <meta property="article:author" content="小日月">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2024/01/20/%E9%9D%A2%E8%AF%95%E5%AE%9E%E6%88%98/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A2-id1/old_lifecycle.png">
@@ -261,7 +261,7 @@
         
         
         
-          75 分钟
+          76 分钟
         
       </span>
     
@@ -331,40 +331,47 @@
 
 <h3 id="5-table"><a href="#5-table" class="headerlink" title="5.table"></a>5.table</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.parent</span> &#123;<br>  <span class="hljs-attribute">display</span>: table-cell;<br>  <span class="hljs-attribute">vertical-align</span>: middle;<br>  <span class="hljs-attribute">text-align</span>: center;<br>&#125;<br><span class="hljs-selector-class">.exapmle</span> &#123;<br>  <span class="hljs-attribute">display</span>: inline-block;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="4、讲讲-flex-属性"><a href="#4、讲讲-flex-属性" class="headerlink" title="4、讲讲 flex 属性"></a>4、讲讲 flex 属性</h2><h3 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h3><pre><code class="hljs">1.flex-direction /
+<h2 id="4、讲讲-flex-属性"><a href="#4、讲讲-flex-属性" class="headerlink" title="4、讲讲 flex 属性"></a>4、讲讲 flex 属性</h2><h3 id="容器属性："><a href="#容器属性：" class="headerlink" title="容器属性："></a>容器属性：</h3><pre><code class="hljs">1.flex-direction /
 2.flex-wrap /
 3.flex-flow /
 4.justify-content /
 5.align-items /
 6.align-content
 </code></pre>
-<h3 id="4-1-flex-direction"><a href="#4-1-flex-direction" class="headerlink" title="4.1 flex-direction"></a>4.1 flex-direction</h3><blockquote>
+<h4 id="4-1-flex-direction"><a href="#4-1-flex-direction" class="headerlink" title="4.1 flex-direction"></a>4.1 flex-direction</h4><blockquote>
 <p>属性决定主轴方向，默认横向 row</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">flex-direction</span>: row | row-reverse | column | column-reverse;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-2-flex-wrap"><a href="#4-2-flex-wrap" class="headerlink" title="4.2 flex-wrap"></a>4.2 flex-wrap</h3><blockquote>
+<h4 id="4-2-flex-wrap"><a href="#4-2-flex-wrap" class="headerlink" title="4.2 flex-wrap"></a>4.2 flex-wrap</h4><blockquote>
 <p>flex 元素单行显示还是多行显示。若允许换行，这个属性允许你控制元素的堆叠方向。</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-3-flex-flow"><a href="#4-3-flex-flow" class="headerlink" title="4.3 flex-flow"></a>4.3 flex-flow</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="4-3-flex-flow"><a href="#4-3-flex-flow" class="headerlink" title="4.3 flex-flow"></a>4.3 flex-flow</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-4-justify-content"><a href="#4-4-justify-content" class="headerlink" title="4.4 justify-content"></a>4.4 justify-content</h3><blockquote>
+<h4 id="4-4-justify-content"><a href="#4-4-justify-content" class="headerlink" title="4.4 justify-content"></a>4.4 justify-content</h4><blockquote>
 <p>定义了元素在弹性容器主轴上的对齐方式</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around<br>    | space-evenly;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-5-align-items"><a href="#4-5-align-items" class="headerlink" title="4.5 align-items"></a>4.5 align-items</h3><blockquote>
+<h4 id="4-5-align-items"><a href="#4-5-align-items" class="headerlink" title="4.5 align-items"></a>4.5 align-items</h4><blockquote>
 <p>元素在弹性容器交叉轴上的对齐方式</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;<br>&#125;<br><span class="hljs-comment">/* </span><br><span class="hljs-comment">stretch(默认值):如果被排列的项目未设置高度（宽度）或设置为auto，项目将占满整个容器的高度（宽度）</span><br><span class="hljs-comment">baseline：项目的第一行文字的基线对齐</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="4-6-align-content"><a href="#4-6-align-content" class="headerlink" title="4.6 align-content"></a>4.6 align-content</h3><blockquote>
+<h4 id="4-6-align-content"><a href="#4-6-align-content" class="headerlink" title="4.6 align-content"></a>4.6 align-content</h4><blockquote>
 <p>定义了多跟轴线的对齐方式，如果只有一根轴线则属性不起作用</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">align-content</span>: flex-start | flex-end | center | stretch | space-between |<br>    space-around;<br>&#125;<br><span class="hljs-comment">/* </span><br><span class="hljs-comment">stretch(默认值):如果被排列的项目未设置高度（宽度）或设置为auto，项目将占满整个容器的高度（宽度）</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
 
+<h3 id="容器成员属性"><a href="#容器成员属性" class="headerlink" title="容器成员属性"></a>容器成员属性</h3><pre><code class="hljs">1.order /
+2.flex-grow /
+3.flex-shrink /
+4.flex-basis /
+5.flex /
+6.align-self
+</code></pre>
 <h2 id="5、H5-中的块元素和行内块元素"><a href="#5、H5-中的块元素和行内块元素" class="headerlink" title="5、H5 中的块元素和行内块元素"></a>5、H5 中的块元素和行内块元素</h2><h3 id="5-1-行内元素"><a href="#5-1-行内元素" class="headerlink" title="5.1 行内元素"></a>5.1 行内元素</h3><pre><code class="hljs">常用标签：span、a、img、input、button
 H5 新增标签：video、audio、canvas
 (1)设置宽高无效
