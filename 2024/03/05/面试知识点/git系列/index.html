@@ -1,0 +1,799 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/wanye.jpg">
+  <link rel="icon" href="/img/wanye.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小日月">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🍭 git系列1. git 理解 git，是一个分布式版本控制软件   当我们通过git init创建或者git clone一个项目的时候，项目目录会隐藏一个.git子目录，其作用是用来跟踪管理版本库的 Git 中所有数据在存储前都计算校验和,然后以校验和来引用,Git 用以计算校验和的机制叫做 SHA-1 散列由 40 个十六进制字符（0-9 和 a-f）组成字符串 Git 有三种状态，已提交">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git系列">
+<meta property="og:url" content="http://example.com/2024/03/05/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/git%E7%B3%BB%E5%88%97/index.html">
+<meta property="og:site_name" content="小日月的博客">
+<meta property="og:description" content="🍭 git系列1. git 理解 git，是一个分布式版本控制软件   当我们通过git init创建或者git clone一个项目的时候，项目目录会隐藏一个.git子目录，其作用是用来跟踪管理版本库的 Git 中所有数据在存储前都计算校验和,然后以校验和来引用,Git 用以计算校验和的机制叫做 SHA-1 散列由 40 个十六进制字符（0-9 和 a-f）组成字符串 Git 有三种状态，已提交">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-05T12:40:23.000Z">
+<meta property="article:modified_time" content="2024-03-05T15:31:59.345Z">
+<meta property="article:author" content="小日月">
+<meta property="article:tag" content="git系列">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>git系列 - 小日月的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小日月</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+            
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/example/">
+                <i class="iconfont icon-image"></i>
+                echarts
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/example1.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="git系列"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-05 20:40" pubdate>
+          2024年3月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">git系列</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="🍭-git系列"><a href="#🍭-git系列" class="headerlink" title="🍭 git系列"></a>🍭 git系列</h1><h2 id="1-git-理解"><a href="#1-git-理解" class="headerlink" title="1. git 理解"></a>1. git 理解</h2><blockquote>
+<p>git，是一个分布式版本控制软件</p>
+</blockquote>
+<ol>
+<li>当我们通过<code>git init</code>创建或者<code>git clone</code>一个项目的时候，项目目录会<code>隐藏一个.git子目录</code>，其作用是用来<code>跟踪管理版本库</code>的</li>
+<li>Git 中所有数据在存储前都<code>计算校验和</code>,然后<code>以校验和来引用</code>,Git 用以计算校验和的机制叫做 <code>SHA-1 散列</code>由 40 个十六进制字符（0-9 和 a-f）组成字符串</li>
+<li>Git 有三种状态，<code>已提交（committed）</code>、<code>已修改（modified）</code>和<code>已暂存（staged）</code></li>
+<li>文件状态对应的，不同状态的文件在 Git 中处于不同的工作区域，主要分成了四部分：<ol>
+<li>工作区：相当于本地写代码的区域，如 git clone 一个项目到本地，相当于本地克隆了远程仓库项目的一个副本</li>
+<li>暂存区：暂存区是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中</li>
+<li>本地仓库：提交更新，找到暂存区域的文件，将快照永久性存储到 Git 本地仓库</li>
+<li>远程仓库：远程的仓库，如 github</li>
+</ol>
+</li>
+</ol>
+<h2 id="2-说说-Git-中-fork-clone-branch-这三个概念，有什么区别"><a href="#2-说说-Git-中-fork-clone-branch-这三个概念，有什么区别" class="headerlink" title="2. 说说 Git 中 fork, clone,branch 这三个概念，有什么区别?"></a>2. 说说 Git 中 fork, clone,branch 这三个概念，有什么区别?</h2><ol>
+<li><p>fork: fork 是指<code>复制一个项目到自己仓库</code>，fork 后的项目是<code>独立的</code>，对自己的仓库中进行修改，<code>不会影响原有项目</code>; 但是<code>fork后的项目</code>是<code>与原有项目有关联的</code>，可以通过<code>pull request</code>向原有项目提交修改.</p>
+</li>
+<li><p>clone: clone 是指<code>将远程仓库克隆到本地</code>，克隆后的项目是<code>独立的</code>，对本地仓库进行修改，<code>不会影响远程仓库</code>; 但是<code>clone后的项目</code>是<code>与远程仓库有关联的</code>，可以通过<code>push</code>向远程仓库提交修改.</p>
+</li>
+<li><p>branch: branch 是指<code>分支</code>，在<code>同一个仓库</code>中，可以<code>创建多个分支</code>，每个分支可以<code>独立开发</code>，<code>不会影响其他分支</code>，最后可以通过<code>合并分支</code>的方式将分支合并到主分支.</p>
+</li>
+</ol>
+<h2 id="3-说说-Git-常用的命令有哪些？"><a href="#3-说说-Git-常用的命令有哪些？" class="headerlink" title="3. 说说 Git 常用的命令有哪些？"></a>3. 说说 Git 常用的命令有哪些？</h2><ol>
+<li><p>配置：Git 自带一个 git config 的工具来帮助设置控制 Git 外观和行为的配置变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git config --global user.name &quot;yourname&quot; # 设置用户名<br>git config --global user.email &quot;youremail&quot; # 设置邮箱<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>创建仓库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建或在当前目录初始化一个git代码库</span><br>git init [project-name]<br><span class="hljs-meta prompt_"># </span><span class="language-bash">下载一个项目和它的整个代码历史</span><br>git clone url<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>日常操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add .         # 提交全部文件修改到缓存区<br>git add           # &lt;具体某个文件路径+全名&gt; 提交某些文件到缓存区<br>git diff          # 查看当前代码 add后，会 add 哪些内容<br>git diff --staged # 查看现在 commit 提交后，会提交哪些内容<br>git status        # 查看当前分支状态<br>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;            # 拉取远程仓库的分支与本地当前分支合并<br>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt; # 拉取远程仓库的分支与本地某个分支合并<br>git commit -m &quot;&lt;注释&gt;&quot;                     # 提交代码到本地仓库，并写提交注释<br>git commit -v     # 提交时显示所有diff信息<br>git commit --amend [file1] [file2]        # 重做上一次commit，并包括指定文件的新变化<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>分支操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">git branch      # 查看本地所有分支<br>git branch -r   # 查看远程所有分支<br>git branch -a   # 查看本地和远程所有分支<br>git merge &lt;分支名&gt; # 合并分支<br>git merge --abort # 合并分支出现冲突时，取消合并，一切回到合并前的状态<br>git branch &lt;新分支名&gt;             # 基于当前分支，新建一个分支<br>git checkout --orphan &lt;新分支名&gt;  # 新建一个空分支（会保留之前分支的所有文件）b<br>git branch -D &lt;分支名&gt;            # 删除本地某个分支<br>git push &lt;远程库名&gt; :&lt;分支名&gt;      # 删除远程某个分支<br>git branch &lt;新分支名称&gt; &lt;提交ID&gt;   # 从提交历史恢复某个删掉的某个分支<br>git branch -m &lt;原分支名&gt; &lt;新分支名&gt; # 分支更名<br>git checkout &lt;分支名&gt;             # 切换到本地某个分支<br>git checkout &lt;远程库名&gt;/&lt;分支名&gt;   # 切换到线上某个分支<br>git checkout -b &lt;新分支名&gt;        # 把基于当前分支新建分支，并切换为这个分支<br>git merge &lt;分支名&gt;                # 合并某个分支到当前分支<br>git rebase &lt;分支名&gt;               # 变基操作，将当前分支变基到某个分支<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>远程操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">git fetch [remote]         # 下载远程仓库的所有变动<br>git remote -v              # 显示所有远程仓库<br>git pull [remote] [branch] # 拉取远程仓库的分支与本地当前分支合并<br>git fetch                  # 获取线上最新版信息记录，不合并<br>git push [remote] [branch] # 上传本地指定分支到远程仓库<br>git push [remote] --force  # 强行推送当前分支到远程仓库，即使有冲突<br>git push [remote] --all    # 推送所有分支到远程仓库<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>撤销</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">git checkout [file] #恢复暂存区的指定文件到工作区<br>git checkout [commit] [file] #恢复某个commit的指定文件到暂存区和工作区<br>git checkout . #恢复暂存区的所有文件到工作区<br>git reset [commit] #重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变<br>git reset --hard #重置暂存区与工作区，与上一次commit保持一致<br>git reset [file] #重置暂存区的指定文件，与上一次commit保持一致，但工作区不变<br>git revert [commit] #后者的所有变化都将被前者抵消，并且应用到当前分支<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>存储操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">git stash #暂时将未提交的变化移除<br>git stash pop #取出储藏中最后存入的工作状态进行恢复，会删除储藏<br>git stash list #查看所有储藏中的工作<br>git stash apply &lt;储藏的名称&gt; #取出储藏中对应的工作状态进行恢复，不会删除储藏<br>git stash clear #清空所有储藏中的工作<br>git stash drop &lt;储藏的名称&gt; #删除对应的某个储藏<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="4-说说对-git-pull-和-git-fetch-的理解？有什么区别？"><a href="#4-说说对-git-pull-和-git-fetch-的理解？有什么区别？" class="headerlink" title="4. 说说对 git pull 和 git fetch 的理解？有什么区别？"></a>4. 说说对 git pull 和 git fetch 的理解？有什么区别？</h2><ol>
+<li>git fetch 是将<code>远程主机的最新内容拉到本地</code>，用户在检查了以后决定<code>是否合并</code>到工作本机分支中</li>
+<li>git pull 则是将<code>远程主机的最新内容拉下来后直接合并</code>，即：<code>git pull = git fetch + git merge</code>，这样可能会产生冲突，需要手动解决</li>
+</ol>
+<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h3><blockquote>
+<p>使用 git fetch 更新代码，本地的库中 master 的 commitID 不变<br>但是与 git 上面关联的那个 orign&#x2F;master 的 commit ID 发生改变</p>
+</blockquote>
+<p>这时候我们本地相当于存储了两个代码的版本号，我们还要通过 merge 去合并这两个不同的代码版本</p>
+<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><blockquote>
+<p>使用 git pull 更新代码，本地的库中 master 的 commitID 发生改变<br>与 git 上面关联的那个 orign&#x2F;master 的 commit ID 也发生改变</p>
+</blockquote>
+<h2 id="5-说说-Git-中的-rebase-和-merge-的区别？"><a href="#5-说说-Git-中的-rebase-和-merge-的区别？" class="headerlink" title="5. 说说 Git 中的 rebase 和 merge 的区别？"></a>5. 说说 Git 中的 rebase 和 merge 的区别？</h2><blockquote>
+<p>git merge 将当前分支合并到指定分支，命令用法如下：</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git merge xxx<br></code></pre></td></tr></table></figure>
+
+<p>#git rebase 将当前分支移植到指定分支或指定 commit 之上，用法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">git rebase -i &lt;commit&gt;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">常见的参数有--<span class="hljs-built_in">continue</span>，用于解决冲突之后，继续执行rebase</span><br>git rebase --continue<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p>git merge会在分支中产生一个新的merge commit，然后将两个分支的history联系在一起。</p>
+</li>
+<li><p>git rebase 是将一个分支的提交序列“拉直”，并且将其与另一个分支合并。这意味着，提交历史看起来好像是一条直线，没有分叉，因此整个提交历史看起来<code>更加整洁</code>，历史记录保持相对简单。</p>
+</li>
+<li><p>git merge<br>优点：不会破坏原分支的提交记录。<br>缺点：会产生额外的提交记录，并进行两条分支线的合并。(这导致了 Git 历史记录中出现<code>多个分支合并点</code>的情况，从而使<code>历史记录更加复杂</code>)</p>
+</li>
+<li><p>git rebase<br>优点：无需新增提交记录到目标分支，reabse后可以直接将对象分支的提交历史加到目标分支上，形成线性提交历史记录，更加直观。<br>缺点：不能在一个共享分支上进行reabse操作，会带来分支安全问题。(安全：git rebase的原理是撤销提交并重新应用每个提交，这样可能会导致您在本地进行的更改丢失。)</p>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/git%E7%B3%BB%E5%88%97/">#git系列</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>git系列</div>
+      <div>http://example.com/2024/03/05/面试知识点/git系列/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小日月</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/03/05/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/TS%E7%B3%BB%E5%88%97/" title="TS系列">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TS系列</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/29/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/React%E7%B3%BB%E5%88%97/" title="React系列">
+                        <span class="hidden-mobile">React系列</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+
+
+        <!-- 添加网站运行时间 -->
+        <div class="footer-content">
+          <div>
+            <span id="timeDate">载入天数...</span>
+            <span id="times">载入时分秒...</span>
+            <script>
+              var now = new Date();
+              function createtime() {
+                var grt = new Date("04/03/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24;
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                hnum = Math.floor(hours);
+                if (String(hnum).length == 1) {
+                  hnum = "0" + hnum;
+                }
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if (String(mnum).length == 1) {
+                  mnum = "0" + mnum;
+                }
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if (String(snum).length == 1) {
+                  snum = "0" + snum;
+                }
+                document.getElementById("timeDate").innerHTML = "🚀 &nbsp" + dnum + "&nbsp天";  //此次自定义显示内容
+                document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+              }  //此次自定义显示内容
+              setInterval("createtime()", 250);
+            </script>
+          </div>
+        </div>
+
+
+    </div>
+    
+      
+        <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+          
+            
+                  
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
