@@ -23,13 +23,14 @@
 <meta property="og:site_name" content="小日月的博客">
 <meta property="og:description" content="🍭 面试常问题目汇总0. 项目介绍1. 星禾·项⽬描述：星⽲传媒是⼀款基于 Vue3+Three.js+Echarts 技术的少数⺠族⽂化的展览平台。功能包含⺠族⽂化展⽰、3D ⺠族服饰定制、⺠族信息的可视化⼤屏和 3D 地图等。·前端技术栈：Vue3、Nuxt3、Pinia、javaScript、Scss、Three.js、WebGL、ElementUI、Echarts、axios·项⽬技术：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/SSL.webp">
 <meta property="og:image" content="http://example.com/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/network.png">
 <meta property="article:published_time" content="2024-02-27T18:26:12.000Z">
-<meta property="article:modified_time" content="2024-03-26T15:45:14.152Z">
+<meta property="article:modified_time" content="2024-04-03T15:10:18.623Z">
 <meta property="article:author" content="小日月">
 <meta property="article:tag" content="面试常问题目汇总">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/network.png">
+<meta name="twitter:image" content="http://example.com/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/SSL.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -250,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          49k 字
+          61k 字
         
       </span>
     
@@ -261,7 +262,7 @@
         
         
         
-          409 分钟
+          511 分钟
         
       </span>
     
@@ -609,6 +610,24 @@
 </ol>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>  -webkit-line-clamp: <span class="hljs-number">2</span>;<br>  <span class="hljs-attribute">display</span>: -webkit-box;<br>  -webkit-box-orient: vertical;<br>  <span class="hljs-attribute">overflow</span>: hidden;<br>  <span class="hljs-attribute">text-overflow</span>: ellipsis;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ol>
+<h2 id="10-offsetWidth、clientWidth、scrollWidth、offsetHeight、clientHeight、scrollHeight"><a href="#10-offsetWidth、clientWidth、scrollWidth、offsetHeight、clientHeight、scrollHeight" class="headerlink" title="10. offsetWidth、clientWidth、scrollWidth、offsetHeight、clientHeight、scrollHeight"></a>10. offsetWidth、clientWidth、scrollWidth、offsetHeight、clientHeight、scrollHeight</h2><ol>
+<li>offsetWidth&#x2F;offsetHeight：(除了外边距(margin)以外，所有的宽度(高度)之和)元素的宽度&#x2F;高度(content)</li>
+</ol>
+<ul>
+<li>包括元素的边框(border)、内边距和滚动条(padding)，但不包括外边距(margin)</li>
+</ul>
+<ol start="2">
+<li>clientWidth&#x2F;clientHeight：视口尺寸。只包含本身宽度(width)和内边距(padding)；</li>
+</ol>
+<ul>
+<li>元素的宽度&#x2F;高度(content)，包括内边距(padding)，但不包括边框(border)和滚动条</li>
+</ul>
+<ol start="3">
+<li>scrollWidth&#x2F;scrollHeight：只包含本身宽度(width)和内边距(padding)， 如果有滚动的溢出视口之外的内容，就加上该距离</li>
+</ol>
+<ul>
+<li>元素的实际内容的宽度&#x2F;高度，包括溢出的部分，不包括边框(border)和滚动条</li>
+</ul>
 <h1 id="3-JavaScript"><a href="#3-JavaScript" class="headerlink" title="3. JavaScript"></a>3. JavaScript</h1><h2 id="1-this-了解多少，箭头函数的-this-为什么在定义时就已经确定"><a href="#1-this-了解多少，箭头函数的-this-为什么在定义时就已经确定" class="headerlink" title="1. this 了解多少，箭头函数的 this 为什么在定义时就已经确定"></a>1. this 了解多少，箭头函数的 this 为什么在定义时就已经确定</h2><blockquote>
 <p>声明时绑定的意思是它要确定到其上一层去做一个 this 重定向的处理。运行时确定是指其上一层的 this 是受运行时调用者影响的，那么箭头函数继承至该 this，自然也会受到影响。<br>也就是说：声明时确定继承自谁的 this、运行时真正确定是哪个 this</p>
 </blockquote>
@@ -666,7 +685,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="3-js-的基础类型，堆内存和栈内存"><a href="#3-js-的基础类型，堆内存和栈内存" class="headerlink" title="3. js 的基础类型，堆内存和栈内存"></a>3. js 的基础类型，堆内存和栈内存</h2><blockquote>
+<h2 id="3-js-的基础类型，堆内存和栈内存-类型判断"><a href="#3-js-的基础类型，堆内存和栈内存-类型判断" class="headerlink" title="3. js 的基础类型，堆内存和栈内存,类型判断"></a>3. js 的基础类型，堆内存和栈内存,类型判断</h2><blockquote>
 <p>两种类型：</p>
 </blockquote>
 <h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><ol>
@@ -686,6 +705,25 @@
 <li>基本数据类型存储在栈中</li>
 <li>引用类型的对象存储于堆中</li>
 </ul>
+<h3 id="类型判读-4-种方法"><a href="#类型判读-4-种方法" class="headerlink" title="类型判读 4 种方法"></a>类型判读 4 种方法</h3><ol>
+<li><p>typeof</p>
+<blockquote>
+<p>可以识别出了 null 的基础数据类型，对引用数据类型除了函数以外，都会显示 object</p>
+</blockquote>
+</li>
+<li><p>instanceof</p>
+<blockquote>
+<p><code>a instanceof b</code> 判断 a 是不是 b 类的实例，只可用来判断引用数据<br>实现思路： b 的原型对象是否是 a 的原型链上的某个对象</p>
+</blockquote>
+</li>
+<li><p>constructor</p>
+<blockquote>
+<p><code>a.constructor === b</code>constructor 指向创建该实例对象的构造函数<br>注意 null 和 undefined 没有 constructor，以及 constructor 可以被改写，不太可靠</p>
+</blockquote>
+</li>
+<li><p>String.prototype.toString.call()</p>
+</li>
+</ol>
 <h2 id="4-垃圾回收机制"><a href="#4-垃圾回收机制" class="headerlink" title="4. 垃圾回收机制"></a>4. 垃圾回收机制</h2><blockquote>
 <p>Javascript 具有自动垃圾回收机制（GC：Garbage Collecation），也就是说，执行环境会负责管理代码执行过程中使用的内存</p>
 </blockquote>
@@ -953,7 +991,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">优点：语法简单，易于理解<br>缺点：无法继承原生构造函数<br></code></pre></td></tr></table></figure>
 
 <h2 id="12-介绍一下-Js-中的闭包及其使用场景"><a href="#12-介绍一下-Js-中的闭包及其使用场景" class="headerlink" title="12. 介绍一下 Js 中的闭包及其使用场景"></a>12. 介绍一下 Js 中的闭包及其使用场景</h2><blockquote>
-<p>闭包是一种特殊的对象。它由两部分构成：函数，以及创建该函数的环境。<br>闭包让你可以在一个内层函数中访问到其外层函数的作用域</p>
+<p>闭包是一种特殊的对象。它由两部分构成：函数，以及创建该函数的环境。(一个函数和对其周围状态（lexical environment，词法环境）的引用捆绑在一起)<br>闭包让你可以在一个内层函数中访问到其外层函数的作用域</p>
 </blockquote>
 <p><strong>原理：</strong></p>
 <blockquote>
@@ -974,6 +1012,112 @@
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getArea</span>(<span class="hljs-params">width</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">height</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> width * height<br>  &#125;<br>&#125;<br><span class="hljs-keyword">const</span> getTenWidthArea = <span class="hljs-title function_">getArea</span>(<span class="hljs-number">10</span>)<br><span class="hljs-comment">// 之后碰到宽度为10的长方形就可以这样计算面积</span><br><span class="hljs-keyword">const</span> area1 = <span class="hljs-title function_">getTenWidthArea</span>(<span class="hljs-number">20</span>)<br></code></pre></td></tr></table></figure>
 
+<h2 id="13-js-的-new-操作符"><a href="#13-js-的-new-操作符" class="headerlink" title="13. js 的 new 操作符"></a>13. js 的 new 操作符</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html">1. 创建一个空对象，作为将要返回的对象实例 <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><br>2. 将这个空对象的原型，指向构造函数的prototype属性 <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><br>3. 将这个空对象赋值给函数内部的this关键字 <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><br>4. 开始执行构造函数内部的代码<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><br>5. 返回新对象<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myNew</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">//1.创建一个空对象</span><br>  <span class="hljs-keyword">let</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>()<br>  <span class="hljs-comment">//2.获取构造函数</span><br>  <span class="hljs-keyword">let</span> <span class="hljs-title class_">Constructor</span> = [].<span class="hljs-property">shift</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">arguments</span>)<br>  <span class="hljs-comment">//3.链接到原型</span><br>  obj.<span class="hljs-property">__proto__</span> = <span class="hljs-title class_">Constructor</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span><br>  <span class="hljs-comment">//4.绑定this</span><br>  <span class="hljs-keyword">let</span> result = <span class="hljs-title class_">Constructor</span>.<span class="hljs-title function_">apply</span>(obj, <span class="hljs-variable language_">arguments</span>)<br>  <span class="hljs-comment">//5.返回新对象</span><br>  <span class="hljs-keyword">return</span> result <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Object</span> ? result : obj<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="14-cookie-session-token-jwt"><a href="#14-cookie-session-token-jwt" class="headerlink" title="14. cookie,session,token,jwt"></a>14. cookie,session,token,jwt</h2><h3 id="1-cookie"><a href="#1-cookie" class="headerlink" title="1. cookie"></a>1. cookie</h3><ul>
+<li>为什么需要 cookie<ul>
+<li>HTTP 协议是无状态的，每次请求都是独立的，服务器无法知道两个请求是否来自同一个用户</li>
+<li>为了解决这个问题，服务器给每个用户分配一个唯一的标识，这个标识就是 cookie</li>
+</ul>
+</li>
+<li>cookie 的特点<ul>
+<li>小容量（通常限制在 4KB）、每个请求都会携带到服务器。</li>
+</ul>
+</li>
+<li>用途： 用于存储少量的文本数据，例如会话信息、用户偏好设置等。</li>
+<li>生命周期： 可以设置失效时间，如果在浏览器没有设置失效时间，那么 cookie 将会在浏览器关闭时失效。</li>
+<li>属性： domain(cookie 域名)、path(cookie 生效路径)、expires(过期时间)、httpOnly(禁止 js 访问)、secure(只能在 https 下使用)、max-age(设置 cookie 的过期时间)</li>
+</ul>
+<h4 id="1-http-请求什么情况下会携带-cookie"><a href="#1-http-请求什么情况下会携带-cookie" class="headerlink" title="1.http 请求什么情况下会携带 cookie"></a>1.http 请求什么情况下会携带 cookie</h4><ol>
+<li>(二级域名相同)浏览器端某个 Cookie 的 domain（.a.com） 字段等于请求的域名或者是请求的父域名，请求的域名需要是 a.com&#x2F;b.a.com 才可以</li>
+<li>都是 <code>http 或者 https</code>，或者不同的情况下 <code>Secure 属性为 false</code>（即 secure 是 true 的情况下，只有 https 请求才能携带这个 cookie）</li>
+<li>要<code>发送请求的路径</code>，<code>跟浏览器端 Cookie 的 path 属性必须一致</code>，或者是浏览器端 Cookie 的 path 的子目录，比如浏览器端 Cookie 的 path 为 &#x2F;test，那么请求的路径必须为&#x2F;test 或者&#x2F;test&#x2F;xxxx 等子目录才可以</li>
+</ol>
+<h3 id="2-session"><a href="#2-session" class="headerlink" title="2. session"></a>2. session</h3><ul>
+<li><p>session 是另一种记录服务器和客户端会话状态的机制</p>
+</li>
+<li><p>session 是基于 cookie 实现的，session 存储在服务器端，sessionId 会被存储到客户端的 cookie 中<br>流程：</p>
+<ol>
+<li>用户第一次请求服务器的时候，服务器根据用户提交的相关信息，创建对应的 Session</li>
+<li>请求返回时将此 Session 的唯一标识信息 SessionID 返回给浏览器</li>
+<li>浏览器接收到服务器返回的 SessionID 信息后，会将此信息存入到 Cookie 中，同时 Cookie 记录此 SessionID 属于哪个域名</li>
+<li>当用户第二次访问服务器的时候，请求会自动判断此域名下是否存在 Cookie 信息，如果存在自动将 Cookie 信息也发送给服务端，服务端会从 Cookie 中获取 SessionID，再根据 SessionID 查找对应的 Session 信息，如果没有找到说明用户没有登录或者登录失效，如果找到 Session 证明用户已经登录可执行后面操作。</li>
+</ol>
+<p>1.2. Cookie 和 Session 的区别</p>
+<ul>
+<li>安全性： Session 比 Cookie 安全，Session 是存储在服务器端的，Cookie 是存储在客户端的。</li>
+<li>存取值的类型不同：Cookie 只支持存字符串数据，想要设置其他类型的数据，需要将其转换成字符串，Session 可以存任意数据类型。</li>
+<li>有效期不同： Cookie 可设置为长时间保持，比如我们经常使用的默认登录功能，Session 一般失效时间较短，客户端关闭（默认情况下）或者 Session 超时都会失效。</li>
+<li>存储大小不同： 单个 Cookie 保存的数据不能超过 4K，Session 可存储数据远高于 Cookie，但是当访问量过多，会占用过多的服务器资源。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-token"><a href="#3-token" class="headerlink" title="3. token"></a>3. token</h3><ul>
+<li><p>流程</p>
+<ol>
+<li>客户端使用用户名跟密码请求登录</li>
+<li>服务端收到请求，去验证用户名与密码</li>
+<li>验证成功后，服务端会签发一个 token 并把这个 token 发送给客户端</li>
+<li>客户端收到 token 以后，会把它存储起来，比如放在 cookie 里或者 localStorage 里</li>
+<li>客户端每次向服务端请求资源的时候需要带着服务端签发的 token</li>
+<li>服务端收到请求，然后去验证客户端请求里面带着的 token ，如果验证成功，就向客户端返回请求的数据</li>
+</ol>
+</li>
+<li><p>优点</p>
+<ol>
+<li>无状态可以减轻服务器压力，减少频繁查询数据库</li>
+<li>没有同源策略的限制，方便第三方平台或者开发时的接口调用</li>
+<li>安全性较高，token 的解密密钥只有服务端知道，即使客户端暴露出来，别人也无法解密</li>
+</ol>
+</li>
+</ul>
+<h3 id="4-JWT"><a href="#4-JWT" class="headerlink" title="4. JWT"></a>4. JWT</h3><blockquote>
+<p>JWT（JSON Web Token）是一种开放标准（RFC 7519），用于在网络上以 JSON 格式安全地传输信息。JWT 可以被用于身份验证（Authentication）和信息传递，通常用于通过网络在用户和服务器之间传递信息，以便在系统之间进行身份验证。</p>
+</blockquote>
+<h4 id="JWT-组成"><a href="#JWT-组成" class="headerlink" title="JWT 组成"></a>JWT 组成</h4><blockquote>
+<p>JWT 由三部分组成，它们通过点号（.）连接在一起：Header.Payload.Signature</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//JWT编码</span><br>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9<br>  .<span class="hljs-property">eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9</span><br>  .<span class="hljs-property">UQmqAUhUrpDVV2ST7mZKyLTomVfg7sYkEjmdDI5XF8Q</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="header-头部"><a href="#header-头部" class="headerlink" title="header(头部)"></a>header(头部)</h5><p>jwt 的头部承载两部分信息：</p>
+<ol>
+<li>声明类型，这里是 jwt</li>
+<li>声明加密的算法 通常直接使用 HMAC SHA256</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  <span class="hljs-string">&#x27;typ&#x27;</span>: <span class="hljs-string">&#x27;JWT&#x27;</span>,<br>  <span class="hljs-string">&#x27;alg&#x27;</span>: <span class="hljs-string">&#x27;HS256&#x27;</span><br>&#125;<br><span class="hljs-comment">//base64编码</span><br>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9<br></code></pre></td></tr></table></figure>
+
+<h5 id="playload-载荷"><a href="#playload-载荷" class="headerlink" title="playload(载荷)"></a>playload(载荷)</h5><p>有效信息包含三个部分</p>
+<ol>
+<li>标准中注册的声明</li>
+<li>公共的声明</li>
+<li>私有的声明</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  <span class="hljs-string">&quot;sub&quot;</span>: <span class="hljs-string">&quot;1234567890&quot;</span>,<br>  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;John Doe&quot;</span>,<br>  <span class="hljs-string">&quot;admin&quot;</span>: <span class="hljs-literal">true</span><br>&#125;<br><span class="hljs-comment">//base64编码</span><br>eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9<br></code></pre></td></tr></table></figure>
+
+<h5 id="signature-签证"><a href="#signature-签证" class="headerlink" title="signature(签证)"></a>signature(签证)</h5><p>签证信息由三部分组成：</p>
+<ol>
+<li>header (base64 后的)</li>
+<li>payload (base64 后的)</li>
+<li>secret</li>
+</ol>
+<p>这个部分需要 base64 加密后的 header 和 base64 加密后的 payload 使用.连接组成的字符串(头部在前)，然后通过 header 中声明的加密方式进行加盐 secret 组合加密，然后就构成了 jwt 的第三部分。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> encodedString = <span class="hljs-title function_">base64UrlEncode</span>(header) + <span class="hljs-string">&#x27;.&#x27;</span> + <span class="hljs-title function_">base64UrlEncode</span>(payload)<br><span class="hljs-keyword">var</span> signature = <span class="hljs-title class_">HMACSHA256</span>(encodedString, <span class="hljs-string">&#x27;secret&#x27;</span>) <span class="hljs-comment">//UQmqAUhUrpDVV2ST7mZKyLTomVfg7sYkEjmdDI5XF8Q</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="JWT-认证流程"><a href="#JWT-认证流程" class="headerlink" title="JWT 认证流程"></a>JWT 认证流程</h4><ol>
+<li>用户身份验证：<br>用户提供身份信息（例如用户名和密码）进行身份验证。<br>服务器验证用户身份，如果验证通过，生成 JWT。</li>
+<li>生成 JWT：<br>服务器使用用户的信息创建一个包含用户标识的 JWT。<br>JWT 的结构为 Header.Payload.Signature。</li>
+<li>返回 JWT：<br>服务器将生成的 JWT 返回给客户端。</li>
+<li>客户端存储 JWT：<br>客户端通常将收到的 JWT 存储在本地，例如在浏览器的 localStorage、sessionStorage 中，或者在移动应用程序的本地存储中。</li>
+<li>在后续请求中携带 JWT：<br>客户端在后续的请求中携带 JWT，通常通过在请求头中添加 Authorization 字段，值为 Bearer <JWT>。</JWT></li>
+</ol>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs http">http<br>Copy code<br><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/data</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com<br><span class="hljs-attribute">Authorization</span><span class="hljs-punctuation">: </span>Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>服务器验证 JWT：<br>服务器在接收到请求时，从请求头中提取 JWT。<br>服务器使用事先共享的密钥（或公钥，对于使用非对称加密的情况）验证 JWT 的签名，确保令牌的真实性。<br>如果签名验证通过，服务器解析 JWT 中的负载数据，获取用户信息。</li>
+<li>处理请求：<br>服务器根据 JWT 中的用户信息处理请求，进行相应的操作。</li>
+</ol>
 <h1 id="3-5-Node-js"><a href="#3-5-Node-js" class="headerlink" title="3.5 Node.js"></a>3.5 Node.js</h1><h2 id="1-require-和-import-区别"><a href="#1-require-和-import-区别" class="headerlink" title="1. require 和 import 区别"></a>1. require 和 import 区别</h2><blockquote>
 <p>require&#x2F;exports 是 CommonJS 规范<br>import&#x2F;export 是 ES6 规范</p>
 </blockquote>
@@ -1305,7 +1449,7 @@
 <h3 id="3、代码生成器-generate-使用-AST-生成渲染函数"><a href="#3、代码生成器-generate-使用-AST-生成渲染函数" class="headerlink" title="3、代码生成器 generate(使用 AST 生成渲染函数)"></a>3、代码生成器 generate(使用 AST 生成渲染函数)</h3><blockquote>
 <p>Generate 是将 AST 转化成 render function 字符串的过程，得到结果是 render 的字符串以及 staticRenderFns 字符串。</p>
 </blockquote>
-<h1 id="5-Webpack"><a href="#5-Webpack" class="headerlink" title="5. Webpack"></a>5. Webpack</h1><h2 id="1-webpack-的理解"><a href="#1-webpack-的理解" class="headerlink" title="1. webpack 的理解"></a>1. webpack 的理解</h2><blockquote>
+<h1 id="4-5-React"><a href="#4-5-React" class="headerlink" title="4.5 React"></a>4.5 React</h1><h1 id="5-Webpack-x2F-Vite"><a href="#5-Webpack-x2F-Vite" class="headerlink" title="5. Webpack&#x2F;Vite"></a>5. Webpack&#x2F;Vite</h1><h2 id="1-webpack-的理解"><a href="#1-webpack-的理解" class="headerlink" title="1. webpack 的理解"></a>1. webpack 的理解</h2><blockquote>
 <p>webpack 是一个用于现代 JavaScript 应用程序的静态模块打包工具;Webpack 最初的目标是实现前端项目的模块化，旨在更高效地管理和维护项目中的每一个资源</p>
 </blockquote>
 <h1 id="6-http"><a href="#6-http" class="headerlink" title="6. http"></a>6. http</h1><h2 id="1-http-的多版本"><a href="#1-http-的多版本" class="headerlink" title="1. http 的多版本"></a>1. http 的多版本</h2><p>说说 HTTP1.0&#x2F;1.1&#x2F;2.0&#x2F;3.0 的区别?</p>
@@ -1313,9 +1457,17 @@
 <p>HTTP 1.0 浏览器与服务器只<code>保持短暂的连接</code>，每次请求都需要与服务器建立一个 TCP 连接<br>服务器完成请求处理后<code>立即断开TCP连接</code>，服务器不跟踪每个客户也不记录过去的请求</p>
 </blockquote>
 <p><strong>简单来讲，每次与服务器交互，都需要新开一个连接</strong></p>
-<h3 id="HTTP1-1"><a href="#HTTP1-1" class="headerlink" title="HTTP1.1"></a>HTTP1.1</h3><blockquote>
-<p>在 HTTP1.1 中，<code>默认支持长连接</code>（Connection: keep-alive），即在一个 TCP 连接上可以<code>传送多个HTTP请求和响应</code>，减少了建立和关闭连接的消耗和延迟<br>HTTP 1.1 还允许客户端不用等待上一次请求结果返回，就可以发出下一次请求<br>新增了一些<code>请求方法</code><br>新增了一些<code>请求头和响应头</code></p>
-</blockquote>
+<h3 id="HTTP1-1"><a href="#HTTP1-1" class="headerlink" title="HTTP1.1"></a>HTTP1.1</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>在 HTTP1.1 中，<code>默认支持长连接</code>（Connection: keep-alive），即在一个 TCP 连接上可以<code>传送多个HTTP请求和响应</code>，减少了建立和关闭连接的消耗和延迟</li>
+<li>HTTP 1.1 还允许客户端不用等待上一次请求结果返回，就可以发出下一次请求</li>
+<li>新增了一些<code>请求方法</code></li>
+<li>新增了一些<code>请求头和响应头</code></li>
+</ol>
+<h4 id="不足："><a href="#不足：" class="headerlink" title="不足："></a>不足：</h4><ol>
+<li>请求 &#x2F; 响应<code>头部（Header）未经压缩</code>就发送，首部信息越多延迟越大。只能压缩 Body 的部分；发送<code>冗长的首部</code>。每次互相发送相同的首部造成的<code>浪费较多</code>；</li>
+<li>服务器是按请求的顺序响应的，如果服务器响应慢，会招致客户端一直请求不到数据，也就是<code>队头阻塞</code>；(虽然解决了<code>请求的队头阻塞</code>，但是没有解决<code>响应的队头阻塞</code>)</li>
+<li>请求只能从客户端开始，服务器只能被动响应。</li>
+</ol>
 <p><strong>建立一次连接，多次请求均由这个连接完成</strong></p>
 <h3 id="HTTP2-0"><a href="#HTTP2-0" class="headerlink" title="HTTP2.0"></a>HTTP2.0</h3><blockquote>
 <p>而 HTTP2.0 在相比之前版本，性能上有很大的提升，如添加了一个特性：</p>
@@ -1338,41 +1490,69 @@
 </blockquote>
 </li>
 </ol>
+<h4 id="不足：-1"><a href="#不足：-1" class="headerlink" title="不足："></a>不足：</h4><p>HTTP&#x2F;2 虽然通过多个请求复用一个 TCP 连接解决了 HTTP 的队头阻塞 ，但是一旦发生丢包，就会阻塞住所有的 HTTP 请求，这属于 TCP 层队头阻塞。</p>
 <h3 id="HTTP3-0"><a href="#HTTP3-0" class="headerlink" title="HTTP3.0"></a>HTTP3.0</h3><blockquote>
 <p>在 HTTP&#x2F;3 中，将弃用 TCP 协议，改为使用基于 UDP 协议的 QUIC 协议实现</p>
 </blockquote>
 <ol>
-<li>解决 HTTP&#x2F;2 中存在的队头阻塞问题</li>
+<li>无队头阻塞<br>QUIC 协议也有类似 HTTP&#x2F;2 Stream 与多路复用的概念，也是可以在同一条连接上并发传输多个 Stream<br>当某个流发生丢包时，<code>只会阻塞这个流</code>，其他流不会受到影响，因此<code>不存在队头阻塞问题</code></li>
+<li>更快的连接建立<br>HTTP&#x2F;3 的 QUIC 协议并不是与 TLS 分层，而是 <code>QUIC 内部包含了 TLS</code>，它在自己的帧会携带 TLS 里的“记录”，再加上 QUIC 使用的是 TLS&#x2F;1.3，因此仅需 1 个 RTT 就可以「同时」完成建立连接与密钥协商</li>
+<li>连接迁移<br>当移动设备的网络从 4G 切换到 WIFI 时，意味着 IP 地址变化了，那么就必须要断开连接，然后重新建立连接<br>而 QUIC 协议没有用四元组的方式来“绑定”连接，而是通过连接 ID 来标记通信的两个端点，只要仍保有上下文信息（比如连接 ID、TLS 密钥等），就可以“无缝”地复用原连接，消除重连的成本</li>
 </ol>
-<h2 id="2-协商缓存"><a href="#2-协商缓存" class="headerlink" title="2. 协商缓存"></a>2. 协商缓存</h2><blockquote>
-<p>协商缓存过程：<br>当<code>强缓存</code>时间过期了，才会进入协商缓存阶段，<code>首次请求时</code>服务器会将缓存相关的头字段放入响应报文里，其中也<code>包含协商缓存相关</code>的头字段，如 Last-Modified 和 Etag， 当强缓存失效时，浏览器会<code>携带协商缓存字段</code>If-Modified-Since 和 If-None-Match 向服务器发起请求，If-Modified-Since 的值就是服务器之前返回的 Last-Modified 的值，If-None-Match 的值就是 Etag 的值， 服务器根据此头字段判断文件在上次请求后有没有修改过，如果没有修改过，返回状态码 304，并且响应体为空加快传输速度，如果修改过，返回 200 状态码和新文件内容。</p>
+<h2 id="2-协商缓存，强缓存"><a href="#2-协商缓存，强缓存" class="headerlink" title="2. 协商缓存，强缓存"></a>2. 协商缓存，强缓存</h2><h3 id="1-协商缓存过程："><a href="#1-协商缓存过程：" class="headerlink" title="1. 协商缓存过程："></a>1. 协商缓存过程：</h3><blockquote>
+<p>当<code>强缓存</code>时间过期了，才会进入协商缓存阶段，<code>首次请求时</code>服务器会将缓存相关的头字段放入响应报文里，其中也<code>包含协商缓存相关</code>的头字段，如 Last-Modified 和 Etag， 当强缓存失效时，浏览器会<code>携带协商缓存字段</code>If-Modified-Since 和 If-None-Match 向服务器发起请求，If-Modified-Since 的值就是服务器之前返回的 Last-Modified 的值，If-None-Match 的值就是 Etag 的值， 服务器根据此头字段判断文件在上次请求后有没有修改过，如果没有修改过，返回状态码 304，并且响应体为空加快传输速度，如果修改过，返回 200 状态码和新文件内容。</p>
 </blockquote>
 <ol>
 <li>Last-Modified 表示本地文件最后修改日期，浏览器会在 request header 加上 If-Modified-Since（上次返回的 Last-Modified 的值），询问服务器在该日期后资源是否有更新，有更新的话就会将新的资源发送回来</li>
 <li>Etag 就像一个指纹，资源变化都会导致 ETag 变化，跟最后修改时间没有关系，ETag 可以保证每一个资源是唯一的</li>
 <li>If-None-Match 的 header 会将上次返回的 Etag 发送给服务器，询问该资源的 Etag 是否有更新，有变动就会发送新的资源回来</li>
 </ol>
-<p>而强制缓存不需要发送请求到服务端，根据请求头 expires 和 cache-control 判断是否命中强缓存</p>
+<h3 id="2-强缓存过程："><a href="#2-强缓存过程：" class="headerlink" title="2. 强缓存过程："></a>2. 强缓存过程：</h3><p>而强制缓存不需要发送请求到服务端，根据请求头 expires 和 cache-control 判断是否命中强缓存</p>
+<ol>
+<li>expires 表示资源的过期时间，浏览器再次加载资源时，会根据 expires 和本地时间比较，如果本地时间小于 expires，直接使用缓存</li>
+<li>cache-control 是服务器返回的响应头，表示资源的缓存策略</li>
+</ol>
+<ul>
+<li>public<br>表明响应可以被任何对象（包括：发送请求的客户端，代理服务器，等等）缓存，即使是通常不可缓存的内容。（例如：1.该响应没有 max-age 指令或 Expires 消息头；2. 该响应对应的请求方法是 POST 。）</li>
+<li>private<br>表明响应只能被单个用户缓存，不能作为共享缓存（即代理服务器不能缓存它）。私有缓存可以缓存响应内容，比如：对应用户的本地浏览器。</li>
+<li>no-cache<br>在发布缓存副本之前，强制要求缓存把请求提交给原始服务器进行验证 (协商缓存验证)。</li>
+<li>no-store<br>缓存不应存储有关客户端请求或服务器响应的任何内容，即不使用任何缓存。</li>
+<li>max-age&#x3D;<seconds><br>设置缓存存储的最大周期，超过这个时间缓存被认为过期 (单位秒)。与 Expires 相反，时间是相对于请求的时间。</seconds></li>
+</ul>
 <h2 id="3-跨域以及解决方案"><a href="#3-跨域以及解决方案" class="headerlink" title="3. 跨域以及解决方案"></a>3. 跨域以及解决方案</h2><blockquote>
 <p>同源策略是一个重要的安全策略，它用于限制一个源的文档或者它加载的脚本如何能与另一个源的资源进行交互<br>如果两个 URL 的协议、端口（如果有指定的话）和主机都相同的话，则这两个 URL 是同源的</p>
 </blockquote>
+<h3 id="Ajax-为什么不能跨域"><a href="#Ajax-为什么不能跨域" class="headerlink" title="Ajax 为什么不能跨域"></a>Ajax 为什么不能跨域</h3><p>·Ajax 跨域请求，在服务器端不会有任何问题，只是服务端响应数据返回给浏览器的时候，浏览器根据响应头的 Access-Control-Allow-Origin 字段的值来判断是否有权限获取数据。<br>因此，服务端如果没有设置跨域字段设置，跨域是没有权限访问，数据被浏览器给拦截了。</p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
-<li><p>JSONP</p>
+<li><p>JSONP(JSON with Padding（填充）)</p>
 <blockquote>
 <p>利用<code>&lt;script&gt;</code>标签没有跨域限制，通过<code>&lt;script&gt;</code>标签 src 属性，发送带有 callback 参数的 GET 请求，服务端将接口返回数据拼凑到 callback 函数中，返回给浏览器，浏览器解析执行，从而前端拿到 callback 函数返回的数据.</p>
 </blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Jsonp</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">req</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">url</span> = req.<span class="hljs-property">url</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">callbackName</span> = req.<span class="hljs-property">callbackName</span><br>  &#125;<br>  <span class="hljs-title function_">create</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> script = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;script&#x27;</span>)<br>    <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.url&#125;</span>?callback=<span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.callbackName&#125;</span>`</span><br>    script.<span class="hljs-property">src</span> = url<br>    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;head&#x27;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">appendChild</span>(script)<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Jsonp</span>(&#123;<br>  <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;http://127.0.0.1:8000/&#x27;</span>,<br>  <span class="hljs-attr">callbackName</span>: <span class="hljs-string">&#x27;getMsg&#x27;</span>,<br>&#125;).<span class="hljs-title function_">create</span>()<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getMsg</span>(<span class="hljs-params">data</span>) &#123;<br>  data = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(data)<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`My name is <span class="hljs-subst">$&#123;data.name&#125;</span>, and <span class="hljs-subst">$&#123;data.age&#125;</span> years old.`</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
-<li><p>CORS</p>
+<li><p>CORS”跨域资源共享”(Cross-origin resource sharing)</p>
 <blockquote>
-<p>原理：它允许浏览器向跨源服务器，发出 XMLHttpRequest 请求，从而克服了 AJAX 只能同源使用的限制<br>方法：服务端需要设置响应头中的 Access-Control-Allow-Origin 字段来指定允许的源。</p>
+<p>原理：它使用额外的 HTTP 头来告诉浏览器 让运行在一个 origin (domain) 上的 Web 应用被准许访问来自不同源服务器上的指定的资源。<br>方法：服务端需要设置响应头中的 Access-Control-Allow-Origin 字段来指定允许的源。</p>
 </blockquote>
+<p>CORS 请求分成两类：简单请求和非简单请求</p>
+<ol>
+<li><p>简单请求：<code>请求方法</code>是以下三种方法之一：<code>HEAD、GET、POST</code>；<code>HTTP 头信息</code>不超出以下几种字段：<code>Accept、Accept-Language、Content-Language、Last-Event-ID、Content-Type</code>（只限于三个值：<code>application/x-www-form-urlencoded、multipart/form-data、text/plain</code>）<br>基本流程 对于简单请求，<code>浏览器直接发出CORS请求</code>。具体来说，就是在头信息之中，<code>增加一个Origin字段</code>。服务器根据这个字段，决定是否同意这次请求。如果 Origin 字段是服务器认可的域名，<code>服务器返回的响应</code>，会<code>多出几个头信息字段</code>，其中就包括<code>Access-Control-Allow-Origin</code>字段。浏览器发现这个头信息之后，就知道了，这个请求是被服务器认可的，可以正常通信。</p>
+</li>
+<li><p>非简单请求：非简单请求会在正式通信之前，增加一次 HTTP 查询请求，称为”预检请求”（preflight）。浏览器会先询问服务器，当前网页所在的域名是否在<code>服务器的许可名单</code>之中，以及可以使用<code>哪些 HTTP 动词和头信息字段</code>。也就是说浏览器会发送两次 http 请求。第一次 Request Method: OPTIONS,第二次再请求所需内容。</p>
+</li>
+<li><p>withCredentials 属性<br>CORS 请求默认不发送 Cookie 和 HTTP 认证信息。如果要<code>发送 Cookie</code>，需要<code>打开 withCredentials 属性</code>。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//xhr</span><br><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>()<br>xhr.<span class="hljs-property">withCredentials</span> = <span class="hljs-literal">true</span><br><br><span class="hljs-comment">//axios</span><br>axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">withCredentials</span> = <span class="hljs-literal">true</span><br><br><span class="hljs-comment">//服务器</span><br>res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&#x27;Access-Control-Allow-Credentials&#x27;</span>, <span class="hljs-string">&#x27;true&#x27;</span>)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>代理 Proxy<br>在同域的服务器上设置一个代理，由代理服务器去请求其他域上的资源，再将结果返回给前端。这样，前端只需要请求同域的资源，就能避免跨域问题。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//vite</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineConfig</span>(&#123;<br>  <span class="hljs-attr">server</span>: &#123;<br>    <span class="hljs-attr">proxy</span>: &#123;<br>      <span class="hljs-string">&#x27;/api&#x27;</span>: &#123;<br>        <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;http://localhost:3000&#x27;</span>,<br>        <span class="hljs-attr">changeOrigin</span>: <span class="hljs-literal">true</span>,<br>        <span class="hljs-attr">rewrite</span>: <span class="hljs-function">(<span class="hljs-params">path</span>) =&gt;</span> path.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/^\/api/</span>, <span class="hljs-string">&#x27;&#x27;</span>),<br>        <span class="hljs-attr">withCredentials</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 启用自动携带 Cookie</span><br>      &#125;,<br>    &#125;,<br>  &#125;,<br>&#125;)<br><br><span class="hljs-comment">//webpack</span><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">export</span> = &#123;<br>  <span class="hljs-attr">devServer</span>: &#123;<br>    <span class="hljs-attr">proxy</span>: &#123;<br>      <span class="hljs-string">&#x27;/api&#x27;</span>: &#123;<br>        <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;http://localhost:3000&#x27;</span>,<br>        <span class="hljs-attr">pathRewrite</span>: &#123; <span class="hljs-string">&#x27;^/api&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span> &#125;,<br>        <span class="hljs-attr">changeOrigin</span>: <span class="hljs-literal">true</span>,<br>        <span class="hljs-attr">cookieDomainRewrite</span>: <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-comment">// 携带 Cookie 需要设置 cookieDomainRewrite</span><br>      &#125;,<br>    &#125;,<br>  &#125;,<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>WebSocket 协议跨域</p>
 <blockquote>
-<p>它实现了浏览器与服务器全双工通信，同时允许跨域通讯</p>
+<p>它实现了浏览器与服务器全双工通信，同时允许跨域通讯<br>没有同源限制，客户端可以与任意服务器通信。协议标识符是 ws（如果加密，则为 wss），服务器网址就是 URL。</p>
 </blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> socket = <span class="hljs-keyword">new</span> <span class="hljs-title class_">WebSocket</span>(<span class="hljs-string">&#x27;ws://localhost:8080&#x27;</span>)<br><br>socket.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;open&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Connection open ...&#x27;</span>)<br>  socket.<span class="hljs-title function_">send</span>(<span class="hljs-string">&#x27;Hello Server!&#x27;</span>)<br>&#125;)<br><br>socket.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Message from server: &#x27;</span>, event.<span class="hljs-property">data</span>)<br>  socket.<span class="hljs-title function_">close</span>()<br>&#125;)<br><br>socket.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;close&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Connection closed.&#x27;</span>)<br>&#125;)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>postMessage</p>
 </li>
@@ -1395,8 +1575,7 @@
 <h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><blockquote>
 <p>HTTPS 出现正是为了<code>解决 HTTP 不安全</code>的特性<br>为了保证这些隐私数据能加密传输，让 HTTP 运行安全的 SSL&#x2F;TLS 协议上，即 <code>HTTPS = HTTP + SSL/TLS</code>，通过 SSL 证书来验证服务器的身份，并为浏览器和服务器之间的<code>通信进行加密</code><br>SSL 协议位于 TCP&#x2F;IP 协议与各种应用层协议之间，浏览器和服务器在使用 SSL 建立连接时需要选择一组恰当的加密算法来实现安全通信，为数据通讯提供安全支持</p>
 </blockquote>
-<p><strong>加密过程:</strong></p>
-<ol>
+<h4 id="加密过程"><a href="#加密过程" class="headerlink" title="加密过程:**"></a>加密过程:**</h4><ol>
 <li>首先客户端通过 URL 访问服务器建立 SSL 连接</li>
 <li>服务端收到客户端请求后，会将网站支持的证书信息（证书中包含公钥）传送一份给客户端</li>
 <li>客户端的服务器开始协商 SSL 连接的安全等级，也就是信息加密的等级</li>
@@ -1404,7 +1583,19 @@
 <li>服务器利用自己的私钥解密出会话密钥</li>
 <li>服务器利用会话密钥加密与客户端之间的通信</li>
 </ol>
-<h3 id="区别如下："><a href="#区别如下：" class="headerlink" title="区别如下："></a>区别如下：</h3><ol>
+<h4 id="如何解决安全问题："><a href="#如何解决安全问题：" class="headerlink" title="如何解决安全问题："></a>如何解决安全问题：</h4><ol>
+<li><p>混合加密技术<br>HTTPS 采用「混合加密」：</p>
+<ul>
+<li>在通信建立前采用非对称加密的方式交换「会话秘钥」，后续就不再使用非对称加密。</li>
+<li>在通信过程中全部使用对称加密的「会话秘钥」的方式加密明文数据。</li>
+</ul>
+</li>
+<li><p>摘要算法 + 数字签名<br>摘要算法（哈希函数）来计算出内容的哈希值，这个哈希值是唯一的。<br>通过「私钥加密，公钥解密」的方式，来确认消息的身份，对内容的哈希值加密。</p>
+<img src="/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/SSL.webp" srcset="/img/loading.gif" lazyload class title="This is an test image"></li>
+<li><p>数字证书<br>数字证书认证机构处于客户端与服务器双方都可信赖的第三方机构的立场<br>CA 对公钥的签名认证</p>
+</li>
+</ol>
+<h4 id="HTTPS-如何建立连接"><a href="#HTTPS-如何建立连接" class="headerlink" title="HTTPS 如何建立连接"></a>HTTPS 如何建立连接</h4><h3 id="区别如下："><a href="#区别如下：" class="headerlink" title="区别如下："></a>区别如下：</h3><ol>
 <li>HTTPS 是 HTTP 协议的安全版本，HTTP 协议的数据传输是明文的，是不安全的，HTTPS 使用了 SSL&#x2F;TLS 协议进行了加密处理，相对更安全</li>
 <li>HTTP 和 HTTPS 使用连接方式不同，默认端口也不一样，HTTP 是 80，HTTPS 是 443</li>
 <li>HTTPS 由于需要设计加密以及多次握手，性能方面不如 HTTP</li>
@@ -1752,6 +1943,23 @@
 <h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><blockquote>
 <p>线程（thread）是操作系统能够进行运算调度的最小单位，其是进程中的一个执行任务（控制单元），负责当前进程中程序的执行</p>
 </blockquote>
+<h1 id="10-场景题"><a href="#10-场景题" class="headerlink" title="10. 场景题"></a>10. 场景题</h1><h2 id="1-在-JS-缓存中有一个数据量很大的列表，不用分页处理，如何保证它加载到页面里不卡顿？"><a href="#1-在-JS-缓存中有一个数据量很大的列表，不用分页处理，如何保证它加载到页面里不卡顿？" class="headerlink" title="1. 在 JS 缓存中有一个数据量很大的列表，不用分页处理，如何保证它加载到页面里不卡顿？"></a>1. 在 JS 缓存中有一个数据量很大的列表，不用分页处理，如何保证它加载到页面里不卡顿？</h2><h3 id="1-分页加载"><a href="#1-分页加载" class="headerlink" title="1. 分页加载"></a>1. 分页加载</h3><h3 id="2-虚拟滚动"><a href="#2-虚拟滚动" class="headerlink" title="2. 虚拟滚动"></a>2. 虚拟滚动</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;container&quot;</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">&quot;&#123; height: containerHeight &#125;&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;list&quot;</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">&quot;&#123; transform: `translateY($&#123;translateY&#125;)` &#125;&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in listData&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;item&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:style</span>=<span class="hljs-string">&quot;&#123; height: itemHeight &#125;&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>      &#123;&#123; item &#125;&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> oriData = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(&#123; <span class="hljs-attr">length</span>: <span class="hljs-number">1000</span> &#125;, <span class="hljs-function">(<span class="hljs-params">v, k</span>) =&gt;</span> k)</span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> itemHeight = <span class="hljs-number">20</span></span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> emptyHeight = itemHeight * oriData.<span class="hljs-property">length</span></span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> containerHeight = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span></span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> itemCount = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">ceil</span>(containerHeight / itemHeight)</span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> container = <span class="hljs-title function_">ref</span>(<span class="hljs-literal">null</span>)</span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> start = <span class="hljs-title function_">ref</span>(<span class="hljs-number">0</span>)</span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> translateY = <span class="hljs-title function_">ref</span>(<span class="hljs-number">0</span>)</span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> listData = <span class="hljs-title function_">computed</span>(<span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> oriData.<span class="hljs-title function_">slice</span>(start.<span class="hljs-property">value</span>, start.<span class="hljs-property">value</span> + itemCount + <span class="hljs-number">1</span>)</span><br><span class="language-javascript">  &#125;)</span><br><span class="language-javascript">  <span class="hljs-title function_">onMounted</span>(<span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">    container.<span class="hljs-property">value</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-keyword">const</span> &#123; scrollTop &#125; = e.<span class="hljs-property">target</span></span><br><span class="language-javascript">      start.<span class="hljs-property">value</span> = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(scrollTop / itemHeight)</span><br><span class="language-javascript">      translateY.<span class="hljs-property">value</span> = scrollTop + <span class="hljs-string">&#x27;px&#x27;</span></span><br><span class="language-javascript">    &#125;)</span><br><span class="language-javascript">  &#125;)</span><br><span class="language-javascript">  <span class="hljs-keyword">return</span> &#123;</span><br><span class="language-javascript">    listData,</span><br><span class="language-javascript">    container,</span><br><span class="language-javascript">    translateY,</span><br><span class="language-javascript">    <span class="hljs-attr">containerHeight</span>: containerHeight + <span class="hljs-string">&#x27;px&#x27;</span>,</span><br><span class="language-javascript">    <span class="hljs-attr">itemHeight</span>: itemHeight + <span class="hljs-string">&#x27;px&#x27;</span>,</span><br><span class="language-javascript">    <span class="hljs-attr">emptyHeight</span>: emptyHeight + <span class="hljs-string">&#x27;px&#x27;</span>,</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="2-给出虚拟-dom-的数据结构，如何实现简单的虚拟-dom，渲染到目标-dom-树"><a href="#2-给出虚拟-dom-的数据结构，如何实现简单的虚拟-dom，渲染到目标-dom-树" class="headerlink" title="2. 给出虚拟 dom 的数据结构，如何实现简单的虚拟 dom，渲染到目标 dom 树"></a>2. 给出虚拟 dom 的数据结构，如何实现简单的虚拟 dom，渲染到目标 dom 树</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 样例数据</span><br><span class="hljs-keyword">let</span> demoNode = &#123;<br>  <span class="hljs-attr">tagName</span>: <span class="hljs-string">&#x27;ul&#x27;</span>,<br>  <span class="hljs-attr">props</span>: &#123; <span class="hljs-attr">class</span>: <span class="hljs-string">&#x27;list&#x27;</span> &#125;,<br>  <span class="hljs-attr">children</span>: [<br>    &#123; <span class="hljs-attr">tagName</span>: <span class="hljs-string">&#x27;li&#x27;</span>, <span class="hljs-attr">children</span>: [<span class="hljs-string">&#x27;douyin&#x27;</span>] &#125;,<br>    &#123; <span class="hljs-attr">tagName</span>: <span class="hljs-string">&#x27;li&#x27;</span>, <span class="hljs-attr">children</span>: [<span class="hljs-string">&#x27;toutiao&#x27;</span>] &#125;,<br>  ],<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Element</span>(<span class="hljs-params">&#123; tagName, props, children &#125;</span>) &#123;<br>  <span class="hljs-keyword">if</span> (!(<span class="hljs-variable language_">this</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Element</span>)) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Element</span>(&#123; tagName, props, children &#125;)<br>  &#125;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">tagName</span> = tagName<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">props</span> = props || &#123;&#125;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">children</span> = children || []<br>&#125;<br><span class="hljs-title class_">Element</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">render</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> el = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">tagName</span>),<br>    props = <span class="hljs-variable language_">this</span>.<span class="hljs-property">props</span>,<br>    propName,<br>    propValue<br>  <span class="hljs-keyword">for</span> (propName <span class="hljs-keyword">in</span> props) &#123;<br>    propValue = props[propName]<br>    el.<span class="hljs-title function_">setAttribute</span>(propName, propValue)<br>  &#125;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">children</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">child</span>) &#123;<br>    <span class="hljs-keyword">var</span> childEl = <span class="hljs-literal">null</span><br>    <span class="hljs-keyword">if</span> (child <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Element</span>) &#123;<br>      childEl = child.<span class="hljs-title function_">render</span>()<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      childEl = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createTextNode</span>(child)<br>    &#125;<br>    el.<span class="hljs-title function_">appendChild</span>(childEl)<br>  &#125;)<br>  <span class="hljs-keyword">return</span> el<br>&#125;<br><br><span class="hljs-keyword">var</span> ul = <span class="hljs-title class_">Element</span>(demoNode)<br><span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(ul.<span class="hljs-title function_">render</span>())<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-图片懒加载"><a href="#3-图片懒加载" class="headerlink" title="3. 图片懒加载"></a>3. 图片懒加载</h2><ol>
+<li><p>lazy 告诉用户代理推迟图片加载直到浏览器认为其需要立即加载时才去加载<br><code>&lt;img src=&quot;deathghost.jpg&quot; loading=&quot;lazy&quot; alt=&quot;新码笔记&quot; /&gt;</code><br>loading 的属性值<br>|值 |描述||<br>|—|—||<br>|eager |默认，图像立即加载。||<br>|lazy |图像延迟加载，只有鼠标滚动到该图片所在位置才会显示。||</p>
+</li>
+<li><p>方式二 offsetTop - scrollTop &lt; &#x3D; innerHeight<br>计算图片是否在可视区域内，如果在则加载图片</p>
+</li>
+<li><p>方式五 vue-lazyload</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//1.  安装</span><br><span class="hljs-comment">//npm install vue-lazyload --save</span><br><br><span class="hljs-comment">//2. 引入</span><br><span class="hljs-comment">// main.js 文件</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">VueLazyload</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-lazyload&#x27;</span><br><span class="hljs-comment">// Vue.use(VueLazyload) //无配置项</span><br><span class="hljs-comment">// 配置项</span><br><span class="hljs-keyword">const</span> loadimage = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;assets/img/common/loading.gif&#x27;</span>)<br><span class="hljs-comment">// const errorimage = require(&#x27;assets/img/common/error.gif&#x27;)</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">use</span>(<span class="hljs-title class_">VueLazyload</span>, &#123;<br> <span class="hljs-attr">preLoad</span>: <span class="hljs-number">1.3</span>, <span class="hljs-comment">//预加载的宽高比</span><br> <span class="hljs-attr">loading</span>: loadimage, <span class="hljs-comment">//图片加载状态下显示的图片</span><br> <span class="hljs-comment">// error: errorimage, //图片加载失败时显示的图片</span><br> <span class="hljs-attr">attempt</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// 加载错误后最大尝试次数</span><br>&#125;)<br><span class="hljs-comment">//3. 使用</span><br><span class="hljs-comment">// img元素上使用v-lazy=&quot;src&quot;;&lt;img v-lazy=&quot;showImage&quot;/&gt;</span><br>&lt;img v-lazy=<span class="hljs-string">&quot;img.thumbnail_pic_s&quot;</span>&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>getBoundingClientRect</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// DOMRect:&#123;</span><br><span class="hljs-comment">// x: 18, y: 10, width: 240, height: 240, top: 10</span><br><span class="hljs-comment">// right: 258, bottom: 250, left: 18&#125;</span><br><br> <span class="hljs-keyword">function</span> <span class="hljs-title function_">isInViewPort</span>(<span class="hljs-params">element</span>) &#123;<br>    <span class="hljs-keyword">const</span> viewWidth = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">clientWidth</span>;<br>    <span class="hljs-keyword">const</span> viewHeight = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">clientHeight</span>;<br>    <span class="hljs-keyword">const</span> &#123;<br>      top,<br>      right,<br>      bottom,<br>      left,<br>   &#125; = element.<span class="hljs-title function_">getBoundingClientRect</span>();<br>   ​<br>    <span class="hljs-keyword">return</span> (<br>      top &gt;= <span class="hljs-number">0</span> &amp;&amp;<br>      left &gt;= <span class="hljs-number">0</span> &amp;&amp;<br>      right &lt;= viewWidth &amp;&amp;<br>      bottom &lt;= viewHeight<br>   );<br>   &#125;<br><br></code></pre></td></tr></table></figure></li>
+</ol>
 
                 
               </div>
