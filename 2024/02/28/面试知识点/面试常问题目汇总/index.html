@@ -25,8 +25,11 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/SSL.webp">
 <meta property="og:image" content="http://example.com/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/network.png">
+<meta property="og:image" content="http://example.com/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/TCP.webp">
+<meta property="og:image" content="http://example.com/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/UDP.webp">
+<meta property="og:image" content="http://example.com/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/IP.webp">
 <meta property="article:published_time" content="2024-02-27T18:26:12.000Z">
-<meta property="article:modified_time" content="2024-04-03T15:10:18.623Z">
+<meta property="article:modified_time" content="2024-04-05T15:27:58.007Z">
 <meta property="article:author" content="小日月">
 <meta property="article:tag" content="面试常问题目汇总">
 <meta name="twitter:card" content="summary_large_image">
@@ -251,7 +254,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          61k 字
+          74k 字
         
       </span>
     
@@ -262,7 +265,7 @@
         
         
         
-          511 分钟
+          616 分钟
         
       </span>
     
@@ -628,6 +631,47 @@
 <ul>
 <li>元素的实际内容的宽度&#x2F;高度，包括溢出的部分，不包括边框(border)和滚动条</li>
 </ul>
+<h1 id="2-5-浏览器"><a href="#2-5-浏览器" class="headerlink" title="2.5 浏览器"></a>2.5 浏览器</h1><h2 id="1-深入理解浏览器事件模型的概念和原理"><a href="#1-深入理解浏览器事件模型的概念和原理" class="headerlink" title="1.深入理解浏览器事件模型的概念和原理"></a>1.深入理解浏览器事件模型的概念和原理</h2><blockquote>
+<p>浏览器事件模型是指<code>浏览器处理事件的机制</code>。在 Web 应用中，<code>用户的交互和操作都会触发事件</code>，如点击、滚动、键盘输入等。<code>浏览器需要对这些事件进行捕获、处理和分发</code>，以实现相应的功能和效果。<code>浏览器事件模型</code>定义了<code>事件的流程</code>和<code>机制</code>，包括事件的<code>类型</code>、事件的<code>触发</code>和<code>传递</code>、事件的<code>处理</code>和<code>响应</code>等。</p>
+</blockquote>
+<h3 id="浏览器事件类型"><a href="#浏览器事件类型" class="headerlink" title="浏览器事件类型"></a>浏览器事件类型</h3><ol>
+<li>DOM0 级事件</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//DOM0级事件模型的缺点是只能为一个元素添加一个事件处理函数，且不能对事件进行捕获和阻止冒泡。</span><br>btn.<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;Hello, DOM0!&#x27;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>DOM2 级事件</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//DOM2级事件模型的优点是可以为一个元素添加多个事件处理函数，且可以对事件进行捕获和阻止冒泡。</span><br>btn.<span class="hljs-title function_">addEventListener</span>(<br>  <span class="hljs-string">&#x27;click&#x27;</span>,<br>  <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;Hello, DOM2!&#x27;</span>)<br>  &#125;,<br>  <span class="hljs-literal">false</span><br>)<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>IE 事件模型。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//IE事件模型是IE浏览器独有的事件模型,IE事件模型的缺点是只能为一个元素添加一个事件处理函数，且不能对事件进行捕获和阻止冒泡。</span><br>btn.<span class="hljs-title function_">attachEvent</span>(<span class="hljs-string">&#x27;onclick&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;Hello, IE!&#x27;</span>)<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="浏览器事件模型的流程"><a href="#浏览器事件模型的流程" class="headerlink" title="浏览器事件模型的流程"></a>浏览器事件模型的流程</h3><blockquote>
+<p>浏览器事件模型的流程可以分为事件捕获、目标阶段和事件冒泡三个阶段。下面结合代码来详细说明浏览器事件模型的流程。<br>addEventListener()方法的第三个参数可以设置为 true 或 false，分别表示在捕获阶段或冒泡阶段执行事件处理函数。默认值为 false，表示在冒泡阶段执行事件处理函数。</p>
+</blockquote>
+<ol>
+<li>事件捕获阶段<br>浏览器从最外层的元素 outer 开始，向内层元素 inner 传递事件，直到目标元素 btn。在这个过程中，浏览器会依次触发 outer 元素和 inner 元素的捕获阶段事件处理函数。</li>
+</ol>
+<p>因为我们在 outer 元素和 inner 元素上都定义了捕获阶段事件处理函数，所以浏览器会先执行 outer 元素的捕获阶段事件处理函数，再执行 inner 元素的捕获阶段事件处理函数。因此，控制台会输出’outer capture’和’inner capture’。</p>
+<ol start="2">
+<li><p>目标阶段<br>当浏览器到达目标元素 btn 时，会触发 btn 元素的点击事件处理函数。在这个例子中，我们在按钮的点击事件处理函数中调用了 event.stopPropagation()方法，以阻止事件继续传递到下一层元素。因此，控制台只会输出’button click’，而不会输出’inner bubble’和’outer bubble’。</p>
+</li>
+<li><p>事件冒泡阶段<br>当事件处理完成后，浏览器会从目标元素 btn 开始，向外层元素 inner 和 outer 传递事件，直到最外层的元素。在这个过程中，浏览器会依次触发 inner 元素和 outer 元素的冒泡阶段事件处理函数。</p>
+</li>
+</ol>
+<p>因为我们在 inner 元素和 outer 元素上都定义了冒泡阶段事件处理函数，所以浏览器会先执行 inner 元素的冒泡阶段事件处理函数，再执行 outer 元素的冒泡阶段事件处理函数。因此，控制台会输出’inner bubble’和’outer bubble’。</p>
+<p>综上所述，浏览器事件模型的流程包括事件捕获、目标阶段和事件冒泡三个阶段。在实际开发中，我们可以根据具体的需求和场景，选择合适的阶段和处理函数，以实现事件的处理和响应。</p>
+<h3 id="浏览器事件优化"><a href="#浏览器事件优化" class="headerlink" title="浏览器事件优化"></a>浏览器事件优化</h3><ol>
+<li>事件委托</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;list&#x27;</span>)<br>list.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) &#123;<br>  <span class="hljs-keyword">var</span> target = event.<span class="hljs-property">target</span><br>  <span class="hljs-keyword">if</span> (target.<span class="hljs-property">nodeName</span> === <span class="hljs-string">&#x27;LI&#x27;</span>) &#123;<br>    <span class="hljs-comment">// 用户点击了列表项</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>防抖和节流</li>
+</ol>
 <h1 id="3-JavaScript"><a href="#3-JavaScript" class="headerlink" title="3. JavaScript"></a>3. JavaScript</h1><h2 id="1-this-了解多少，箭头函数的-this-为什么在定义时就已经确定"><a href="#1-this-了解多少，箭头函数的-this-为什么在定义时就已经确定" class="headerlink" title="1. this 了解多少，箭头函数的 this 为什么在定义时就已经确定"></a>1. this 了解多少，箭头函数的 this 为什么在定义时就已经确定</h2><blockquote>
 <p>声明时绑定的意思是它要确定到其上一层去做一个 this 重定向的处理。运行时确定是指其上一层的 this 是受运行时调用者影响的，那么箭头函数继承至该 this，自然也会受到影响。<br>也就是说：声明时确定继承自谁的 this、运行时真正确定是哪个 this</p>
 </blockquote>
@@ -1452,7 +1496,7 @@
 <h1 id="4-5-React"><a href="#4-5-React" class="headerlink" title="4.5 React"></a>4.5 React</h1><h1 id="5-Webpack-x2F-Vite"><a href="#5-Webpack-x2F-Vite" class="headerlink" title="5. Webpack&#x2F;Vite"></a>5. Webpack&#x2F;Vite</h1><h2 id="1-webpack-的理解"><a href="#1-webpack-的理解" class="headerlink" title="1. webpack 的理解"></a>1. webpack 的理解</h2><blockquote>
 <p>webpack 是一个用于现代 JavaScript 应用程序的静态模块打包工具;Webpack 最初的目标是实现前端项目的模块化，旨在更高效地管理和维护项目中的每一个资源</p>
 </blockquote>
-<h1 id="6-http"><a href="#6-http" class="headerlink" title="6. http"></a>6. http</h1><h2 id="1-http-的多版本"><a href="#1-http-的多版本" class="headerlink" title="1. http 的多版本"></a>1. http 的多版本</h2><p>说说 HTTP1.0&#x2F;1.1&#x2F;2.0&#x2F;3.0 的区别?</p>
+<h1 id="6-http"><a href="#6-http" class="headerlink" title="6. http"></a>6. http</h1><h2 id="1-HTTP1-0-x2F-1-1-x2F-2-0-x2F-3-0"><a href="#1-HTTP1-0-x2F-1-1-x2F-2-0-x2F-3-0" class="headerlink" title="1. HTTP1.0&#x2F;1.1&#x2F;2.0&#x2F;3.0"></a>1. HTTP1.0&#x2F;1.1&#x2F;2.0&#x2F;3.0</h2><p>说说 HTTP1.0&#x2F;1.1&#x2F;2.0&#x2F;3.0 的区别?</p>
 <h3 id="HTTP1-0"><a href="#HTTP1-0" class="headerlink" title="HTTP1.0"></a>HTTP1.0</h3><blockquote>
 <p>HTTP 1.0 浏览器与服务器只<code>保持短暂的连接</code>，每次请求都需要与服务器建立一个 TCP 连接<br>服务器完成请求处理后<code>立即断开TCP连接</code>，服务器不跟踪每个客户也不记录过去的请求</p>
 </blockquote>
@@ -1519,6 +1563,28 @@
 <li>no-store<br>缓存不应存储有关客户端请求或服务器响应的任何内容，即不使用任何缓存。</li>
 <li>max-age&#x3D;<seconds><br>设置缓存存储的最大周期，超过这个时间缓存被认为过期 (单位秒)。与 Expires 相反，时间是相对于请求的时间。</seconds></li>
 </ul>
+<h3 id="3-缓存位置（介绍一下浏览器缓存位置和优先级）"><a href="#3-缓存位置（介绍一下浏览器缓存位置和优先级）" class="headerlink" title="3. 缓存位置（介绍一下浏览器缓存位置和优先级）"></a>3. 缓存位置（介绍一下浏览器缓存位置和优先级）</h3><blockquote>
+<p>优先级（Service Worker -&gt; Memory Cache -&gt; Disk Cache -&gt; Push Cache）依次查找缓存。</p>
+</blockquote>
+<ol>
+<li><p>Service Worker</p>
+<blockquote>
+<p>Service Worker 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能</p>
+</blockquote>
+</li>
+<li><p>Memory Cache</p>
+<blockquote>
+<p>从内存中读取缓存;关闭进程后，缓存资源也会随之销毁</p>
+</blockquote>
+</li>
+<li><p>Disk Cache</p>
+<blockquote>
+<p>从硬盘中读取缓存</p>
+</blockquote>
+</li>
+<li><p>Push Cache<br>Push Cache 是 HTTP&#x2F;2 中的内容，当以上三种缓存都没有命中时，它才会被使用</p>
+</li>
+</ol>
 <h2 id="3-跨域以及解决方案"><a href="#3-跨域以及解决方案" class="headerlink" title="3. 跨域以及解决方案"></a>3. 跨域以及解决方案</h2><blockquote>
 <p>同源策略是一个重要的安全策略，它用于限制一个源的文档或者它加载的脚本如何能与另一个源的资源进行交互<br>如果两个 URL 的协议、端口（如果有指定的话）和主机都相同的话，则这两个 URL 是同源的</p>
 </blockquote>
@@ -1561,8 +1627,8 @@
 <li><p>iframe+document.domain</p>
 </li>
 </ol>
-<h2 id="4-http-x2F-https"><a href="#4-http-x2F-https" class="headerlink" title="4. http&#x2F;https"></a>4. http&#x2F;https</h2><h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><blockquote>
-<p>HTTP (HyperText Transfer Protocol)，即<code>超文本运输协议</code>，是<code>实现网络通信的一种规范</code><br>在实际应用中，HTTP 常被用于在 Web 浏览器和网站服务器之间传递信息，以<code>明文方式</code>发送内容，<code>不提供任何方式的数据加密</code></p>
+<h2 id="4-http-x2F-https-和-优化-和-https-握手"><a href="#4-http-x2F-https-和-优化-和-https-握手" class="headerlink" title="4. http&#x2F;https 和 优化 和 https 握手"></a>4. http&#x2F;https 和 优化 和 https 握手</h2><h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><blockquote>
+<p>HTTP (HyperText Transfer Protocol)，即<code>超文本运输协议</code>，是<code>实现网络通信的一种规范</code><br>在实际应用中，HTTP 常被用于在浏览器和服务器之间传递信息，以<code>明文方式</code>发送内容，<code>不提供任何方式的数据加密</code></p>
 </blockquote>
 <p><strong>特点如下：</strong></p>
 <ol>
@@ -1592,7 +1658,7 @@
 </li>
 <li><p>摘要算法 + 数字签名<br>摘要算法（哈希函数）来计算出内容的哈希值，这个哈希值是唯一的。<br>通过「私钥加密，公钥解密」的方式，来确认消息的身份，对内容的哈希值加密。</p>
 <img src="/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/SSL.webp" srcset="/img/loading.gif" lazyload class title="This is an test image"></li>
-<li><p>数字证书<br>数字证书认证机构处于客户端与服务器双方都可信赖的第三方机构的立场<br>CA 对公钥的签名认证</p>
+<li><p>数字证书<br>数字证书认证机构处于客户端与服务器双方都可信赖的第三方机构的立场<br>设有服务器 S，客户端 C，和第三方信赖机构 CA。<br>S 信任 CA，CA 是知道 S 公钥的，CA 向 S 颁发证书。并附上 CA 私钥对消息摘要的加密签名。<br>S 获得 CA 颁发的证书，将该证书传递给 C。<br>C 获得 S 的证书，信任 CA 并知晓 CA 公钥，使用 CA 公钥对 S 证书上的签名解密，同时对消息进行散列处理，得到摘要。比较摘要，验证 S 证书的真实性。如果 C 验证 S 证书是真实的，则信任 S 的公钥（在 S 证书中）。<br>CA 对公钥的签名认证</p>
 </li>
 </ol>
 <h4 id="HTTPS-如何建立连接"><a href="#HTTPS-如何建立连接" class="headerlink" title="HTTPS 如何建立连接"></a>HTTPS 如何建立连接</h4><h3 id="区别如下："><a href="#区别如下：" class="headerlink" title="区别如下："></a>区别如下：</h3><ol>
@@ -1600,6 +1666,90 @@
 <li>HTTP 和 HTTPS 使用连接方式不同，默认端口也不一样，HTTP 是 80，HTTPS 是 443</li>
 <li>HTTPS 由于需要设计加密以及多次握手，性能方面不如 HTTP</li>
 <li>HTTPS 需要 SSL，SSL 证书需要钱，功能越强大的证书费用越高</li>
+</ol>
+<h3 id="HTTP-优化"><a href="#HTTP-优化" class="headerlink" title="HTTP 优化"></a>HTTP 优化</h3><ol>
+<li>避免发送 HTTP 请求？</li>
+</ol>
+<ul>
+<li>使用缓存</li>
+</ul>
+<ol start="2">
+<li>减少 HTTP 请求次数</li>
+</ol>
+<ul>
+<li>合并文件(合并 CSS、JS 文件, 雪碧图)</li>
+<li>使用 CDN 加速</li>
+<li>延迟发送请求（懒加载、预加载）</li>
+</ul>
+<ol start="3">
+<li>减少请求资源大小</li>
+</ol>
+<ul>
+<li>压缩文件（Gzip、Brotli）</li>
+</ul>
+<h3 id="HTTPS-优化"><a href="#HTTPS-优化" class="headerlink" title="HTTPS 优化"></a>HTTPS 优化</h3><blockquote>
+<p>产生性能消耗的两个环节：<br>第一个环节， TLS 协议握手过程；<br>第二个环节，握手后的对称加密报文传输。</p>
+</blockquote>
+<ol>
+<li>硬件加速<ul>
+<li>HTTPS 协议是计算密集型；可以提高计算性能 CPU<code>支持 AES-NI 特性的 CPU</code></li>
+</ul>
+</li>
+<li>软件加速</li>
+<li>协议优化<ul>
+<li>TLS 1.3<br>TLS 1.3 把 Hello 和公钥交换这两个消息合并成了一个消息，于是这样就减少到只需 1 RTT 就能完成 TLS 握手(<code>完成 TLS 握手只要 1 RTT</code>)<br>TLS1.3 对密码套件进行“减肥”了， 对于密钥交换算法，废除了不支持前向安全性的 RSA 和 DH 算法，只支持 <code>ECDHE 算法</code></li>
+</ul>
+</li>
+<li>会话复用<ul>
+<li>Session ID：客户端和服务器首次 TLS 握手连接后，双方会在内存缓存会话密钥，并用唯一的 Session ID 来标识</li>
+<li>Session Ticket：服务器会把会话密钥加密后，发送给客户端，客户端保存在本地，下次握手时，直接使用这个会话密钥</li>
+</ul>
+</li>
+</ol>
+<h3 id="TLS-握手过程"><a href="#TLS-握手过程" class="headerlink" title="TLS 握手过程"></a>TLS 握手过程</h3><blockquote>
+<p>TLS 的「握手阶段」涉及<code>四次通信</code>，使用不同的密钥交换算法，TLS 握手流程也会不一样的，现在常用的密钥交换算法有两种：<code>RSA 算法</code> (opens new window)和 <code>ECDHE 算法</code> (opens new window)。</p>
+</blockquote>
+<ol>
+<li><p>ClientHello 请求</p>
+<blockquote>
+<p>客户端向服务器发起<code>加密通信请求</code>，也就是<code>ClientHello 请求</code>。</p>
+</blockquote>
+<ul>
+<li>客户端支持的 <code>TLS 协议版本</code>，如 TLS 1.2 版本。</li>
+<li>客户端生产的<code>随机数</code>（Client Random），后面用于<code>生成「会话秘钥」条件</code>之一。</li>
+<li>客户端支持的<code>密码套件列表</code>，如 RSA 加密算法。</li>
+</ul>
+</li>
+<li><p>SeverHello 请求</p>
+<blockquote>
+<p>服务器收到客户端请求后，向客户端发出<code>响应</code>，也就是 <code>SeverHello</code>。服务器回应的内容有如下内容：</p>
+</blockquote>
+<ul>
+<li><code>确认 TLS 协议版本</code>，如果浏览器不支持，则关闭加密通信。</li>
+<li><code>服务器生产的随机数</code>（Server Random），也是后面用于生产「会话秘钥」条件之一。</li>
+<li><code>确认的密码套件列表</code>，如 RSA 加密算法。</li>
+<li>服务器的<code>数字证书</code>。</li>
+</ul>
+</li>
+<li><p>客户端回应</p>
+<blockquote>
+<p>客户端收到服务器的回应之后，首先通过浏览器或者操作系统中的 CA 公钥，<code>确认服务器的数字证书的真实性</code>。<br>如果证书没有问题，客户端会从数字证书中<code>取出服务器的公钥</code>，然后<code>使用它加密报文</code>向服务器发送如下信息：</p>
+</blockquote>
+<ul>
+<li>一个<code>随机数（pre-master key）</code>。该随机数会被服务器<code>公钥加密</code>。</li>
+<li><code>加密通信算法改变通知</code>，表示随后的信息都将用「会话秘钥」加密通信。</li>
+<li><code>客户端握手结束通知</code>，表示客户端的握手阶段已经结束。这一项同时把之前所有内容的发生的数据做个摘要，用来供服务端校验。</li>
+</ul>
+</li>
+<li><p>服务器的最后回应</p>
+<blockquote>
+<p>服务器收到客户端的第三个随机数（pre-master key）之后，通过协商的加密算法，计算出本次通信的「会话秘钥」。<br>然后，向客户端发送最后的信息：</p>
+</blockquote>
+<ul>
+<li>加密通信算法改变通知，表示随后的信息都将用「会话秘钥」加密通信。</li>
+<li>服务器握手结束通知，表示服务器的握手阶段已经结束。这一项同时把之前所有内容的发生的数据做个摘要，用来供客户端校验。</li>
+</ul>
+</li>
 </ol>
 <h2 id="5-说说地址栏输入-URL-敲下回车后发生了什么"><a href="#5-说说地址栏输入-URL-敲下回车后发生了什么" class="headerlink" title="5. 说说地址栏输入 URL 敲下回车后发生了什么?"></a>5. 说说地址栏输入 URL 敲下回车后发生了什么?</h2><ol>
 <li>URL 解析<blockquote>
@@ -1722,12 +1872,21 @@
 </ul>
 </li>
 </ol>
-<h2 id="8-WebSocket"><a href="#8-WebSocket" class="headerlink" title="8. WebSocket"></a>8. WebSocket</h2><h2 id="9-OSI-七层模型-TCP-x2F-IP-UDP"><a href="#9-OSI-七层模型-TCP-x2F-IP-UDP" class="headerlink" title="9. OSI 七层模型,TCP&#x2F;IP,UDP"></a>9. OSI 七层模型,TCP&#x2F;IP,UDP</h2><h3 id="1-OSI-七层模型"><a href="#1-OSI-七层模型" class="headerlink" title="1. OSI 七层模型"></a>1. OSI 七层模型</h3><blockquote>
+<h2 id="8-WebSocket"><a href="#8-WebSocket" class="headerlink" title="8. WebSocket"></a>8. WebSocket</h2><blockquote>
+<p>WebSocket 是一种基于 TCP 连接的全双工通信协议，即客户端和服务器可以同时发送和接收数据。</p>
+</blockquote>
+<ol>
+<li>WebSocket 协议本质上是<code>应用层的协议</code>，用于弥补 HTTP 协议在<code>持久通信能力</code>上的不足。客户端和服务器仅需<code>一次</code>握手，两者之间就直接可以<code>创建持久性的连接</code>，并进行双向数据传输。</li>
+</ol>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ol>
+<li>它适用于需要服务器和客户端（浏览器）频繁交互的大部分场景</li>
+</ol>
+<h2 id="9-OSI-七层模型-TCP-x2F-IP-4-层模型"><a href="#9-OSI-七层模型-TCP-x2F-IP-4-层模型" class="headerlink" title="9. OSI 七层模型,TCP&#x2F;IP 4 层模型"></a>9. OSI 七层模型,TCP&#x2F;IP 4 层模型</h2><h3 id="1-OSI-七层模型"><a href="#1-OSI-七层模型" class="headerlink" title="1. OSI 七层模型"></a>1. OSI 七层模型</h3><blockquote>
 <p>OSI （Open System Interconnect）模型全称为开放式通信系统互连参考模型，OSI 将计算机网络体系结构划分为七层，每一层实现各自的功能和协议，并完成与相邻层的接口通信。即每一层扮演固定的角色，互不打扰</p>
 </blockquote>
 <ol>
 <li>应用层<blockquote>
-<p>主要提供两个终端设备上的应用程序之间信息交换的服务，它定义了信息交换的格式，我们把应用层交互的数据单元称为报文。</p>
+<p>主要提供两个终端设备上的<code>应用程序之间信息交换</code>的服务，它定义了<code>信息交换的格式</code>，我们把<code>应用层交互的数据单元称为报文</code>。</p>
 </blockquote>
 </li>
 </ol>
@@ -1742,55 +1901,82 @@
 <ol start="2">
 <li><p>表示层</p>
 <blockquote>
-<p>主要负责数据的转换，加密和压缩，确保一个设备的应用层发送的信息可以被另一个设备的应用层读取</p>
+<p>主要负责<code>数据的转换，加密和压缩</code>，确保一个设备的应用层发送的信息可以被另一个设备的应用层读取</p>
 </blockquote>
 </li>
 <li><p>会话层</p>
 <blockquote>
-<p>主要负责建立、管理和终止会话，确保通信双方能够互相传输数据</p>
+<p>会话层就是<code>负责建立、管理和终止表示层实体之间的通信会话</code>，确保通信双方能够互相传输数据</p>
 </blockquote>
 </li>
 <li><p>传输层</p>
 <blockquote>
-<p>传输层的主要任务就是负责向两台终端设备进程之间的通信提供通用的数据传输服务。 应用进程利用该服务传送应用层报文<br>主要负责数据的传输，确保数据的可靠传输，传输层的协议有 TCP 和 UDP</p>
+<p>传输层的主要任务就是<code>负责向两台终端设备进程之间的通信提供通用的数据传输服务</code>。 应用进程利用该服务传送应用层报文<br>主要负责<code>数据的传输</code>，确保数据的可靠传输，传输层的协议有 TCP 和 UDP</p>
 </blockquote>
 </li>
 <li><p>网络层</p>
 <blockquote>
-<p>网络层把传输层产生的报文或用户数据报封装成分组和包，向下传输到数据链路层<br>网络层的还有一个任务就是选择合适的路由，使源主机运输层所传下来的分组，能通过网络层中的路由器找到目的主机。</p>
+<p>网络层把传输层产生的报文或用户数据报<code>封装成分组和包</code>，向下传输到数据链路层<br>网络层的还有一个任务就是<code>选择合适的路由</code>，使源主机运输层所传下来的分组，能通过网络层中的路由器找到目的主机。</p>
 </blockquote>
 </li>
 <li><p>数据链路层</p>
 <blockquote>
-<p>数据链路层的主要任务是将网络层传下来的 IP 数据报封装成帧，然后通过物理层进行传输<br>数据链路层的主要功能是进行差错检测和纠正，确保数据的可靠传输</p>
+<p>数据链路层的主要任务是将网络层传下来的 IP 数据报<code>封装成帧</code>，然后通过物理层进行传输<br>数据链路层的主要功能是进行<code>差错检测和纠正</code>，确保数据的可靠传输</p>
 </blockquote>
 </li>
 <li><p>物理层</p>
 <blockquote>
-<p>实现计算机节点之间比特流的透明传送;该层主要是和硬件有关，与软件关系不大</p>
+<p>实现计算机节点之间<code>比特流的透明传送</code>;该层主要是和硬件有关，与软件关系不大</p>
 </blockquote>
 </li>
 </ol>
 <h3 id="2-TCP-x2F-IP-4-层模型"><a href="#2-TCP-x2F-IP-4-层模型" class="headerlink" title="2. TCP&#x2F;IP 4 层模型"></a>2. TCP&#x2F;IP 4 层模型</h3><ol>
 <li>应用层<blockquote>
-<p>应用层位于传输层之上，主要提供两个终端设备上的应用程序之间信息交换的服务，它定义了信息交换的格式，消息会交给下一层传输层来传输。<br>应用层的协议有 HTTP、FTP、SMTP、POP3、IMAP、DNS 等</p>
+<p>应用层位于传输层之上，主要提供<code>两个终端设备上的应用程序之间信息交换的服务</code>，它定义了<code>信息交换的格式</code>，消息会交给下一层传输层来传输。<br>应用层的协议有 HTTP、FTP、SMTP、POP3、IMAP、DNS 等</p>
 </blockquote>
 </li>
 <li>传输层<blockquote>
-<p>传输层的主要任务就是负责向两台终端设备进程之间的通信提供通用的数据传输服务。<br>传输层的协议有 TCP 和 UDP</p>
+<p>传输层的主要任务就是负责向<code>两台终端设备进程之间的通信提供通用的数据传输服务</code>。<br>传输层的协议有 TCP 和 UDP</p>
 </blockquote>
 </li>
 <li>网络层<blockquote>
-<p>负责为分组网络中的不同主机提供通信服务，并通过选择合适的路由将数据传递到目标主机;在发送数据时，网络层把运输层产生的报文段或用户数据封装成分组或包进行传送<br>网络层的协议有 IP、ICMP、ARP、RARP、OSPF、BGP、IGMP 等</p>
+<p>负责为分组网络中的不同主机提供通信服务，并通过<code>选择合适的路由</code>将数据传递到目标主机;在发送数据时，网络层把运输层产生的<code>报文段或用户数据封装成分组或包</code>进行传送<br>网络层的协议有 IP、ICMP、ARP、RARP、OSPF、BGP、IGMP 等</p>
 </blockquote>
 </li>
 <li>网络接口层<blockquote>
-<p>数据链路层（ 两台主机之间的数据传输，总是在一段一段的链路上传送的）。数据链路层的作用是将网络层交下来的 IP 数据报组装成帧，在两个相邻节点间的链路上传送帧。<br>物理层的作用是实现相邻计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和物理设备的差异<br>数据链路层的协议有 ARP、RARP、PPP、SLIP、CSMA&#x2F;CD 等</p>
+<p>数据链路层（ 两台主机之间的数据传输，总是在一段一段的链路上传送的）。数据链路层的作用是将网络层交下来的 <code>IP 数据报组装成帧</code>，在<code>两个相邻节点间的链路上传送帧</code>。<br>物理层的作用是实现相邻计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和物理设备的差异<br>数据链路层的协议有 MAC、CSMA&#x2F;CD 等</p>
 </blockquote>
 </li>
 </ol>
 <img src="/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/network.png" srcset="/img/loading.gif" lazyload class title="This is an test image">
 
+<h2 id="10-TCP-UDP"><a href="#10-TCP-UDP" class="headerlink" title="10. TCP\UDP"></a>10. TCP\UDP</h2><blockquote>
+<p>TCP 是面向连接的、可靠的、基于字节流的传输层通信协议。(一定是「一对一」才能连接)、(TCP 都可以保证一个报文一定能够到达接收端)、(消息可能会被操作系统「分组」成多个的 TCP 报文)</p>
+</blockquote>
+<h3 id="1-TCP-头格式"><a href="#1-TCP-头格式" class="headerlink" title="1. TCP 头格式"></a>1. TCP 头格式</h3><img src="/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/TCP.webp" srcset="/img/loading.gif" lazyload class title="This is an test image">
+
+<blockquote>
+<p>序列号：在建立连接时由计算机生成的<code>随机数</code>作为其<code>初始值</code>，通过 <code>SYN 包</code>传给接收端主机，每发送一次数据，就「累加」一次该「数据字节数」的大小。用来<code>解决网络包乱序</code>问题。</p>
+</blockquote>
+<blockquote>
+<p>确认应答号：指下一次「<code>期望」收到的数据的序列号</code>，发送端收到这个确认应答以后可以认为在这个序号以前的数据都已经被正常接收。用来<code>解决丢包的问题</code>。</p>
+</blockquote>
+<blockquote>
+<p>控制位：</p>
+</blockquote>
+<ul>
+<li>ACK：该位为 1 时，<code>「确认应答」的字段变为有效</code>，TCP 规定除了最初建立连接时的 SYN 包之外该位必须设置为 1 。</li>
+<li>RST：该位为 1 时，表示 TCP 连接中出现<code>异常必须强制断开连接</code>。</li>
+<li>SYN：该位为 1 时，表示<code>希望建立连接</code>，并在其「序列号」的字段进行<code>序列号初始值</code>的设定。</li>
+<li>FIN：该位为 1 时，表示今后不会再有数据发送，<code>希望断开连接</code>。当通信结束希望断开连接时，通信双方的主机之间就可以<code>相互交换 FIN 位为 1 的 TCP 段</code>。</li>
+</ul>
+<h3 id="2-UDP-头格式"><a href="#2-UDP-头格式" class="headerlink" title="2. UDP 头格式"></a>2. UDP 头格式</h3><img src="/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/UDP.webp" srcset="/img/loading.gif" lazyload class title="This is an test image">
+
+<ul>
+<li>目标和源端口：主要是告诉 UDP 协议应该把报文发给哪个进程。</li>
+<li>包长度：该字段保存了 UDP 首部的长度跟数据的长度之和。</li>
+<li>校验和：校验和是为了提供可靠的 UDP 首部和数据而设计，防止收到在网络传输中受损的 UDP 包。</li>
+</ul>
 <h3 id="3-TCP-和-UDP-的区别"><a href="#3-TCP-和-UDP-的区别" class="headerlink" title="3. TCP 和 UDP 的区别"></a>3. TCP 和 UDP 的区别</h3><ol>
 <li><p>TCP（Transmission Control Protocol，传输控制协议）</p>
 <blockquote>
@@ -1823,13 +2009,13 @@
 </thead>
 <tbody><tr>
 <td>可靠性</td>
-<td>可靠</td>
-<td>不可靠</td>
+<td>可靠(数据可以无差错、不丢失、不重复、按序到达)</td>
+<td>不可靠(不保证可靠交付数据)</td>
 </tr>
 <tr>
 <td>连接性</td>
-<td>面向连接</td>
-<td>无连接</td>
+<td>面向连接(传输数据前先要建立连接)</td>
+<td>无连接(不需要连接，即刻传输数据)</td>
 </tr>
 <tr>
 <td>报文</td>
@@ -1853,8 +2039,8 @@
 </tr>
 <tr>
 <td>拥塞控制</td>
-<td>慢开始、</td>
-<td>拥塞避免、快重传、快恢复 无</td>
+<td>慢开始、拥塞避免、快重传、快恢复</td>
+<td>无</td>
 </tr>
 <tr>
 <td>传输效率</td>
@@ -1875,21 +2061,17 @@
 <p>TCP 将保持它<code>首部和数据的检验和</code>。这是一个端到端的检验和，目的是检测数据在传输过程中的任何变化。如果收到段的检验和有差错，TCP 将丢弃这个报文段和不确认收到此报文段。</p>
 </blockquote>
 </li>
-<li>重传机制<blockquote>
-<p>在数据包<code>丢失或延迟</code>的情况下，<code>重新发送数据包</code>，直到收到对方的<code>确认应答（ACK）</code>。</p>
-</blockquote>
-</li>
 </ol>
-<p><strong>TCP 重传机制主要有：</strong></p>
+<h4 id="4-重传机制"><a href="#4-重传机制" class="headerlink" title="4. 重传机制"></a>4. 重传机制</h4><blockquote>
+<p>在数据包<code>丢失或延迟</code>的情况下，<code>重新发送数据包</code>，直到收到对方的<code>确认应答（ACK）</code>。<br><strong>TCP 重传机制主要有：</strong></p>
+</blockquote>
 <ul>
 <li>基于计时器的重传（也就是超时重传）</li>
 <li>快速重传（基于接收端的反馈信息来引发重传）</li>
 <li>SACK（在快速重传的基础上，返回最近收到的报文段的序列号范围，这样客户端就知道，哪些数据包已经到达服务器了）</li>
 <li>D-SACK（重复 SACK，在 SACK 的基础上，额外携带信息，告知发送方有哪些数据包自己重复接收了）</li>
 </ul>
-<ol start="5">
-<li><p>流量控制</p>
-<blockquote>
+<h4 id="5-流量控制"><a href="#5-流量控制" class="headerlink" title="5. 流量控制"></a>5. 流量控制</h4><blockquote>
 <p>TCP 连接的每一方都有<code>固定大小的缓冲空间</code>，TCP 的接收端只允许发送端发送接收端缓冲区能接纳的数据。当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。TCP 使用的流量控制协议是可变大小的<code>滑动窗口协议</code>（TCP 利用滑动窗口实现流量控制）。</p>
 </blockquote>
 <p><strong>TCP 如何实现流量控制？</strong></p>
@@ -1913,9 +2095,7 @@
 </blockquote>
 </li>
 </ol>
-</li>
-<li><p>拥塞控制</p>
-<blockquote>
+<h4 id="6-拥塞控制"><a href="#6-拥塞控制" class="headerlink" title="6. 拥塞控制"></a>6. 拥塞控制</h4><blockquote>
 <p>当网络拥塞时，<code>减少数据的发送</code>。TCP 在发送数据的时候，需要考虑两个因素：一是接收方的<code>接收能力</code>，二是网络的<code>拥塞程度</code>。接收方的接收能力由滑动窗口表示，表示接收方还有多少缓冲区可以用来接收数据。网络的拥塞程度由拥塞窗口表示，它是发送方根据网络状况自己维护的一个值，表示发送方认为可以在网络中传输的数据量。发送方发送数据的大小是滑动窗口和拥塞窗口的最小值，这样可以保证发送方既不会超过接收方的接收能力，也不会造成网络的过度拥塞。</p>
 </blockquote>
 <p><strong>TCP 如何实现拥塞控制？</strong></p>
@@ -1923,12 +2103,126 @@
 <p>由于网络中的<code>流量过大</code>超过了网络设备的处理能力，导致数据包<code>无法及时传递或丢失</code>的现象。<br>拥塞控制就是为了<code>防止过多的数据注入</code>到网络中，这样就可以使网络中的路由器或链路<code>不致过载</code>。拥塞控制所要做的都有一个前提，就是网络能够承受现有的网络负荷。拥塞控制是一个<code>全局性</code>的过程，涉及到<code>所有的主机</code>，<code>所有的路由器</code>，以及与降低网络传输性能有关的所有因素。相反，流量控制往往是<code>点对点通信量的控制</code>，是个<code>端到端</code>的问题。流量控制所要做到的就是抑制发送端发送数据的速率，以便使接收端来得及接收。<br>为了进行拥塞控制，TCP 发送方要维持一个 拥塞窗口(cwnd)</p>
 </blockquote>
 <ol>
-<li>慢开始<br>慢开始算法的思路是当主机开始发送数据时，如果立即把大量数据字节注入到网络，那么可能会引起网络阻塞，因为现在还不知道网络的符合情况。经验表明，较好的方法是先探测一下，即由小到大逐渐增大发送窗口，<code>也就是由小到大逐渐增大拥塞窗口数值</code>。<code>cwnd 初始值为 1</code>，每经过一个传播轮次，cwnd 加倍。</li>
-<li>拥塞避免<br>拥塞避免算法的思路是<code>让拥塞窗口 cwnd 缓慢增大</code>，即每经过一个<code>往返时间 RTT </code>就把发送方的<code> cwnd 加 1</code>.</li>
-<li>快重传、快恢复<br>在 TCP&#x2F;IP 中，快速重传和恢复（fast retransmit and recovery，FRR）是一种<code>拥塞控制算法</code>，它能<code>快速恢复丢失的数据包</code>。<br>没有 FRR，如果数据包丢失了，TCP 将会使用定时器来要求传输暂停。在暂停的这段时间内，没有新的或复制的数据包被发送。<br>有了 FRR，如果接收机接收到一个不按顺序的数据段，它会<code>立即给发送机发送一个重复确认</code>。如果<code>发送机接收到三个重复确认</code>，它会假定确认件指出的数据段丢失了，并<code>立即重传</code>这些丢失的数据段。有了 FRR，就不会因为重传时要求的暂停被耽误。 　当有单独的数据包丢失时，快速重传和恢复（FRR）能最有效地工作。当有多个数据信息包在某一段很短的时间内丢失时，它则不能很有效地工作。</li>
+<li><p>慢开始<br>由小到大逐渐增大发送窗口，<code>也就是由小到大逐渐增大拥塞窗口数值</code>。<code>cwnd 初始值为 1</code>，每经过一个传播轮次，cwnd 加倍。<br>慢启动门限 ssthresh （slow start threshold）状态变量。</p>
+<p>1.5. 慢启动算法。</p>
+<ul>
+<li>当 cwnd &lt; ssthresh 时，使用慢启动算法。</li>
+<li>当 cwnd &gt;&#x3D; ssthresh 时，就会使用「拥塞避免算法」。</li>
+</ul>
+</li>
+<li><p>拥塞避免<br>拥塞避免算法的思路是<code>让拥塞窗口 cwnd 缓慢增大</code>，即每经过一个<code>往返时间 RTT </code>就把发送方的<code> cwnd 加 1</code>.</p>
+<p>2.5. 当收到三个重复的 ACK 时，触发快速恢复算法。</p>
+</li>
+<li><p>快重传、快恢复</p>
+<ol>
+<li>cwnd &#x3D; cwnd&#x2F;2 ，也就是设置为原来的一半;</li>
+<li>ssthresh &#x3D; cwnd;<br>然后，进入快速恢复算法如下：</li>
+<li>拥塞窗口 cwnd &#x3D; ssthresh + 3 （ 3 的意思是确认有 3 个数据包被收到了）；</li>
+<li>重传丢失的数据包；</li>
+<li>如果再收到重复的 ACK，那么 cwnd 增加 1；</li>
+<li>如果收到新数据的 ACK 后，把 cwnd 设置为第一步中的 ssthresh 的值，原因是该 ACK 确认了新的数据，说明从 duplicated ACK 时的数据都已收到，该恢复过程已经结束，可以回到恢复之前的状态了，也即再次进入拥塞避免状态；</li>
 </ol>
 </li>
 </ol>
+<h3 id="5-TCP-三次握手"><a href="#5-TCP-三次握手" class="headerlink" title="5. TCP 三次握手"></a>5. TCP 三次握手</h3><ol>
+<li>第一次握手：客户端会<code>随机初始化序号</code>（client_isn），同时把 <code>SYN 标志位置</code>为 1，表示 <code>SYN 报文</code>。接着把第一个 SYN 报文发送给服务端，表示向服务端发起连接，该报文不包含应用层数据，之后客户端处于 <code>SYN-SENT 状态</code>。</li>
+<li>第二次握手：服务端收到客户端的 SYN 报文后，首先服务端也<code>随机初始化自己的序号</code>（server_isn），其次把 TCP 首部的<code>「确认应答号」ack</code>字段填入 client_isn + 1, 接着把 <code>SYN 和 ACK 标志位置为 1</code>。最后把该报文发给客户端，之后服务端处于 <code>SYN-RCVD 状态</code>。</li>
+<li>第三次握手：客户端收到服务端报文后，还要向服务端回应最后一个应答报文，首先该应答报文 TCP 首部 <code>ACK 标志位置为 1</code> ，其次<code>「确认应答号」ack</code>字段填入 server_isn + 1 ，最后把报文发送给服务端，这次报文可以携带客户到服务端的数据，之后客户端处于 <code>ESTABLISHED 状态</code>。<br>服务端收到客户端的应答报文后，也进入 <code>ESTABLISHED 状态</code>。</li>
+</ol>
+<h4 id="为什么要三次握手？"><a href="#为什么要三次握手？" class="headerlink" title="为什么要三次握手？"></a>为什么要三次握手？</h4><ol>
+<li>三次握手才可以阻止重复历史连接的初始化（主要原因）<blockquote>
+<p>三次握手的首要原因是为了防止旧的重复连接初始化造成混乱</p>
+</blockquote>
+<ol>
+<li>一个<code>「旧 SYN 报文」比「最新的 SYN」 报文</code>早到达了服务端，那么此时服务端就会回一个 SYN + ACK 报文给客户端，此报文中的确认号是 91（90+1）。</li>
+<li>客户端收到后，发现自己期望收到的确认号应该是 100 + 1，而不是 90 + 1，于是就会<code>回 RST 报文</code>。</li>
+<li>服务端收到 RST 报文后，就会<code>释放连接</code>。</li>
+<li>后续最新的 SYN 抵达了服务端后，客户端与服务端就可以正常的完成三次握手了。</li>
+</ol>
+</li>
+<li>三次握手才可以同步双方的初始序列号<br>四次握手其实也能够可靠的同步双方的初始化序号，但<code>由于第二步和第三步可以优化成一步</code>，所以就成了「三次握手」。<br>而两次握手<code>只保证了一方</code>的初始序列号能被对方成功接收，没办法保证双方的初始序列号都能被确认接收。</li>
+<li>确认双方的接收能力<ol>
+<li>服务端在第二次握手时，会把客户端的序列号 + 1 作为确认号，这样就可以确认客户端的接收能力。</li>
+<li>客户端在第三次握手时，会把服务端的序列号 + 1 作为确认号，这样就可以确认服务端的接收能力。</li>
+</ol>
+</li>
+</ol>
+<h4 id="为什么初始化序号要随机？"><a href="#为什么初始化序号要随机？" class="headerlink" title="为什么初始化序号要随机？"></a>为什么初始化序号要随机？</h4><blockquote>
+<p>起始 ISN 是基于时钟的，每 4 微秒 + 1，转一圈要 4.55 个小时。<br>ISN &#x3D; M(M 是一个计时器，这个计时器每隔 4 微秒加 1) + F(F 是一个 Hash 算法，根据源 IP、目的 IP、源端口、目的端口生成一个随机数值)。</p>
+</blockquote>
+<ol>
+<li>为了防止历史报文被下一个相同四元组的连接接收（主要方面）<blockquote>
+<p>如果每次建立连接，客户端和服务端的初始化序列号都是一样的话，很容易出现历史报文被下一个相同四元组的连接接收的问题。</p>
+</blockquote>
+</li>
+<li>为了防止攻击者通过猜测序列号来发起攻击<blockquote>
+<p>如果初始化序号是固定的，那么攻击者可以通过猜测序列号来发起攻击，比如 SYN Flood 攻击。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="6-TCP-四次挥手"><a href="#6-TCP-四次挥手" class="headerlink" title="6. TCP 四次挥手"></a>6. TCP 四次挥手</h3><ol>
+<li>第一次挥手：客户端<code>发送一个 FIN 报文</code>，报文中会指定一个<code>序列号</code>。此时客户端处于 <code>FIN_WAIT1</code> 状态，停止发送数据，等待服务端的确认</li>
+<li>第二次挥手：服务端<code>收到 FIN </code>之后，会<code>发送 ACK 报文</code>，且把<code>客户端的序列号值 +1 作为 ACK 报文的序列号值</code>，表明已经收到客户端的报文了，此时服务端处于 <code>CLOSE_WAIT</code> 状态</li>
+<li>第三次挥手：如果<code>服务端也想断开连接</code>了，和客户端的第一次挥手一样，发给 <code>FIN 报文</code>，且指定一个<code>序列号</code>。此时服务端处于 <code>LAST_ACK</code> 的状态</li>
+<li>第四次挥手：<code>客户端收到 FIN</code> 之后，一样发送一个 <code>ACK 报文</code>作为应答，且把<code>服务端的序列号值 +1 作为自己 ACK 报文的序列号值</code>，此时客户端处于 <code>TIME_WAIT</code> 状态。需要<code>过一阵子(2MSL)</code>以确保服务端收到自己的 ACK 报文之后才会进入 <code>CLOSED 状态</code>，服务端收到 ACK 报文之后，就处于关闭连接了，处于<code> CLOSED</code> 状态</li>
+</ol>
+<h4 id="为什么要四次挥手？"><a href="#为什么要四次挥手？" class="headerlink" title="为什么要四次挥手？"></a>为什么要四次挥手？</h4><ol>
+<li>关闭连接时，客户端向服务端发送 FIN 时，仅仅表示客户端不再发送数据了但是还能接收数据。</li>
+<li>服务端收到客户端的 FIN 报文时，先回一个 ACK 应答报文，而服务端可能还有数据需要处理和发送，等服务端不再发送数据时，才发送 FIN 报文给客户端来表示同意现在关闭连接。</li>
+</ol>
+<h4 id="TIME-WAIT-状态"><a href="#TIME-WAIT-状态" class="headerlink" title="TIME_WAIT 状态"></a>TIME_WAIT 状态</h4><ol>
+<li>为什么需要 TIME_WAIT 状态</li>
+</ol>
+<ul>
+<li>防止历史连接中的数据，被后面相同四元组的连接错误的接收(2MSL 时长，这个时间足以让两个方向上的数据包都被丢弃，使得原来连接的数据包在网络中都自然消失，再出现的数据包一定都是新建立连接所产生的。)</li>
+<li>保证「被动关闭连接」的一方，能被正确的关闭(等待足够的时间以确保最后的 ACK 能让被动关闭方接收，从而帮助其正常关闭。)</li>
+</ul>
+<h2 id="11-IP"><a href="#11-IP" class="headerlink" title="11. IP"></a>11. IP</h2><h3 id="IP-地址分类"><a href="#IP-地址分类" class="headerlink" title="IP 地址分类"></a>IP 地址分类</h3><img src="/2024/02/28/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%9D%A2%E8%AF%95%E5%B8%B8%E9%97%AE%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/IP.webp" srcset="/img/loading.gif" lazyload class title="This is an test image">
+
+<ol>
+<li>A 类地址： 范围：0.0.0.0 - 127.255.255.255 (1 分类，7 位网络号，24 位主机号)</li>
+<li>B 类地址： 范围：128.0.0.0 - 191.255.255.255 (2 分类，14 位网络号，16 位主机号)</li>
+<li>C 类地址： 范围：192.0.0.0 - 223.255.255.255 (3 分类，21 位网络号，8 位主机号)<blockquote>
+<p>C 类地址的最大主机个数是 2^8 - 2 &#x3D; 254 个，因为主机号全 0 和全 1 分别表示网络地址和广播地址。</p>
+</blockquote>
+</li>
+<li>D 类地址： (4 分类，用于多点广播)<blockquote>
+<p>多播用于将包发送给特定组内的所有主机。</p>
+</blockquote>
+</li>
+<li>E 类地址： (4 分类，保留)</li>
+</ol>
+<h3 id="无分类地址-CIDR"><a href="#无分类地址-CIDR" class="headerlink" title="无分类地址 CIDR"></a>无分类地址 CIDR</h3><blockquote>
+<p>这种方式不再有分类地址的概念，32 比特的 IP 地址被划分为两部分，前面是网络号，后面是主机号。<br>表示形式 a.b.c.d&#x2F;x，其中 &#x2F;x 表示前 x 位属于网络号(10.100.122.2&#x2F;24，这种地址表示形式就是 CIDR，&#x2F;24 表示前 24 位是网络号，剩余的 8 位是主机号。)</p>
+</blockquote>
+<p>将子网掩码和 IP 地址按位计算 AND，就可得到网络号<br>子网划分实际上是将主机地址分为两个部分：子网网络地址和子网主机地址</p>
+<h3 id="IP-协议相关技术"><a href="#IP-协议相关技术" class="headerlink" title="IP 协议相关技术"></a>IP 协议相关技术</h3><ol>
+<li><p>DNS</p>
+</li>
+<li><p>ARP</p>
+<blockquote>
+<p>全称 <code>地址解析协议（Address Resolution Protocol）</code>，它解决的是<code>网络层地址和链路层地址</code>之间的<code>转换问题</code>。因为一个 IP 数据报在物理上传输的过程中，总是需要知道下一跳（物理上的下一个目的地）该去往何处，但 IP 地址属于逻辑地址，而 MAC 地址才是物理地址，ARP 协议解决了<code> IP 地址转 MAC 地址</code>的一些问题</p>
+</blockquote>
+<p><strong>流程:</strong></p>
+<ol>
+<li>主机会通过广播发送 ARP 请求，这个包中包含了想要知道的 MAC 地址的主机 IP 地址。</li>
+<li>当同个链路中的所有设备收到 ARP 请求时，会去拆开 ARP 请求包里的内容，如果 ARP 请求包中的目标 IP 地址与自己的 IP 地址一致，那么这个设备就将自己的 MAC 地址塞入 ARP 响应包返回给主机。</li>
+</ol>
+</li>
+<li><p>NAT</p>
+<blockquote>
+<p>网络地址转换 NAT （Network Address Translation）应用于<code>内部网到外部网的地址</code>转换过程中</p>
+</blockquote>
+</li>
+<li><p>ICMP</p>
+<blockquote>
+<p>ICMP 全称是 Internet Control Message Protocol，也就是互联网控制报文协议。<br>ICMP 主要的功能包括：确认 IP 包是否成功送达目标地址、报告发送过程中 IP 包被废弃的原因和改善网络设置等。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="ping-的工作原理"><a href="#ping-的工作原理" class="headerlink" title="ping 的工作原理"></a>ping 的工作原理</h3><blockquote>
+<p>ping 是基于 ICMP 协议工作的</p>
+</blockquote>
 <h1 id="7-uni-app"><a href="#7-uni-app" class="headerlink" title="7. uni-app"></a>7. uni-app</h1><h1 id="8-算法"><a href="#8-算法" class="headerlink" title="8. 算法"></a>8. 算法</h1><h2 id="dp-动态规划"><a href="#dp-动态规划" class="headerlink" title="dp 动态规划"></a>dp 动态规划</h2><h2 id="wxp-hardman"><a href="#wxp-hardman" class="headerlink" title="wxp:hardman"></a>wxp:hardman</h2><blockquote>
 <p>实现一个 HardMan:</p>
 </blockquote>
@@ -1953,6 +2247,12 @@
 <li><p>lazy 告诉用户代理推迟图片加载直到浏览器认为其需要立即加载时才去加载<br><code>&lt;img src=&quot;deathghost.jpg&quot; loading=&quot;lazy&quot; alt=&quot;新码笔记&quot; /&gt;</code><br>loading 的属性值<br>|值 |描述||<br>|—|—||<br>|eager |默认，图像立即加载。||<br>|lazy |图像延迟加载，只有鼠标滚动到该图片所在位置才会显示。||</p>
 </li>
 <li><p>方式二 offsetTop - scrollTop &lt; &#x3D; innerHeight<br>计算图片是否在可视区域内，如果在则加载图片</p>
+<blockquote>
+<p>offsetTop：元素顶部到包含元素顶部的距离(图片顶部到文档顶部的距离)<br>scrollTop：元素顶部到窗口顶部的距离(滚动条滚动的距离)<br>clientHeight：窗口的高度(可视区域的高度)</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;default1.jpg&quot;</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;http://www.xxx.com/target1.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;default2.jpg&quot;</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;http://www.xxx.com/target2.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;default3.jpg&quot;</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;http://www.xxx.com/target3.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> imgs = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;img&#x27;</span>); <span class="hljs-comment">// 获取所有图片imgs=[img,img,img]</span><br><span class="hljs-keyword">var</span> num = imgs.<span class="hljs-property">length</span>; <span class="hljs-comment">// 图片的数量</span><br><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>; <span class="hljs-comment">// 计数器</span><br><span class="hljs-title function_">lazyload</span>(); <span class="hljs-comment">// 首次加载别忘了显示图片</span><br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, lazyload); <span class="hljs-comment">// 监听滚动事件</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">lazyload</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> viewHeight = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">clientHeight</span>; <span class="hljs-comment">// 可视区域的高度</span><br>    <span class="hljs-keyword">var</span> scrollTop = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollTop</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">scrollTop</span>; <span class="hljs-comment">// 滚动条距离顶部的高度</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = count; i &lt; num; i++) &#123; <span class="hljs-comment">// 从计数器的值开始，遍历每个图片</span><br>        <span class="hljs-keyword">if</span> (imgs[i].<span class="hljs-property">offsetTop</span> &lt; viewHeight + scrollTop) &#123; <span class="hljs-comment">// 图片进入可视区域</span><br>            <span class="hljs-keyword">if</span> (imgs[i].<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;src&#x27;</span>) !== <span class="hljs-string">&#x27;default.jpg&#x27;</span>) <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// 如果图片已经加载过，则跳过</span><br>            imgs[i].<span class="hljs-property">src</span> = imgs[i].<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;data-src&#x27;</span>); <span class="hljs-comment">// 设置图片src为data-src(加载图片)</span><br>            count++; <span class="hljs-comment">// 计数器累加</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>方式五 vue-lazyload</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//1.  安装</span><br><span class="hljs-comment">//npm install vue-lazyload --save</span><br><br><span class="hljs-comment">//2. 引入</span><br><span class="hljs-comment">// main.js 文件</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">VueLazyload</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-lazyload&#x27;</span><br><span class="hljs-comment">// Vue.use(VueLazyload) //无配置项</span><br><span class="hljs-comment">// 配置项</span><br><span class="hljs-keyword">const</span> loadimage = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;assets/img/common/loading.gif&#x27;</span>)<br><span class="hljs-comment">// const errorimage = require(&#x27;assets/img/common/error.gif&#x27;)</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">use</span>(<span class="hljs-title class_">VueLazyload</span>, &#123;<br> <span class="hljs-attr">preLoad</span>: <span class="hljs-number">1.3</span>, <span class="hljs-comment">//预加载的宽高比</span><br> <span class="hljs-attr">loading</span>: loadimage, <span class="hljs-comment">//图片加载状态下显示的图片</span><br> <span class="hljs-comment">// error: errorimage, //图片加载失败时显示的图片</span><br> <span class="hljs-attr">attempt</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// 加载错误后最大尝试次数</span><br>&#125;)<br><span class="hljs-comment">//3. 使用</span><br><span class="hljs-comment">// img元素上使用v-lazy=&quot;src&quot;;&lt;img v-lazy=&quot;showImage&quot;/&gt;</span><br>&lt;img v-lazy=<span class="hljs-string">&quot;img.thumbnail_pic_s&quot;</span>&gt;<br></code></pre></td></tr></table></figure>
@@ -1960,6 +2260,25 @@
 <li><p>getBoundingClientRect</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// DOMRect:&#123;</span><br><span class="hljs-comment">// x: 18, y: 10, width: 240, height: 240, top: 10</span><br><span class="hljs-comment">// right: 258, bottom: 250, left: 18&#125;</span><br><br> <span class="hljs-keyword">function</span> <span class="hljs-title function_">isInViewPort</span>(<span class="hljs-params">element</span>) &#123;<br>    <span class="hljs-keyword">const</span> viewWidth = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">clientWidth</span>;<br>    <span class="hljs-keyword">const</span> viewHeight = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">clientHeight</span>;<br>    <span class="hljs-keyword">const</span> &#123;<br>      top,<br>      right,<br>      bottom,<br>      left,<br>   &#125; = element.<span class="hljs-title function_">getBoundingClientRect</span>();<br>   ​<br>    <span class="hljs-keyword">return</span> (<br>      top &gt;= <span class="hljs-number">0</span> &amp;&amp;<br>      left &gt;= <span class="hljs-number">0</span> &amp;&amp;<br>      right &lt;= viewWidth &amp;&amp;<br>      bottom &lt;= viewHeight<br>   );<br>   &#125;<br><br></code></pre></td></tr></table></figure></li>
 </ol>
+<h2 id="4-倒计时处理-x2F-时间处理"><a href="#4-倒计时处理-x2F-时间处理" class="headerlink" title="4. 倒计时处理&#x2F;时间处理"></a>4. 倒计时处理&#x2F;时间处理</h2><blockquote>
+<p>setTimeOut 和 setInterval 的区别<br>setTimeOut 是在指定的时间后执行一次(<code>js是单线程的</code>。规定的 1000ms 的延迟，其实并不是精准的 1000ms，而是在<code>当前任务结束</code>轮到 setTimeout 执行的时候才进行 1000ms 的事件插入，而<code>等待之前任务运行的那段时间</code>，便是我们主要的误差值。)<br>setInterval 是每隔指定的时间执行一次(当打点的时间段有其他事务正在运行的话，那将占据打点执行的时间，从而导致本次打点事件被略过)</p>
+</blockquote>
+<pre><code class="hljs"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> date = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()<br><span class="hljs-keyword">let</span> [year, month, day, hour, minute, second] = [<br>  date.<span class="hljs-title function_">getFullYear</span>(),<br>  date.<span class="hljs-title function_">getMonth</span>() + <span class="hljs-number">1</span>,<br>  date.<span class="hljs-title function_">getDate</span>(),<br>  date.<span class="hljs-title function_">getHours</span>(),<br>  date.<span class="hljs-title function_">getMinutes</span>(),<br>  date.<span class="hljs-title function_">getSeconds</span>(),<br>]<br></code></pre></td></tr></table></figure>
+</code></pre>
+<ol>
+<li><p>setTimeout 倒计时(不断修改误差)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> t1 = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>()<br><span class="hljs-keyword">let</span> c1 = <span class="hljs-number">0</span> <span class="hljs-comment">// 递归次数</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">timer</span>: any = <span class="hljs-literal">null</span> <span class="hljs-comment">// 计时器</span><br><span class="hljs-keyword">let</span> t = <span class="hljs-number">5</span> <span class="hljs-comment">// 倒计时秒数</span><br><span class="hljs-keyword">let</span> interval = <span class="hljs-number">1000</span> <span class="hljs-comment">// 间隔</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">countDown</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">if</span> (--t &lt; <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-built_in">clearTimeout</span>(timer)<br>    <span class="hljs-keyword">return</span><br>  &#125;<br>  <span class="hljs-comment">// 计算误差</span><br>  <span class="hljs-keyword">const</span> offset = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() - (t1 + c1 * interval)<br>  <span class="hljs-keyword">const</span> nextTime = interval - offset<br>  c1++<br>  timer = <span class="hljs-built_in">setTimeout</span>(countDown, nextTime)<br>&#125;<br><span class="hljs-title function_">countDown</span>()<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>setInterval 倒计时</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> t = <span class="hljs-number">5</span><br><span class="hljs-keyword">const</span> timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (--t &lt; <span class="hljs-number">0</span>) <span class="hljs-built_in">clearInterval</span>(timer)<br>&#125;, <span class="hljs-number">1000</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>requestAnimationFrame 倒计时<br>&#x2F;&#x2F; 1.开始时间，2.结束时间，3.当前时间<br>&#x2F;&#x2F; 4. 剩余时间&#x3D;总时长-已过去时间+误差时间<br>&#x2F;&#x2F; 5. 实际结束时间&#x3D;当前时间+剩余时间<br>&#x2F;&#x2F; 6. 误差时间&#x3D;实际结束时间-预期结束时间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">countdown</span>(<span class="hljs-params">seconds</span>) &#123;<br>  <span class="hljs-keyword">let</span> startTime = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() <span class="hljs-comment">// 记录开始时间</span><br>  <span class="hljs-keyword">let</span> expectedEndTime = startTime + seconds * <span class="hljs-number">1000</span> <span class="hljs-comment">// 预期结束时间</span><br>  <span class="hljs-keyword">let</span> deviation = <span class="hljs-number">0</span> <span class="hljs-comment">// 时间误差</span><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">updateTimer</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">let</span> currentTime = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() <span class="hljs-comment">// 记录当前时间</span><br>    <span class="hljs-keyword">let</span> elapsedTime = (currentTime - startTime) / <span class="hljs-number">1000</span> <span class="hljs-comment">// 计算已经过去的秒数</span><br>    <span class="hljs-keyword">let</span> remainingTime = seconds - elapsedTime + deviation / <span class="hljs-number">1000</span> <span class="hljs-comment">// 计算剩余时间，考虑时间误差</span><br>    <span class="hljs-keyword">if</span> (remainingTime &gt; <span class="hljs-number">0</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(remainingTime)<br>      <span class="hljs-title function_">requestAnimationFrame</span>(updateTimer) <span class="hljs-comment">// 更新计时器</span><br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;倒计时结束&#x27;</span>)<br>      <span class="hljs-title function_">cancelAnimationFrame</span>(requestRef) <span class="hljs-comment">// 清除计时器</span><br>    &#125;<br>    <span class="hljs-comment">// 检查时间误差是否过大，超过1秒则进行修正</span><br>    <span class="hljs-keyword">let</span> actualEndTime = currentTime + remainingTime * <span class="hljs-number">1000</span><br>    deviation = actualEndTime - expectedEndTime<br>  &#125;<br>  <span class="hljs-keyword">let</span> requestRef = <span class="hljs-title function_">requestAnimationFrame</span>(updateTimer) <span class="hljs-comment">// 启动计时器</span><br>&#125;<br><span class="hljs-comment">// 使用示例：倒计时10秒</span><br><span class="hljs-title function_">countdown</span>(<span class="hljs-number">3</span>) <span class="hljs-comment">// 进行毫秒时间级修正，通过毫秒进行计算</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="5-实现一个简单的发布订阅模式"><a href="#5-实现一个简单的发布订阅模式" class="headerlink" title="5. 实现一个简单的发布订阅模式"></a>5. 实现一个简单的发布订阅模式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 公众号调度中心</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">EventHub</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 缓存列表，存放 event 及 fn</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span> = &#123;&#125;<br>  &#125;<br>  <span class="hljs-title function_">on</span>(<span class="hljs-params">event, fn</span>) &#123;<br>    <span class="hljs-comment">// 如果对象中没有对应的 event 值，也就是说明没有订阅过，就给 event 创建个缓存列表</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span>[event] = <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span>[event] || []<br>    <span class="hljs-comment">// 把 fn 添加到对应 event 的缓存列表里</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span>[event].<span class="hljs-title function_">push</span>(fn)<br>  &#125;<br>  <span class="hljs-title function_">emit</span>(<span class="hljs-params">event, data</span>) &#123;<br>    <span class="hljs-keyword">const</span> fnList = <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span>[event] || []<br>    <span class="hljs-comment">// 如果缓存列表里没有 fn 就return</span><br>    <span class="hljs-keyword">if</span> (!fnList || fnList.<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span><br>    <span class="hljs-comment">// 遍历 event 值对应的缓存列表，依次执行 fn</span><br>    fnList.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">fn</span>) =&gt;</span> fn.<span class="hljs-title function_">call</span>(<span class="hljs-literal">undefined</span>, data))<br>  &#125;<br>  <span class="hljs-title function_">off</span>(<span class="hljs-params">event, fn</span>) &#123;<br>    <span class="hljs-keyword">const</span> fnList = <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span>[event] || []<br>    <span class="hljs-keyword">const</span> index = fnList.<span class="hljs-title function_">indexOf</span>(fn)<br>    <span class="hljs-comment">// 如果缓存列表里没有要找的fn 就return</span><br>    <span class="hljs-keyword">if</span> (index &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span><br>    fnList.<span class="hljs-title function_">splice</span>(index, <span class="hljs-number">1</span>)<br>  &#125;<br>  <span class="hljs-comment">//执行一次</span><br>  <span class="hljs-title function_">once</span>(<span class="hljs-params">event, callback</span>) &#123;<br>    <span class="hljs-keyword">const</span> <span class="hljs-title function_">f</span> = (<span class="hljs-params">data</span>) =&gt; &#123;<br>      <span class="hljs-title function_">callback</span>(data)<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">off</span>(event, f)<br>    &#125;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">on</span>(event, f)<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">user1</span>(<span class="hljs-params">content</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;用户1订阅了:&#x27;</span>, content)<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">user2</span>(<span class="hljs-params">content</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;用户2订阅了:&#x27;</span>, content)<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">user3</span>(<span class="hljs-params">content</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;用户3订阅了:&#x27;</span>, content)<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">user4</span>(<span class="hljs-params">content</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;用户4订阅了:&#x27;</span>, content)<br>&#125;<br><span class="hljs-keyword">const</span> e = <span class="hljs-keyword">new</span> <span class="hljs-title class_">EventHub</span>()<br><span class="hljs-comment">// 订阅</span><br>e.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;article1&#x27;</span>, user1)<br>e.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;article1&#x27;</span>, user2)<br>e.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;article1&#x27;</span>, user3)<br><br><span class="hljs-comment">// 取消user2方法的订阅</span><br>e.<span class="hljs-title function_">off</span>(<span class="hljs-string">&#x27;article1&#x27;</span>, user2)<br><br>e.<span class="hljs-title function_">once</span>(<span class="hljs-string">&#x27;article2&#x27;</span>, user4)<br><br><span class="hljs-comment">// 发布</span><br>e.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&#x27;article1&#x27;</span>, <span class="hljs-string">&#x27;Javascript 发布-订阅模式&#x27;</span>)<br>e.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&#x27;article1&#x27;</span>, <span class="hljs-string">&#x27;Javascript 发布-订阅模式&#x27;</span>)<br><br>e.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&#x27;article2&#x27;</span>, <span class="hljs-string">&#x27;Javascript 观察者模式&#x27;</span>)<br>e.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&#x27;article2&#x27;</span>, <span class="hljs-string">&#x27;Javascript 观察者模式&#x27;</span>)<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    用户1订阅了: Javascript 发布-订阅模式</span><br><span class="hljs-comment">    用户3订阅了: Javascript 发布-订阅模式</span><br><span class="hljs-comment">    用户1订阅了: Javascript 发布-订阅模式</span><br><span class="hljs-comment">    用户3订阅了: Javascript 发布-订阅模式</span><br><span class="hljs-comment">    用户4订阅了: Javascript 观察者模式</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="6-有并行限制的-Promise-调度器"><a href="#6-有并行限制的-Promise-调度器" class="headerlink" title="6.有并行限制的 Promise 调度器"></a>6.有并行限制的 Promise 调度器</h2><pre><code class="hljs"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Scheduler</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">queue</span> = []<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">maxCount</span> = <span class="hljs-number">2</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">runCounts</span> = <span class="hljs-number">0</span><br>  &#125;<br>  <span class="hljs-title function_">add</span>(<span class="hljs-params">promiseCreator</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">queue</span>.<span class="hljs-title function_">push</span>(promiseCreator)<br>  &#125;<br>  <span class="hljs-title function_">taskStart</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">maxCount</span>; i++) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">request</span>()<br>    &#125;<br>  &#125;<br>  <span class="hljs-title function_">request</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">queue</span> || !<span class="hljs-variable language_">this</span>.<span class="hljs-property">queue</span>.<span class="hljs-property">length</span> || <span class="hljs-variable language_">this</span>.<span class="hljs-property">runCounts</span> &gt;= <span class="hljs-variable language_">this</span>.<span class="hljs-property">maxCount</span>) &#123;<br>      <span class="hljs-keyword">return</span><br>    &#125;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">runCounts</span>++<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">queue</span><br>      .<span class="hljs-title function_">shift</span>()()<br>      .<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">runCounts</span>--<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">request</span>()<br>      &#125;)<br>  &#125;<br>&#125;<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">timeout</span> = (<span class="hljs-params">time</span>) =&gt;<br>  <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> &#123;<br>    <span class="hljs-built_in">setTimeout</span>(resolve, time)<br>  &#125;)<br><span class="hljs-keyword">const</span> scheduler = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scheduler</span>()<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">addTask</span> = (<span class="hljs-params">time, order</span>) =&gt; &#123;<br>  scheduler.<span class="hljs-title function_">add</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">timeout</span>(time).<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(order)))<br>&#125;<br><span class="hljs-title function_">addTask</span>(<span class="hljs-number">1000</span>, <span class="hljs-string">&#x27;1&#x27;</span>)<br><span class="hljs-title function_">addTask</span>(<span class="hljs-number">500</span>, <span class="hljs-string">&#x27;2&#x27;</span>)<br><span class="hljs-title function_">addTask</span>(<span class="hljs-number">300</span>, <span class="hljs-string">&#x27;3&#x27;</span>)<br><span class="hljs-title function_">addTask</span>(<span class="hljs-number">400</span>, <span class="hljs-string">&#x27;4&#x27;</span>)<br>scheduler.<span class="hljs-title function_">taskStart</span>()<br></code></pre></td></tr></table></figure>
+</code></pre>
 
                 
               </div>
